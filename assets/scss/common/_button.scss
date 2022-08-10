@@ -1,0 +1,71 @@
+.bxi {
+  .button {
+    padding: 6px 27px;
+    font-weight: 500;
+    font-size: 12px;
+    border: none;
+    background: var(--primary-button-background);
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &:hover {
+      background: var(--primary-button-background-hover);
+    }
+  }
+
+  a.button {
+    text-transform: none;
+    text-decoration: none;
+  }
+
+  .button--link:hover {
+    color: var(--primary-color);
+  }
+
+  .button--md {
+    padding: 13px 26px;
+    font-size: 14px;
+  }
+
+  .button--lg {
+    padding: 15px 27px;
+  }
+
+  .button--icon {
+    padding: 14px 15px;
+  }
+
+  .button--outline {
+    background: transparent;
+    border: 1px solid var(--outline-button-color);
+    color: var(--outline-button-color);
+
+    &:hover {
+      background: var(--outline-button-hover-color);
+      border-color: var(--outline-button-hover-color);
+    }
+  }
+
+  .button--link {
+    padding: 0;
+    font-size: 14px;
+    background: transparent;
+    color: var(--link-button-color);
+    font-size: 14px;
+
+    &:hover {
+      color: var(--link-button-hover-color);
+      background: transparent;
+    }
+  }
+
+  .glitch-button {
+    display: inline-block;
+    background: #fff;
+    height: 33px;
+    margin-left: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+}

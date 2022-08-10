@@ -1,0 +1,10 @@
+.dialog-example-actions {
+  padding: 40px 0;
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    margin-right: 16px;
+    margin-bottom: 16px;
+  }
+}

@@ -1,0 +1,238 @@
+@import "./mixins";
+
+.modal .modal-dialog {
+  max-width: 735px;
+}
+
+.modal-body {
+  position: relative;
+  
+  &__close-icon {
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 20px;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  &__logo {
+    margin: 0 auto 26px auto;
+    display: block;
+  }
+}
+
+.modal-content {
+  &__header {
+    margin-bottom: 24px;
+  }
+}
+
+.hide-vertical-logo {
+  .dialog-logo__logo {
+    display: none;
+  }
+}
+
+.dialog-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  &__logo {
+    max-width: 150px;
+  }
+}
+
+.dialog-content-header {  
+  padding: 0 30px 24px;
+
+  @include breakpoint-lt-md {
+    padding: 0 16px;
+  }
+
+  &__title {
+    font-size: 42px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: capitalize;
+  }
+}
+
+.dialog-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.dialog-form {
+  &__form-group {
+    margin-bottom: 23px;
+
+    &--xs {
+      max-width: 210px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &__submit-button {
+    width: 279px;
+    display: block;
+    margin: 0 auto 35px auto;
+
+    @include breakpoint-lt-md {
+      width: 100%;
+      max-width: 279px;
+    }
+
+    &--mb_5 {
+      margin-bottom: 120px;
+
+      @include breakpoint-lt-md {
+        margin-bottom: 60px;
+      }
+    }
+  }
+
+
+  &__resend-button {
+    width: 279px;
+    display: block;
+    margin: 0 auto 10px auto;
+    background: none ;
+    border: none;
+    padding: 0;
+
+
+    @include breakpoint-lt-md {
+      width: 100%;
+      max-width: 279px;
+    }
+
+    &--mb_5 {
+      margin-bottom: 120px;
+
+      @include breakpoint-lt-md {
+        margin-bottom: 60px;
+      }
+    }
+  }
+
+  &__socials-block {
+    margin-bottom: 35px;
+  }
+
+  &__input-list {
+    margin-bottom: 65px;
+  }
+}
+
+.dialog-socials {
+  &__title {
+    text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+    color: #76818B;
+    margin-bottom: 24px;
+  }
+
+  &__socials-list {
+    justify-content: center;
+  }
+}
+
+.dialog-footer-description {
+  text-align: center;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #2C3741;
+
+  &__link {
+    cursor: pointer;
+  }
+}
+
+.dialog-form-message {
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #626C76;
+
+  &--mb_1 {
+    margin-bottom: 20px;
+  }
+
+  &--mb_3 {
+    margin-bottom: 45px;
+  }
+
+  &--mb_5 {
+    margin-bottom: 90px;
+  }
+}
+
+.auth-flow-picker {
+  padding: 50px 0;
+
+  &__item {
+    margin-bottom: 12px;
+    border: 1px solid #D6DDE9;
+    cursor: pointer;
+  }
+}
+
+.auth-flow-item {
+  padding: 30px 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__title {
+    font-size: 15px;
+    line-height: 24px;
+    color: #626C76;
+  }
+
+  &__info {
+    font-size: 16px;
+    line-height: 24px;
+    color: #192130;
+  }
+
+  &__device {
+    background: none;
+    margin: 0px auto 15px auto;
+    width: 75%;
+    padding: 30px 53px;
+  }
+}
+
+.dialog-icon-message {
+  padding: 80px 0;
+  text-align: center;
+
+  @include breakpoint-lt-md {
+    padding: 40px 0;
+  }
+
+  &__icon-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 18px;
+  }
+
+  &__action {
+    border: none;
+    background: transparent;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    cursor: pointer;
+  }
+}
