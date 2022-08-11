@@ -18,6 +18,7 @@ To start with BXIndustry, you must have the following .env variables:
 ```sh
 BXI_API_KEY=
 BXI_API_URL=
+BXI_SDK_TOKEN_URL=
 BXI_DV_JS_URL=
 BXI_COMPANY_ID=
 BXI_LOGIN_POLICY_ID=

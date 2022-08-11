@@ -55,7 +55,7 @@ import registerFunctions from '/register-functions.js';
     modal.show();
 
     function listener() {
-      window.singularkey.cleanup(activeWidget);
+      window.davinci.cleanup(activeWidget);
       activeWidget = null;
       modal = null;
       modalEl.removeEventListener('hidden.bs.modal', listener);
@@ -86,7 +86,7 @@ import registerFunctions from '/register-functions.js';
 
   async function launchFlow(flowContainer, widgetWrapper) {
     if (activeWidget) {
-      window.singularkey.cleanup(activeWidget);
+      window.davinci.cleanup(activeWidget);
       activeWidget = null;
     }
 
@@ -142,7 +142,7 @@ import registerFunctions from '/register-functions.js';
       }
     };
 
-    window.singularkey.skRenderScreen(flowContainer, dvWidgetProps);
+    window.davinci.skRenderScreen(flowContainer, dvWidgetProps);
 
     activeWidget = flowContainer;
   }

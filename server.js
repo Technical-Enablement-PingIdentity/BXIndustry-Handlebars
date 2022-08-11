@@ -60,7 +60,9 @@ fastify.get('/dvtoken', async function (request, reply) {
   const apiKey = request?.query.apiKey || process.env.BXI_API_KEY;
   const companyId = request?.query.companyId || process.env.BXI_COMPANY_ID;
 
-  const dvBaseUrl = `${process.env.BXI_API_URL}/v1`;
+  const dvBaseUrl = `${process.env.BXI_API_URL}/`;
+  const dvSdkTokenBaseUrl = `${process.env.BXI_SDK_TOKEN_URL}/v1`;
+
   const tokenRequest = {
     method: 'GET',
     headers: {
@@ -68,7 +70,7 @@ fastify.get('/dvtoken', async function (request, reply) {
     }
   };
 
-  const tokenResponse = await fetch(`${dvBaseUrl}/company/${companyId}/sdktoken`, tokenRequest); // Endpoint is case sensative in Davinci V2
+  const tokenResponse = await fetch(`${dvSdkTokenBaseUrl}/company/${companyId}/sdktoken`, tokenRequest); // Endpoint is case sensitive in Davinci V2
   const parsedResponse = await tokenResponse.json();
 
   reply.send({
