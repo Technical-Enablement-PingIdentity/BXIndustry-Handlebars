@@ -34,6 +34,10 @@ function registerFunctions() {
   // bxi.registerFunction('loginError', (error) => {
   //   console.log('Sad panda', error);
   // });
+
+  bxi.registerFunction('remixParameters', () => {
+    return { Vertical: window.location.pathname.split('/')[1] }
+  });
 }
 
 // This function is executed in bxi-davinci.js after the function registry is initialized

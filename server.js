@@ -101,14 +101,19 @@ fastify.setNotFoundHandler((_, reply) => {
 });
 
 async function getViewParams(vertical, queryParams) {
-  // import doesn't support JSON files, also we want to read dynamically so changes are picked up without restarting server
-  const params = JSON.parse(fs.readFileSync(`./src/pages/${vertical}/settings.json`));
+  const settingsFile = `./src/pages/${vertical}/settings.json`;
+  let params = {};
 
-  // Grab username out of URL parameters if it's present
-  if (queryParams?.username) {
-    params.settings.dashboard.username = queryParams.username;
+  // Generic vertical doesn't have a settings file (or an admin page, so don't care about username)
+  if (fs.existsSync(settingsFile)) {
+    params = JSON.parse(fs.readFileSync(settingsFile));
+
+    // Grab username out of URL parameters if it's present
+    if (queryParams?.username) {
+      params.settings.dashboard.username = queryParams.username;
+    }
   }
-  
+
   params.env = bxiEnvVars;
   return params;
 }

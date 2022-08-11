@@ -1,6 +1,7 @@
 function initFunctionRegistry() {
   // Initialize function registry
   window.bxi = {
+    ...window.bxi,
     functionRegistry: {},
     callFunction: async (name, params) => {
       const fn = bxi.functionRegistry[name];
