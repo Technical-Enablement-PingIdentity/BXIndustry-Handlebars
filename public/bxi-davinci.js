@@ -36,7 +36,7 @@ import registerFunctions from '/register-functions.js';
     let buttonEventName = target.alt === 'Remix on glitch' ? target.alt : target.innerText;
     buttonEventName = buttonEventName.toLowerCase().split(' ').join('_') + '_clicked';
     
-    window.bxi.sendAnalytics(buttonEventName);
+    window.bxi.sendAnalytics?.(buttonEventName);
 
     await launchFlow(document.getElementById(flowContainerId), widgetWrapper);
 
