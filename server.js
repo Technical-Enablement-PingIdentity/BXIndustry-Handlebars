@@ -47,7 +47,7 @@ initHandlebars(fastify);
  * Redirects to the default vertical (if set in environment variables) or falls back on company
  */
 fastify.get('/', function (_, reply) {
-  const defaultVertical = bxiEnvVars.BXI_ACTIVE_VERTICAL;
+  const defaultVertical = process.env.BXI_ACTIVE_VERTICAL;
   reply.redirect(`/${helpers.isValidVertical(defaultVertical) ? defaultVertical : 'company'}`);
 });
 
@@ -78,6 +78,19 @@ fastify.get('/dvtoken', async function (request, reply) {
   });
 });
 
+fastify.get('/verticals', (_, reply) => {
+  return reply.view('src/pages/verticals.hbs', verticals.map(vertical => {
+    const settings = helpers.getSettingsFile(vertical).settings;
+    return { 
+      name: settings.title, 
+      logo: settings.images.dialog_logo || settings.images.logo,
+      home: `/${vertical}`,
+      dashboard: vertical !== 'generic' ? `/${vertical}/dashboard` : '',
+      dialogExamples: vertical !== 'generic'? `/${vertical}/dialog-examples` : '',
+    };
+  }));
+});
+
 verticals.forEach(vertical => {
   // Vertical Home Page
   fastify.get(`/${vertical}`, async function (_, reply) {
@@ -101,17 +114,12 @@ fastify.setNotFoundHandler((_, reply) => {
 });
 
 async function getViewParams(vertical, queryParams) {
-  const settingsFile = `./src/pages/${vertical}/settings.json`;
-  let params = {};
+  let params = helpers.getSettingsFile(vertical);
 
-  // Generic vertical doesn't have a settings file (or an admin page, so don't care about username)
-  if (fs.existsSync(settingsFile)) {
-    params = JSON.parse(fs.readFileSync(settingsFile));
-
-    // Grab username out of URL parameters if it's present
-    if (queryParams?.username) {
-      params.settings.dashboard.username = queryParams.username;
-    }
+  // Grab username out of URL parameters if it's present
+  // we only care about it if it's used on a dashboard page
+  if (queryParams?.username && params?.settings?.dashboard) {
+    params.settings.dashboard.username = queryParams.username
   }
 
   params.env = bxiEnvVars;

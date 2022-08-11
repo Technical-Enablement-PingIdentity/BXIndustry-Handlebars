@@ -41,7 +41,7 @@ function getVerticals() {
 }
 
 function isValidVertical(vertical) {
-    getVerticals().includes(vertical);
+    return getVerticals().includes(vertical);
 }
 
 /**
@@ -60,9 +60,21 @@ function importWithCacheBusting(fileLocation) {
     return import(`${fileLocation}?sha1=${fileHash.digest('base64')}`);
 }
 
+function getSettingsFile(vertical) {
+    const settingsFile = `./src/pages/${vertical}/settings.json`;
+  
+    // Generic vertical doesn't have a settings file (or an admin page, so don't care about username)
+    if (fs.existsSync(settingsFile)) {
+       return JSON.parse(fs.readFileSync(settingsFile));
+    }
+
+    return {};
+}
+
 export default {
     getBxiEnvironmentVariables: getBxiEnvironmentVariables,
     getVerticals: getVerticals,
     isValidVertical: isValidVertical,
     importWithCacheBusting: importWithCacheBusting,
+    getSettingsFile: getSettingsFile,
 }

@@ -1,0 +1,13 @@
+{
+  "settings": {
+    "title": "BXGeneric",
+    "images": {
+      "favicon": "/generic/favicon.ico",
+      "apple_touch_icon": "/generic/apple-touch-icon.png",
+      "logo": "/generic/logo.png",
+      "dialog_logo": "/generic/logo.png"
+    },
+    "heading": "BXGeneric",
+    "sub_heading": "A Starter App for your Demos"
+  }
+}
