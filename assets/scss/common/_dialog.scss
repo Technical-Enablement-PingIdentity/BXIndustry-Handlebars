@@ -1,27 +1,15 @@
 @import "./mixins";
 
-.modal .modal-dialog {
-  max-width: 735px;
+.dialog {
+  padding: 30px 0;
+
+  .card {
+    border: none;
+  }
 }
 
-.modal-body {
-  position: relative;
-  
-  &__close-icon {
-    position: absolute;
-    display: block;
-    top: 0;
-    right: 20px;
-    background: transparent;
-    border: none;
-    outline: none;
-    cursor: pointer;
-  }
-
-  &__logo {
-    margin: 0 auto 26px auto;
-    display: block;
-  }
+.modal .modal-dialog {
+  max-width: 735px;
 }
 
 .modal-content {
@@ -234,5 +222,60 @@
     font-size: 14px;
     line-height: 24px;
     cursor: pointer;
+  }
+}
+
+.form-group {
+  &__label {
+    display: block;
+    margin-bottom: 2px;
+    font-size: 15px;
+    line-height: 24px;
+    color: #76818B;
+    font-weight: 400;
+  }
+
+  &__input {
+    display: block;
+    width: 100%;
+    background: #FFFFFF;
+    border: 1px solid #909DAA;
+    box-sizing: border-box;
+    border-radius: 2px;
+    height: 48px;
+    padding: 0 19px;
+    font-size: 16px;
+    margin-bottom: 2px;
+
+    &::-webkit-input-placeholder {
+      color: #CED3D9;
+    }
+  }
+
+  &__hint {
+    display: block;
+    font-size: 15px;
+    line-height: 24px;
+
+    &--action {
+      cursor: pointer;
+    }
+  }
+}
+
+.form-input-row {
+  display: flex;
+
+  &__item {
+    width: 100%;
+    padding: 0 6px;
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
   }
 }

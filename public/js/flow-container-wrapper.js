@@ -32,8 +32,6 @@ class FlowContainerWrapper {
       factoryResult = await bxi.callFunction(this.ParameterFactory);
     }
 
-    console.log(factoryResult);
-  
     return { ...this.getParamsFromElement(this.targetEl), ...factoryResult };
   }
 

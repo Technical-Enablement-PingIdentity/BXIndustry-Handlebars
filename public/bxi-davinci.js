@@ -33,6 +33,11 @@ import registerFunctions from '/register-functions.js';
       throw Error('Policy ID is required to launch a flow.');
     }
 
+    let buttonEventName = target.alt === 'Remix on glitch' ? target.alt : target.innerText;
+    buttonEventName = buttonEventName.toLowerCase().split(' ').join('_') + '_clicked';
+    
+    window.bxi.sendAnalytics(buttonEventName);
+
     await launchFlow(document.getElementById(flowContainerId), widgetWrapper);
 
     showModal(target.dataset.hideLogo === 'true');

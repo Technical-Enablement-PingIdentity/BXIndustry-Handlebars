@@ -13,6 +13,7 @@ function getBxiEnvironmentVariables() {
         'BXI_LOGIN_POLICY_ID',
         'BXI_REGISTRATION_POLICY_ID',
         'BXI_DASHBOARD_POLICY_ID',
+        'BXI_GENERIC_POLICY_ID',
         'BXI_REMIX_POLICY_ID',
         'BXI_SHOW_REMIX_BUTTON',
         'BXI_GLITCH_REMIX_PROJECT',
