@@ -73,6 +73,13 @@ fastify.get('/dvtoken', async function (request, reply) {
   const tokenResponse = await fetch(`${dvSdkTokenBaseUrl}/company/${companyId}/sdktoken`, tokenRequest); // Endpoint is case sensitive in Davinci V2
   const parsedResponse = await tokenResponse.json();
 
+  if (!parsedResponse.success) {
+    console.error('An error Occured');
+    console.error('Parsed Response', parsedResponse);
+    console.error('Raw', tokenResponse);
+    return reply.code(500).send({error: `An error occured getting DaVinci token. See Glitch server logs for more details, code: ${parsedResponse.httpResponseCode}, message: '${parsedResponse.message}'.`});
+  }
+
   reply.send({
     token: parsedResponse.access_token,
     companyId: companyId,

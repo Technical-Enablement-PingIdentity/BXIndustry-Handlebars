@@ -3,6 +3,11 @@ class FlowContainerWrapper {
     this.targetEl = target;
   }
 
+  // Return value in data-dv-flow
+  get DvFlowType() {
+    return this.targetEl.dataset.dvFlow;
+  }
+
   // Return value in URL parameter definited in data-url-policy-id if available or data-policy-id
   get PolicyId() {
     return this.getUrlParameter(this.targetEl.dataset.urlPolicyId) || this.targetEl.dataset.policyId
@@ -71,6 +76,35 @@ class FlowContainerWrapper {
 
   getUrlParameter(key) {
     return new URLSearchParams(window.location.search).get(key);
+  }
+
+  hideModalError() {
+    let errorContainer = document.getElementById('modal-error')
+    if (errorContainer) {
+      errorContainer.classList.add('d-none');
+      errorContainer.textContent = '';
+    }
+  }
+
+  displayError(message) {
+    let errorElement;
+
+    if (this.DvFlowType === 'modal') {
+      errorElement = document.getElementById('modal-error');
+      errorElement.classList.remove('d-none');
+    } else {
+      const id = 'static-widget-error';
+      errorElement = document.getElementById(id);
+
+      if (!errorElement) {
+        errorElement = document.createElement('div');
+        errorElement.id = id;
+        errorElement.classList.add('text-danger', 'text-center');
+        this.targetEl.appendChild(errorElement);
+      }
+    }
+
+    errorElement.textContent = message;
   }
 }
 

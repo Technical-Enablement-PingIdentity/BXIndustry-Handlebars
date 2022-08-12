@@ -40,10 +40,10 @@ import registerFunctions from '/register-functions.js';
 
     await launchFlow(document.getElementById(flowContainerId), widgetWrapper);
 
-    showModal(target.dataset.hideLogo === 'true');
+    showModal(target.dataset.hideLogo === 'true', widgetWrapper);
   }
 
-  function showModal(hideLogo) {
+  function showModal(hideLogo, widgetWrapper) {
     const modalEl = document.getElementById('dv-modal');
     if (hideLogo) {
       modalEl.classList.add('hide-vertical-logo');
@@ -56,6 +56,7 @@ import registerFunctions from '/register-functions.js';
 
     function listener() {
       window.davinci.cleanup(activeWidget);
+      widgetWrapper.hideModalError();
       activeWidget = null;
       modal = null;
       modalEl.removeEventListener('hidden.bs.modal', listener);
@@ -103,6 +104,12 @@ import registerFunctions from '/register-functions.js';
 
     const tokenResponse = await fetch(tokenEndpoint);
     const tokenData = await tokenResponse.json();
+
+    if (tokenResponse.status !== 200) {
+      widgetWrapper.displayError(tokenData.error || 'An unkown error occured, see glitch server side logs for more details');
+      return;
+    }
+    
     const parameters = await widgetWrapper.getDvRequestParams();
 
     const dvWidgetProps = {
