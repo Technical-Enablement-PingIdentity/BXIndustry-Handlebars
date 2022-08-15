@@ -25,6 +25,14 @@ function initFunctionRegistry() {
           console.warn('Anonymous functions may not be registered in bxi unless the first parameter provides a name')
         }
       }
+    },
+    getParameterCaseInsensitive: (obj, key) => {
+      if (!obj) {
+        return null;
+      }
+  
+      const foundKey = Object.keys(obj).find(k =>  k.toLowerCase() === key.toLowerCase());
+      return foundKey ? obj[foundKey] : null;
     }
   }
 }

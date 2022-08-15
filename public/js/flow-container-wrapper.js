@@ -23,11 +23,6 @@ class FlowContainerWrapper {
     return this.getUrlParameter(this.targetEl.dataset.urlCompanyId) || this.targetEl.dataset.companyId
   }
 
-  // Return true if data-redirect-on-completion is present and 'true'
-  get RedirectOnCompletion() {
-    return this.targetEl.dataset.redirectOnCompletion === 'true';
-  }
-
   // Return parameters for DV flow request, grabs static data-dv-param-<name> parameters from element and 
   // merges with result from data-request-params-factory
   async getDvRequestParams() {
