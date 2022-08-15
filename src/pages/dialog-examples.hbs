@@ -15,11 +15,101 @@
   <link rel="stylesheet" href="/styles.css" />
 
   {{> (brandingPartial)}}
+
+  <style>
+    .button {
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+    }
+  </style>
 </head>
 <body class="bxi {{vertical}}">
   <div class="container">
-    <h2><span class="text-uppercase">{{vertical}} Dialog Examples</span></h2>
-    <button class="button button--md">All Elements</button>
+    <h2 class="my-3"><span class="text-uppercase">{{vertical}} Dialog Examples</span></h2>
+    <button id="all-elements" class="button button--md">All Dialog Elements</button>
+    <button id="registration" class="button button--md">Registration</button>
+    <button id="sign-in-username" class="button button--md">Sign In - Username Only</button>
+    <button id="sign-in-username-password" class="button button--md">Sign In - Username and Password</button>
+    <button id="sign-in-mfa-picker" class="button button--md">Sign In - MFA Picker</button>
+    <button id="sign-in-email-otp" class="button button--md">Sign In - Email OTP</button>
+    <button id="sign-in-mobile-app" class="button button--md">Sign In - Mobile App</button>
+    <button id="username-recovery" class="button button--md">Username Recovery</button>
+    <button id="username-recovery-confirmation" class="button button--md">Username Recovery Confirmation</button>
+    <button id="password-recovery-create-new-password" class="button button--md">Password Recovery - Create New Password</button>
+    <button id="password-recovery-email-otp" class="button button--md">Password Recovery - Email OTP</button>
+    <button id="password-recovery-username" class="button button--md">Password Recovery - Username Entry</button>
+    <button id="password-recovery-confirmation" class="button button--md">Password Recovery - Confirmation</button>
   </div>
+  <div id="example-modal" class="modal dialog" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="dialog-logo">
+            <img class="dialog-logo__logo" src="{{ dialogLogo }}" />
+          </div>
+          <div id="example-container"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    (function () {
+      const templateMap = {
+        'all-elements': `
+          {{> allElementsTemplate}}
+        `,
+        'registration': `
+          {{> registrationTemplate}}
+        `,
+        'sign-in-username': `
+          {{> signInUsernameTemplate}}
+        `,
+        'sign-in-username-password': `
+          {{> signInUsernamePasswordTemplate}}
+        `,
+        'sign-in-mfa-picker': `
+          {{> signInMfaPickerTemplate}}
+        `,
+        'sign-in-email-otp': `
+          {{> signInEmailOtpTemplate}}
+        `,
+        'sign-in-mobile-app': `
+          {{> signInMobileAppTemplate}}
+        `,
+        'username-recovery': `
+          {{> usernameRecoveryTemplate}}
+        `,
+        'username-recovery-confirmation': `
+          {{> usernameRecoveryConfirmationTemplate}}
+        `,
+        'password-recovery-create-new-password': `
+          {{> passwordRecoveryCreateNewPasswordTemplate}}
+        `,
+        'password-recovery-email-otp': `
+          {{> passwordRecoveryEmailOtpTemplate}}
+        `,
+        'password-recovery-username': `
+          {{> passwordRecoveryUsernameTemplate}}
+        `,
+        'password-recovery-confirmation': `
+          {{> passwordRecoveryConfirmationTemplate}}
+        `,
+      };
+
+      Object.keys(templateMap).forEach(id => {
+        document.getElementById(id).addEventListener('click', () => {
+          const htmlContainer = document.getElementById('example-container');
+          htmlContainer.innerHTML = templateMap[id];
+          
+          const modal = new bootstrap.Modal('#example-modal');
+          modal.show();
+          
+          document.getElementById('example-modal').addEventListener('hidden.bs.modal', () => {
+            htmlContainer.innerHTML = '';
+          });
+        });
+      })
+    })();
+  </script>
 </body>
 </html>

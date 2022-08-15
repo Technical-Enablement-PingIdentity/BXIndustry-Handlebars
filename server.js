@@ -123,7 +123,7 @@ helpers.getVerticals().forEach(vertical => {
     return reply.view(`src/pages/dialog-examples.hbs`, { 
       vertical, 
       brandingPartial: () => `${vertical}Branding`,
-      dialog_logo: settings.images.dialog_logo,
+      dialogLogo: settings.images.dialog_logo,
     });
   });
 
