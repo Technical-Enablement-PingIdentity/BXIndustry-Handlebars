@@ -1,28 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   {{#> head }}
-    <style>
-      :root {
-        --main-font: 'Montserrat', sans-serif;
-        --secondary-font: 'Poppins', serif;
-        --primary-color: #A71E23;
-        --secondary-color: #280A04;
-        --primary-button-background: linear-gradient(88.03deg, #930909 -10.39%, #B55A27 106.93%);
-        --primary-button-background-hover: linear-gradient(88.03deg, #930909 10.39%, #B55A27 132.93%);
-        --link-button-color: #fff;
-        --link-button-hover-color: var(--primary-color);
-        --outline-button-color: #fff;
-        --outline-button-hover-color: var(--primary-color);
-        --banner-text-color: #fff;
-        --video-tile-overlay-background: linear-gradient(92.63deg, #280604 -18.67%, rgba(4, 15, 40, 0) 109.35%, rgba(40, 13, 4, 0) 109.35%);
-        --bullet-index-color: #930909;
-        --footer-background-color: #0A0001;
-        --footer-link-text-color: #fff;
-        --footer-link-text-hover-color: var(--primary-color);
-        --footer-text-color: #fff;
-        --copyright-text-color: #817D73;
-      }
-    </style>
+    {{> companyBranding }}
   {{/head}}
   <body onload="bxi.pageLoad()" class="bxi company home">
     {{> variables}}

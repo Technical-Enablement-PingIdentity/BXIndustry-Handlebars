@@ -1,6 +1,8 @@
 import fs from 'fs';
 import crypto from 'crypto';
 
+let verticals;
+
 function getBxiEnvironmentVariables() {
     const bxiEnvVars = {};
 
@@ -34,10 +36,22 @@ function getBxiEnvironmentVariables() {
     return bxiEnvVars;
 }
 
+/**
+ * Returns a list of all verticals build based on directories in src/pages, this is cached
+ * if adding a new vertical server.js needs to be restarted, this should be uncommon
+ * 
+ * @returns List of all verticals
+ */
 function getVerticals() {
-    return fs.readdirSync('src/pages', { withFileTypes: true })
+    if (verticals) {
+        return verticals;
+    }
+
+    verticals = fs.readdirSync('src/pages', { withFileTypes: true })
         .filter(dirent => dirent.isDirectory())
         .map(dirent => dirent.name);
+
+    return verticals;
 }
 
 function isValidVertical(vertical) {
