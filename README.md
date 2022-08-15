@@ -174,9 +174,7 @@ Currently logout redirects the user up to the current vertical home page, if you
 
 ## Simulate being logged in after Login or Registration
 
-There is now an option to simulate a user being logged into the dashboard after completing successful login or registration. This is done by adding the data-redirect-on-completion attribute to the element being used to launch the DV flow. The DV flow being used must return a successful JSON response in order for this to work. Please find more information on this in the bxi-davinci.js documentation section below.
-
-**Note: There is also an option to pass the user’s username back to BXI to be displayed on the dashboard page when the user is “logged in”. To do so, add an additionalProperties.username property to the flow response, or from a successCallback configured through the data attributes return an object with a username property.**
+There is now an option to simulate a user being logged into the dashboard after completing successful login or registration. The DV flow being used must return a successful JSON response including an additonalProperties.username property in order for this to work. Please find more information on this in the bxi-davinci.js documentation section below.
 
 ## bxi-davinci.js Documentation
 
@@ -192,7 +190,6 @@ You can manually configure html elements to load flows by applying the following
 |`data-policy-id`|Policy ID that will be used to invoke your flow (not recommended)|-|Yes (unless data-url-policy-id is used)|
 |`data-company-id`|Company ID that will be used to invoke your flow (not recommended)|BXI_COMPANY_ID from .env|
 |`data-api-key`|API Key that will be used to invoke your flow|BXI_API_KEY from .env|
-|`data-redirect-on-completion`|If "true" you will be redirected to the dashboard after successful flow completion, see note above about including a username!|"false"|
 |`data-hide-logo`|If "true" the vertical logo on the resulting modal will be hidden|"false"|
 |`data-url-policy-id`|If set, will look for the policy ID in a URL parameter of the same name|-|
 |`data-url-company-id`|If set, will look for the company ID in a URL parameter of the same name|-|
@@ -213,15 +210,15 @@ To pass parameters in the DaVinci request that is sent when the flow is loaded, 
 ### Examples
 **Simple Modal**
 
-This example adds a login button that launches policy id xxx and uses the API and Company IDs included in the .env file. It will also redirect to the same vertical's dashboard when the flow successfully completes.
+This example adds a login button that launches policy id xxx and uses the API and Company IDs included in the .env file.
 
 ```html
-  <button data-dv-flow="modal" data-policy-id="xxx" data-redirect-on-completion="true">Log In</button>
+  <button data-dv-flow="modal" data-policy-id="xxx">Log In</button>
 ```
 
 **Static Widget**
 
-This example looks for a url parameter called "profilePolicyId" (case sensitive) and use the value as the policy id to load the flow on page load. The flow load in this element, so position it on the page where you'd like the flow to be.
+This example looks for a url parameter called "profilePolicyId" (case sensitive) and uses the value as the policy id to load the flow on page load. The flow loads in this element since it's static, so position it on the page where you'd like the flow to be.
 
 ```html
   <div data-dv-flow="static" data-url-policy-id="profilePolicyId"></div>
@@ -282,19 +279,6 @@ bxi.registerFunction(function loginParams() {
 
 // HTML Usage
 // <button data-dv-flow="modal" data-policy-id="xxx" data-parameter-factory="loginParams">Log In</button>
-```
-
-Additionally, when using a success callback function, you may return an object containing an username property which will be displayed on the dashboard page, this must be used in conjunction with data-redirect-on-completion="true".
-
-**Note: this will override a username passed from the flow response additonalProperties object
-
-```javascript
-bxi.registerFunction(function successCallback() {
-  return { username: 'Fred' };
-});
-
-// HTML Usage
-// <button data-dv-flow="modal" data-policy-id="xxx" data-success-callback="successCallback" data-redirect-on-completion="true">Log In</button>
 ```
 
 ## DV Dialogs HTML Structure for Inheriting the Main Style of the Site

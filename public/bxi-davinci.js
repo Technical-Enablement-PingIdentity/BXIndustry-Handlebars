@@ -123,24 +123,11 @@ import registerFunctions from '/register-functions.js';
       },
       useModal: false,
       successCallback: async response => {
-        let username;
         if (widgetWrapper.SuccessCallback) {
-          const result = await bxi.callFunction(widgetWrapper.SuccessCallback, response);
-          username = getParameterCaseInsensitive(result, 'username');
+          await bxi.callFunction(widgetWrapper.SuccessCallback, response);
         }
         
-        if (widgetWrapper.RedirectOnCompletion) {
-          let url = location.pathname + '/dashboard';
-          username = username || getParameterCaseInsensitive(response.additionalProperties, 'username');
-
-          if (username) {
-            url +=`?username=${username}`;
-          }
-
-          window.location.assign(url);
-        } else {
-          modal?.hide();
-        }      
+        modal?.hide();   
       },
       errorCallback: async error => {
         if (widgetWrapper.ErrorCallback) {
@@ -152,15 +139,6 @@ import registerFunctions from '/register-functions.js';
     window.davinci.skRenderScreen(flowContainer, dvWidgetProps);
 
     activeWidget = flowContainer;
-  }
-
-  function getParameterCaseInsensitive(obj, key) {
-    if (!obj) {
-      return null;
-    }
-
-    const foundKey = Object.keys(obj).find(k =>  k.toLowerCase() === key.toLowerCase());
-    return foundKey ? obj[foundKey] : null;
   }
 })();
 

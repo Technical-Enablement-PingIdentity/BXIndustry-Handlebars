@@ -24,7 +24,17 @@ function initFunctionRegistry() {
         } else {
           console.warn('Anonymous functions may not be registered in bxi unless the first parameter provides a name')
         }
+      } else {
+        console.warn(`Invalid argument type in registerFunction, expected 'string' or 'function'`);
       }
+    },
+    getParameterCaseInsensitive: (obj, key) => {
+      if (!obj) {
+        return null;
+      }
+  
+      const foundKey = Object.keys(obj).find(k =>  k.toLowerCase() === key.toLowerCase());
+      return foundKey ? obj[foundKey] : null;
     }
   }
 }

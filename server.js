@@ -107,8 +107,8 @@ verticals.forEach(vertical => {
   });
 
   // Vertical Dashboard Page
-  fastify.get(`/${vertical}/dashboard`, async function (request, reply) {
-    return reply.view(`src/pages/${vertical}/dashboard.hbs`, await getViewParams(vertical, request.query));
+  fastify.get(`/${vertical}/dashboard`, async function (_, reply) {
+    return reply.view(`src/pages/${vertical}/dashboard.hbs`, await getViewParams(vertical));
   });
 
   // Redirect old /admin urls to dashboard
@@ -122,15 +122,8 @@ fastify.setNotFoundHandler((_, reply) => {
   reply.redirect('/');
 });
 
-async function getViewParams(vertical, queryParams) {
+async function getViewParams(vertical) {
   let params = helpers.getSettingsFile(vertical);
-
-  // Grab username out of URL parameters if it's present
-  // we only care about it if it's used on a dashboard page
-  if (queryParams?.username && params?.settings?.dashboard) {
-    params.settings.dashboard.username = queryParams.username
-  }
-
   params.env = bxiEnvVars;
   return params;
 }

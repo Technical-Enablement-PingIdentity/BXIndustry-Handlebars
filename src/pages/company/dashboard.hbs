@@ -28,7 +28,7 @@
       }
     </style>
   {{/head}}
-  <body class="bxi company dashboard">
+  <body onload="bxi.pageLoad()" class="bxi company dashboard">
     {{> variables}}
     <header class="bxi-nav-bg-color">
       <nav class="navbar navbar-expand-lg navbar-dark">
@@ -47,9 +47,7 @@
             </ul>
           </div>
           <div class="d-flex flex-row position-relative">
-            {{#if settings.dashboard.username}}
-              <p class="bxi-nav-color me-3 d-none d-sm-flex m-0 align-items-center">{{settings.dashboard.username}}</p>
-            {{/if}}
+            <p id="username-container" class="bxi-nav-color me-3 d-none d-sm-flex m-0 align-items-center">{{settings.dashboard.username}}</p>
             <div class="bxi-user-icon bxi-bg-primary me-0 me-lg-3 pe-lg-none" data-bs-toggle="collapse" data-bs-target=".bxi-auth-buttons">
               {{> userIcon }}
             </div>
