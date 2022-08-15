@@ -15,37 +15,31 @@
   <link rel="stylesheet" href="/styles.css" />
 
   {{> (brandingPartial)}}
-
-  <style>
-    .button {
-      margin-right: 1rem;
-      margin-bottom: 1rem;
-    }
-  </style>
 </head>
 <body class="bxi {{vertical}}">
   <div class="container">
     <h2 class="my-3"><span class="text-uppercase">{{vertical}} Dialog Examples</span></h2>
-    <button id="all-elements" class="button button--md">All Dialog Elements</button>
-    <button id="registration" class="button button--md">Registration</button>
-    <button id="sign-in-username" class="button button--md">Sign In - Username Only</button>
-    <button id="sign-in-username-password" class="button button--md">Sign In - Username and Password</button>
-    <button id="sign-in-mfa-picker" class="button button--md">Sign In - MFA Picker</button>
-    <button id="sign-in-email-otp" class="button button--md">Sign In - Email OTP</button>
-    <button id="sign-in-mobile-app" class="button button--md">Sign In - Mobile App</button>
-    <button id="username-recovery" class="button button--md">Username Recovery</button>
-    <button id="username-recovery-confirmation" class="button button--md">Username Recovery Confirmation</button>
-    <button id="password-recovery-create-new-password" class="button button--md">Password Recovery - Create New Password</button>
-    <button id="password-recovery-email-otp" class="button button--md">Password Recovery - Email OTP</button>
-    <button id="password-recovery-username" class="button button--md">Password Recovery - Username Entry</button>
-    <button id="password-recovery-confirmation" class="button button--md">Password Recovery - Confirmation</button>
+    <button id="all-elements" class="button button--md me-3 mb-3">All Dialog Elements</button>
+    <button id="registration" class="button button--md me-3 mb-3">Registration</button>
+    <button id="sign-in-username" class="button button--md me-3 mb-3">Sign In - Username Only</button>
+    <button id="sign-in-username-password" class="button button--md me-3 mb-3">Sign In - Username and Password</button>
+    <button id="sign-in-mfa-picker" class="button button--md me-3 mb-3">Sign In - MFA Picker</button>
+    <button id="sign-in-sms-otp" class="button button--md me-3 mb-3">Sign In - SMS OTP</button>
+    <button id="sign-in-email-otp" class="button button--md me-3 mb-3">Sign In - Email OTP</button>
+    <button id="sign-in-mobile-app" class="button button--md me-3 mb-3">Sign In - Mobile App</button>
+    <button id="username-recovery" class="button button--md me-3 mb-3">Username Recovery</button>
+    <button id="username-recovery-confirmation" class="button button--md me-3 mb-3">Username Recovery Confirmation</button>
+    <button id="password-recovery-create-new-password" class="button button--md me-3 mb-3">Password Recovery - Create New Password</button>
+    <button id="password-recovery-email-otp" class="button button--md me-3 mb-3">Password Recovery - Email OTP</button>
+    <button id="password-recovery-username" class="button button--md me-3 mb-3">Password Recovery - Username Entry</button>
+    <button id="password-recovery-confirmation" class="button button--md me-3 mb-3">Password Recovery - Confirmation</button>
   </div>
   <div id="example-modal" class="modal dialog" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-body">
-          <div class="dialog-logo">
-            <img class="dialog-logo__logo" src="{{ dialogLogo }}" />
+          <div class="d-flex justify-content-center dialog-logo mb-4">
+            <img src="{{ dialogLogo }}" />
           </div>
           <div id="example-container"></div>
         </div>
@@ -69,6 +63,9 @@
         `,
         'sign-in-mfa-picker': `
           {{> signInMfaPickerTemplate}}
+        `,
+        'sign-in-sms-otp': `
+          {{> signInSmsOtpTemplate}}
         `,
         'sign-in-email-otp': `
           {{> signInEmailOtpTemplate}}

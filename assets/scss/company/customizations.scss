@@ -7,12 +7,12 @@
   @include breakpoint-lg {
     .bxi-auth-buttons {
       // Add button separator
-      .button--link {
+      .button--nav-link {
         padding-bottom: .25rem;
         padding-top: .25rem;
 
         &:not(:last-child) {
-          border-right: 1px solid var(--link-button-color);
+          border-right: 1px solid var(--header-link-button-color);
           padding-right: 1rem;
           margin-right: 1rem;
         }
