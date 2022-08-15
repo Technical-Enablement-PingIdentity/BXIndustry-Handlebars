@@ -1,7 +1,7 @@
 function registerFunctions() {
 
   /**
-   * Add custom code here to do any page load actions
+   * Add custom code here to do any page load actions, called on body tag in onload=""
    */
   bxi.pageLoad = () => {
     // Page load set up code here
@@ -15,7 +15,7 @@ function registerFunctions() {
   };
 
   /**
-   * Add custom code here to do any logout teardown you need to do
+   * Add custom code here to do any logout teardown you need to do, called when Log Out is clicked
    */
   bxi.logout = () => {
     // Tear-down code here
@@ -60,9 +60,6 @@ function registerFunctions() {
       window.location.assign(url);
     }
   });
-
-  // Run page load function
-  bxi.pageLoad();
 }
 
 // This function is executed in bxi-davinci.js after the function registry is initialized

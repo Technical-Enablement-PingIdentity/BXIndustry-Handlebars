@@ -24,6 +24,8 @@ function initFunctionRegistry() {
         } else {
           console.warn('Anonymous functions may not be registered in bxi unless the first parameter provides a name')
         }
+      } else {
+        console.warn(`Invalid argument type in registerFunction, expected 'string' or 'function'`);
       }
     },
     getParameterCaseInsensitive: (obj, key) => {
