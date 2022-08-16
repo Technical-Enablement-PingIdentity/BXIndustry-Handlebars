@@ -1,31 +1,20 @@
 <!-- Username recovery -->
-<div class="dialog-content-header dialog-content__header">
-  <h6 class="dialog-content-header__title">Username recovery</h6>
-</div>
-<div class="dialog-container">
-  <p class="dialog-form-message dialog-form-message--mb_3">
+<h1 class="dialog-header text-center bxi-ff-secondary fw-bold mb-4">Username recovery</h1>
+<form class="dialog-container bxi-color-light" id="usernameRecoveryForm">
+  <p class="text-center mb-3">
     Please enter your email address to receive an email with your username
   </p>
-  <form class="dialog-form dialog-content__form" id="bxForm">
-    <div class="form-group dialog-form__form-group">
-      <label class="form-group__label" for="email">Email</label>
-      <input class="form-group__input" id="email" type="email"/>
-    </div>
-    <button class="dialog-form__submit-button dialog-form__submit-button--mb_5 button button--md" type="submit">
-      Send a request
-    </button>
-
-    <div class="dialog-form__footer">
-      <div class="dialog-form__footer">
-        <p class="dialog-footer-description">
-          Don’t have an account?&nbsp;
-          <span class="dialog-footer-description__link" id="create-account">
-            Create an account
-          </span>
-        </p>
-      </div>
-    </div>
-  </form>
-</div>
+  <div class="mb-4">
+    <label for="email" class="form-label mb-1">Email</label>
+    <input type="text" id="email" name="email" class="form-control" />
+  </div>
+  <button class="button button--md button--submit d-block mx-auto mb-3" type="submit">Send a request</button>
+  <p class="text-center">
+    Don't have an account?
+    <a href="#" class="button button--link">
+      Create an account
+    </a>
+  </p>
+</form>
 
 <!-- /Username recovery -->

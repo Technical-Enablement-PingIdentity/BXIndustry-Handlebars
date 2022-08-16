@@ -1,52 +1,42 @@
 <!-- registration -->
-<div class="dialog-content-header dialog-content__header">
-  <h6 class="dialog-content-header__title">Create an account</h6>
-</div>
-<form class="dialog-container" id="bxForm">
-  <div class="dialog-form dialog-content__form">
-    <div class="dialog-form__input-list">
-      <div class="form-group dialog-form__form-group">
-        <label class="form-group__label" for="input-1">First name *</label>
-        <input class="form-group__input" id="input-1" type="text"/>
-      </div>
-      <div class="form-group dialog-form__form-group">
-        <label class="form-group__label" for="input-2">Last name *</label>
-        <input class="form-group__input" id="input-2" type="text"/>
-      </div>
-      <div class="form-group dialog-form__form-group">
-        <label class="form-group__label" for="input-3">Email *</label>
-        <input class="form-group__input" id="input-3" type="email"/>
-      </div>
-      <div class="form-group dialog-form__form-group">
-        <label class="form-group__label" for="input-4">Country or region *</label>
-        <input class="form-group__input" id="input-4" type="text"/>
-      </div>
-      <div class="form-group dialog-form__form-group">
-        <label class="form-group__label" for="input-5">Create password *</label>
-        <input class="form-group__input" id="input-5" type="password"/>
-      </div>
-      <div class="form-group dialog-form__form-group">
-        <label class="form-group__label" for="input-6">Repeat password *</label>
-        <input class="form-group__input" id="input-6" type="password"/>
-      </div>
-    </div>
-    <p class="dialog-form-message dialog-form-message--mb_1">
-      By clicking on the "Create Account" button, you are agreeing to the
-      <span class="dialog-form-message__action">
-        Terms of Use</span>
-      and
-      <span class="dialog-form-message__action">
-        Privacy Policy</span>
-    </p>
-    <button class="dialog-form__submit-button button button--md" type="submit">Create account</button>
-    <div class="dialog-form__footer">
-      <p class="dialog-footer-description">
-        Already have an account?&nbsp;
-        <span class="dialog-footer-description__link" id="login-btn">
-          LOG IN
-        </span>
-      </p>
-    </div>
+<h1 class="dialog-header text-center bxi-ff-secondary fw-bold mb-4">Create an account</h1>
+<form class="dialog-container bxi-color-light" id="bxForm">
+  <div class="mb-3">
+    <label for="firstName" class="form-label mb-1">First name *</label>
+    <input type="text" id="firstName" name="firstName" class="form-control" />
   </div>
+  <div class="mb-3">
+    <label for="lastName" class="form-label mb-1">Last name *</label>
+    <input type="text" id="lastName" name="lastName" class="form-control" />
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label mb-1">Email *</label>
+    <input type="email" id="email" name="email" class="form-control" />
+  </div>
+  <div class="mb-3">
+    <label for="region" class="form-label mb-1">Country or region *</label>
+    <input type="email" id="region" name="region" class="form-control" />
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label mb-1">Create password *</label>
+    <input type="password" id="password" name="password" class="form-control" />
+  </div>
+  <div class="mb-4">
+    <label for="repeatPassword" class="form-label mb-1">Repeat password *</label>
+    <input type="password" id="repeatPassword" name="repeatPassword" class="form-control" />
+  </div>
+  <p class="mb-4 text-center">
+    By clicking on the "Create Account" button, you are agreeing to the
+    <a href="#" class="button button--link">Terms of Use</a>
+    and
+    <a href="#" class="button button--link">Privacy Policy</a>
+  </p>
+  <button class="button button--md button--submit d-block mx-auto mb-4" type="submit">Create account</button>
+  <p class="text-center">
+    Already have an account?
+    <a href="#" class="button button--link">
+      Log in
+    </a>
+  </p>
 </form>
 <!--/ registration -->

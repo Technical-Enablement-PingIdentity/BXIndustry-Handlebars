@@ -124,6 +124,8 @@ helpers.getVerticals().forEach(vertical => {
       vertical, 
       brandingPartial: () => `${vertical}Branding`,
       dialogLogo: settings.images.dialog_logo,
+      favicon: settings.images.favicon || '/generic/favicon.ico',
+      appleTouchIcon: settings.images.apple_touch_icon || '/generic/apple-touch-icon.png',
     });
   });
 
