@@ -6,15 +6,15 @@
     border: none;
     background: var(--primary-button-background);
     color: #fff;
-    text-transform: uppercase;
     cursor: pointer;
+    text-transform: uppercase;
 
     &:hover {
       background: var(--primary-button-background-hover);
     }
   }
 
-  a.button {
+  a.button, .button--link {
     text-transform: none;
     text-decoration: none;
   }
@@ -33,7 +33,21 @@
   }
 
   .button--icon {
-    padding: 14px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+
+    svg {
+      position: absolute;
+    }
+  }
+
+  .button--submit {
+    min-width: 300px;
   }
 
   .button--outline {
@@ -45,17 +59,76 @@
       background: var(--outline-button-hover-color);
       border-color: var(--outline-button-hover-color);
     }
+
+    &.button--facebook {
+      border-color: #275FAB;
+
+      svg path {
+        fill: #275FAB;
+      }
+
+      &:hover {
+        background-color: #275FAB;
+
+        svg path {
+          fill: #fff;
+        }
+      }
+    }
+
+    &.button--linkedin {
+      border-color: #0C61B8;
+
+      svg path {
+        fill: #0C61B8;
+      }
+
+      &:hover {
+        background-color: #0C61B8;
+
+        svg path {
+          fill: #fff;
+        }
+      }
+    }
+
+    &.button--apple {
+      border-color: #050708;
+
+      svg path {
+        fill: #050708;
+      }
+
+      &:hover {
+        background-color: #050708;
+
+        svg path {
+          fill: #fff;
+        }
+      }
+    }
   }
 
   .button--link {
     padding: 0;
-    font-size: 14px;
+    font-size: 16px;
     background: transparent;
     color: var(--link-button-color);
-    font-size: 14px;
 
     &:hover {
       color: var(--link-button-hover-color);
+      background: transparent;
+    }
+  }
+
+  .button--nav-link {
+    padding: 0;
+    background: transparent;
+    color: var(--nav-link-button-color);
+    font-size: 14px;
+
+    &:hover {
+      color: var(--nav-link-button-hover-color);
       background: transparent;
     }
   }

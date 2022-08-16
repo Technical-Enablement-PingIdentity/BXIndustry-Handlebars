@@ -9,6 +9,8 @@ With BXIndustry, you can choose a vertical you would like to use, build your wor
 
 **Note: Flows are now customized in BXI via HTML data attributes for simplicity, please see the documentation on bxi-davinci.js for more information.**
 
+**Note: When trying to remix in Safari or with content blockers, you may not get a new tab with your remix after you complete the remix form, if this happens you should get an error screen with a text area containing the URL for a new remix, copy/paste this into a new tab and you should be all set!**
+
 # Getting Started
 
 ## Environment

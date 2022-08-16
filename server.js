@@ -100,15 +100,33 @@ fastify.get('/verticals', (_, reply) => {
   }));
 });
 
-verticals.forEach(vertical => {
+// Generic does not have dashboard or dialog-examples page
+helpers.getVerticals().forEach(vertical => {
   // Vertical Home Page
-  fastify.get(`/${vertical}`, async function (_, reply) {
-    return reply.view(`src/pages/${vertical}/index.hbs`, await getViewParams(vertical));
+  fastify.get(`/${vertical}`, function (_, reply) {
+    return reply.view(`src/pages/${vertical}/index.hbs`, getViewParams(vertical));
   });
 
+  // Generic does not have dashboard or dialog examples pages
+  if (vertical === 'generic') {
+    return;
+  }
+
   // Vertical Dashboard Page
-  fastify.get(`/${vertical}/dashboard`, async function (_, reply) {
-    return reply.view(`src/pages/${vertical}/dashboard.hbs`, await getViewParams(vertical));
+  fastify.get(`/${vertical}/dashboard`, function (_, reply) {
+    return reply.view(`src/pages/${vertical}/dashboard.hbs`, getViewParams(vertical));
+  });
+
+  // Vertical Dialog Examples Page
+  fastify.get(`/${vertical}/dialog-examples`, function (_, reply) {
+    const settings = helpers.getSettingsFile(vertical).settings;
+    return reply.view(`src/pages/dialog-examples.hbs`, { 
+      vertical, 
+      brandingPartial: () => `${vertical}Branding`,
+      dialogLogo: settings.images.dialog_logo,
+      favicon: settings.images.favicon || '/generic/favicon.ico',
+      appleTouchIcon: settings.images.apple_touch_icon || '/generic/apple-touch-icon.png',
+    });
   });
 
   // Redirect old /admin urls to dashboard
@@ -117,12 +135,17 @@ verticals.forEach(vertical => {
   });
 });
 
+// Just in case /generic/dashboard is hit, redirect to generic
+fastify.get('/generic/dashboard', (_, reply) => {
+  reply.redirect('/generic');
+});
+
 // Redirect 404s to base url rather than throwing errors
 fastify.setNotFoundHandler((_, reply) => {
   reply.redirect('/');
 });
 
-async function getViewParams(vertical) {
+function getViewParams(vertical) {
   let params = helpers.getSettingsFile(vertical);
   params.env = bxiEnvVars;
   return params;

@@ -1,32 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   {{#> head }}
-  <style>
-      :root {
-        --main-font: 'Montserrat', sans-serif;
-        --secondary-font: 'Poppins', serif;
-        --primary-color: #A71E23;
-        --secondary-color: #280A04;
-        --primary-button-background: linear-gradient(88.03deg, #930909 -10.39%, #B55A27 106.93%);
-        --primary-button-background-hover: linear-gradient(88.03deg, #930909 10.39%, #B55A27 132.93%);
-        --link-button-color: #fff;
-        --link-button-hover-color: var(--primary-color);
-        --outline-button-color: #fff;
-        --outline-button-hover-color: var(--primary-color);
-        --navigation-color: #fff;
-        --navigation-background-color: linear-gradient(90deg, rgba(59,11,10,1) 0%, rgba(22,4,1,1) 10%, rgba(22,4,1,1) 100%);
-        --filter-button-background-color: #930909;
-        --video-tile-overlay-background: linear-gradient(92.63deg, #280604 -18.67%, rgba(4, 15, 40, 0) 109.35%, rgba(40, 13, 4, 0) 109.35%);
-        --components-border: 1px solid #E6E7E9;
-        --components-icon-color: var(--primary-color);
-        --components-icon-background: rgba(181, 48, 39, 0.1);
-        --footer-background-color: #0A0001;
-        --footer-link-text-color: #fff;
-        --footer-link-text-hover-color: var(--primary-color);
-        --footer-text-color: #fff;
-        --copyright-text-color: #817D73;
-      }
-    </style>
+    {{> companyBranding }}
   {{/head}}
   <body onload="bxi.pageLoad()" class="bxi company dashboard">
     {{> variables}}
@@ -42,7 +17,7 @@
           <div class="bxi-navbar bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse justify-content-center mt-2" id="navbarNav">
             <ul class="navbar-nav pb-2">
               {{#each settings.header.links.items}}
-              <li class="nav-item"><a class="nav-link button px-3 pt-2 button--link">{{this}}</a></li>
+              <li class="nav-item"><a class="nav-link button px-3 pt-2 button--nav-link">{{this}}</a></li>
               {{/each}}
             </ul>
           </div>
@@ -51,8 +26,8 @@
             <div class="bxi-user-icon bxi-bg-primary me-0 me-lg-3 pe-lg-none" data-bs-toggle="collapse" data-bs-target=".bxi-auth-buttons">
               {{> userIcon }}
             </div>
-            <div class="bxi-auth-buttons bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse">
-              <button onclick="bxi.logout()" class="button button--link">Log Out</button>
+            <div class="bxi-auth-buttons bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse p-2 p-lg-0">
+              <button onclick="bxi.logout()" class="button button--nav-link">Log Out</button>
             </div>
           </div>
         </div>
@@ -93,7 +68,7 @@
           <div class="reporting__components components d-flex flex-column my-3 p-4 justify-content-center align-items-center">
             <div class="components-icon text-center mb-3 rounded-circle">{{settings.dashboard.components_section.icon}}</div>
             <h4 class="fw-boldish fs-6 mb-3">{{settings.dashboard.components_section.title}}</h4>
-            <p class="fs-7 mb-3 text-center">{{settings.dashboard.components_section.subtitle}}</p>
+            <p class="fs-8 mb-3 text-center">{{settings.dashboard.components_section.subtitle}}</p>
             <button class="button button--md">{{settings.dashboard.components_section.button}}</button>
           </div>
           {{#if env.BXI_DASHBOARD_POLICY_ID}}
@@ -152,7 +127,7 @@
       </div>
       <section class="container">
         <div class="d-flex justify-content-between align-items-center flex-column flex-md-row">
-          <p class="mb-3 mb-md-0 fs-7 bxi-copyright-color">{{settings.footer.copyright}}</p>
+          <p class="mb-3 mb-md-0 fs-8 bxi-copyright-color">{{settings.footer.copyright}}</p>
           {{> remix }}
         </div>
       </section>

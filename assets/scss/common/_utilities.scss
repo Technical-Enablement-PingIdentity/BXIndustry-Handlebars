@@ -7,8 +7,13 @@
 }
 
 .fs-7 {
+  font-size: 14px;
+}
+
+.fs-8 {
   font-size: 12px;
 }
+
 
 .cursor-pointer {
   cursor: pointer;
@@ -45,6 +50,22 @@
 
 .bxi-copyright-color {
   color: var(--copyright-text-color);
+}
+
+.bxi-color-primary {
+  color: var(--primary-color);
+}
+
+.bxi-color-secondary {
+  color: var(--secondary-color);
+}
+
+.bxi-color-dark {
+  color: #192130;
+}
+
+.bxi-color-light {
+  color: #76818B;
 }
 
 .bxi-bg-primary {
