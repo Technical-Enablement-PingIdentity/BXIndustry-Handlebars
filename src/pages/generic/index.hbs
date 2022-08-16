@@ -9,8 +9,10 @@
         --secondary-color: #280A04;
         --primary-button-background: var(--primary-color);
         --primary-button-background-hover: #930909;
-        --link-button-color: #fff;
-        --link-button-hover-color: var(--primary-color);
+        --link-button-color: var(--primary-color);
+        --link-button-hover-color: var(--secondary-color);
+        --nav-link-button-color: #fff;
+        --nav-link-button-hover-color: var(--primary-color);
         --outline-button-color: #fff;
         --outline-button-hover-color: var(--primary-color);
         --banner-text-color: #fff;
@@ -21,7 +23,7 @@
     {{> variables}}
     <header class="masthead" style="background-image: url('https://cdn.glitch.me/e527ecf6-cfaf-462c-9a0f-da0c77633414%2Fhome-bg.jpg?v=1636660805462')">
       <nav class="navbar fixed-top navbar-expand">
-        <div class="container">
+        <div class="container mt-4">
           <div class="navbar-brand">
             {{> remix}}
           </div>
