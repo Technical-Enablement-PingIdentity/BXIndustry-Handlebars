@@ -30,6 +30,9 @@ export function initHandlebars(fastify) {
 }
 
 /**
+ * Gets all partials from a directory and names the partials based on kebab-file-name-case -> camelCase + suffix
+ * 
+ * e.g., sign-in-email-otp.hbs -> signInEmailOtp<suffix>
  * 
  * @param {string} directory directory to search for .hbs partials
  * @param {string} suffix suffix to use when naming partials

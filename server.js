@@ -87,8 +87,8 @@ fastify.get('/dvtoken', async function (request, reply) {
   });
 });
 
-fastify.get('/verticals', (_, reply) => {
-  return reply.view('src/pages/verticals.hbs', verticals.map(vertical => {
+fastify.get('/shortcuts', (_, reply) => {
+  return reply.view('src/pages/shortcuts.hbs', verticals.map(vertical => {
     const settings = helpers.getSettingsFile(vertical).settings;
     return { 
       name: settings.title, 
