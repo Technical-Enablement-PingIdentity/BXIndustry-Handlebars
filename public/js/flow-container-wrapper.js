@@ -1,3 +1,7 @@
+/**
+ * This class is used to abstract the logic for getting information out the of the data attributes 
+ * flow trigger elements and handling a couple UI interactions
+ */ 
 class FlowContainerWrapper {
   constructor(target) {
     this.targetEl = target;
@@ -55,6 +59,13 @@ class FlowContainerWrapper {
     return this.targetEl.dataset.parameterFactory;
   }
 
+  /**
+   * Get all data-dv-param-<parameter-name> attributes off element, these will default to PascalCase unless overriden by including a property
+   * name prior to the value, e.g. "firstName::Joe"
+   * 
+   * @param {HTMLElement} target Element to get dv parameteres off of
+   * @returns 
+   */
   getParamsFromElement(target) {
     return Object.keys(target.dataset)
       .filter(key => key.startsWith('dvParam'))
@@ -69,18 +80,32 @@ class FlowContainerWrapper {
       }, {});
   }
 
+  /**
+   * Grab a URL parameter matching key
+   * 
+   * @param {string} key Url parameter  
+   * @returns 
+   */
   getUrlParameter(key) {
     return new URLSearchParams(window.location.search).get(key);
   }
 
+  /**
+   * Hide and clear the modal error
+   */
   hideModalError() {
-    let errorContainer = document.getElementById('modal-error')
+    let errorContainer = document.getElementById('modal-error');
     if (errorContainer) {
       errorContainer.classList.add('d-none');
       errorContainer.textContent = '';
     }
   }
 
+  /**
+   * Show an error message in the modal or static element
+   * 
+   * @param {string} message Error message to show in the modal
+   */
   displayError(message) {
     let errorElement;
 

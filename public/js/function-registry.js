@@ -3,6 +3,7 @@ function initFunctionRegistry() {
   window.bxi = {
     ...window.bxi,
     functionRegistry: {},
+    // Safe call registry function, console.warn if a function is not present
     callFunction: async (name, params) => {
       const fn = bxi.functionRegistry[name];
       if (fn) {
@@ -11,6 +12,8 @@ function initFunctionRegistry() {
         console.warn(`No function '${name}' was found in the bxi function registry, ensure you have registered it`)
       }
     },
+    // Register a function with console.warn if it is done incorrectly, 
+    // functions can be registered as a named function or  a string with an anonymous function
     registerFunction: (arg1, arg2) => {
       if (typeof arg1 === 'string') {
         if (typeof arg2 !== 'function') {
@@ -28,6 +31,7 @@ function initFunctionRegistry() {
         console.warn(`Invalid argument type in registerFunction, expected 'string' or 'function'`);
       }
     },
+    // Helper function to get a property from an object without caring about case
     getParameterCaseInsensitive: (obj, key) => {
       if (!obj) {
         return null;

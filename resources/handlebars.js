@@ -3,10 +3,12 @@ import fs from 'fs';
 import helpers from './helpers.js';
 
 export function initHandlebars(fastify) {
+    // Used in company vertical, turns 1 into 01, should handle double digit numbers as well!
     handlebars.registerHelper('indexBullet', (value, _) => {
-        return `0${(parseInt(value) + 1)}`;
+        return `0${(parseInt(value) + 1)}`.slice(-2);
     });
 
+    // If first value is truthy, return that otherwise return default value, used for e.g., setting default fill on icons 
     handlebars.registerHelper('valueOrDefault', (value, defaultValue) => {
         return new handlebars.SafeString(value || defaultValue);
     });
@@ -44,6 +46,10 @@ function getPartialsFromDirectory(directory, suffix = '') {
             (file.endsWith('.hbs') ? { ...acc,  [`${file.replace('.hbs', '').replace(/-./g, x => x[1].toUpperCase())}${suffix}`]: `${directory}/${file}`} : acc), {});
 }
 
+/**
+ * 
+ * @returns object containing branding partials { ['<vertical>Branding']: '<file-location>'}
+ */
 function getBrandingPartials() {
     // Generic does not have branding and is filtered out
     return helpers.getVerticals().filter(vertical => vertical !== 'generic').reduce((acc, vertical) => {
