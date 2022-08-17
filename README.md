@@ -19,15 +19,12 @@
         4. [HTML Templates for DaVinci](#templates)
         5. [Other Locations](#other-locations)
     4. [bxi-davinci.js Documentation](#bxi-davinci-js)
-        1. [Additional Information on data-dv-params](#additional-info-params)
-        2. [Examples](#bxi-davinci-examples)
+        1. [Examples](#bxi-davinci-examples)
+        2. [Additional Information on data-dv-params](#additional-info-params)
         3. [Additional Information on Callbacks](#additional-info-callbacks)
 3. [Installation](#installation)
     1. [Local Set Up](#local-set-up)
     2. [Environment](#environment)
-
-
-
 
 # Introduction<a name="introduction"></a>
 
@@ -228,10 +225,6 @@ You can manually configure html elements to load flows by applying the following
 
 **Note: Modal flows are loaded when the HTML element the attribute is included on is clicked. For best results, we recommend using a <button> element for this.**
 
-### Additional Information on data-dv-param<a name="additional-info-params">
-
-To pass parameters in the DaVinci request that is sent when the flow is loaded, use data-dv-param-<name> attributes. You can use as many of these attributes as you need on an element. The parameter name that is sent to DaVinci is inferred in a couple ways. It will remove data-dv-param- and the rest of the name will be used as the parameter name in PascalCase. To customize the parameter name (e.g., as a different casing) you can do so by adding the parameter name in front of two colons before the value. See last example below.
-
 ### Examples<a name="bxi-davinci-examples">
 **Simple Modal**
 
@@ -264,6 +257,11 @@ This example will result in parameters that are sent to DaVinci with the flow st
 }
 ```
 **Note: you may use data-dv-parms in conjunction with a data-parameter-factory callback function. The callback function is given priority over the data-dv-param attributes if any duplicate properties are encountered.**
+
+### Additional Information on data-dv-param<a name="additional-info-params">
+
+To pass parameters in the DaVinci request that is sent when the flow is loaded, use data-dv-param-<name> attributes. You can use as many of these attributes as you need on an element. The parameter name that is sent to DaVinci is inferred in a couple ways. It will remove data-dv-param- and the rest of the name will be used as the parameter name in PascalCase. To customize the parameter name (e.g., as a different casing) you can do so by adding the parameter name in front of two colons before the value. See last example below.
+
 
 ### Additional Information on Callbacks<a name="additional-info-callbacks">
 
