@@ -5,7 +5,8 @@
     3. [Note on Versioning](#versioning-note)
     4. [Note on CSS](#css-note)
     5. [Switching the Verticals](#verticals)
-    6. [Need Help?](#help)
+    6. [BXGeneric](#bxgeneric)
+    7. [Need Help?](#help)
 2. [Development](#development)
     1. [Home Pages](#home-page)
         1. [Simulate Login](#simulate-login)
@@ -72,6 +73,12 @@ If you must apply custom styles please try to scope them via specific IDs (`#ele
 ## Switching the Verticals<a name="verticals"></a>
 
 Use the gear icon in the bottom right corner to open the “shortcut” page for all the verticals. If you'd like to change the default vertical, change the `BXI_ACTIVE_VERTICAL` variable in the .env file to one of the verticals listed in [Remixing](#remixing).
+
+## BXGeneric<a name="bxgeneric"></a>
+
+[BXGeneric](https://demo.bxgeneric.org/) is now part of BXIndustry! To create a BXG remix click Remix on Glitch, and change the vertical dropdown to Generic. When Generic is chosen you will be prompted for a static policy id, this is the flow that is loaded on the main page at page load. Generic is essentially just another vertical, so it is located at <hostname>/generic, and the Log In and Sign Up buttons are the same as any other vertical in BXI.
+
+**Note: BXGeneric does not include a dashboard page at this time, so you will not be redirected anywhere after you complete registration or log in.**
 
 ## Need Help?<a name="help"></a>
 

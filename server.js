@@ -8,7 +8,6 @@ import 'dotenv/config';
 
 // NodeJS imports
 import { fileURLToPath } from 'url';
-import fs from 'fs';
 import path from 'path';
 
 // External libraries
