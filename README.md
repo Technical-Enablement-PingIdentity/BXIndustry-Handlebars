@@ -1,3 +1,7 @@
+# IMPORTANT - LINKS MAY NOT WORK AS INTENTED IN THE GLITCH INTERFACE
+For a better viewing experience open this link in a new tab:
+https://github.com/Technical-Enablement-PingIdentity/BXIndustry-Handlebars/blob/main/README.md
+
 # Table of Contents
 1. [Introduction](#introduction)
     1. [Standard Flows](#standard-flows)
@@ -20,9 +24,9 @@
         4. [HTML Templates for DaVinci](#templates)
         5. [Other Locations](#other-locations)
     4. [bxi-davinci.js Documentation](#bxi-davinci-js)
-        1. [Examples](#bxi-davinci-examples)
-        2. [Additional Information on data-dv-params](#additional-info-params)
-        3. [Additional Information on Callbacks](#additional-info-callbacks)
+        1. [Additional Information on data-dv-params](#additional-info-params)
+        2. [Additional Information on Callbacks](#additional-info-callbacks)
+        3. [Examples](#bxi-davinci-examples)
 3. [Installation](#installation)
     1. [Local Set Up](#local-set-up)
     2. [Environment](#environment)
@@ -98,13 +102,13 @@ Out of the box, there is now an option to simulate a user being logged into the 
 
 ## Dashboard Pages<a name="dashboard-page">
 
-Each vertical (except for generic) has a dashboard page located at `src/pages/<vertical>/dashboard.hbs` which is accessed in the browser via `<hostname>/<vertical>/dashboard` To enable the static Dashboard DaVinci flow for all verticals, the .env file should have a value for `BXI_DASHBOARD_POLICY_ID`, and it will be loaded on each vertical at page load. Similarly, DV Buttons are available on the dashboard page as well, these can be uncommented and customized in the `src/dashboard-buttons.hbs` file.
+Each vertical (except for generic) has a dashboard page located at `src/pages/<vertical>/dashboard.hbs` which is accessed in the browser via `<hostname>/<vertical>/dashboard`. To enable the static Dashboard DaVinci flow for all verticals, the .env file should have a value for `BXI_DASHBOARD_POLICY_ID`, and it will be loaded on each vertical at page load. Similarly, DV Buttons are available on the dashboard page as well, these can be uncommented and customized in the `src/dashboard-buttons.hbs` file.
 
-The Dashboard section in the file includes the `"username"` key, which will be displayed in the dashboard page header. By default, it will override a static username if a value contained in sessionStorage called `'bxi_username'` is present as well, this can be customized in the `public/register-function.js` file in bxi.pageLoad near the top.
+The Dashboard section in the file includes the `"username"` key, which will be displayed in the dashboard page header. By default, if there is a value contained in sessionStorage called `'bxi_username'` it will override a static username, this can be customized in the `public/register-function.js` file in `bxi.pageLoad` near the top.
 
 ### Simulate Logout<a name="simulate-logout">
 
-Currently logout redirects the user up to the current vertical home page, if you need to add any tear-down logic like clearing session data there is now a function in `public/register-functions.js` called bxi.logout where you can add customizations. Be sure to add code before the window.location.assign call or it will be ignored.
+Currently logout redirects the user to the current vertical home page, if you need to add any tear-down logic like clearing session data there is now a function in `public/register-functions.js` called `bxi.logout` where you can add customizations. Be sure to add code before the `window.location.assign` call or it will be ignored.
 
 ## Project Structure<a name="project-structure"></a>
 
@@ -112,7 +116,7 @@ Since glitch creates a copy of the BXI source code when you create a remix, when
 
 ### Global Files<a name="global-files"></a>
 
-Buttons to launch DaVinci flows are now located in `src/home-nav-buttons.hbs` and `src/dashboard-buttons.hbs` and are customized with HTML data attributes instead of through the settings.json files.
+Buttons to launch DaVinci flows are now located in `src/home-nav-buttons.hbs` and `src/dashboard-buttons.hbs` and are customized with HTML data attributes instead of through settings.json files.
 
 - `src/home-nav-buttons.hbs` - collection of buttons displayed in the top nav of each vertical, by default these are hooked up to flow policies defined in your .env file
 - `src/dashboard-buttons.hbs` - collection of buttons displayed in the top of the dashboard content section of each vertical, there are no defaults, however examples have been left commented out in the file for reference
@@ -151,8 +155,6 @@ Color and other branding options are located in `branding.hbs`.
     </style>
 ```
 
-**Note: Buttons to launch DaVinci flows are now located in `src/home-nav-buttons.hbs` and are customized with HTML data attributes instead of through the settings.json files.**
-
 ### Images/Static Content<a name="images"></a>
 
 You can add images in two ways:
@@ -179,7 +181,7 @@ If you would like to remove an image because you have rebranded, you can just se
   }
 ```
 
-**Note: there is now a data attribute to hide dialog logos as well! See bxi-davinci.js documentation for more info.**
+**Note: there is now a data attribute to hide dialog logos as well! See [bxi-davinci.js](#bxi-davinci-js) documentation for more info.**
 
 **Note: if you're [running the project locally](#installation) make sure to restart `npm start` if you add new static files, they are only picked up when the server starts.**
 
@@ -201,10 +203,10 @@ To build out your UI's manually there is a collection of all elements used in th
 Generally speaking you should not need to change files that were not previously mentioned, and shouldn't unless you know what you're doing. However for information purposes as follows is a quick description of other locations within BXI:
 
 - `public/js/*` - internal BXI JavaScript resources
-- `public/bxi-davinci.js` - internal JavaScript file wrapping DaVinci and bootstrapping [data-attributes](bxi-davinci-js)
+- `public/bxi-davinci.js` - internal JavaScript file wrapping DaVinci and bootstrapping [data-attributes](#bxi-davinci-js)
 - `resources/handlebars.js` - handlebars initialization (partials, etc), used by `server.js`
 - `resources/helpers.js` - helpers used by `server.js` if you need to whitelist additional .env variables (for availability in .hbs files or `window._env_`) you can do so near the top
-- `scss/*` - SCSS that is compiled into `public/styles.css`, each vertical has a `customizations.scss file` for vertical branding tweaks
+- `scss/*` - SCSS that is compiled into `public/styles.css`, each vertical has a `customizations.scss` file for vertical branding tweaks
 - `src/partials/*` - internal handlebars partials, if you add additional partials they will be automatically picked up on server initialization, see `resources/handlebars.js` for information on partial naming
 
 ## bxi-davinci.js Documentation<a name="bxi-davinci-js"></a>
@@ -218,26 +220,72 @@ You can manually configure html elements to load flows by applying the following
 |Attribute|Description|Default Value|Required|
 |------|------|:------:|:------:|
 |`data-dv-flow`|How your flow will be loaded on the page, value options are 'static' or 'modal'|-|Yes|
-|`data-policy-id`|Policy ID that will be used to invoke your flow (not recommended)|-|Yes (unless data-url-policy-id is used)|
-|`data-company-id`|Company ID that will be used to invoke your flow (not recommended)|BXI_COMPANY_ID from .env|
-|`data-api-key`|API Key that will be used to invoke your flow|BXI_API_KEY from .env|
-|`data-hide-logo`|If "true" the vertical logo on the resulting modal will be hidden|"false"|
+|`data-policy-id`|Policy ID that will be used to invoke your flow|-|Yes (unless `data-url-policy-id` is used)|
+|`data-company-id`|Company ID that will be used to invoke your flow|`BXI_COMPANY_ID` from .env|
+|`data-api-key`|API Key that will be used to invoke your flow (not recommended)|`BXI_API_KEY` from .env|
+|`data-hide-logo`|If "true" the vertical logo on the resulting modal will be hidden|`false`|
 |`data-url-policy-id`|If set, will look for the policy ID in a URL parameter of the same name|-|
 |`data-url-company-id`|If set, will look for the company ID in a URL parameter of the same name|-|
-|`data-url-api-key`|If set, will look for the api key in a URL parameter of the same name|-|
+|`data-url-api-key`|If set, will look for the api key in a URL parameter of the same name (not recommended)|-|
 |`data-dv-param-<name>`|These will be passed to DaVinci as parameters of the request, see more about usage below|-|
 |`data-success-callback`|Success callback that is called from the function registry when a flow returns a success response|-|
 |`data-error-callback`|Error callback that is called from the function registry when a flow returns an error response|-|
 |`data-parameter-factory`|The return object from this function will be merged with any data-dv-param attributes and sent in the parameters property of the DaVinci flow request|-|
 
-**Note: Static flows are loaded on page load, and they use the HTML element the attribute is included on as a container to display the widget. For best results, we recommend using a <div> element for this.**
+**Note: Static flows are loaded on page load, and they use the HTML element the attribute is included on as a container to display the widget. For best results, we recommend using a `<div>` element for this.**
 
-**Note: Modal flows are loaded when the HTML element the attribute is included on is clicked. For best results, we recommend using a <button> element for this.**
+**Note: Modal flows are loaded when the HTML element the attribute is included on is clicked. For best results, we recommend using a `<button>` element for this.**
+
+### Additional Information on data-dv-param<a name="additional-info-params">
+
+To pass parameters in the DaVinci request that is sent when the flow is loaded, use `data-dv-param-<name>` attributes. You can use as many of these attributes as you need on an element. The parameter name that is sent to DaVinci is inferred in a couple ways. It will remove data-dv-param- and the rest of the name will be used as the parameter name in PascalCase. To customize the parameter name (e.g., as a different casing) you can do so by adding the parameter name in front of two colons before the value. See last [example](#bxi-davinci-examples) below.
+
+### Additional Information on Callbacks<a name="additional-info-callbacks">
+
+Currently there are three places you can inject callback functions during DaVinci flow execution:
+- prior to the request being send to `davinci.js` for dynamically retrieving flow parameters
+- flow successCallback
+- flow errorCallback
+
+In order to use these, ensure you have registered a function in `public/register-functions.js` and that the value in `data-success-callback`, `data-error-callback` or `data-parameter-factory` on your flow trigger HTML control matches a function name in the registry. Asyncronous functions in the registry work as well!
+
+Technically you can register a function anywhere after `initFunctionRegistery()` is called in the `bxi-davinci.js` file, however we recommend they are added to the `public/register-functions.js` file so they are in a centralized location and are easy to port over to a new remix if we release new features you'd like to have.
+
+To register a function you must provide the function with a name, you can do that using a string value and an anonymous function, or just passing a named function
+
+```javascript
+bxi.registerFunction('callbackName', () => {...}); // Anonymous function usage
+bxi.registerFunction(function callbackName() {...}); // Named function usage
+
+// Either of these usages can also be asyncronous and will be awaited when they are used
+bxi.registerFunction('callbackName', async () => {...}); // Anonymous function usage
+bxi.registerFunction(async function callbackName() {...}); // Named function usage
+```
+
+To use a registry function add the name of the registered function (case sensative) to the appropriate data attribute on the HTML control
+
+```html
+<button data-dv-flow="modal" data-policy-id="xxx" data-success-callback="callbackName">Log In</button>
+```
+
+When using a parameter factory function, you must return an object that will be merged with any data-dv-params present on your HTML element
+
+**Note: the factory result will override data-dv-params if any duplicate properties are present**
+
+```javascript
+bxi.registerFunction(function loginParams() { 
+   return { FirstName: 'Fred', LastName: 'Tester' };
+});
+
+// HTML Usage
+// <button data-dv-flow="modal" data-policy-id="xxx" data-parameter-factory="loginParams">Log In</button>
+```
 
 ### Examples<a name="bxi-davinci-examples">
+
 **Simple Modal**
 
-This example adds a login button that launches policy id xxx and uses the API and Company IDs included in the .env file.
+This example adds a login button that launches policy id xxx and uses the API Key and Company ID included in the .env file.
 
 ```html
   <button data-dv-flow="modal" data-policy-id="xxx">Log In</button>
@@ -265,53 +313,7 @@ This example will result in parameters that are sent to DaVinci with the flow st
   "lastName": "Smith"
 }
 ```
-**Note: you may use data-dv-parms in conjunction with a data-parameter-factory callback function. The callback function is given priority over the data-dv-param attributes if any duplicate properties are encountered.**
-
-### Additional Information on data-dv-param<a name="additional-info-params">
-
-To pass parameters in the DaVinci request that is sent when the flow is loaded, use `data-dv-param-<name>` attributes. You can use as many of these attributes as you need on an element. The parameter name that is sent to DaVinci is inferred in a couple ways. It will remove data-dv-param- and the rest of the name will be used as the parameter name in PascalCase. To customize the parameter name (e.g., as a different casing) you can do so by adding the parameter name in front of two colons before the value. See last example below.
-
-
-### Additional Information on Callbacks<a name="additional-info-callbacks">
-
-Currently there are three places you can inject callback functions during DaVinci flow execution:
-- prior to the request being send to davinci.js for dynamically retrieving flow parameters
-- flow successCallback
-- flow errorCallback
-
-In order to use these, ensure you have registered a function in public/register-functions.js and that the value in data-success-callback, data-error-callback or data-parameter-factory on your flow trigger HTML control matches a function name in the registry. Asyncronous functions in the registry work as well!
-
-Technically you may register a function anywhere after initFunctionRegistery() is called in the bxi-davinci.js file, however we recommend they are added to the public/register-functions.js file so they are in a centralized location and are easy to port over to a new remix if we release new features you'd like to have.
-
-To register a function you must provide the function with a name, you can do that using a string value and an anonymous function, or just passing a named function
-
-```javscript
-bxi.registerFunction('callbackName', () => {...}); // Anonymous function usage
-bxi.registerFunction(function callbackName() {...}); // Named function usage
-
-// Either of these usages can also be asyncronous and will be awaited when they are used
-bxi.registerFunction('callbackName', async () => {...}); // Anonymous function usage
-bxi.registerFunction(async function callbackName() {...}); // Named function usage
-```
-
-To use a registry function add the name of the registered function (case sensative) to the appropriate data attribute on the HTML control
-
-```html
-<button data-dv-flow="modal" data-policy-id="xxx" data-success-callback="callbackName">Log In</button>
-```
-
-When using a parameter factory function, you must return an object that will be merged with any data-dv-params present on your HTML element
-
-**Note: the factory result will override data-dv-params if any duplicate properties are present**
-
-```javascript
-bxi.registerFunction(function loginParams() { 
-   return { FirstName: 'Fred', LastName: 'Tester' };
-});
-
-// HTML Usage
-// <button data-dv-flow="modal" data-policy-id="xxx" data-parameter-factory="loginParams">Log In</button>
-```
+**Note: you can use `data-dv-param` in conjunction with a `data-parameter-factory` callback function. The callback function is given priority over the `data-dv-param` attributes if any duplicate properties are encountered.**
 
 # Installation<a name="installation"></a>
 
@@ -355,4 +357,4 @@ BXI_GENERIC_POLICY_ID= # Only used on the generic vertical, static widget that i
 BXI_ACTIVE_VERTICAL= # vertical you will be redirected to when you hit the root page (e.g., <project-name>.glitch.me/) see Remixing section for options
 ```
 
-**Note: changing environment variables will require you to re-run `npm start` before variables are picked up by the server and propigated throughout the application**
+**Note: changing environment variables will require you to re-run `npm start` before variables are picked up by the server and propagated throughout the application**

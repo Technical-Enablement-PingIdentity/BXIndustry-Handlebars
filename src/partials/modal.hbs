@@ -3,7 +3,9 @@
     <div class="modal-content">
       <div class="modal-body">
         <div class="d-flex justify-content-center dialog-logo mb-4">
+          {{#if settings.images.dialog_logo}}
           <img src="{{ settings.images.dialog_logo }}" />
+          {{/if}}
         </div>
         <div id="modal-widgetbox"></div>
         <div id="modal-error" class="text-danger text-center d-none"></div>

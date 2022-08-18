@@ -30,6 +30,7 @@ const verticals = helpers.getVerticals();
 const fastify = Fastify({
   // Set this to true for detailed logging
   logger: false,
+  ignoreTrailingSlash: true
 });
 
 // Setup our static files (images and SCSS)
