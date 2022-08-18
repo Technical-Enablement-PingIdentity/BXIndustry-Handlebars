@@ -8,7 +8,6 @@ import 'dotenv/config';
 
 // NodeJS imports
 import { fileURLToPath } from 'url';
-import fs from 'fs';
 import path from 'path';
 
 // External libraries
@@ -31,6 +30,7 @@ const verticals = helpers.getVerticals();
 const fastify = Fastify({
   // Set this to true for detailed logging
   logger: false,
+  ignoreTrailingSlash: true
 });
 
 // Setup our static files (images and SCSS)

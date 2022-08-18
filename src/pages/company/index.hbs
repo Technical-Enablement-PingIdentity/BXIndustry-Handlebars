@@ -24,6 +24,7 @@
           <div class="d-flex flex-row mt-2 position-relative">
             {{> searchIcon class="mt-1 me-3 d-lg-block d-none" }}
             <div class="bxi-auth-buttons bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse p-2 p-lg-0">
+              {{!-- See src/home-nav-buttons.hbs to update auth buttons --}}
               {{> homeNavButtons }}
             </div>
             <div class="bxi-user-icon bxi-bg-primary" data-bs-toggle="collapse" data-bs-target=".bxi-auth-buttons">
@@ -41,7 +42,9 @@
               <h4 class="mb-4">{{settings.home_page.banner.supertitle}}</h4>
               <h1 class="bxi-cta-title mb-3 mb-lg-4">{{settings.home_page.banner.title}}</h1>
               <p class="fs-5 lh-base mb-4">{{settings.home_page.banner.subtitle}}</p>
+              {{#if settings.home_page.banner.button_text}}
               <button class="button button--md">{{settings.home_page.banner.button_text}}</button>
+              {{/if}}
             </div>
           </div>
         </div>
