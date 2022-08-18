@@ -31,25 +31,25 @@
 
 [BXIndustry](https://demo.bxgeneric.org/) is a unique demo in that it allows demo-ers to bootstrap DaVinci demonstrations! It allows demo-ers to tailor the skins to highlight a number of DaVinci flows that they have developed or will be developing. There are many different industry verticals which can be cloned and adapted on Glitch to tailor to your prospect or customer for a more personalized demo in the field. 
 
-The following verticals are available in Glitch for you to remix:
+The following verticals are available in Glitch for your to remix:
 1. [Generic](https://demo.bxgeneric.org/generic) - Formerly BXGeneric
 2. [Company](https://demo.bxgeneric.org/company)
 
-With BXIndustry, you can choose a vertical you would like to use, build your workflows and forms in DaVinci, and update the settings.json file to change page content such as text and images. HTML templates are available for different modal forms for use in DaVinci (e.g., **src/templates**).
+With BXIndustry, you can choose a vertical you would like to use, build your workflows and forms in DaVinci, and update the settings.json file to change page content such as text and images. HTML templates are available for different modal forms for use in DaVinci see [HTML Templates for DaVinci](#templates).
 
-**Note: Flows are now customized in BXI via HTML data attributes for simplicity, please see the documentation on bxi-davinci.js for more information.**
+**Note: Flows are now customized in BXI via HTML data attributes for simplicity, please see the documentation on [bxi-davinci.js](#bxi-davinci-js) for more information.**
 
 ## Standard Flows<a name="standard-flows"></a>
 
 BXIndustry now comes with standard authentication and registration flows!
 
-Registration will ask for a valid email and password. Successful completion of registration will register the user into our PingOne environment, enable MFA for the user, and enroll the provided email as an MFA device.
+Registration will ask for a valid email, password, first name and last name. Successful completion of registration will register the user into our PingOne environment, enable MFA for the user, and enroll the provided email as an MFA device.
 
-Authentication will ask for the previously registered email and password, then prompt the user to complete MFA with the enrolled PingOne MFA email device. Successful completion of authentication will land the user on the /dashboard page of the vertical they are on and display their username.
+Authentication will ask for the previously registered email and password, then prompt the user to complete MFA with the enrolled PingOne MFA email device. Successful completion of authentication will land the user on the dashboard page of the vertical they are on and display their username.
 
 ## Remixing<a name="remixing"></a>
 
-To remix BXIndustry, scroll to the bottom of the page on any vertical and click the **Remix on Glitch** button. During the remixing process, you can modify all DaVinci API values or leave them as-is to use the default settings. The values collected from this form can be found in the .env file of your Remix at later time if needed, see the [environment](#environment) section.
+To remix BXIndustry, scroll to the bottom of the page on any vertical and click the **Remix on Glitch** button. During the remixing process, you can modify all DaVinci API values or leave them as-is to use the default settings. The values collected from this form can be found in the .env file of your Remix at a later time if needed, see the [environment](#environment) section.
 
 **Note: The remix form will pre-populate the default authentication and registration flows. These values can be modified to import your own custom flows or leave them as-is to use the default settings.**
 
@@ -66,17 +66,19 @@ We recommend making as many changes in DaVinci workflows as you can because ther
 
 ## Another (IMPORTANT!!) Note on CSS<a name="css-note"></a>
 
-We recommend that you try to stick with the default templates provided in the dialog examples noted below when putting HTML in DaVinci. It is not recommended to import CSS libraries or do other extensive styling in DaVinci because those styles can bleed out of your flows to the entire BXIndustry site when a flow is loaded. Bootstrap 5.2 is now included in BXI and can be used within your flows. The default templates use bootstrap as well and should be easy to tweak as needed! See [Bootstrap documentation](https://getbootstrap.com/docs/5.2/) for more information on how to use bootstrap.
+We recommend that you try to stick with the default templates provided in the dialog examples noted [below](#templates) when putting HTML into DaVinci. It is not recommended to import CSS libraries or do other extensive styling in DaVinci because those styles can bleed out of your flows to the entire BXIndustry site when a flow is loaded. 
 
 If you must apply custom styles please try to scope them via specific IDs (`#element-id {...}`) or classes (`.element-class {...}`) to prevent your styles from affecting your site.
 
+Bootstrap 5.2 is now included in BXI and can be used within your flows. The default templates use bootstrap as well and should be easy to tweak as needed! See [Bootstrap documentation](https://getbootstrap.com/docs/5.2/) for more information on how to use bootstrap.
+
 ## Switching the Verticals<a name="verticals"></a>
 
-Use the gear icon in the bottom right corner to open the “shortcut” page for all the verticals. If you'd like to change the default vertical, change the `BXI_ACTIVE_VERTICAL` variable in the .env file to one of the verticals listed in [Remixing](#remixing).
+Use the gear icon in the bottom right corner to open the “shortcut” page for all of the verticals. If you'd like to change the default vertical, change the `BXI_ACTIVE_VERTICAL` variable in the .env file to one of the verticals listed in [remixing](#remixing).
 
 ## BXGeneric<a name="bxgeneric"></a>
 
-[BXGeneric](https://demo.bxgeneric.org/) is now part of BXIndustry! To create a BXG remix click Remix on Glitch, and change the vertical dropdown to Generic. When Generic is chosen you will be prompted for a static policy id, this is the flow that is loaded on the main page at page load. Generic is essentially just another vertical, so it is located at <hostname>/generic, and the Log In and Sign Up buttons are the same as any other vertical in BXI.
+[BXGeneric](https://demo.bxgeneric.org/) is now part of BXIndustry! To create a BXG remix click **Remix on Glitch**, and change the vertical dropdown to Generic. When Generic is chosen you will be prompted for a static policy id, this is the flow that is loaded on the page when it loads. Generic is essentially just another vertical, so it is located at `<hostname>/generic`, and the Log In and Sign Up buttons are the same as any other vertical in BXI.
 
 **Note: BXGeneric does not include a dashboard page at this time, so you will not be redirected anywhere after you complete registration or log in.**
 
@@ -88,7 +90,7 @@ Feel free to reach out to the demo team via our [Slack Channel](https://pingiden
 
 ## Home Pages<a name="home-page">
 
-Each vertical has a home page located at `src/pages/<vertical>/index.hbs` which is accessed in the browser via <hostname>/<vertical>. The home page displays Authn flows through `src/home-nav-buttons.hbs` at the top right of the page, so button customizations can be done in that file and will propagate through all verticals.
+Each vertical has a home page located at `src/pages/<vertical>/index.hbs` which is accessed in the browser via `<hostname>/<vertical>`. The home page displays Authn flows through `src/home-nav-buttons.hbs` at the top right of the page, so button customizations can be done in that file and will propagate through all verticals.
 
 ### Simulate Login<a name="simulate-login">
 
@@ -96,7 +98,7 @@ Out of the box, there is now an option to simulate a user being logged into the 
 
 ## Dashboard Pages<a name="dashboard-page">
 
-Each vertical (except for generic) has a dashboard page located at `src/pages/<vertical>/dashboard.hbs` which is accessed in the browser via <hostname>/<vertical>/dashboard To enable the static Dashboard DaVinci flow for all verticals, the .env file should have a value for `BXI_DASHBOARD_POLICY_ID`, and it will be loaded on each vertical at page load. Similarly, DV Buttons are available on the dashboard page as well, these can be uncommented and customized in the `src/dashboard-buttons.hbs` file.
+Each vertical (except for generic) has a dashboard page located at `src/pages/<vertical>/dashboard.hbs` which is accessed in the browser via `<hostname>/<vertical>/dashboard` To enable the static Dashboard DaVinci flow for all verticals, the .env file should have a value for `BXI_DASHBOARD_POLICY_ID`, and it will be loaded on each vertical at page load. Similarly, DV Buttons are available on the dashboard page as well, these can be uncommented and customized in the `src/dashboard-buttons.hbs` file.
 
 The Dashboard section in the file includes the `"username"` key, which will be displayed in the dashboard page header. By default, it will override a static username if a value contained in sessionStorage called `'bxi_username'` is present as well, this can be customized in the `public/register-function.js` file in bxi.pageLoad near the top.
 
@@ -121,8 +123,8 @@ Buttons to launch DaVinci flows are now located in `src/home-nav-buttons.hbs` an
 Each vertical contains 4 files in case you only need to focus on one vertical for your demo, these are located in `src/pages/<vertical>`:
 
 - `src/pages/<vertical>/settings.json` - Simple content changes may be made in this file
-- `src/pages/<vertical>/index.hbs` - root page of your vertical (e.g., <hostname>/company), contains home page HTML
-- `src/pages/<vertical>/dashboard.hbs` - dashboard page for your vertical (e.g., <hostname>/company/dashboard), contains dashboard HTML
+- `src/pages/<vertical>/index.hbs` - root page of your vertical (e.g., `<hostname>/company`), contains home page HTML
+- `src/pages/<vertical>/dashboard.hbs` - dashboard page for your vertical (e.g., `<hostname>/company/dashboard`), contains dashboard HTML
 - `src/pages/<vertical>/branding.hbs` - handlebars file that contains CSS variables used for branding
 
 #### Vertical Settings<a name="vertical-settings"></a>
@@ -155,7 +157,7 @@ Color and other branding options are located in `branding.hbs`.
 
 You can add images in two ways:
 - CDN URL (e.g., Glitch Assets)
-- File name (extension included) - will be delivered from internal **public/<vertical>** folder, if you'd like to add/update images, you can add them to that folder and reference them in the associated [settings.json](#vertical-settings) file.
+- File name (extension included) - will be delivered from internal `public/<vertical>` folder, if you'd like to add/update images, you can add them to that folder and reference them in the associated [settings.json](#vertical-settings) file.
 
 The `common_images` section includes basic pictures for the specific vertical (favicon and logo). These can also be full urls if you've uploaded images to Glitch Assets (or elsewhere).
 
@@ -267,7 +269,7 @@ This example will result in parameters that are sent to DaVinci with the flow st
 
 ### Additional Information on data-dv-param<a name="additional-info-params">
 
-To pass parameters in the DaVinci request that is sent when the flow is loaded, use data-dv-param-<name> attributes. You can use as many of these attributes as you need on an element. The parameter name that is sent to DaVinci is inferred in a couple ways. It will remove data-dv-param- and the rest of the name will be used as the parameter name in PascalCase. To customize the parameter name (e.g., as a different casing) you can do so by adding the parameter name in front of two colons before the value. See last example below.
+To pass parameters in the DaVinci request that is sent when the flow is loaded, use `data-dv-param-<name>` attributes. You can use as many of these attributes as you need on an element. The parameter name that is sent to DaVinci is inferred in a couple ways. It will remove data-dv-param- and the rest of the name will be used as the parameter name in PascalCase. To customize the parameter name (e.g., as a different casing) you can do so by adding the parameter name in front of two colons before the value. See last example below.
 
 
 ### Additional Information on Callbacks<a name="additional-info-callbacks">
