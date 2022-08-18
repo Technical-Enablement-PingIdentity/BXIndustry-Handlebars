@@ -41,20 +41,20 @@ fastify.register(import('@fastify/static'), {
  
 initHandlebars(fastify);
 
-/**
- * Our home page route
- *
- * Redirects to the default vertical (if set in environment variables) or falls back on company
- */
+
+// Our home page route
+// Redirects to the default vertical (if set in environment variables) or falls back on generic
 fastify.get('/', function (_, reply) {
   const defaultVertical = process.env.BXI_ACTIVE_VERTICAL;
-  reply.redirect(`/${helpers.isValidVertical(defaultVertical) ? defaultVertical : 'company'}`);
+  reply.redirect(`/${helpers.isValidVertical(defaultVertical) ? defaultVertical : 'generic'}`);
 });
 
 fastify.get('/.well-known/security.txt', function (_, reply) {
   reply.redirect(`http://www.pingidentity.com/.well-known/security.txt`);
 });
 
+// Get a dv token from the server, we do this in server.js as a security best practice so 
+// API Keys don't need to be exposed on the front-end
 fastify.get('/dvtoken', async function (request, reply) {
   // Allow for apiKey and companyId overrides to come from front end, even though it's not encouraged
   const apiKey = request?.query.apiKey || process.env.BXI_API_KEY;
@@ -66,7 +66,7 @@ fastify.get('/dvtoken', async function (request, reply) {
   const tokenRequest = {
     method: 'GET',
     headers: {
-      'X-SK-API-KEY': apiKey // Header key is case sensative in DaVinci V2
+      'X-SK-API-KEY': apiKey
     }
   };
 
@@ -87,8 +87,9 @@ fastify.get('/dvtoken', async function (request, reply) {
   });
 });
 
-fastify.get('/verticals', (_, reply) => {
-  return reply.view('src/pages/verticals.hbs', verticals.map(vertical => {
+// Set up shortcuts endpoints, shows all verticals with applicable links
+fastify.get('/shortcuts', (_, reply) => {
+  return reply.view('src/pages/shortcuts.hbs', verticals.map(vertical => {
     const settings = helpers.getSettingsFile(vertical).settings;
     return { 
       name: settings.title, 
@@ -145,6 +146,8 @@ fastify.setNotFoundHandler((_, reply) => {
   reply.redirect('/');
 });
 
+// Combine settings.json with environment parameters to be passed to handlebars templates/front-end
+// Please note .env parameters are manually whitelisted in resources/handlebars.js for security reasons
 function getViewParams(vertical) {
   let params = helpers.getSettingsFile(vertical);
   params.env = bxiEnvVars;

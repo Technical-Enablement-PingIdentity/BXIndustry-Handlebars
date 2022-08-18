@@ -3,6 +3,12 @@ import crypto from 'crypto';
 
 let verticals;
 
+/**
+ * Returns an object with all whitelisted (within this function) environment variables that can be used 
+ * in handlebars template {{env.<variable-name}} or front-end window._env_['<variable-name>']
+ * 
+ * @returns Object with environment variables in { [key]: value }
+ */
 function getBxiEnvironmentVariables() {
     const bxiEnvVars = {};
 
@@ -74,6 +80,13 @@ function importWithCacheBusting(fileLocation) {
     return import(`${fileLocation}?sha1=${fileHash.digest('base64')}`);
 }
 
+/**
+ * Get a vertical's settings.json file, if we can ever use import for this, make sure to use
+ * cache busting above or user's changes won't be picked up without restarting the server
+ * 
+ * @param {string} vertical
+ * @returns 
+ */
 function getSettingsFile(vertical) {
     const settingsFile = `./src/pages/${vertical}/settings.json`;
   

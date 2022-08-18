@@ -1,56 +1,44 @@
-# Introduction
+# Table of Contents
+1. [Introduction](#introduction)
+    1. [Standard Flows](#standard-flows)
+    2. [Remixing](#Remixing)
+    3. [Note on Versioning](#versioning-note)
+    4. [Note on CSS](#css-note)
+    5. [Switching the Verticals](#verticals)
+    6. [Need Help?](#help)
+2. [Development](#development)
+    1. [Home Pages](#home-page)
+        1. [Simulate Login](#simulate-login)
+    2. [Dashboard Pages](#dashboard-page)
+        1. [Simulate Logout](#simulate-logout)
+    3. [Project Structure](#project-structure)
+        1. [Global Files](#global-files)
+        2. [Vertical Files](#vertical-files)
+            1. [Vertical Settings](#vertical-settings)
+        3. [Images/Static Content](#images)
+        4. [HTML Templates for DaVinci](#templates)
+        5. [Other Locations](#other-locations)
+    4. [bxi-davinci.js Documentation](#bxi-davinci-js)
+        1. [Examples](#bxi-davinci-examples)
+        2. [Additional Information on data-dv-params](#additional-info-params)
+        3. [Additional Information on Callbacks](#additional-info-callbacks)
+3. [Installation](#installation)
+    1. [Local Set Up](#local-set-up)
+    2. [Environment](#environment)
 
-BXIndustry (permenant url TBD) is a unique demo in that it allows demo-ers to bootstrap DaVinci demonstrations! It allows demo-ers to tailor the skins to highlight a number of DaVinci flows that they have developed or will be developing. There are many different industry verticals which can be cloned and adapted on Glitch to tailor to your prospect or customer for a more personalized demo in the field. 
- 
+# Introduction<a name="introduction"></a>
+
+[BXIndustry](https://demo.bxgeneric.org/) is a unique demo in that it allows demo-ers to bootstrap DaVinci demonstrations! It allows demo-ers to tailor the skins to highlight a number of DaVinci flows that they have developed or will be developing. There are many different industry verticals which can be cloned and adapted on Glitch to tailor to your prospect or customer for a more personalized demo in the field. 
+
 The following verticals are available in Glitch for you to remix:
-1. [Company](<tbd>/company)
+1. [Generic](https://demo.bxgeneric.org/generic) - Formerly BXGeneric
+2. [Company](https://demo.bxgeneric.org/company)
 
-With BXIndustry, you can choose a vertical you would like to use, build your workflows and forms in DaVinci, and update the settings.json file to change page content such as text and images. HTML templates are available for different modal forms for use in DaVinci (e.g., **src/components/AuthDialogExamples**).
+With BXIndustry, you can choose a vertical you would like to use, build your workflows and forms in DaVinci, and update the settings.json file to change page content such as text and images. HTML templates are available for different modal forms for use in DaVinci (e.g., **src/templates**).
 
 **Note: Flows are now customized in BXI via HTML data attributes for simplicity, please see the documentation on bxi-davinci.js for more information.**
 
-**Note: When trying to remix in Safari or with content blockers, you may not get a new tab with your remix after you complete the remix form, if this happens you should get an error screen with a text area containing the URL for a new remix, copy/paste this into a new tab and you should be all set!**
-
-# Getting Started
-
-## Environment
-
-To start with BXIndustry, you must have the following .env variables:
-
-```sh
-BXI_API_KEY=
-BXI_API_URL=
-BXI_SDK_TOKEN_URL=
-BXI_DV_JS_URL=
-BXI_COMPANY_ID=
-BXI_LOGIN_POLICY_ID=
-BXI_REGISTRATION_POLICY_ID=
-BXI_DASHBOARD_POLICY_ID=
-BXI_ACTIVE_VERTICAL=
-BXI_REMIX_POLICY_ID=
-```
-
-**Note: changing environment variables will cause your project to restart**
-
-## Installation
-
-You can stick to just running your project in glitch if you'd like! However, you can also run the project locally. To do so, clone the repo to your computer by navigating to the glitch project, clicking Tools > Import / Export, and copying your projects Git URL. To do this you will need Git, NodeJS and a code editor installed on your laptop. The current recommended node version is 16.14.2. 
-
-If everything mentioned above is set up on your computer run the following:
-
-```sh
-git clone <git-url>
-cd <glitch-project-name>
-npm install
-npm run start
-```
-
-Once you have downloaded the repo, make sure you have an `.env` file in the root of the repo and copy the contents of the same file from the Glitch interface into that file.
-
-**Note: if you would like to push changes you make on your computer back up to Glitch you will need to follow this article**
-[Push Code to Glitch](https://glitch.happyfox.com/kb/article/85-how-do-i-push-code-that-i-created-locally-to-my-project-on-glitch/)
-
-## Standard Flows (New with v2.5)
+## Standard Flows<a name="standard-flows"></a>
 
 BXIndustry now comes with standard authentication and registration flows!
 
@@ -58,69 +46,91 @@ Registration will ask for a valid email and password. Successful completion of r
 
 Authentication will ask for the previously registered email and password, then prompt the user to complete MFA with the enrolled PingOne MFA email device. Successful completion of authentication will land the user on the /dashboard page of the vertical they are on and display their username.
 
-## Remixing
+## Remixing<a name="remixing"></a>
 
-To remix BXIndustry, scroll to the bottom of the page on any vertical and click the **Remix on Glitch** button.
-During the remixing process, you can modify all DaVinci API values or leave them as-is to use the default settings.
+To remix BXIndustry, scroll to the bottom of the page on any vertical and click the **Remix on Glitch** button. During the remixing process, you can modify all DaVinci API values or leave them as-is to use the default settings. The values collected from this form can be found in the .env file of your Remix at later time if needed, see the [environment](#environment) section.
 
 **Note: The remix form will pre-populate the default authentication and registration flows. These values can be modified to import your own custom flows or leave them as-is to use the default settings.**
 
 The default vertical should be one value from the list:
 
 - company
+- generic
 
+**Note: When trying to remix in Safari or with content blockers, you may not get a new tab with your remix after you complete the remix form, if this happens you should get an error screen with a textarea containing the URL for a new remix, copy/paste this into a new tab and you should be all set!**
 
-## An (IMPORTANT!!) Note on Versioning
+## An (IMPORTANT!!) Note on Versioning<a name="versioning-note"></a>
 
-We recommend making as many changes in DaVinci workflows as you can because there is no easy upgrade path to new BXI versions in your existing remixes when we release new features and bug fixes. Furthur customizations to BXI can typically be done in a small subset of files to make porting to new remixes easier.
+We recommend making as many changes in DaVinci workflows as you can because there is no easy upgrade path to new BXI versions in your existing remixes when we release new features and bug fixes. Furthur customizations to BXI can typically be done in a small subset of files to make porting to new remixes easy. See the [project structure](#project-structure) section for more details.
 
-Notable files for customizations include:
-- `src/pages/<vertical>/settings.json` - Simple content changes may be made in this file
-- `src/pages/<vertical>/index.hbs` - root page of your vertical (e.g. <hostname>/company), contains home page HTML and CSS variables used for branding
-- `src/pages/<vertical>/dashboard.hbs` - dashboard page for your vertical (e.g. <hostname>/company/dashboard), contains dashboard HTML and CSS variables used for branding
-- `src/pages/<vertical>/customizations.scss` - SCSS file where you can make CSS customizations beyond simple branding/content changes
-- `public/register-functions.js` - register callback functions that can be run during various stages of flow execution (see bxi-davinci.js for more information)
-- `src/home-nav-buttons.hbs` - collection of buttons displayed in the top nav of each vertical, by default these are hooked up to flow policies defined in your .env file
-- `src/dashboard-buttons.hbs` - collection of buttons displayed in the top of the dashboard content section of each vertical, there are no defaults, however examples have been left commented out in the file for reference
+## Another (IMPORTANT!!) Note on CSS<a name="css-note"></a>
 
-## Another (IMPORTANT!!) Note on CSS
-
-We recommend that you try to stick with the default templates provided in the dialog examples noted below when putting HTML
-in DaVinci. It is not recommended to import CSS libraries or do other extensive styling in DaVinci because those
-styles can bleed out of your flows to the entire BXIndustry site when a flow is loaded. 
+We recommend that you try to stick with the default templates provided in the dialog examples noted below when putting HTML in DaVinci. It is not recommended to import CSS libraries or do other extensive styling in DaVinci because those styles can bleed out of your flows to the entire BXIndustry site when a flow is loaded. Bootstrap 5.2 is now included in BXI and can be used within your flows. The default templates use bootstrap as well and should be easy to tweak as needed! See [Bootstrap documentation](https://getbootstrap.com/docs/5.2/) for more information on how to use bootstrap.
 
 If you must apply custom styles please try to scope them via specific IDs (`#element-id {...}`) or classes (`.element-class {...}`) to prevent your styles from affecting your site.
 
-**Note: bootstrap 5.2 is now used in BXIndustry! So you may use any of the css classes available in bootstrap in your flows. See the [Bootstrap Documentation](https://getbootstrap.com/docs/5.2/layout/grid/) for more information.**
+## Switching the Verticals<a name="verticals"></a>
 
-## Switching the Verticals
-**Note: not included yet**
-Use the gear icon in the bottom right corner to open the “shortcut” page for all the verticals.
+Use the gear icon in the bottom right corner to open the “shortcut” page for all the verticals. If you'd like to change the default vertical, change the `BXI_ACTIVE_VERTICAL` variable in the .env file to one of the verticals listed in [Remixing](#remixing).
 
-## HTML Templates for DaVinci
-**Note: not included yet**
-HTML templates are available for different modal forms (e.g., src/components/AuthDialogExamples).
+## Need Help?<a name="help"></a>
 
-To see the preview, add  **/dialog_examples** to the vertical url.
-For example:
-- [/manufacturing/dialog_examples][BXMde]
-- [/airlines/dialog_examples][BXAde]
-- ...
+Feel free to reach out to the demo team via our [Slack Channel](https://pingidentity.slack.com/archives/C01KH01F1MY) if you need help setting up your remix or flows. This is also a great place to stay up-to-date on demo releases and submit feedback for features or bugs.
 
+# Development<a name="development"></a>
 
-## Vertical Settings
+## Home Pages<a name="home-page">
+
+Each vertical has a home page located at `src/pages/<vertical>/index.hbs` which is accessed in the browser via <hostname>/<vertical>. The home page displays Authn flows through `src/home-nav-buttons.hbs` at the top right of the page, so button customizations can be done in that file and will propagate through all verticals.
+
+### Simulate Login<a name="simulate-login">
+
+Out of the box, there is now an option to simulate a user being logged into the dashboard after completing successful login or registration. Your Login/Registration DV flow must return a successful JSON response including an `additonalProperties.username` property in order for this to work. You can customize this in the `public/register-functions.js` file in the `defaultAuthnSuccess` function.
+
+## Dashboard Pages<a name="dashboard-page">
+
+Each vertical (except for generic) has a dashboard page located at `src/pages/<vertical>/dashboard.hbs` which is accessed in the browser via <hostname>/<vertical>/dashboard To enable the static Dashboard DaVinci flow for all verticals, the .env file should have a value for `BXI_DASHBOARD_POLICY_ID`, and it will be loaded on each vertical at page load. Similarly, DV Buttons are available on the dashboard page as well, these can be uncommented and customized in the `src/dashboard-buttons.hbs` file.
+
+The Dashboard section in the file includes the `"username"` key, which will be displayed in the dashboard page header. By default, it will override a static username if a value contained in sessionStorage called `'bxi_username'` is present as well, this can be customized in the `public/register-function.js` file in bxi.pageLoad near the top.
+
+### Simulate Logout<a name="simulate-logout">
+
+Currently logout redirects the user up to the current vertical home page, if you need to add any tear-down logic like clearing session data there is now a function in `public/register-functions.js` called bxi.logout where you can add customizations. Be sure to add code before the window.location.assign call or it will be ignored.
+
+## Project Structure<a name="project-structure"></a>
+
+Since glitch creates a copy of the BXI source code when you create a remix, when upgrading to a new version of BXI you will need to create a new remix and start from scratch. With this in mind most customizations can be made in a small subset of files.
+
+### Global Files<a name="global-files"></a>
+
+Buttons to launch DaVinci flows are now located in `src/home-nav-buttons.hbs` and `src/dashboard-buttons.hbs` and are customized with HTML data attributes instead of through the settings.json files.
+
+- `src/home-nav-buttons.hbs` - collection of buttons displayed in the top nav of each vertical, by default these are hooked up to flow policies defined in your .env file
+- `src/dashboard-buttons.hbs` - collection of buttons displayed in the top of the dashboard content section of each vertical, there are no defaults, however examples have been left commented out in the file for reference
+- `public/register-functions.js` - register callback functions that can be run during various stages of application/flow execution (see [bxi-davinci.js](#bxi-davinci-js) for more information)
+
+### Vertical Files<a name="vertical-files"></a>
+
+Each vertical contains 4 files in case you only need to focus on one vertical for your demo, these are located in `src/pages/<vertical>`:
+
+- `src/pages/<vertical>/settings.json` - Simple content changes may be made in this file
+- `src/pages/<vertical>/index.hbs` - root page of your vertical (e.g., <hostname>/company), contains home page HTML
+- `src/pages/<vertical>/dashboard.hbs` - dashboard page for your vertical (e.g., <hostname>/company/dashboard), contains dashboard HTML
+- `src/pages/<vertical>/branding.hbs` - handlebars file that contains CSS variables used for branding
+
+#### Vertical Settings<a name="vertical-settings"></a>
 
 Each vertical has an independent **settings.json** file.
 For example:
-- src/pages/airlines/settings.json
-- src/pages/education/settings.json
+- `src/pages/airlines/settings.json`
+- `src/pages/education/settings.json`
 - ...
 
 Settings files provide the ability to make quick changes for vertical text and images.
 
-`"title": "BXManufacturing"` - This is the project name which displays in the head of the page.
+`"title": "BX<vertical-name>"` - This is the project name which displays in the head of the page.
 
-Color and other branding options are now located at the top of each index/dashboard page.
+Color and other branding options are located in `branding.hbs`.
 
 ```css
     <style>
@@ -132,15 +142,15 @@ Color and other branding options are now located at the top of each index/dashbo
     </style>
 ```
 
-Buttons to launch DaVinci flows are now located in src/home-nav-buttons.hbs and are customized with HTML data attributes instead of through the settings.json files.
+**Note: Buttons to launch DaVinci flows are now located in `src/home-nav-buttons.hbs` and are customized with HTML data attributes instead of through the settings.json files.**
 
-## Images
+### Images/Static Content<a name="images"></a>
 
-You can add pictures in two ways:
-- CDN URL
-- file name (extension included) - will be delivered from internal **public/<vertical>** folder, if you'd like to add/update images, you can add them to that folder and reference them in the associated settings.json file
+You can add images in two ways:
+- CDN URL (e.g., Glitch Assets)
+- File name (extension included) - will be delivered from internal **public/<vertical>** folder, if you'd like to add/update images, you can add them to that folder and reference them in the associated [settings.json](#vertical-settings) file.
 
-The `common_images` section includes basic pictures for the specific vertical (favicon and logo).
+The `common_images` section includes basic pictures for the specific vertical (favicon and logo). These can also be full urls if you've uploaded images to Glitch Assets (or elsewhere).
 
 ```json
   "common_images": {
@@ -151,7 +161,7 @@ The `common_images` section includes basic pictures for the specific vertical (f
   },
 ```
 
-If you would like to remove an image because you have rebranded, you can just set the image property to an empty string, e.g. to remove the logo from dialogs:
+If you would like to remove an image because you have rebranded, you can just set the image property to an empty string, e.g., to remove the logo from dialogs:
 
 ```json
   "common_images": {
@@ -162,25 +172,35 @@ If you would like to remove an image because you have rebranded, you can just se
 
 **Note: there is now a data attribute to hide dialog logos as well! See bxi-davinci.js documentation for more info.**
 
-## Dashboard Page
+**Note: if you're [running the project locally](#installation) make sure to restart `npm start` if you add new static files, they are only picked up when the server starts.**
 
-To enable the static Dashboard DaVinci flow for all verticals, the .env file should have a value for BXI_DASHBOARD_POLICY_ID, and it will be loaded on each vertical at page load.
+### HTML Templates for DaVinci<a name="templates"></a>
 
-Similarly, DV Buttons are available on the dashboard page as well, these can be uncommented and customized in the src/dashboard-buttons.hbs file.
+HTML templates are available for DaVinci flows in the `src/templates` directory.
 
-The Dashboard section in the file includes the `"user_name"` key, which will be displayed in the dashboard page header. **Note: this can be set dynamically a couple different ways, continue reading for more information!**
+To preview the modals, add  **/dialog-examples** to the vertical url and click the button associated with the template you'd like to view.
 
-### Simulate logout
+For example:
+- [/manufacturing/dialog-examples](https://demo.bxgeneric.org/manufacturing/dialog-examples)
+- [/airlines/dialog-examples](https://demo.bxgeneric.org/airlines/dialog-examples)
+- ...
 
-Currently logout redirects the user up to the current vertical home page, if you need to add any tear-down logic like clearing session data there is now a function in public/register-functions.js called bxi.logout where you can add tear-down logic. Be sure to add code before the window.location.assign call or it will be ignored.
+To build out your UI's manually there is a collection of all elements used in the examples broken down in `src/templates/all-elements.hbs`. When building out your form, ensure all form elements and the submission button are wrapped in a `<form>` tag so DaVinci can pick up form submissions.
 
-## Simulate being logged in after Login or Registration
+### Other Locations<a name="other-locations"></a>
 
-There is now an option to simulate a user being logged into the dashboard after completing successful login or registration. The DV flow being used must return a successful JSON response including an additonalProperties.username property in order for this to work. Please find more information on this in the bxi-davinci.js documentation section below.
+Generally speaking you should not need to change files that were not previously mentioned, and shouldn't unless you know what you're doing. However for information purposes as follows is a quick description of other locations within BXI:
 
-## bxi-davinci.js Documentation
+- `public/js/*` - internal BXI JavaScript resources
+- `public/bxi-davinci.js` - internal JavaScript file wrapping DaVinci and bootstrapping [data-attributes](bxi-davinci-js)
+- `resources/handlebars.js` - handlebars initialization (partials, etc), used by `server.js`
+- `resources/helpers.js` - helpers used by `server.js` if you need to whitelist additional .env variables (for availability in .hbs files or `window._env_`) you can do so near the top
+- `scss/*` - SCSS that is compiled into `public/styles.css`, each vertical has a `customizations.scss file` for vertical branding tweaks
+- `src/partials/*` - internal handlebars partials, if you add additional partials they will be automatically picked up on server initialization, see `resources/handlebars.js` for information on partial naming
 
-With the new version of BXI, it is easier to further customize where and how you launch flows! Default configurations are now plain HTML in the src/home-nav-buttons.hbs and src/dashboard-buttons.hbs file. These are in a centralized location so they can be used in all verticals!
+## bxi-davinci.js Documentation<a name="bxi-davinci-js"></a>
+
+With the new version of BXI, it is easier to further customize where and how you launch flows! Default configurations are now plain HTML in the `src/home-nav-buttons.hbs` and `src/dashboard-buttons.hbs` file. These are in a centralized location so they can be used in all verticals!
 
 **Note: It is not recommended to include company id or api key in your front-end HTML or JavaScript for security reasons. Try to keep all of your flow policies in the same DaVinci Environment and Application and set the appropriate values in the .env file. That being said data attributes for overriding api key and company id are provided for edge cases.**
 
@@ -205,11 +225,7 @@ You can manually configure html elements to load flows by applying the following
 
 **Note: Modal flows are loaded when the HTML element the attribute is included on is clicked. For best results, we recommend using a <button> element for this.**
 
-### Additional Information on data-dv-param
-
-To pass parameters in the DaVinci request that is sent when the flow is loaded, use data-dv-param-<name> attributes. You can use as many of these attributes as you need on an element. The parameter name that is sent to DaVinci is inferred in a couple ways. It will remove data-dv-param- and the rest of the name will be used as the parameter name in PascalCase. To customize the parameter name (e.g. as a different casing) you can do so by adding the parameter name in front of two colons before the value. See last example below.
-
-### Examples
+### Examples<a name="bxi-davinci-examples">
 **Simple Modal**
 
 This example adds a login button that launches policy id xxx and uses the API and Company IDs included in the .env file.
@@ -242,7 +258,12 @@ This example will result in parameters that are sent to DaVinci with the flow st
 ```
 **Note: you may use data-dv-parms in conjunction with a data-parameter-factory callback function. The callback function is given priority over the data-dv-param attributes if any duplicate properties are encountered.**
 
-### Additional Information on callbacks
+### Additional Information on data-dv-param<a name="additional-info-params">
+
+To pass parameters in the DaVinci request that is sent when the flow is loaded, use data-dv-param-<name> attributes. You can use as many of these attributes as you need on an element. The parameter name that is sent to DaVinci is inferred in a couple ways. It will remove data-dv-param- and the rest of the name will be used as the parameter name in PascalCase. To customize the parameter name (e.g., as a different casing) you can do so by adding the parameter name in front of two colons before the value. See last example below.
+
+
+### Additional Information on Callbacks<a name="additional-info-callbacks">
 
 Currently there are three places you can inject callback functions during DaVinci flow execution:
 - prior to the request being send to davinci.js for dynamically retrieving flow parameters
@@ -283,136 +304,46 @@ bxi.registerFunction(function loginParams() {
 // <button data-dv-flow="modal" data-policy-id="xxx" data-parameter-factory="loginParams">Log In</button>
 ```
 
-## DV Dialogs HTML Structure for Inheriting the Main Style of the Site
-**Note: not included yet**
-To visit the dialog examples page:
-- enter https://demo.bxindustry.org/dashboard
-- click on "Dialog Examples" link
+# Installation<a name="installation"></a>
 
-Click on the "Dialog Elements" button to preview all the elements below:
-```html
-<!-- dialog header -->
-<div class="dialog-content-header dialog-content__header">
-  <h6 class="dialog-content-header__title">Dialog Header</h6>
-</div>
+BXIndustry is normally run through the glitch interface, however for heavy development it may be easier to run the project locally which is easy!
 
-<div class="dialog-container">
-  <div class="dialog-form">
+## Local Set Up<a name="local-set-up"></a>
 
-<!-- wide input -->
-    <div class="form-group dialog-form__form-group">
-      <label class="form-group__label">Input label</label>
-      <input class="form-group__input"/>
-      <p class="form-group__hint dialog-link">color marked bottom label</p>
-    </div>
+Required software:
+- Git
+- NodeJS (see `.nvmrc` at the root of the project for the currently supported version)
+- Code Editor (such as Visual Studio Code)
 
-<!-- narrow input -->
-    <div class="form-group dialog-form__form-group dialog-form__form-group--xs">
-      <label class="form-group__label">Input label</label>
-      <input class="form-group__input" type="text"/>
-    </div>
+To run your project locally, clone the repo to your computer by navigating to the glitch project, clicking Tools > Import / Export, and copying your projects Git URL to your clipboard.
 
-<!-- text block -->
-    <p class="dialog-form-message">
-      Text - no bottom space
-    </p>
-
-<!-- wide select -->
-    <div class="form-group dialog-form__form-group">
-      <label class="form-group__label">Input label</label>
-      <select class="form-group__input">
-        <option>Option1</option>
-        <option>Option2</option>
-      </select>
-    </div>
-
-<!-- narrow select -->
-    <div class="form-group dialog-form__form-group dialog-form__form-group--xs">
-      <label class="form-group__label">Input label</label>
-      <select class="form-group__input">
-        <option>Option1</option>
-        <option>Option2</option>
-      </select>
-    </div>
-
-<!-- text block with bottom space -->
-    <p class="dialog-form-message dialog-form-message--mb_5">
-      Text line<br/>
-      + bottom space
-    </p>
-
-<!-- block picker with svg icons -->
-    <div class="auth-flow-picker dialog-form__flow-picker">
-      <div class="auth-flow-item auth-flow-picker__item">
-        <div class="auth-flow-item__side">
-          <p class="auth-flow-item__title">Email me a one time passcode on:</p>
-          <p class="auth-flow-item__info">iel***@bxindustry.com</p>
-        </div>
-        <div class="auth-flow-item__side">
-          <svg fill="none" height="18" viewbox="0 0 22 18" width="22" xmlns="http://www.w3.org/2000/svg">
-            <rect height="16" rx="1" stroke-width="2" stroke="#D6DDE9" width="20" x="1" y="1"/>
-          </svg>
-        </div>
-      </div>
-      <div class="auth-flow-item auth-flow-picker__item">
-        <div class="auth-flow-item__side">
-          <p class="auth-flow-item__title">Text me a one-time passcode on:</p>
-          <p class="auth-flow-item__info">8***5678</p>
-        </div>
-        <div class="auth-flow-item__side">
-          <svg fill="none" height="25" viewbox="0 0 24 25" width="24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 10"/>
-            <circle cx="10" cy="10" r="10" fill="red"/>
-          </svg>
-        </div>
-      </div>
-    </div>
-
-<!-- submit button -->
-    <button class="dialog-form__submit-button button button--md">Submit</button>
-
-<!-- social icons login -->
-    <div class="dialog-socials dialog-form__socials-block">
-      <p class="dialog-socials__title">Or log in with:</p>
-      <ul class="socials dialog-socials__socials-list">
-        <li class="socials__item">
-          <span class="icon-button icon-button--md icon-button--outlined dialog-social dialog-social--fb">
-            <svg fill="none" height="21" viewbox="0 0 10 21" width="10" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2.1913 21H6.3913V10.4087H9.31304L9.58696 6.84783H6.3913C6.3913 6.84783 6.3913 5.47826 6.3913 4.83913C6.3913 4.01739 6.57391 3.65217 7.39565 3.65217C8.03478 3.65217 9.67826 3.65217 9.67826 3.65217V0C9.67826 0 7.30435 0 6.75652 0C3.65217 0 2.1913 1.36957 2.1913 4.01739C2.1913 6.3 2.1913 6.84783 2.1913 6.84783H0V10.4087H2.1913V21Z" fill="#000"/>
-            </svg>
-          </span>
-        </li>
-        <li class="socials__item">
-          <span class="icon-button icon-button--md icon-button--outlined dialog-social dialog-social--in">
-            <svg fill="none" height="20" viewbox="0 0 19 20" width="19" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.30002 6.40002H0.400024V19.1H4.30002V6.40002Z" fill="#000"/>
-              <path d="M2.3 4.7C3.6 4.7 4.6 3.6 4.6 2.4C4.6 1.2 3.6 0 2.3 0C1 0 0 1.1 0 2.3C0 3.5 1 4.7 2.3 4.7Z" fill="#000"/>
-              <path d="M10.6 12.4C10.6 10.6 11.4 9.50002 13 9.50002C14.4 9.50002 15.1 10.5 15.1 12.4C15.1 14.2 15.1 19.1 15.1 19.1H19C19 19.1 19 14.5 19 11C19 7.60002 17.1 5.90002 14.4 5.90002C11.7 5.90002 10.6 8.00002 10.6 8.00002V6.40002H6.79999V19.1H10.6C10.6 19.1 10.6 14.4 10.6 12.4Z" fill="#000"/>
-            </svg>
-          </span>
-        </li>
-        <li class="socials__item">
-          <span class="icon-button icon-button--md icon-button--outlined dialog-social dialog-social--apple">
-            <svg fill="none" height="20" viewbox="0 0 18 20" width="18" xmlns="http://www.w3.org/2000/svg">
-              <path d="M14.2118 19.1946C13.1143 20.2474 11.9033 20.0833 10.7491 19.5869C9.52201 19.0805 8.40019 19.0485 7.10423 19.5869C5.49035 20.2754 4.6338 20.0753 3.66183 19.1946C-1.82577 13.6104 -1.01579 5.10388 5.22103 4.78364C6.73366 4.8637 7.79271 5.61027 8.68368 5.67232C10.008 5.40611 11.2756 4.64353 12.6931 4.74361C14.3961 4.87971 15.6697 5.54422 16.5202 6.73913C13.0171 8.82071 13.8473 13.3842 17.0649 14.6652C16.421 16.3364 15.5948 17.9877 14.2098 19.2086L14.2118 19.1946ZM8.56219 4.72359C8.39817 2.24171 10.4332 0.200152 12.7741 0C13.096 2.86218 10.1416 5.00381 8.56219 4.72359Z" fill="#000"/>
-            </svg>
-          </span>
-        </li>
-      </ul>
-    </div>
-
-<!-- footer message -->
-    <div class="dialog-form__footer">
-      <p class="dialog-footer-description">
-        Footer message
-        <span class="dialog-footer-description__link">
-          Footer link
-        </span>
-      </p>
-    </div>
-  </div>
-</div>
+```sh
+git clone <git-url>
+cd <glitch-project-name>
+npm install
+# Generate .env file or copy from the glitch interface
+npm start
 ```
 
-[BXMde]: <https://bxindustry-v1.glitch.me/manufacturing/dialog_examples>
-[BXAde]: <https://bxindustry-v1.glitch.me/airlines/dialog_examples>
+Once you have downloaded the repo, make sure you have a `.env` file in the root of the repo and copy the contents of the same file from the Glitch interface into that file.
+
+**Note: if you would like to push changes you make on your computer back up to Glitch you will need to follow this article [Push Code to Glitch](https://glitch.happyfox.com/kb/article/85-how-do-i-push-code-that-i-created-locally-to-my-project-on-glitch/).**
+
+## Environment<a name="environment"></a>
+
+To start BXIndustry, you must have the following .env variables:
+
+```sh
+BXI_API_URL= # Default hostname used by davinci.js for running flows
+BXI_DV_JS_URL= # Default location where davinci.js should be loaded from, this should be the full URL
+BXI_SDK_TOKEN_URL= # Default hostname to use for retrieving a DV Token for running your flows
+BXI_API_KEY= # Default API Key used for running all flows in your Remix
+BXI_COMPANY_ID= # Default Company ID used for running all flows in your Remix
+BXI_LOGIN_POLICY_ID= # Default Policy ID used when clicking Log In link on all verticals
+BXI_REGISTRATION_POLICY_ID= # Default Policy ID used when clicking Sign Up link on all verticals
+BXI_DASHBOARD_POLICY_ID= # Policy ID used on all dashboard pages to load a static widget
+BXI_GENERIC_POLICY_ID= # Only used on the generic vertical, static widget that is loaded on page load
+BXI_ACTIVE_VERTICAL= # vertical you will be redirected to when you hit the root page (e.g., <project-name>.glitch.me/) see Remixing section for options
+```
+
+**Note: changing environment variables will require you to re-run `npm start` before variables are picked up by the server and propigated throughout the application**
