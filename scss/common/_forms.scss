@@ -6,7 +6,7 @@
 
     &:focus {
       box-shadow: none;
-      border-color: var(--primary-color);
+      border-color: var(--bxi-primary-color);
     }
   }
 
@@ -15,7 +15,7 @@
     cursor: pointer;
 
     &:hover {
-      border-color: var(--primary-color);
+      border-color: var(--bxi-primary-color);
     }
   }
 }

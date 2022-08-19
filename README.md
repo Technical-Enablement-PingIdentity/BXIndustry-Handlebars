@@ -148,8 +148,8 @@ Color and other branding options are located in `branding.hbs`.
 ```css
     <style>
       :root {
-        --primary-color: #A71E23;
-        --secondary-color: #280A04;
+        --bxi-primary-color: #A71E23;
+        --bxi-secondary-color: #280A04;
         ...
       }
     </style>
