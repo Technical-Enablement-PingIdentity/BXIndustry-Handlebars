@@ -1,7 +1,7 @@
 @import '../common/mixins';
 
 .company {
-  font-family: var(--main-font);
+  font-family: var(--bxi-main-font);
   font-weight: 400;
 
   @include breakpoint-lg {
@@ -131,7 +131,7 @@
       }
 
       .button {
-        background: var(--primary-color);
+        background: var(--bxi-primary-color);
       }
     }
   }
