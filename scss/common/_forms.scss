@@ -13,6 +13,7 @@
   .bxi-radio {
     border: 1px solid #D6DDE9;
     cursor: pointer;
+    background: none;
 
     &:hover {
       border-color: var(--bxi-primary-color);
