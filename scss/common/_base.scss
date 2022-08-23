@@ -1,0 +1,18 @@
+// Make the footer stick to the bottom or below content
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  footer {
+    margin-top: auto;
+  }
+}
+
+input,textarea,button{
+  outline: none;
+}
+
+.input-error-msg, .required-field {
+    color: #dc3545;;
+}

@@ -1,0 +1,46 @@
+@import "./mixins";
+
+.bxi-user-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  @include breakpoint-lg {
+    display: none;
+  }
+}
+
+.dashboard .bxi-user-icon {
+  display: flex;
+}
+
+.bxi-auth-buttons {
+  .button--nav-link:not(:last-child) {
+    margin-right: 1rem;
+  }
+}
+
+@include breakpoint-lt-lg {
+  // Make the collapsible nav menu float (rather than push page down)
+  .bxi-navbar {
+    position: absolute;
+    top: 60px;
+    min-width: 250px;
+  }
+
+  .bxi-auth-buttons {
+    position: absolute;
+    top: 40px;
+    min-width: 100px;
+    right: 0;
+    padding: .5rem .5rem 0 .5rem;
+
+    .button--link {
+      margin-bottom: .5rem;
+    }
+  }
+}

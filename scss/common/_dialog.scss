@@ -1,0 +1,29 @@
+@import "./mixins";
+
+.dialog {
+  padding: 30px 0;
+
+  &.modal .modal-dialog {
+    max-width: 735px;
+  }
+
+  .card {
+    border: none;
+  }
+
+  &-logo {
+    img {
+      max-width: 150px;
+    }
+  }
+
+  .dialog-header {
+    font-size: 42px;
+    color: #182237;
+  }
+
+  .dialog-container {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
