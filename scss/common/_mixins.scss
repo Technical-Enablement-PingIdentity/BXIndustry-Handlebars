@@ -58,18 +58,17 @@ $breakpoints: (
     }
 }
 
-/** 
-Used to create a triangle, typically included in 
-::before or ::after, pass positioning in through @content
 
-Valid options for $direction are up, down, left or right
-
-Usage example:
-@include triangle (5px, #000, "down") {
-    top: 1rem;
-    left: .5rem;
-}
-*/
+// Used to create a triangle, typically included in 
+// ::before or ::after, pass positioning in through @content
+//
+// Valid options for $direction are up, down, left or right
+//
+// Usage example:
+// @include triangle (5px, #000, "down") {
+//     top: 1rem;
+//     left: .5rem;
+// }
 @mixin triangle($size, $color, $direction) {
     clear: both;
     content: "";
