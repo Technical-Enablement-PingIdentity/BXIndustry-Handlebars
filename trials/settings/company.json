@@ -1,0 +1,41 @@
+{
+  "settings": {
+    "images": {
+      "favicon": "favicon.ico",
+      "apple_touch_icon": "apple-touch-icon.png",
+      "logo": "logo.png",
+      "dialog_logo": "auth-dialog-logo.png"
+    },
+    "home_page": {
+      "banner": {
+        "background_image": "banner.png",
+        "button_text": "Get Started",
+        "video_tiles": [
+          "video-tile-1.png",
+          "video-tile-2.png",
+          "video-tile-3.png"
+        ] 
+      },
+      "main_content": {
+        "image": "laptop.png"
+      }
+    },
+    "dashboard": {
+      "large_chart": "line-chart.png",
+      "large_chart_mobile": "line-chart-mobile.png",
+      "small_charts": [
+        "pie-chart.png",
+        "bar-chart.png"
+      ],
+      "videos": {
+        "title": "Preview conference video",
+        "video_tiles": [
+          "dashboard-video-tile-1.png",
+          "dashboard-video-tile-2.png",
+          "dashboard-video-tile-3.png",
+          "dashboard-video-tile-4.png"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "bxindustry-trials",
+  "version": "1.0.0",
+  "description": "Node application to generate static bxindustry code for use in trials",
+  "main": "compile.js",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "build": "node compile.js --bxiRepoPath '../' --outputPath './dist'"
+  },
+  "devDependencies": {
+    "bootstrap": "~5.2.0",
+    "deepmerge": "^4.2.2",
+    "handlebars": "^4.7.7",
+    "minimist": "^1.2.6",
+    "sass": "^1.54.6"
+  }
+}
