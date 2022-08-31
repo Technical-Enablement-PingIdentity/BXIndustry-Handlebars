@@ -120,7 +120,8 @@ a.button, .button--link {
   }
 }
 
-.button--nav-link {
+.button--nav-link,
+.nav-link.button--nav-link {
   padding: 0;
   background: transparent;
   color: var(--nav-link-button-color);

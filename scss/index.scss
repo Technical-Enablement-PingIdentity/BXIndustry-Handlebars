@@ -5,6 +5,7 @@ body.bxi {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  margin: 0;
 
   footer {
     margin-top: auto;
@@ -23,6 +24,3 @@ body.bxi {
   @import "./generic/customizations";
   @import "./company/customizations";
 }
-
-
-

@@ -39,7 +39,9 @@
     right: 0;
     padding: .5rem .5rem 0 .5rem;
 
-    .button--link {
+    .button--nav-link {
+      white-space: nowrap;
+      display: block;
       margin-bottom: .5rem;
     }
   }
