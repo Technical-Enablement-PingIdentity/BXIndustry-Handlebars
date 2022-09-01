@@ -20,7 +20,7 @@ Before porting all verticals into BXIndustry-Handlebars is complete, it will lik
 
 ## Settings overrides
 
-Hopefully, any overrides necessary to generate the static HTML files for trials can be done through a `<vertical>.json` file in the `settings` folder. This JSON file is merged on top of the default vertical `settings.json` file from the bxi repo during Handlebars compilation, so CTA buttons can be cleared, image locations can be modified and any other necessesary changes can be made. **Note: arrays in these settings override files will completely override arrays in the bxi settings.json file, they won't be concatinated**
+Hopefully, any overrides necessary to generate the static HTML files for trials can be done through a `<vertical>.json` file in the `settings` folder. This JSON file is merged on top of the default vertical `settings.json` file from the bxi repo during Handlebars compilation, so CTA buttons can be cleared, image locations can be modified and any other necessesary changes can be made. **Note: arrays in these settings override files will completely override arrays in the bxi settings.json file, they won't be concatinated.**
 
 ## DaVinci buttons
 
@@ -28,10 +28,10 @@ Trials has different default buttons than bxi, these are located in this folder 
 
 ## Advanced usage
 
-Should it become necessary in the future to customize the BXIndustry-Handlebars repo location or the distributable output location, you can change those locations in the `package.json` file or just run the `compile.js` file manually. Syntax would be `node compile.js --bxiRepoPath '<bxi-repo-location>' --outputPath './<output-dir>'`
+Should it become necessary in the future to customize the BXIndustry-Handlebars repo location or the distributable output location, you can change those locations in the `package.json` file in the build script or just run the `compile.js` file manually. Syntax would be `node compile.js --bxiRepoPath '<bxi-repo-location>' --outputPath './<output-dir>'`.
 
 ## Other notes
 
-This folder has a couple js import dependencies on the base bxi repo, see `js/handlebars.js`. Basically it uses shared functions with bxi to set up icon partials and necessary helpers, keep the logic for those registrations in one place.
+This folder has a couple js import dependencies on the base bxi repo, see `js/handlebars.js`. Basically it uses shared functions with bxi to set up icon partials and necessary helpers, keeping the logic for those registrations in one place.
 
 Most of the information necessary for which verticals need to be compiled is gleaned from the directories in `src/pages` (minus generic). This should allow everything to just work when we add new verticals aside from `settings.json` overrides mentioned previously.
