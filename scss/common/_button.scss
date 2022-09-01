@@ -1,166 +1,165 @@
-.bxi {
-  .button {
-    padding: 6px 27px;
-    font-weight: 500;
-    font-size: 12px;
-    border: none;
-    background: var(--primary-button-background);
-    color: #fff;
-    cursor: pointer;
-    text-transform: uppercase;
+.button {
+  padding: 6px 27px;
+  font-weight: 500;
+  font-size: 12px;
+  border: none;
+  background: var(--primary-button-background);
+  color: #fff;
+  cursor: pointer;
+  text-transform: uppercase;
+
+  &:hover {
+    background: var(--primary-button-background-hover);
+  }
+}
+
+a.button, .button--link {
+  text-transform: none;
+  text-decoration: none;
+}
+
+.button--link:hover {
+  color: var(--bxi-primary-color);
+}
+
+.button--md {
+  padding: 13px 26px;
+  font-size: 14px;
+}
+
+.button--lg {
+  padding: 15px 27px;
+}
+
+.button--icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+
+  svg {
+    position: absolute;
+  }
+}
+
+.button--submit {
+  min-width: 300px;
+}
+
+.button--outline {
+  background: transparent;
+  border: 1px solid var(--outline-button-color);
+  color: var(--outline-button-color);
+
+  &:hover {
+    background: var(--outline-button-hover-color);
+    border-color: var(--outline-button-hover-color);
+  }
+
+  &.button--facebook {
+    border-color: #275FAB;
+
+    svg path {
+      fill: #275FAB;
+    }
 
     &:hover {
-      background: var(--primary-button-background-hover);
-    }
-  }
-
-  a.button, .button--link {
-    text-transform: none;
-    text-decoration: none;
-  }
-
-  .button--link:hover {
-    color: var(--bxi-primary-color);
-  }
-
-  .button--md {
-    padding: 13px 26px;
-    font-size: 14px;
-  }
-
-  .button--lg {
-    padding: 15px 27px;
-  }
-
-  .button--icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    width: 50px;
-    height: 50px;
-    padding: 0;
-
-    svg {
-      position: absolute;
-    }
-  }
-
-  .button--submit {
-    min-width: 300px;
-  }
-
-  .button--outline {
-    background: transparent;
-    border: 1px solid var(--outline-button-color);
-    color: var(--outline-button-color);
-
-    &:hover {
-      background: var(--outline-button-hover-color);
-      border-color: var(--outline-button-hover-color);
-    }
-
-    &.button--facebook {
-      border-color: #275FAB;
+      background-color: #275FAB;
 
       svg path {
-        fill: #275FAB;
-      }
-
-      &:hover {
-        background-color: #275FAB;
-
-        svg path {
-          fill: #fff;
-        }
+        fill: #fff;
       }
     }
+  }
 
-    &.button--linkedin {
-      border-color: #0C61B8;
+  &.button--linkedin {
+    border-color: #0C61B8;
+
+    svg path {
+      fill: #0C61B8;
+    }
+
+    &:hover {
+      background-color: #0C61B8;
 
       svg path {
-        fill: #0C61B8;
-      }
-
-      &:hover {
-        background-color: #0C61B8;
-
-        svg path {
-          fill: #fff;
-        }
+        fill: #fff;
       }
     }
+  }
 
-    &.button--apple {
-      border-color: #050708;
+  &.button--apple {
+    border-color: #050708;
+
+    svg path {
+      fill: #050708;
+    }
+
+    &:hover {
+      background-color: #050708;
 
       svg path {
-        fill: #050708;
-      }
-
-      &:hover {
-        background-color: #050708;
-
-        svg path {
-          fill: #fff;
-        }
+        fill: #fff;
       }
     }
   }
+}
 
-  .button--link {
-    padding: 0;
-    font-size: 16px;
+.button--link {
+  padding: 0;
+  font-size: 16px;
+  background: transparent;
+  color: var(--link-button-color);
+
+  &:hover {
+    color: var(--link-button-hover-color);
     background: transparent;
-    color: var(--link-button-color);
-
-    &:hover {
-      color: var(--link-button-hover-color);
-      background: transparent;
-    }
   }
+}
 
-  .button--nav-link {
-    padding: 0;
+.button--nav-link,
+.nav-link.button--nav-link {
+  padding: 0;
+  background: transparent;
+  color: var(--nav-link-button-color);
+  font-size: 14px;
+
+  &:hover {
+    color: var(--nav-link-button-hover-color);
     background: transparent;
-    color: var(--nav-link-button-color);
-    font-size: 14px;
+  }
+}
 
-    &:hover {
-      color: var(--nav-link-button-hover-color);
-      background: transparent;
-    }
+.floating-button {
+  position: fixed;
+  display: inline-block;
+  background: #fff;
+  height: 33px;
+  bottom: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+
+  &:hover {
+    box-shadow: 0px 0px 10px 0px rgba(34, 60, 80, 0.4);
   }
 
-  .floating-button {
-    position: fixed;
-    display: inline-block;
-    background: #fff;
-    height: 33px;
-    bottom: 1.5rem;
-    cursor: pointer;
-    box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
-
-    &:hover {
-      box-shadow: 0px 0px 10px 0px rgba(34, 60, 80, 0.4);
-    }
-
-    &:active {
-      bottom: calc(1.5rem - 1px);
-    }
+  &:active {
+    bottom: calc(1.5rem - 1px);
   }
+}
 
-  .verticals-link {
-    right: -2px;
-    border-top-left-radius: 6px;
-    border-bottom-left-radius: 6px;
-    width: 33px;
-    border: 2px solid black;
-  }
+.verticals-link {
+  right: -2px;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  width: 33px;
+  border: 2px solid black;
+}
 
-  .glitch-button {
-    right: 3rem;
-    border-radius: 6px;
-  }
+.glitch-button {
+  right: 3rem;
+  border-radius: 6px;
 }

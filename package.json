@@ -1,5 +1,5 @@
 {
-  "name": "glitch-hello-node",
+  "name": "bxindustry-handlebars",
   "version": "0.1.0",
   "type": "module",
   "description": "A simple Node app built on fastify, instantly up and running. Built to be remixed on Glitch.com.",

@@ -23,7 +23,7 @@
           </div>
           <div class="d-flex flex-row mt-2 position-relative">
             {{> searchIcon class="mt-1 me-3 d-lg-block d-none" }}
-            <div class="bxi-auth-buttons bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse p-2 p-lg-0">
+            <div class="bxi-auth-buttons bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse p-2 pb-0 p-lg-0">
               {{!-- See src/home-nav-buttons.hbs to update auth buttons --}}
               {{> homeNavButtons }}
             </div>
@@ -34,8 +34,8 @@
         </div>
       </nav>
     </header>
-    <section class="banner bxi-bg-secondary">
-      <div class="banner__image bxi-bg-image" style="background-image: url('{{settings.home_page.banner.background_image}}')">
+    <section class="bxi-banner bxi-bg-secondary">
+      <div class="bxi-banner__image bxi-bg-image" style="background-image: url('{{settings.home_page.banner.background_image}}')">
         <div class="d-flex align-items-center h-100">
           <div class="container w-100">
             <div class="my-5">

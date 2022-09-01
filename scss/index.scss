@@ -1,11 +1,26 @@
-@import "./common/base";
-@import "./common/button";
-@import "./common/dialog";
 @import "./common/fonts";
-@import "./common/forms";
-@import "./common/mixins";
-@import "./common/navbar";
-@import "./common/utilities";
 
-@import "./generic/customizations";
-@import "./company/customizations";
+body.bxi {
+  // Make the footer stick to the bottom or below content
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+
+  footer {
+    margin-top: auto;
+  }
+}
+
+.bxi {
+  @import "./common/base";
+  @import "./common/button";
+  @import "./common/dialog";
+  @import "./common/forms";
+  @import "./common/mixins";
+  @import "./common/navbar";
+  @import "./common/utilities";
+
+  @import "./generic/customizations";
+  @import "./company/customizations";
+}

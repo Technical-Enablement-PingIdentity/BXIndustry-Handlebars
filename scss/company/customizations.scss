@@ -1,6 +1,6 @@
 @import '../common/mixins';
 
-.company {
+&.company {
   font-family: var(--bxi-main-font);
   font-weight: 400;
 
@@ -20,9 +20,9 @@
     }
   }
 
-  .banner {
-    margin-top: -4rem;
-    color: var(--banner-text-color);
+  .bxi-banner {
+    margin-top: -4.5rem;
+    color: var(--bxi-banner-text-color);
 
     &__image {
       height: 600px;

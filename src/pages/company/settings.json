@@ -14,7 +14,7 @@
     },
     "home_page": {
       "banner": {
-        "background_image": "company/banner.png",
+        "background_image": "/company/banner.png",
         "supertitle": "Our Mission",
         "title": "We are the complete solution for your company",
         "subtitle": "We invest a tremendous amount of resources to ensure that our clients are becoming the greatest companies",
@@ -28,7 +28,7 @@
       "main_content": {
         "title": "Work Process",
         "description": "The first conversation you ever have with a strategic business partner should not be about technology. It should be about your business, vision, workflow and the opportunities that exist to help you grow.",
-        "image": "company/laptop.png",
+        "image": "/company/laptop.png",
         "steps": [
           "Let's learn about each other. We want to learn about your vision, needs and workflow",
           "We focus on outcome and nothing more. It's time to have a real discussion about lifeline's process",
