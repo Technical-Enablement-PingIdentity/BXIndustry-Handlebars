@@ -41,7 +41,6 @@ fastify.register(import('@fastify/static'), {
  
 initHandlebars(fastify);
 
-
 // Our home page route
 // Redirects to the default vertical (if set in environment variables) or falls back on generic
 fastify.get('/', function (_, reply) {

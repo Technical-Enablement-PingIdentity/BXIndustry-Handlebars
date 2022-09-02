@@ -1,8 +1,9 @@
 @import '../common/mixins';
 
 &.company {
-  font-family: var(--bxi-main-font);
-  font-weight: 400;
+  * {
+    font-family: var(--bxi-main-font);
+  }
 
   @include breakpoint-lg {
     .bxi-auth-buttons {
@@ -26,6 +27,10 @@
 
     &__image {
       height: 600px;
+    }
+
+    &__text {
+      color: var(--bxi-banner-text-color);
     }
   }
 
