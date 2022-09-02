@@ -1,19 +1,6 @@
 @import "./common/fonts";
 
-body.bxi {
-  // Make the footer stick to the bottom or below content
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-
-  footer {
-    margin-top: auto;
-  }
-}
-
 .bxi {
-
   // Resets for ui-library_style.css (trials)
   .button {
     all: revert;
@@ -24,6 +11,16 @@ body.bxi {
     color: inherit;
   }
   // End resets
+
+  // Make the footer stick to the bottom or below content
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+
+  footer {
+    margin-top: auto;
+  }
 
   @import "./common/base";
   @import "./common/button";
