@@ -13,6 +13,18 @@ body.bxi {
 }
 
 .bxi {
+
+  // Resets for ui-library_style.css (trials)
+  button, .button {
+    all: revert;
+    box-sizing: border-box;
+  }
+
+  * {
+    color: black;
+  }
+  // End resets
+
   @import "./common/base";
   @import "./common/button";
   @import "./common/dialog";
