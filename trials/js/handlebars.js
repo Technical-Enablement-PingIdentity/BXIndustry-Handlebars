@@ -3,6 +3,7 @@ import path from 'path';
 import Handlebars from 'handlebars';
 import deepmerge from 'deepmerge';
 import { getPartialsFromDirectory, initHandlebarsHelpers } from '../../resources/handlebars.js';
+import { htmlManipulations } from '../html-manipulations.js';
 
 export function compileHandlebars(verticals, bxiRepoPath, destinationFolder) {
   console.info('Compiling handlebars templates...');
@@ -31,8 +32,8 @@ export function compileHandlebars(verticals, bxiRepoPath, destinationFolder) {
     let dashboardCompiled = dashboardTemplate(viewData);
 
     // No function registry in trials, so preventing js errors from these calls
-    indexCompiled = indexCompiled.replace('onload="bxi.pageLoad()" ', '');
-    dashboardCompiled = dashboardCompiled.replace('onload="bxi.pageLoad()" ', '');
+    indexCompiled = htmlManipulations(indexCompiled); //.replace('onload="bxi.pageLoad()" ', '');
+    dashboardCompiled = htmlManipulations(dashboardCompiled); //.replace('onload="bxi.pageLoad()" ', '');
 
     const indexFile = `${destinationFolder}/${vertical}/index.html`;
     fs.writeFileSync(indexFile, indexCompiled);

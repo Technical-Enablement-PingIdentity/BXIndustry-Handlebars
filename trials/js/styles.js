@@ -9,7 +9,7 @@ export function compileStyles(bxiRepoBasePath, destinationFolder) {
   const compiledAppCss = sass.compile(path.join(bxiRepoBasePath, 'scss/index.scss'), { style: 'compressed' });
   console.info('Compiled app scss');
 
-  const compiledBootsrap = sass.compile('./scoped-bootstrap.scss', { style: 'compressed' });
+  const compiledBootsrap = sass.compile('./trials-overrides.scss', { style: 'compressed' });
   console.info('Compiled scoped bootstrap scss');
 
   // Compiled bxi css and bootstrap are added to the same file
