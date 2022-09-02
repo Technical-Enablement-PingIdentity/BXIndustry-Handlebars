@@ -15,13 +15,13 @@ body.bxi {
 .bxi {
 
   // Resets for ui-library_style.css (trials)
-  button, .button {
+  .button {
     all: revert;
     box-sizing: border-box;
   }
 
   * {
-    color: black;
+    color: inherit;
   }
   // End resets
 
