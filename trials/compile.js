@@ -41,9 +41,5 @@ compileHandlebars(verticals, bxiRepoBasePath, destinationFolder);
 
 // Move stuff around into the structure we need to push to Gitlab e.g., bx<bxvertical>App/<vertical>/
 verticals.forEach(vertical => {
-  const newDir = `${destinationFolder}/bx${vertical}App`;
-
-  fs.mkdirSync(newDir);
-  fs.renameSync(`${destinationFolder}/${vertical}/styles.css`, `${newDir}/styles.css`);
-  fs.renameSync(`${destinationFolder}/${vertical}`, `${newDir}/${vertical}`);
+  fs.renameSync(`${destinationFolder}/${vertical}`, `${destinationFolder}/bx${vertical}App`);
 });

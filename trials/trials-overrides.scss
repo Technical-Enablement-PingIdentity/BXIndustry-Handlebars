@@ -4,10 +4,4 @@
 
   // As little as possible should be added to this file, try to resolve P1 style issues in the main bxi repo where possible
   // for better maintainability, inline images are not supported in P1, so those MUST be included here in order to work.
-
-  &.company {
-    .bxi-banner__image {
-      background-image: url('./company/banner.png');
-    }
-  }
 }
