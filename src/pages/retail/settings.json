@@ -13,25 +13,20 @@
       }
     },
     "home_page": {
-      "jumbotron": {
-        "left": {
-          "title": "Electronics Sale",
-          "description": "Major savings on favorite brands",
-          "button": "Browse Deals",
-          "image": "home-hero-electronics-bg.jpg"
-        },
-        "right": {
-          "title": "Shop Manolo Blahniks",
-          "subtitle": "Jimmy Choo, Gucci, Miu Miu and more",
-          "description": "Swap something new for the season",
-          "button": "What's New",
-          "image": "/retail/home-hero-office-bg.png"
-        }
+      "sale_tile": {
+        "title": "Electronics Sale",
+        "description": "Major savings on favorite brands",
+        "button": "Browse Deals",
+        "image": "/retail/home-hero-electronics-bg.jpg"
+      },
+      "shop_tile": {
+        "title": "Shop Manolo Blahniks",
+        "subtitle": "Jimmy Choo, Gucci, Miu Miu and more",
+        "description": "Swap something new for the season",
+        "button": "What's New",
+        "image": "/retail/home-hero-office-bg.png"
       },
       "banner": {
-        "style": {
-          "backgroundColor": "#f9c646"
-        },
         "text": "Shop at our Extraordinary Club Partners",
         "logos": [
           "/retail/logo-bxclothes.svg",
@@ -41,58 +36,102 @@
         ]
       },
       "features_section": {
-        "links": { },
         "items": [
           {
             "title": "The BXRetail App",
             "description": "Shop, browse and manage your account.",
             "link": "Coming Soon",
-            "image": "home-features-app.png"
+            "image": "/retail/home-features-app.png"
           },
           {
             "title": "Join the Extraordinary Club",
             "description": "Exclusive savings and services across all our BXRetail partners.",
             "link": "Meet Our People",
-            "image": "home-features-club.png"
+            "image": "/retail/home-features-club.png"
           },
           {
             "title": "We Install Anything",
             "description": "Choose professional partner services for any product we sell.",
             "link": "Learn More",
-            "image": "home-features-service.png"
+            "image": "/retail/home-features-service.png"
           }
         ]
       }
     },
     "dashboard": {
       "username": "",
-      "title": "Latest Activity",
-      "filter_header": "Filters",
-      "filters": [
-        "All client",
-        "International contract",
-        "Month"
-      ],
-      "filter_button": "Search",
-      "large_chart": "/company/line-chart.png",
-      "large_chart_mobile": "/company/line-chart-mobile.png",
-      "small_charts": [
-        "/company/pie-chart.png",
-        "/company/bar-chart.png"
-      ],
-      "components_section": {
-        "icon": "+",
-        "title": "No components created yet",
-        "subtitle": "To create your first component simply click on the button",
-        "button": "Add component"
+      "welcome": "Welcome",
+      "sidebar": {
+        "links": [
+          "Clothing",
+          "Home Decor",
+          "Entertainment",
+          "Electronics",
+          "Personal Care & Pharmacy",
+          "Accessories"
+        ],
+        "text": "Shop at our Extraordinary Club Partners",
+        "logos": [
+          "logo-bxclothes.svg",
+          "logo-bxhome.svg",
+          "logo-bxoffice.svg",
+          "logo-bxtech.svg"
+        ]
       },
-      "videos": {
-        "title": "Preview conference video",
-        "video_tiles": [
-          "/company/dashboard-video-tile-1.png",
-          "/company/dashboard-video-tile-2.png",
-          "/company/dashboard-video-tile-3.png",
-          "/company/dashboard-video-tile-4.png"
+      "portal": {
+        "title": "Electronics",
+        "dropdown_placeholder": "See Other Electronics",
+        "products": [
+          {
+            "badge": "Best Value",
+            "image": "bxmanufacturing-clera.jpg",
+            "rating_image": "stars-4.svg",
+            "title": "BXManufacturing Clera 65\" 4K UHD LED TV",
+            "price": "$1,270.00",
+            "price_subtext": "(excl. tax)",
+            "delivery_options": [ "2-day Delivery", "Free pickup" ]
+          },
+          {
+            "image": "streamstick.jpg",
+            "rating_image": "stars-5.svg",
+            "title": "Streamstick Video Streaming Player with 4K, Full HD",
+            "price": "$99.99",
+            "price_subtext": "(excl. tax)",
+            "delivery_options": [ "2-day Delivery", "Free pickup" ]
+          },
+          {
+            "image": "adventex.jpg",
+            "rating_image": "stars-5.svg",
+            "title": "Adventex 27\" LED PC Monitor with HDMI",
+            "price": "$253.00",
+            "price_subtext": "(excl. tax)",
+            "delivery_options": [ "2-day Delivery", "Free pickup" ]
+          },
+          {
+            "image": "touchpad.jpg",
+            "rating_image": "stars-5.svg",
+            "title": "TouchPad 16-inch tablet with cellular, WiFi, 64GB storage",
+            "price": "$256.99",
+            "price_subtext": "(excl. tax)",
+            "delivery_options": [ "2-day Delivery", "Free pickup" ]
+          },
+          {
+            "image": "bxmanufacturing-silva.jpg",
+            "rating_image": "stars-5.svg",
+            "title": "BXManufacturing Silva Laptop",
+            "price": "$959.99",
+            "price_subtext": "(excl. tax)",
+            "delivery_options": [ "2-day Delivery", "Free pickup" ]
+          },
+          {
+            "badge": "Best Value",
+            "rating_image": "stars-4.svg",
+            "image": "widera.jpg",
+            "title": "Widera Tri-Band Mesh WiFi Router",
+            "price": "$152.99",
+            "price_subtext": "(excl. tax)",
+            "delivery_options": [ "2-day Delivery", "Free pickup" ]
+          }
         ]
       }
     },

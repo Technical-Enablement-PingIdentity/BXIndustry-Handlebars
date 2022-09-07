@@ -8,11 +8,54 @@
 
   .button {
     font-size: 16px;
+    border-radius: .5rem;
+
+    &--icon {
+      border-radius: 50%;
+    }
   }
 
   @include breakpoint-lg {
     .bxi-auth-buttons {
       border-left: 1px solid #fff;
+    }
+  }
+
+  .shop-tile, 
+  .sale-tile {
+    height: 470px;
+  }
+
+  .sale-tile {
+    background: 100% 100% no-repeat;
+    background-size: 110%;
+  }
+
+  .shop-tile {
+    &__overlay {
+      margin: 5rem -1rem 0 3rem;
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+  }
+
+  .feature-title {
+    background-color: rgba(255, 255, 255, 0.8);
+    bottom: -.5rem;
+  }
+
+  .bxi-banner {
+    background-color: var(--bxi-banner-bg-color);
+
+    img {
+      height: 30px;
+    }
+  }
+
+  &.dashboard {
+    background-color: var(--bxi-portal-bg-color);
+
+    .welcome-banner {
+      background-color: var(--bxi-welcome-bg-color);
     }
   }
 }
