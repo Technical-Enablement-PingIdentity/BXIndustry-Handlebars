@@ -22,6 +22,10 @@ Before porting all verticals into BXIndustry-Handlebars is complete, it will lik
 
 Hopefully, any overrides necessary to generate the static HTML files for trials can be done through a `<vertical>.json` file in the `settings` folder. This JSON file is merged on top of the default vertical `settings.json` file from the bxi repo during Handlebars compilation, so CTA buttons can be cleared, image locations can be modified and any other necessesary changes can be made. **Note: arrays in these settings override files will completely override arrays in the bxi settings.json file, they won't be concatinated.**
 
+## SCSS overrides
+
+Generally speaking we should be keeping as much styling as possible in the main BXI repository. However background-images MUST be in CSS and need to be vertical specific to prevent bundles from blowing up on the P1 side. This could technically be used later on if tweaks in BXI to get around ui-library are getting out of hand, but at this time it's not recommended.
+
 ## DaVinci buttons
 
 Trials has different default buttons than bxi, these are located in this folder under partials.

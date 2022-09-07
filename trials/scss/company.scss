@@ -1,0 +1,8 @@
+.bxi {
+  &.company {
+    .bxi-banner__image {
+      // Inline background-image not support in P1
+      background-image: url('./company/banner.png');
+    }
+  }
+}
