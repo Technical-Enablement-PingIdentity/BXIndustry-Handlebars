@@ -1,0 +1,18 @@
+@import '../common/mixins';
+
+&.retail {
+  * {
+    // TODO (can I move this to main index.scss? Will trials still work?)
+    font-family: var(--bxi-main-font);
+  }
+
+  .button {
+    font-size: 16px;
+  }
+
+  @include breakpoint-lg {
+    .bxi-auth-buttons {
+      border-left: 1px solid #fff;
+    }
+  }
+}

@@ -5,6 +5,10 @@
     font-family: var(--bxi-main-font);
   }
 
+  .button {
+    text-transform: uppercase;
+  }
+
   @include breakpoint-lg {
     .bxi-auth-buttons {
       // Add button separator

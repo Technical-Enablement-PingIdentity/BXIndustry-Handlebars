@@ -1,0 +1,121 @@
+{
+  "settings": {
+    "title": "BXRetail",
+    "images": {
+      "favicon": "/retail/favicon.ico",
+      "apple_touch_icon": "/retail/apple-touch-icon.png",
+      "logo": "/retail/logo-white.svg",
+      "dialog_logo": "/retail/auth-dialog-logo.svg"
+    },
+    "header": {
+      "links": {
+        "items": ["My Account", "Weekly Deals", "Extraordinary Club", "Departments", "The BXCard"]
+      }
+    },
+    "home_page": {
+      "jumbotron": {
+        "left": {
+          "title": "Electronics Sale",
+          "description": "Major savings on favorite brands",
+          "button": "Browse Deals",
+          "image": "home-hero-electronics-bg.jpg"
+        },
+        "right": {
+          "title": "Shop Manolo Blahniks",
+          "subtitle": "Jimmy Choo, Gucci, Miu Miu and more",
+          "description": "Swap something new for the season",
+          "button": "What's New",
+          "image": "/retail/home-hero-office-bg.png"
+        }
+      },
+      "banner": {
+        "style": {
+          "backgroundColor": "#f9c646"
+        },
+        "text": "Shop at our Extraordinary Club Partners",
+        "logos": [
+          "/retail/logo-bxclothes.svg",
+          "/retail/logo-bxhome.svg",
+          "/retail/logo-bxoffice.svg",
+          "/retail/logo-bxtech.svg"
+        ]
+      },
+      "features_section": {
+        "links": { },
+        "items": [
+          {
+            "title": "The BXRetail App",
+            "description": "Shop, browse and manage your account.",
+            "link": "Coming Soon",
+            "image": "home-features-app.png"
+          },
+          {
+            "title": "Join the Extraordinary Club",
+            "description": "Exclusive savings and services across all our BXRetail partners.",
+            "link": "Meet Our People",
+            "image": "home-features-club.png"
+          },
+          {
+            "title": "We Install Anything",
+            "description": "Choose professional partner services for any product we sell.",
+            "link": "Learn More",
+            "image": "home-features-service.png"
+          }
+        ]
+      }
+    },
+    "dashboard": {
+      "username": "",
+      "title": "Latest Activity",
+      "filter_header": "Filters",
+      "filters": [
+        "All client",
+        "International contract",
+        "Month"
+      ],
+      "filter_button": "Search",
+      "large_chart": "/company/line-chart.png",
+      "large_chart_mobile": "/company/line-chart-mobile.png",
+      "small_charts": [
+        "/company/pie-chart.png",
+        "/company/bar-chart.png"
+      ],
+      "components_section": {
+        "icon": "+",
+        "title": "No components created yet",
+        "subtitle": "To create your first component simply click on the button",
+        "button": "Add component"
+      },
+      "videos": {
+        "title": "Preview conference video",
+        "video_tiles": [
+          "/company/dashboard-video-tile-1.png",
+          "/company/dashboard-video-tile-2.png",
+          "/company/dashboard-video-tile-3.png",
+          "/company/dashboard-video-tile-4.png"
+        ]
+      }
+    },
+    "footer": {
+      "navigation": {
+        "links_left": [
+          "Our Company",
+          "Investor Relations",
+          "Corporate Citizenship",
+          "News",
+          "Locations"
+        ],
+        "links_right": [
+          "Privacy & Security",
+          "Terms of Use",
+          "Disclosures",
+          "Accessibility"
+        ]
+      },
+      "phone_number": "800.543.2276",
+      "email": "help@bxretail.com",
+      "chat": "Chat with Us",
+      "copyright": "© BXRetail, 2022"
+    }
+  }
+}

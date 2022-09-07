@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{#> head }}
+    {{> retailBranding }}
+  {{/head}}
+  <body onload="bxi.pageLoad()" class="bxi retail home">
+    {{> variables}}
+    <header>
+      <nav class="navbar navbar-expand-lg pt-lg-4 flex-wrap navbar-dark bxi-bg-primary">
+        <div class="container">
+          <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand pt-0" href="#">
+            <img width="150" src="{{settings.images.logo}}" alt="Logo" />
+          </a>
+          <div class="d-flex flex-row mt-2 position-relative">
+            {{> pinIcon class="mt-2 me-3 d-lg-block d-none" }}
+            {{> cartIcon class="mt-2 me-3 d-lg-block d-none" }}
+            <div class="bxi-auth-buttons bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse p-3 py-lg-1">
+              {{!-- See src/home-nav-buttons.hbs to update auth buttons --}}
+              {{> homeNavButtons }}
+            </div>
+            <div class="bxi-user-icon bxi-bg-primary pb-3 pb-lg-0 mt-2 mt-lg-0" data-bs-toggle="collapse" data-bs-target=".bxi-auth-buttons">
+              {{> userIcon }}
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="bxi-navbar bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse mt-2" id="navbarNav">
+            <ul class="navbar-nav p-3 p-lg-0 py-lg-4">
+              {{#each settings.header.links.items}}
+              <li class="nav-item pb-2"><a class="button button--nav-link fs-6 ps-0 pe-lg-4">{{this}}</a></li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <section>
+      
+    </section>
+    {{!-- <section class="bxi-banner bxi-bg-secondary">
+      <div class="bxi-banner__image bxi-bg-image" style="background-image: url('{{settings.home_page.banner.background_image}}')">
+        <div class="d-flex align-items-center h-100">
+          <div class="container w-100">
+            <div class="my-5">
+              <h4 class="mb-4 bxi-banner__text">{{settings.home_page.banner.supertitle}}</h4>
+              <h1 class="bxi-cta-title bxi-banner__text mb-3 mb-lg-4">{{settings.home_page.banner.title}}</h1>
+              <p class="fs-5 lh-base mb-4 bxi-banner__text">{{settings.home_page.banner.subtitle}}</p>
+              {{#if settings.home_page.banner.button_text}}
+              <button class="button button--md">{{settings.home_page.banner.button_text}}</button>
+              {{/if}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="video-tiles d-flex justify-content-between pb-5">
+          {{#each settings.home_page.banner.video_tiles}}
+          <div class="video-tile__thumbnail me-3 w-100 position-relative">
+            <div class="thumbnail-overlay position-absolute top-0 start-0 w-100 h-100"></div>
+            <img src={{this}} alt="Video tile {{@index}}" />
+            <button class="button thumbnail-button position-absolute top-50 start-50 translate-middle rounded-circle"></button>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+    </section>
+    <section class="container">
+      <div class="row mb-5">
+        <div class="col-md-6 gy-5">
+          <h1 class="mb-4 display-5 fw-bold">{{settings.home_page.main_content.title}}</h1>
+          <p class="fs-5 mb-5 lh-lg">{{settings.home_page.main_content.description}}</p>
+          <img class="company-main-content-image w-100" src="{{settings.home_page.main_content.image}}" alt="Content" />
+        </div>
+        <div class="col-md-6 gy-5">
+          <ul class="ps-0">
+            {{#each settings.home_page.main_content.steps}}
+              <li class="company-step d-flex flex-row p-4 rounded-1 mb-3 ls-none">
+                <div class="company-step-bullet fw-bold fs-4">{{indexBullet @index}}</div>
+                <div class="fs-6 fw-boldish mt-1 lh-md">{{this}}</div>
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    </section> --}}
+    <footer class="bxi-footer-color py-4">
+      <div class="container">
+        <div class="d-block d-lg-flex align-items-center justify-content-between mb-sm-3 mb-4">
+          <ul class="d-none d-md-flex mb-4 mb-md-3 mb-lg-0 p-0 ls-none">
+            {{#each settings.footer.links }}
+              <li class="bxi-footer-link fs-6 me-4">{{this}}</li>
+            {{/each}}
+          </ul>
+          <div class="footer-contacts d-flex flex-column-reverse flex-md-row justify-content-start align-items-center align-items-md-start justify-content-md-between justify-content-lg-end">
+            <div class="footer-support">
+              <div class="text-center text-md-start mb-3">{{settings.footer.phone_number}}</div>
+              <button class="button button--outline button--lg">Online support</button>
+            </div>
+            <div class="ms-0 ms-md-3">
+              <div class="ms-0 mb-3 text-center text-md-start">Follow us:</div>
+              <ul class="d-flex align-items-center ls-none ps-0">
+                <li>
+                  <button class="button button--outline button--icon me-md-3 me-5">
+                    {{> facebookIcon }}
+                  </button>
+                </li>
+                <li>
+                  <button class="button button--outline button--icon me-md-3 me-5">
+                    {{> twitterIcon }}
+                  </button>
+                </li>
+                <li>
+                  <button class="button button--outline button--icon">
+                    {{> instagramIcon }}
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section class="container">
+        <div class="d-flex justify-content-between align-items-center flex-column flex-md-row">
+          <p class="mb-3 mb-md-0 fs-8 bxi-copyright-color">{{settings.footer.copyright}}</p>
+          {{> remix }}
+        </div>
+      </section>
+    </footer>
+    {{> modal}}
+  </body>
+</html>
