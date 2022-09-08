@@ -1,6 +1,18 @@
 @import "./common/fonts";
 
-body.bxi {
+.bxi {
+  // Resets for ui-library_style.css (trials)
+  .button {
+    all: revert;
+    box-sizing: border-box;
+  }
+
+  * {
+    color: inherit;
+    font-weight: 400;
+  }
+  // End resets
+
   // Make the footer stick to the bottom or below content
   min-height: 100vh;
   display: flex;
@@ -10,9 +22,7 @@ body.bxi {
   footer {
     margin-top: auto;
   }
-}
 
-.bxi {
   @import "./common/base";
   @import "./common/button";
   @import "./common/dialog";
@@ -21,6 +31,7 @@ body.bxi {
   @import "./common/navbar";
   @import "./common/utilities";
 
-  @import "./generic/customizations";
   @import "./company/customizations";
+  @import "./generic/customizations";
+  @import "./retail/customizations";
 }

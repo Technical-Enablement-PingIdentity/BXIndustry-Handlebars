@@ -14,6 +14,16 @@
   }
 }
 
+.navbar-toggler {
+  background: transparent;
+  border: none;
+
+  &:active, &:focus {
+    border: none;
+    box-shadow: none;
+  }
+}
+
 .dashboard .bxi-user-icon {
   display: flex;
 }

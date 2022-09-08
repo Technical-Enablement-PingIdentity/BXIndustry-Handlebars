@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{#> head }}
+    {{> retailBranding }}
+  {{/head}}
+  <body onload="bxi.pageLoad()" class="bxi retail dashboard">
+    {{> variables}}
+    <header>
+      <nav class="navbar navbar-expand-lg pt-lg-4 pb-0 flex-wrap navbar-dark bxi-bg-primary">
+        <div class="container">
+          <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand pt-0" href="#">
+            <img width="150" src="{{settings.images.logo}}" alt="Logo" />
+          </a>
+          <div class="d-flex flex-row mt-2 position-relative">
+            {{> notificationIcon class="mt-2 me-3 d-lg-block d-none" }}
+            {{> pinIcon class="mt-2 me-3 d-lg-block d-none" }}
+            {{> cartIcon class="mt-2 me-3 d-lg-block d-none" }}
+            <div class="bxi-auth-buttons bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse p-3 py-lg-1">
+              <button onclick="bxi.logout()" class="button button--nav-link">Log Out</button>
+            </div>
+            <div class="bxi-user-icon bxi-bg-primary pb-3 pb-lg-0 mt-2 mt-lg-0" data-bs-toggle="collapse" data-bs-target=".bxi-auth-buttons">
+              {{> userIcon }}
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="bxi-navbar bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse mt-2" id="navbarNav">
+            <ul class="navbar-nav p-3 p-lg-0 py-lg-4">
+              {{#each settings.header.links.items}}
+              <li class="nav-item pb-2"><a class="button button--nav-link fs-6 ps-0 pe-lg-4">{{this}}</a></li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <section class="component-bg-color">
+      <div class="container py-3">
+        <h2>{{settings.dashboard.welcome}} <span id="username-container">{{settings.dashboard.username}}</span></h2>
+      </div>
+    </section>
+    <section class="portal">
+      <div class="container">
+        <div class="row mt-4">
+          <div class="col-12 col-lg-4 order-2 order-lg-1">
+            <ul class="ls-none ps-0 mb-4">
+              {{#each settings.dashboard.sidebar.links}}
+              <li class="mb-2 ps-5 p-3 component-bg-color rounded-3 position-relative portal-sidebar-dropdown cursor-pointer">
+                {{this}}
+              </li>
+              {{/each}}
+            </ul>
+            <p class="text-center">
+              {{settings.dashboard.sidebar.text}}
+            </p>
+            <div class="d-flex justify-content-center flex-wrap">
+              {{#each settings.dashboard.sidebar.logos}}
+              <img class="portal-sidebar-logo me-4" src="{{this}}" />
+              {{/each}}
+            </div>
+          </div>
+          <div class="col-12 col-lg-8 order-1 order-lg-2">
+            <div class="row mb-3">
+              <div class="col-12 col-sm-6 text-center text-sm-start">
+                <h4 class="mb-3 mb-sm-0 mt-1">{{settings.dashboard.portal.title}}</h4>
+              </div>
+              <div class="col-12 col-sm-6 d-flex justify-content-center justify-content-sm-end">
+                <div class="portal-header-dropdown component-bg-color fst-italic py-2 ps-3 pe-5 rounded-1 position-relative cursor-pointer">
+                  {{settings.dashboard.portal.dropdown_placeholder}}
+                </div>
+              </div>
+            </div>
+            <div class="p-4 component-bg-color">
+              <div class="row">
+                {{#each settings.dashboard.portal.products}}
+                <div class="col-12 col-sm-6 col-lg-4 mb-4">
+                  <img class="w-100 h-auto" src="{{image}}" alt="{{title}}" />
+                  <p class="bxi-color-primary mb-1 product-title overflow-hidden">{{title}}</p>
+                  <img src="{{rating_image}}" alt="{{title}} rating" />
+                  <p class="fs-3 mb-2 fw-light">{{price}} <small class="fs-8 fw-light">{{price_subtext}}</small></p>
+                  {{#each delivery_options}}
+                  <p class="fs-8 fw-light mb-2">{{this}}</p>
+                  {{/each}}
+                  <button class="button button--md mt-3">{{> cartIcon class="me-2 cart-icon"}}Add</button>
+                </div>
+                {{/each}}
+              </div>
+            </div>
+            <div class="row mt-3 mb-4 px-4 fs-7">
+              <div class="col-12 col-md-4 text-center text-md-start text-truncate">
+                Showing 1-6 of 234 results
+              </div>
+              <div class="col-12 col-md-4 text-center">
+                Items per Page: <span class="items-per-page px-1">6</span>
+              </div>
+              <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-end">
+                <div class="pagination position-relative mt-2 mt-md-0">
+                  <span class="px-2 py-1 cursor-pointer">1</span>
+                  <span class="px-2 py-1 cursor-pointer">2</span>
+                  <span class="px-2 py-1 cursor-pointer">3</span>
+                  <span class="px-2 py-1 cursor-pointer">4</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="bxi-footer-color py-5">
+      <div class="container text-center text-lg-start">
+        <div class="row">
+          <div class="col-lg-3 mb-3">
+            <ul class="d-flex justify-content-center justify-content-lg-start ls-none ps-0 mb-3">
+              <li>
+                <button class="button button--outline button--icon me-lg-3 me-5">
+                  {{> facebookIcon }}
+                </button>
+              </li>
+              <li>
+                <button class="button button--outline button--icon me-lg-3 me-5">
+                  {{> twitterIcon }}
+                </button>
+              </li>
+              <li>
+                <button class="button button--outline button--icon">
+                  {{> instagramIcon }}
+                </button>
+              </li>
+            </ul>
+            <p class="mb-3 mb-md-0 fs-8 bxi-copyright-color">{{settings.footer.copyright}}</p>
+          </div>
+          <div class="col-lg-3 mb-3">
+            {{#each settings.footer.navigation.links_left}}
+            <a class="bxi-footer-link mb-2 d-block fs-6" href="#">{{this}}</a>
+            {{/each}}
+          </div>
+          <div class="col-lg-3 mb-3">
+            <a class="bxi-footer-link mb-2 d-block fs-6 fw-bold" href="#">{{settings.footer.phone_number}}</a>
+            <a class="bxi-footer-link mb-2 d-block fs-6 fw-bold" href="#">{{settings.footer.email}}</a>
+            <a class="bxi-footer-link mb-2 d-block fs-6 fw-bold" href="#">{{settings.footer.chat}}</a>
+          </div>
+          <div class="col-lg-3 mb-3">
+            {{#each settings.footer.navigation.links_right}}
+            <a class="bxi-footer-link mb-2 d-block fs-6" href="#">{{this}}</a>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+      <section class="container">
+        <div class="d-flex justify-content-between align-items-center flex-column flex-md-row">
+          {{> remix }}
+        </div>
+      </section>
+    </footer>
+    {{> modal}}
+  </body>
+</html>
