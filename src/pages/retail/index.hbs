@@ -43,7 +43,9 @@
           <div class="sale-tile p-3" style="background-image: url('{{settings.home_page.sale_tile.image}}')">
             <h1 class="fs-1 fw-normal">{{settings.home_page.sale_tile.title}}</h1>
             <p class="fw-light">{{settings.home_page.sale_tile.description}}</p>
+            {{#if settings.home_page.sale_tile.button}}
             <button class="button button--lg">{{settings.home_page.sale_tile.button}}</button>
+            {{/if}}
           </div>
         </div>
         <div class="col-lg-7 col-12">
@@ -52,7 +54,9 @@
               <h1 class="fw-normal">{{settings.home_page.shop_tile.title}}</h1>
               <h5>{{settings.home_page.shop_tile.subtitle}}</h5>
               <p class="fw-light">{{settings.home_page.shop_tile.description}}</p>
+              {{#if settings.home_page.shop_tile.button}}
               <button class="button button--lg">{{settings.home_page.shop_tile.button}}</button>
+              {{/if}}
             </div>
           </div>
         </div>

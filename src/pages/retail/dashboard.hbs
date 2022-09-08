@@ -39,7 +39,13 @@
     </header>
     <section class="component-bg-color">
       <div class="container py-3">
-        <h2>{{settings.dashboard.welcome}} <span id="username-container">{{settings.dashboard.username}}</span></h2>
+        <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-between align-items-center">
+          <h2>{{settings.dashboard.welcome}} <span id="username-container">{{settings.dashboard.username}}</span></h2>
+          <div class="d-flex flex-column flex-md-row justify-content-end">
+            {{!-- See src/dashboard-buttons.hbs to update dashboard buttons --}}
+            {{> dashboardButtons}}
+          </div>
+        </div>
       </div>
     </section>
     <section class="portal">
