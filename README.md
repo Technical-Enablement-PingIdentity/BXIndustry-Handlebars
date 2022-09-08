@@ -1,4 +1,4 @@
-# IMPORTANT - LINKS MAY NOT WORK AS INTENTED IN THE GLITCH INTERFACE
+# IMPORTANT - LINKS MAY NOT WORK AS INTENDED IN THE GLITCH INTERFACE
 For a better viewing experience open this link in a new tab:
 https://github.com/Technical-Enablement-PingIdentity/BXIndustry-Handlebars/blob/main/README.md
 

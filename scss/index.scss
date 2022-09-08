@@ -9,6 +9,7 @@
 
   * {
     color: inherit;
+    font-weight: 400;
   }
   // End resets
 
@@ -30,6 +31,7 @@
   @import "./common/navbar";
   @import "./common/utilities";
 
-  @import "./generic/customizations";
   @import "./company/customizations";
+  @import "./generic/customizations";
+  @import "./retail/customizations";
 }
