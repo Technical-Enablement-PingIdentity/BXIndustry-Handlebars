@@ -1,0 +1,65 @@
+{
+  "settings": {
+    "images": {
+      "favicon": "favicon.ico",
+      "apple_touch_icon": "apple-touch-icon.png",
+      "logo": "logo-white.svg",
+      "dialog_logo": "auth-dialog-logo.svg"
+    },
+    "header": {
+      "links": {
+        "items": ["Store", "Weekly Deals", "Extraordinary Club", "Departments", "The BXCard"]
+      }
+    },
+    "home_page": {
+      "sale_tile": {
+        "button": "",
+        "image": "home-hero-electronics-bg.jpg"
+      },
+      "shop_tile": {
+        "button": "",
+        "image": "home-hero-office-bg.png"
+      },
+      "banner": {
+        "logos": [
+          "logo-bxclothes.svg",
+          "logo-bxhome.svg",
+          "logo-bxoffice.svg",
+          "logo-bxtech.svg"
+        ]
+      },
+      "features_section": {
+        "items": [
+          {
+            "title": "The BXRetail App",
+            "description": "Shop, browse and manage your account.",
+            "link": "Coming Soon",
+            "image": "home-features-app.png"
+          },
+          {
+            "title": "Join the Extraordinary Club",
+            "description": "Exclusive savings and services across all our BXRetail partners.",
+            "link": "Meet Our People",
+            "image": "home-features-club.png"
+          },
+          {
+            "title": "We Install Anything",
+            "description": "Choose professional partner services for any product we sell.",
+            "link": "Learn More",
+            "image": "home-features-service.png"
+          }
+        ]
+      }
+    },
+    "dashboard": {
+      "sidebar": {
+        "logos": [
+          "logo-bxclothes.svg",
+          "logo-bxhome.svg",
+          "logo-bxoffice.svg",
+          "logo-bxtech.svg"
+        ]
+      }
+    }
+  }
+}
