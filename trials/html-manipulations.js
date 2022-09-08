@@ -23,8 +23,9 @@ export function htmlManipulations(htmlDocument) {
     console.log(`Tag replacement finished, ${replacement} converted to ${newTag}`);
   }
 
-  // Remove onload js event to prevent errors
-  htmlDocument = htmlDocument.replace(' onload="bxi.pageLoad()"', '');
+  // Remove onload and onclick js event to prevent errors
+  htmlDocument = htmlDocument.replace(/\sonload=".*?"/, '');
+  htmlDocument = htmlDocument.replace(/\sonclick=".*?"/, '');
 
   // Remove background-image from style attributes
   htmlDocument = htmlDocument.replace(/background-image: url\(.*\)+/g, '');
