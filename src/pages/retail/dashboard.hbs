@@ -37,14 +37,60 @@
         </div>
       </nav>
     </header>
-    <section class="welcome-banner">
+    <section class="component-bg-color">
       <div class="container py-3">
         <h2>{{settings.dashboard.welcome}} <span id="username-container">{{settings.dashboard.username}}</span></h2>
       </div>
     </section>
     <section class="portal">
       <div class="container">
-        Yay, content
+        <div class="row mt-4">
+          <div class="col-12 col-lg-4 order-2 order-lg-1">
+            <ul class="ls-none ps-0 mb-4">
+              {{#each settings.dashboard.sidebar.links}}
+              <li class="mb-2 ps-5 p-3 component-bg-color rounded-3 position-relative portal-sidebar-dropdown cursor-pointer">
+                {{this}}
+              </li>
+              {{/each}}
+            </ul>
+            <p class="text-center">
+              {{settings.dashboard.sidebar.text}}
+            </p>
+            <div class="d-flex justify-content-center flex-wrap">
+              {{#each settings.dashboard.sidebar.logos}}
+              <img class="portal-sidebar-logo me-4" src="{{this}}" />
+              {{/each}}
+            </div>
+          </div>
+          <div class="col-12 col-lg-8 order-1 order-lg-2">
+            <div class="row mb-3">
+              <div class="col-12 col-sm-6 text-center text-sm-start">
+                <h4 class="mb-3 mb-sm-0 mt-1">{{settings.dashboard.portal.title}}</h4>
+              </div>
+              <div class="col-12 col-sm-6 d-flex justify-content-center justify-content-sm-end">
+                <div class="portal-header-dropdown component-bg-color fst-italic py-2 ps-3 pe-5 rounded-1 position-relative cursor-pointer">
+                  {{settings.dashboard.portal.dropdown_placeholder}}
+                </div>
+              </div>
+            </div>
+            <div class="p-4 component-bg-color">
+              <div class="row">
+                {{#each settings.dashboard.portal.products}}
+                <div class="col-12 col-sm-6 col-lg-4 mb-4">
+                  <img class="w-100 h-auto" src="{{image}}" alt="{{title}}" />
+                  <p class="bxi-color-primary mb-1 product-title overflow-hidden">{{title}}</p>
+                  <img src="{{rating_image}}" alt="{{title}} rating" />
+                  <p class="fs-3 mb-2 fw-light">{{price}} <small class="fs-8 fw-light">{{price_subtext}}</small></p>
+                  {{#each delivery_options}}
+                  <p class="fs-8 fw-light mb-2">{{this}}</p>
+                  {{/each}}
+                  <button class="button mt-3">Add</button>
+                </div>
+                {{/each}}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
     <footer class="bxi-footer-color py-5">
