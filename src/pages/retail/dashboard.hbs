@@ -84,9 +84,25 @@
                   {{#each delivery_options}}
                   <p class="fs-8 fw-light mb-2">{{this}}</p>
                   {{/each}}
-                  <button class="button mt-3">Add</button>
+                  <button class="button button--md mt-3">{{> cartIcon class="me-2 cart-icon"}}Add</button>
                 </div>
                 {{/each}}
+              </div>
+            </div>
+            <div class="row mt-3 mb-4 px-4 fs-7">
+              <div class="col-12 col-md-4 text-center text-md-start text-truncate">
+                Showing 1-6 of 234 results
+              </div>
+              <div class="col-12 col-md-4 text-center">
+                Items per Page: <span class="items-per-page px-1">6</span>
+              </div>
+              <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-end">
+                <div class="pagination position-relative mt-2 mt-md-0">
+                  <span class="px-2 py-1 cursor-pointer">1</span>
+                  <span class="px-2 py-1 cursor-pointer">2</span>
+                  <span class="px-2 py-1 cursor-pointer">3</span>
+                  <span class="px-2 py-1 cursor-pointer">4</span>
+                </div>
               </div>
             </div>
           </div>

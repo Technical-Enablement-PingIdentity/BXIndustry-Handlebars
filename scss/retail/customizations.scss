@@ -91,5 +91,41 @@
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
     }
+
+    .cart-icon {
+      margin-top: -4px;
+      margin-left: -8px;
+    }
+
+    .items-per-page {
+      border-bottom: 2px solid var(--bxi-primary-color);
+    }
+
+    .pagination {
+      margin-top: -4px;
+
+      span {
+        &:first-child {
+          color: #fff;
+          background-color: var(--bxi-primary-color)
+        }
+      }
+
+      &::before {
+        @include triangle(5px, var(--bxi-primary-color), 'left') {
+          top: 10px;
+          left: -1rem;
+          cursor: pointer;
+        }
+      }
+
+      &::after {
+        @include triangle(5px, var(--bxi-primary-color), 'right') {
+          top: 10px;
+          right: -1rem;
+          cursor: pointer;
+        }
+      }
+    }
   }
 }
