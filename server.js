@@ -29,7 +29,7 @@ const verticals = helpers.getVerticals();
 // Require the fastify framework and instantiate it
 const fastify = Fastify({
   // Set this to true for detailed logging
-  logger: true,
+  logger: false,
   ignoreTrailingSlash: true
 });
 
