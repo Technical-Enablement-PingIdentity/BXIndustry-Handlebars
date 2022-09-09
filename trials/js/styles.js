@@ -2,7 +2,7 @@ import sass from 'sass';
 import fs from 'fs';
 import path from 'path';
 
-export function compileStyles(verticals, bxiRepoBasePath, destinationFolder) {
+export function compileStyles({bxiRepoBasePath, verticals, destinationFolder}) {
   console.info('Compiling scss...');
   const compilationOptions = { style: 'compressed' }
 

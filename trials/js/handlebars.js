@@ -5,23 +5,23 @@ import deepmerge from 'deepmerge';
 import { getPartialsFromDirectory, initHandlebarsHelpers } from '../../resources/handlebars.js';
 import { htmlManipulations } from '../html-manipulations.js';
 
-export function compileHandlebars(verticals, bxiRepoPath, destinationFolder, testBuild) {
+export function compileHandlebars({bxiRepoBasePath, testBuild, verticals, destinationFolder}) {
   console.info('Compiling handlebars templates...');
-  registerPartials(bxiRepoPath, testBuild);
-  registerBrandingPartials(verticals, bxiRepoPath);
+  registerPartials(bxiRepoBasePath, testBuild);
+  registerBrandingPartials(verticals, bxiRepoBasePath);
   initHandlebarsHelpers(Handlebars);
 
   console.info('All partials registered');
 
   verticals.forEach(vertical => {
     console.info('Generating html files for ' + vertical);
-    const indexTemplateStr = fs.readFileSync(path.join(bxiRepoPath, `src/pages/${vertical}/index.hbs`)).toString('utf8');
-    const dashboardTemplateStr = fs.readFileSync(path.join(bxiRepoPath, `src/pages/${vertical}/dashboard.hbs`)).toString('utf8');
+    const indexTemplateStr = fs.readFileSync(path.join(bxiRepoBasePath, `src/pages/${vertical}/index.hbs`)).toString('utf8');
+    const dashboardTemplateStr = fs.readFileSync(path.join(bxiRepoBasePath, `src/pages/${vertical}/dashboard.hbs`)).toString('utf8');
 
     const indexTemplate = Handlebars.compile(indexTemplateStr);
     const dashboardTemplate = Handlebars.compile(dashboardTemplateStr);
 
-    const verticalSettings = JSON.parse(fs.readFileSync(path.join(bxiRepoPath, `src/pages/${vertical}/settings.json`)));
+    const verticalSettings = JSON.parse(fs.readFileSync(path.join(bxiRepoBasePath, `src/pages/${vertical}/settings.json`)));
     const verticalOverrides = JSON.parse(fs.readFileSync(`settings/${vertical}.json`));
 
     // Merge overrides onto vertical settings for CTA buttons, image locations, etc

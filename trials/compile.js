@@ -21,26 +21,30 @@ const __dirname = path.dirname(__filename);
 // Get bxi repo path and destination folder from command line arguments
 const args = minimist(process.argv.slice(2));
 const bxiRepoBasePath = args.bxiRepoPath || '';
-const destinationFolder = path.join(__dirname, args.outputPath || '');
-const testBuild = args.testBuild || false;
+
+const config = {
+  bxiRepoBasePath: args.bxiRepoPath || '',
+  destinationFolder: path.join(__dirname, args.outputPath || ''),
+  testBuild: args.testBuild === 'true' || false
+};
 
 // Create dist folder if it's absent
-if (fs.existsSync(destinationFolder)) {
-  fs.rmSync(destinationFolder, { recursive: true });
+if (fs.existsSync(config.destinationFolder)) {
+  fs.rmSync(config.destinationFolder, { recursive: true });
 }
 
-fs.mkdirSync(destinationFolder);
+fs.mkdirSync(config.destinationFolder);
 
 // Get list of verticals dynamically, based on folders in src/pages
-const verticals = fs.readdirSync(path.join(bxiRepoBasePath, 'src/pages'), { withFileTypes: true })
+config.verticals = fs.readdirSync(path.join(bxiRepoBasePath, 'src/pages'), { withFileTypes: true })
   .filter(dirent => dirent.isDirectory() && dirent.name !== 'generic') // don't care about generic for trials
   .map(dirent => dirent.name);
 
-copyStaticAssets(verticals, bxiRepoBasePath, destinationFolder);
-compileStyles(verticals, bxiRepoBasePath, destinationFolder);
-compileHandlebars(verticals, bxiRepoBasePath, destinationFolder, testBuild);
+copyStaticAssets(config);
+compileStyles(config);
+compileHandlebars(config);
 
 // Move stuff around into the structure we need to push to Gitlab e.g., bx<bxvertical>App/<vertical>/
-verticals.forEach(vertical => {
-  fs.renameSync(`${destinationFolder}/${vertical}`, `${destinationFolder}/bx${vertical}App`);
+config.verticals.forEach(vertical => {
+  fs.renameSync(`${config.destinationFolder}/${vertical}`, `${config.destinationFolder}/bx${vertical}App`);
 });
