@@ -1,0 +1,136 @@
+{
+  "settings": {
+    "title": "BXFinance",
+    "images": {
+      "favicon": "/finance/favicon.ico",
+      "apple_touch_icon": "/finance/apple-touch-icon.png",
+      "logo": "/finance/logo-white.png",
+      "dialog_logo": "/finance/auth-dialog-logo.png"
+    },
+    "header": {
+      "links": {
+        "items": ["Banking", "Credit Cards", "Investment", "Loans & Mortgages", "Business Banking"]
+      }
+    },
+    "rewards_card": {
+      "title": "Meet SHINE.",
+      "sub_title": "It's a new standard of credit card. Amazing rewards. Remarkable rates.",
+      "link": "Apply Today",
+      "image": "/finance/rewards-card.png"
+    },
+    "home_page": {
+      "banner": {
+        "background_image": "/finance/banner.jpg",
+        "title": "We're redefining everything a bank can be.",
+        "sub_title": "Modern banking tools meets personalized service.",
+        "button": "Learn More"
+      },
+      "alert_banner": {
+        "message": "Ready to get started?",
+        "link": "Talk to a Banking Advisor >"
+      },
+      "programs": [
+        {
+          "title": "It's never been a better time to refinance.",
+          "description": "Find value in your home.",
+          "link": "Check Rates"
+        },
+        {
+          "title": "Technology, tuned to the way you live and work.",
+          "description": "Try our newest account management tools.",
+          "link": "Explore Tools"
+        },
+        {
+          "title": "Investing 101: Basics to make more of your future.",
+          "description": "Tuning your strategy to your goals.",
+          "link": "Learn More"
+        }
+      ]
+    },
+    "dashboard": {
+      "username": "",
+      "welcome": "Welcome",
+      "sidebar": {
+        "links": [
+          "Pay & Transfer",
+          "Banking & Credit Accounts",
+          "Loans & Lines of Credit",
+          "Investment Accounts",
+          "Profile & Settings",
+          "Messages"
+        ]
+      },
+      "portal": {
+        "title": "Accounts Dashboard",
+        "dropdown_placeholder": "Things I Can Do",
+        "account_tiles": [
+          {
+            "title": "Banking Account Balances",
+            "action": "See All Activity",
+            "first_header": "Accounts",
+            "second_header": "Balance",
+            "accounts": [
+              {
+                "name": "Checking (...8585)",
+                "amount": "$45,135.01"
+              },
+              {
+                "name": "Savings (...0231)",
+                "amount": "$40,068.44"
+              }
+            ]
+          },
+          {
+            "title": "Investment Account Balances",
+            "action": "See All Activity",
+            "first_header": "Accounts",
+            "second_header": "Balance",
+            "accounts": [
+              {
+                "name": "IRA (...2842)",
+                "amount": "$45,135.01"
+              },
+              {
+                "name": "Mutual Funds (...3021)",
+                "amount": "$40,068.44"
+              }
+            ]
+          },
+          {
+            "title": "Credit Account Balances",
+            "action": "See All Activity",
+            "first_header": "Accounts",
+            "second_header": "Balance",
+            "accounts": [
+              {
+                "name": "BXFinance Rewards Visa (...1337)",
+                "amount": "$45,135.01"
+              },
+              {
+                "name": "HELOC (...1258)",
+                "amount": "$40,068.44"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "footer": {
+      "links": [
+        "Our Company",
+        "Investor Relations",
+        "Corporate Citizenship",
+        "News",
+        "Locations",
+        "Privacy & Security",
+        "Terms of Use",
+        "Disclosures",
+        "Accessibility"
+      ],
+      "phone_number": "800.543.2276",
+      "email": "help@bxfinance.com",
+      "chat": "Chat with Us",
+      "copyright": "© BXFinance, 2022 Member FDIC, Member SIPC Equal Housing Lender"
+    }
+  }
+}

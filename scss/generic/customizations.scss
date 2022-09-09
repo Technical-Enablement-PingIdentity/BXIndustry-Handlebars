@@ -1,6 +1,10 @@
 @import "../common/mixins";
 
 &.generic {
+  * {
+    font-family: var(--bs-body-font-family);
+  }
+
   .masthead {
     color: var(--bxi-banner-text-color);
     padding-top: 12.5rem;

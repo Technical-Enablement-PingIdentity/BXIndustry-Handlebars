@@ -39,7 +39,7 @@
     </header>
     <section class="container mt-5">
       <div class="row">
-        <div class="col-lg-5 col-12 mb-4 mb-lg-0">
+        <div class="col-lg-5 mb-4 mb-lg-0">
           <div class="sale-tile p-3" style="background-image: url('{{settings.home_page.sale_tile.image}}')">
             <h1 class="fs-1 fw-normal">{{settings.home_page.sale_tile.title}}</h1>
             <p class="fw-light">{{settings.home_page.sale_tile.description}}</p>
@@ -48,7 +48,7 @@
             {{/if}}
           </div>
         </div>
-        <div class="col-lg-7 col-12">
+        <div class="col-lg-7">
           <div class="shop-tile p-3" style="background-image: url('{{settings.home_page.shop_tile.image}}')">
             <div class="shop-tile__overlay p-5">
               <h1 class="fw-normal">{{settings.home_page.shop_tile.title}}</h1>
@@ -65,10 +65,10 @@
     <section class="bxi-banner mt-5 py-4">
       <div class="container">
         <div class="row">
-          <div class="col-12 col-lg-6">
+          <div class="col-lg-6">
             <h4 class="d-flex d-lg-block justify-content-center">{{settings.home_page.banner.text}}</h4>
           </div>
-          <div class="col-12 col-lg-6">
+          <div class="col-lg-6">
             <div class="d-flex justify-content-center align-items-center">
               {{#each settings.home_page.banner.logos}}
               <img class="mx-2 mx-lg-0 me-lg-4 w-auto" src="{{this}}" alt="Logo {{@index}}" />
@@ -81,7 +81,7 @@
     <section class="container mt-5">
       <div class="row">
         {{#each settings.home_page.features_section.items}}
-        <div class="col-12 col-lg-4 mb-4 mb-lg-0">
+        <div class="col-lg-4 mb-4 mb-lg-0">
           <div class="position-relative mb-3">
             <img class="w-100" src="{{image}}" alt="{{title}}" />
             <h5 class="position-absolute w-100 ps-3 py-2 feature-title">{{title}}</h5>

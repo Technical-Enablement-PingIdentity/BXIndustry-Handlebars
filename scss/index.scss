@@ -10,6 +10,7 @@
   * {
     color: inherit;
     font-weight: 400;
+    font-family: var(--bxi-main-font);
   }
   // End resets
 
@@ -29,9 +30,11 @@
   @import "./common/forms";
   @import "./common/mixins";
   @import "./common/navbar";
+  @import "./common/shared";
   @import "./common/utilities";
 
   @import "./company/customizations";
+  @import "./finance/customizations";
   @import "./generic/customizations";
   @import "./retail/customizations";
 }

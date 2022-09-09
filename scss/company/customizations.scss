@@ -1,10 +1,6 @@
 @import '../common/mixins';
 
 &.company {
-  * {
-    font-family: var(--bxi-main-font);
-  }
-
   .button {
     text-transform: uppercase;
   }
