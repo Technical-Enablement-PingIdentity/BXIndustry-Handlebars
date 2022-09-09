@@ -6,7 +6,8 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
-    "build": "node compile.js --bxiRepoPath '../' --outputPath './dist'"
+    "build": "node compile.js --bxiRepoPath '../' --outputPath './dist'",
+    "test-build": "node compile.js --bxiRepoPath '../' --outputPath './dist' --testBuild true"
   },
   "devDependencies": {
     "bootstrap": "~5.2.0",

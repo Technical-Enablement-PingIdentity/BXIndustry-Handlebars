@@ -5,9 +5,9 @@ import deepmerge from 'deepmerge';
 import { getPartialsFromDirectory, initHandlebarsHelpers } from '../../resources/handlebars.js';
 import { htmlManipulations } from '../html-manipulations.js';
 
-export function compileHandlebars(verticals, bxiRepoPath, destinationFolder) {
+export function compileHandlebars(verticals, bxiRepoPath, destinationFolder, testBuild) {
   console.info('Compiling handlebars templates...');
-  registerPartials(bxiRepoPath);
+  registerPartials(bxiRepoPath, testBuild);
   registerBrandingPartials(verticals, bxiRepoPath);
   initHandlebarsHelpers(Handlebars);
 
@@ -45,7 +45,7 @@ export function compileHandlebars(verticals, bxiRepoPath, destinationFolder) {
   });
 }
 
-function registerPartials(bxiRepoPath) {
+function registerPartials(bxiRepoPath, testBuild) {
   console.info('Registering handlebars partials');
   // variables contains .env variables, not relevant for trials
   Handlebars.registerPartial('variables', '');
@@ -56,8 +56,15 @@ function registerPartials(bxiRepoPath) {
   // remix contains verticals shortcut icon and remix button, needs to be removed for trials
   Handlebars.registerPartial('remix', '');
 
+  let headTemplate = '{{> @partial-block}}';
+
+  // Test build adds stylesheet into templates for easier testing (trials pulls this file in via React)
+  if (testBuild) {
+    headTemplate += '\n<link rel="stylesheet" href="styles.css" />\n';
+  }
+
   // head needs to pass through the branding partial declared on each page
-  Handlebars.registerPartial('head', '{{> @partial-block}}');
+  Handlebars.registerPartial('head', headTemplate);
 
   // Button overrides, trials needs login, register, and reset password on home pages and profile management on dashboard pages
   Handlebars.registerPartial('homeNavButtons', fs.readFileSync('./partials/home-buttons.hbs').toString('utf8'));

@@ -22,6 +22,7 @@ const __dirname = path.dirname(__filename);
 const args = minimist(process.argv.slice(2));
 const bxiRepoBasePath = args.bxiRepoPath || '';
 const destinationFolder = path.join(__dirname, args.outputPath || '');
+const testBuild = args.testBuild || false;
 
 // Create dist folder if it's absent
 if (fs.existsSync(destinationFolder)) {
@@ -37,7 +38,7 @@ const verticals = fs.readdirSync(path.join(bxiRepoBasePath, 'src/pages'), { with
 
 copyStaticAssets(verticals, bxiRepoBasePath, destinationFolder);
 compileStyles(verticals, bxiRepoBasePath, destinationFolder);
-compileHandlebars(verticals, bxiRepoBasePath, destinationFolder);
+compileHandlebars(verticals, bxiRepoBasePath, destinationFolder, testBuild);
 
 // Move stuff around into the structure we need to push to Gitlab e.g., bx<bxvertical>App/<vertical>/
 verticals.forEach(vertical => {

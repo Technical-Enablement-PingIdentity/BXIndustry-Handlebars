@@ -1,0 +1,34 @@
+{
+  "settings": {
+    "images": {
+      "favicon": "favicon.ico",
+      "apple_touch_icon": "apple-touch-icon.png",
+      "logo": "logo-white.png",
+      "dialog_logo": "auth-dialog-logo.png"
+    },
+    "rewards_card": {
+      "image": "rewards-card.png"
+    },
+    "home_page": {
+      "banner": {
+        "background_image": "banner.jpg",
+        "button": ""
+      },
+      "alert_banner": {
+        "message": "",
+        "link": ""
+      }
+    },
+    "dashboard": {
+      "sidebar": {
+        "links": [
+          "Pay & Transfer",
+          "Banking & Credit Accounts",
+          "Loans & Lines of Credit",
+          "Investment Accounts",
+          "Messages"
+        ]
+      }
+    }
+  }
+}
