@@ -39,7 +39,7 @@
         {{> dashboardButtons}}
       </div>
       <div class="row">
-        <div class="col-xl-8 col-12 dashboard-section__reporting">
+        <div class="col-xl-8 dashboard-section__reporting">
           <h1 class="bxi-ff-secondary fw-bold my-4 fs-1">{{settings.dashboard.title}}</h1>
           <p class="mb-0">{{settings.dashboard.filter_header}}</p>
           <div class="d-flex align-items-center flex-wrap">
@@ -60,7 +60,7 @@
           </div>
           <div class="row">
             {{#each settings.dashboard.small_charts}}
-            <div class="col-12 col-sm-6">
+            <div class="col-sm-6">
               <img class="w-100 h-auto mt-3" src="{{this}}" alt="Small chart" />
             </div>
             {{/each}}
@@ -76,11 +76,11 @@
             <div class="mb-3" data-dv-flow="static" data-policy-id="{{env.BXI_DASHBOARD_POLICY_ID}}"></div>
           {{/if}}
         </div>
-        <div class="col-xl-4 col-12 mb-5">
+        <div class="col-xl-4 mb-5">
           <h4 class="my-4">{{settings.dashboard.videos.title}}</h4>
           <div class="row">
           {{#each settings.dashboard.videos.video_tiles}}
-          <div class="video-tile__thumbnail position-relative gx-3 gy-3 col-12 col-md-6 col-xl-12">
+          <div class="video-tile__thumbnail position-relative gx-3 gy-3 col-md-6 col-xl-12">
             <div class="thumbnail-overlay position-absolute h-100"></div>
             <img src={{this}} alt="Video tile {{@index}}" />
             <button class="button thumbnail-button position-absolute top-50 start-50 translate-middle rounded-circle"></button>

@@ -1,28 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
   {{#> head }}
-    {{> retailBranding }}
+    {{> financeBranding }}
   {{/head}}
-  <body onload="bxi.pageLoad()" class="bxi retail dashboard">
+  <body onload="bxi.pageLoad()" class="bxi finance dashboard">
     {{> variables}}
-    <header>
-      <nav class="navbar navbar-expand-lg pt-lg-4 pb-0 flex-wrap navbar-dark bxi-bg-primary">
+    <header class="bxi-header bxi-banner">
+      <nav class="navbar navbar-expand-lg pt-lg-4 pb-0 flex-wrap navbar-dark">
         <div class="container">
-          <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
           </button>
           <a class="navbar-brand pt-0" href="#">
-            <img width="150" src="{{settings.images.logo}}" alt="Logo" />
+            <img width="200" src="{{settings.images.logo}}" alt="Logo" />
           </a>
           <div class="d-flex flex-row mt-2 position-relative">
-            {{> notificationIcon class="mt-1 me-3 d-lg-block d-none" }}
-            {{> pinIcon class="mt-1 me-3 d-lg-block d-none" }}
-            {{> cartIcon class="mt-1 me-3 d-lg-block d-none" }}
+            {{> notificationIcon class="mt-1 me-3 d-none d-lg-block" }}
             <div class="bxi-auth-buttons bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse p-3 py-lg-1">
               {{> userIcon class="d-none d-lg-inline me-3"}}
               <button onclick="bxi.logout()" class="button button--nav-link">Log Out</button>
             </div>
-            <div class="bxi-user-icon bxi-bg-primary pb-3 pb-lg-0 mt-2 mt-lg-0" data-bs-toggle="collapse" data-bs-target=".bxi-auth-buttons">
+            <div class="bxi-user-icon bxi-bg-primary" data-bs-toggle="collapse" data-bs-target=".bxi-auth-buttons">
               {{> userIcon }}
             </div>
           </div>
@@ -41,7 +39,7 @@
     <section class="component-bg-color">
       <div class="container py-3">
         <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-between align-items-center">
-          <h2>{{settings.dashboard.welcome}} <span id="username-container">{{settings.dashboard.username}}</span></h2>
+          <h2 class="fw-boldish">{{settings.dashboard.welcome}} <span class="fw-boldish" id="username-container">{{settings.dashboard.username}}</span></h2>
           <div class="d-flex flex-column flex-md-row justify-content-end">
             {{!-- See src/dashboard-buttons.hbs to update dashboard buttons --}}
             {{> dashboardButtons}}
@@ -49,30 +47,28 @@
         </div>
       </div>
     </section>
-    <section class="portal">
-      <div class="container">
+    <section class="container">
+      <div class="portal">
         <div class="row mt-4">
           <div class="col-lg-4 order-2 order-lg-1">
-            <ul class="ls-none ps-0 mb-4">
+            <ul class="ls-none ps-0 mb-3">
               {{#each settings.dashboard.sidebar.links}}
               <li class="mb-2 ps-5 p-3 component-bg-color rounded-3 position-relative portal-sidebar-dropdown cursor-pointer">
                 {{this}}
               </li>
               {{/each}}
             </ul>
-            <p class="text-center">
-              {{settings.dashboard.sidebar.text}}
-            </p>
-            <div class="d-flex justify-content-center flex-wrap">
-              {{#each settings.dashboard.sidebar.logos}}
-              <img class="portal-sidebar-logo me-4" src="{{this}}" />
-              {{/each}}
+            <div class="rewards-card p-4 rounded-4 overflow-hidden ms-auto mb-4">
+              <h4 class="rewards-card-color">{{settings.rewards_card.title}}</h4>
+              <p class="rewards-card-color fs-7">{{settings.rewards_card.sub_title}}</p>
+              <a href="#" class="button button--link">{{settings.rewards_card.link}}</a>
+              <img class="rewards-card-image d-block" src="{{settings.rewards_card.image}}" />
             </div>
           </div>
           <div class="col-lg-8 order-1 order-lg-2">
             <div class="row mb-3">
               <div class="col-sm-6 text-center text-sm-start">
-                <h4 class="mb-3 mb-sm-0 mt-1">{{settings.dashboard.portal.title}}</h4>
+                <h4 class="mb-3 mb-sm-0 mt-1 fw-boldish">{{settings.dashboard.portal.title}}</h4>
               </div>
               <div class="col-sm-6 d-flex justify-content-center justify-content-sm-end">
                 <div class="portal-header-dropdown component-bg-color fst-italic py-2 ps-3 pe-5 rounded-1 position-relative cursor-pointer">
@@ -80,38 +76,32 @@
                 </div>
               </div>
             </div>
-            <div class="p-4 component-bg-color">
+            {{#each settings.dashboard.portal.account_tiles}}
+            <div class="account-tile component-bg-color mb-3 mb-lg-4 ps-5 p-3 position-relative rounded-bottom">
+              <div class="row mb-3">
+                <div class="col-7 d-flex align-items-center">
+                  <h6>{{title}}</h6>
+                </div>
+                <div class="col-5">
+                  <button class="button button--md w-100 bxi-truncate">{{action}}</button>
+                </div>
+              </div>
               <div class="row">
-                {{#each settings.dashboard.portal.products}}
-                <div class="col-sm-6 col-lg-4 mb-4">
-                  <img class="w-100 h-auto" src="{{image}}" alt="{{title}}" />
-                  <p class="bxi-color-primary mb-1 product-title overflow-hidden">{{title}}</p>
-                  <img src="{{rating_image}}" alt="{{title}} rating" />
-                  <p class="fs-3 mb-2 fw-light">{{price}} <small class="fs-8 fw-light">{{price_subtext}}</small></p>
-                  {{#each delivery_options}}
-                  <p class="fs-8 fw-light mb-2">{{this}}</p>
-                  {{/each}}
-                  <button class="button button--md mt-3">{{> cartIcon class="me-2 cart-icon"}}Add</button>
+                <div class="col-7 d-flex align-items-center">
+                  <div class="fw-light fs-8">{{first_header}}</div>
                 </div>
-                {{/each}}
-              </div>
-            </div>
-            <div class="row mt-3 mb-4 px-4 fs-7">
-              <div class="col-md-4 text-center text-md-start text-truncate">
-                Showing 1-6 of 234 results
-              </div>
-              <div class="col-md-4 text-center">
-                Items per Page: <span class="items-per-page px-1">6</span>
-              </div>
-              <div class="col-md-4 d-flex justify-content-center justify-content-md-end">
-                <div class="pagination position-relative mt-2 mt-md-0">
-                  <span class="px-2 py-1 cursor-pointer">1</span>
-                  <span class="px-2 py-1 cursor-pointer">2</span>
-                  <span class="px-2 py-1 cursor-pointer">3</span>
-                  <span class="px-2 py-1 cursor-pointer">4</span>
+                <div class="col-5">
+                  <div class="fw-light fs-8">{{second_header}}</div>
                 </div>
               </div>
+              {{#each accounts}}
+              <div class="row accounts-row me-0">
+                <div class="col-7 bxi-truncate"><a href="#" class="button button--link">{{name}}</a></div>
+                <div class="col-5">{{amount}}</div>
+              </div>
+              {{/each}}
             </div>
+            {{/each}}
           </div>
         </div>
       </div>
@@ -119,7 +109,7 @@
     <footer class="bxi-footer-color py-5">
       <div class="container text-center text-lg-start">
         <div class="row">
-          <div class="col-lg-3 mb-3">
+          <div class="col-lg-4 mb-3">
             <ul class="d-flex justify-content-center justify-content-lg-start ls-none ps-0 mb-3">
               <li>
                 <button class="button button--outline button--icon me-lg-3 me-5">
@@ -139,20 +129,15 @@
             </ul>
             <p class="mb-3 mb-md-0 fs-8 bxi-copyright-color">{{settings.footer.copyright}}</p>
           </div>
-          <div class="col-lg-3 mb-3">
-            {{#each settings.footer.navigation.links_left}}
+          <div class="col-lg-4 mb-3">
+            {{#each settings.footer.links}}
             <a class="bxi-footer-link mb-2 d-block fs-6" href="#">{{this}}</a>
             {{/each}}
           </div>
-          <div class="col-lg-3 mb-3">
+          <div class="col-lg-4 mb-3">
             <a class="bxi-footer-link mb-2 d-block fs-6 fw-bold" href="#">{{settings.footer.phone_number}}</a>
             <a class="bxi-footer-link mb-2 d-block fs-6 fw-bold" href="#">{{settings.footer.email}}</a>
             <a class="bxi-footer-link mb-2 d-block fs-6 fw-bold" href="#">{{settings.footer.chat}}</a>
-          </div>
-          <div class="col-lg-3 mb-3">
-            {{#each settings.footer.navigation.links_right}}
-            <a class="bxi-footer-link mb-2 d-block fs-6" href="#">{{this}}</a>
-            {{/each}}
           </div>
         </div>
       </div>
