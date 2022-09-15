@@ -1,0 +1,141 @@
+@import "../common/mixins";
+
+&.health {
+
+  .button {
+    font-family: var(--bxi-secondary-font);
+    font-size: 16px;
+    border-radius: 3rem;
+  }
+
+  .bxi-footer-link {
+    font-family: var(--bxi-secondary-font);
+    font-size: 16px;
+  }
+
+  @include breakpoint-lt-lg {
+    .bxi-navbar,
+    .bxi-auth-buttons {
+      .button--nav-link {
+        color: var(--nav-link-button-color-inverse);
+      }
+    }
+  }
+
+  .bxi-banner {
+    color: var(--bxi-banner-color);
+    background-color: var(--bxi-banner-bg-color);
+  }
+
+
+  .bxi-navbar {
+    .button--nav-link {
+      font-weight: 300;
+
+      &:hover {
+        font-weight: 400;
+      }
+    }
+  }
+
+  .bxi-footer {
+    .button--icon {
+      &:hover {
+        svg path {
+          fill: var(--bxi-secondary-color);
+        }
+      }
+    }
+  }
+
+  &.home {
+    .bxi-header {
+      height: 600px;
+
+      &-color {
+        color: var(--bxi-header-color);
+      }
+    }
+
+    .app-hero {
+      background-color: var(--bxi-hero-bg-color);
+      height: 480px;
+
+      @include breakpoint-lt-md {
+        max-height: 340px;
+      }
+
+      @include breakpoint-lg {
+        margin-top: -3rem;
+      }
+
+      &-color {
+        color: var(--bxi-hero-color);
+      }
+
+      &-image {
+        width: 400px;
+        bottom: 0;
+        right: -5px;
+
+        @include breakpoint-lt-md {
+          bottom: -100px;
+        }
+      }
+    }
+
+    @include breakpoint-lg {
+      .bxi-auth-buttons {
+        border-left: 1px solid var(--bxi-primary-color);
+      }
+    }
+
+    .bxi-banner {
+      color: var(--bxi-banner-color);
+      background-color: var(--bxi-banner-bg-color);
+
+      .button {
+        color: var(--bxi-banner-color);
+        font-weight: 300;
+
+        &:hover {
+          font-weight: 400;
+        }
+
+        &:after {
+          @include triangle(5px, var(--bxi-banner-color), 'right') {
+            margin-top: .5rem;
+            margin-left: 1rem;
+          }
+        }
+      }
+    }
+  }
+
+  &.dashboard {
+    .bxi-navbar,
+    .bxi-auth-buttons {
+      .button--nav-link {
+        color: var(--nav-link-button-color-inverse);
+      }
+    }
+
+    @include breakpoint-lg {
+      .bxi-auth-buttons {
+        border-left: 1px solid var(--nav-link-button-color-inverse);
+      }
+    }
+
+    .events-hero {
+
+      @include breakpoint-lt-lg {
+        max-width: 400px;
+      }
+
+      &-header {
+        margin-top: -4rem;
+        color: var(--bxi-events-hero-header-color);
+      }
+    }
+  }
+}

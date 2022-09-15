@@ -38,6 +38,14 @@ export function initHandlebarsHelpers(hbs) {
     hbs.registerHelper('valueOrDefault', (value, defaultValue) => {
         return new hbs.SafeString(value || defaultValue);
     });
+
+    hbs.registerHelper('assignParameter', (varName, varValue, options) => {
+        if (!options.data.root) {
+            options.data.root = {};
+        }
+
+        options.data.root[varName] = varValue;
+    });
 }
 
 /**

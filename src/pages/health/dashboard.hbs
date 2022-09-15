@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   {{#> head }}
-    {{> financeBranding }}
+    {{> healthBranding }}
   {{/head}}
-  <body onload="bxi.pageLoad()" class="bxi finance dashboard">
+  <body onload="bxi.pageLoad()" class="bxi health dashboard">
     {{> variables}}
     <header class="bxi-header bxi-banner">
       <nav class="navbar navbar-expand-lg pt-lg-4 flex-wrap navbar-dark">
@@ -11,11 +11,11 @@
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <a class="navbar-brand pt-0" href="#">
-            <img width="200" src="{{settings.images.logo}}" alt="Logo" />
+          <a class="navbar-brand py-2" href="#">
+            <img width="200" src="{{settings.images.dashboard_logo}}" alt="Logo" />
           </a>
           <div class="d-flex flex-row position-relative">
-            {{> notificationIcon class="mt-1 me-3 d-none d-lg-block" }}
+            {{> messageIcon class="mt-2 me-3 d-none d-lg-block" }}
             <div class="bxi-auth-buttons bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse p-3 py-lg-1">
               {{> userIcon class="d-none d-lg-inline me-3"}}
               <button onclick="bxi.logout()" class="button button--nav-link">Log Out</button>
@@ -39,7 +39,7 @@
     <section class="component-bg-color">
       <div class="container py-3">
         <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-between align-items-center">
-          <h2 class="fw-boldish">{{settings.dashboard.welcome}} <span class="fw-boldish" id="username-container">{{settings.dashboard.username}}</span></h2>
+          <h2 class="fw-bold">{{settings.dashboard.welcome}} <span class="fw-boldish" id="username-container">{{settings.dashboard.username}}</span></h2>
           <div class="d-flex flex-column flex-md-row justify-content-end">
             {{!-- See src/dashboard-buttons.hbs to update dashboard buttons --}}
             {{> dashboardButtons}}
@@ -53,63 +53,40 @@
           <div class="col-lg-4 order-2 order-lg-1">
             <ul class="ls-none ps-0 mb-3">
               {{#each settings.dashboard.sidebar.links}}
-              <li class="mb-2 ps-5 p-3 component-bg-color rounded-3 position-relative portal-sidebar-dropdown cursor-pointer">
+              <li class="mb-2 ps-5 p-3 component-bg-color rounded-3 position-relative portal-sidebar-dropdown cursor-pointer bxi-ff-secondary fw-lighter">
                 {{this}}
               </li>
               {{/each}}
             </ul>
-            <div class="rewards-card p-4 rounded-4 overflow-hidden ms-auto mb-4">
-              <h4 class="rewards-card-color">{{settings.rewards_card.title}}</h4>
-              <p class="rewards-card-color fs-7">{{settings.rewards_card.sub_title}}</p>
-              <a href="#" class="button button--link">{{settings.rewards_card.link}}</a>
-              <img class="rewards-card-image d-block" src="{{settings.rewards_card.image}}" />
+            <div class="events-hero rounded-4 overflow-hidden mx-auto pb-4 mb-4 component-bg-color">
+              <img class="events-hero-image d-block w-100" src="{{settings.dashboard.events_hero.banner_image}}" />
+              <h3 class="p-4 events-hero-header fw-bold">{{settings.dashboard.events_hero.title}}</h3>
+              <p class="ps-4 fs-6 fw-light bxi-ff-secondary">{{settings.dashboard.events_hero.description}}</p>
+              <a href="#" class="ps-4 button button--link">{{settings.dashboard.events_hero.link}}</a>
             </div>
           </div>
           <div class="col-lg-8 order-1 order-lg-2">
             <div class="row mb-3">
-              <div class="col-sm-6 text-center text-sm-start">
+              <div class="col-sm-7 text-center text-sm-start">
                 <h4 class="mb-3 mb-sm-0 mt-1 fw-boldish">{{settings.dashboard.portal.title}}</h4>
               </div>
-              <div class="col-sm-6 d-flex justify-content-center justify-content-sm-end">
-                <div class="portal-header-dropdown component-bg-color fst-italic py-2 ps-3 pe-5 rounded-1 position-relative cursor-pointer">
+              <div class="col-sm-5 d-flex justify-content-center justify-content-sm-end">
+                <div class="portal-header-dropdown component-bg-color py-2 ps-3 pe-5 rounded-1 position-relative cursor-pointer bxi-ff-secondary fw-light">
                   {{settings.dashboard.portal.dropdown_placeholder}}
                 </div>
               </div>
             </div>
-            {{#each settings.dashboard.portal.account_tiles}}
-            <div class="account-tile component-bg-color mb-3 mb-lg-4 ps-5 p-3 position-relative rounded-bottom">
-              <div class="row mb-3">
-                <div class="col-7 d-flex align-items-center">
-                  <h6>{{title}}</h6>
-                </div>
-                <div class="col-5">
-                  <button class="button button--md w-100 bxi-truncate">{{action}}</button>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-7 d-flex align-items-center">
-                  <div class="fw-light fs-8">{{first_header}}</div>
-                </div>
-                <div class="col-5">
-                  <div class="fw-light fs-8">{{second_header}}</div>
-                </div>
-              </div>
-              {{#each accounts}}
-              <div class="row accounts-row me-0">
-                <div class="col-7 bxi-truncate"><a href="#" class="button button--link">{{name}}</a></div>
-                <div class="col-5">{{amount}}</div>
-              </div>
-              {{/each}}
+            <div class="component-bg-color">
+              Content Goes here
             </div>
-            {{/each}}
           </div>
         </div>
       </div>
     </section>
-    <footer class="bxi-footer-color py-5">
+    <footer class="bxi-footer bxi-footer-color py-5">
       <div class="container text-center text-lg-start">
         <div class="row">
-          <div class="col-lg-4 mb-3">
+          <div class="col-lg-3 mb-3">
             <ul class="d-flex justify-content-center justify-content-lg-start ls-none ps-0 mb-3">
               <li>
                 <button class="button button--outline button--icon me-lg-3 me-5">
@@ -127,17 +104,22 @@
                 </button>
               </li>
             </ul>
-            <p class="mb-3 mb-md-0 fs-8 bxi-copyright-color">{{settings.footer.copyright}}</p>
+            <p class="mb-3 mb-md-0 fs-8 bxi-copyright-color bxi-ff-secondary">{{settings.footer.copyright}}</p>
           </div>
-          <div class="col-lg-4 mb-3">
-            {{#each settings.footer.links}}
+          <div class="col-lg-3 mb-3">
+            {{#each settings.footer.links_left}}
             <a class="bxi-footer-link mb-2 d-block fs-6" href="#">{{this}}</a>
             {{/each}}
           </div>
-          <div class="col-lg-4 mb-3">
+          <div class="col-lg-3 mb-3">
             <a class="bxi-footer-link mb-2 d-block fs-6 fw-bold" href="#">{{settings.footer.phone_number}}</a>
             <a class="bxi-footer-link mb-2 d-block fs-6 fw-bold" href="#">{{settings.footer.email}}</a>
             <a class="bxi-footer-link mb-2 d-block fs-6 fw-bold" href="#">{{settings.footer.chat}}</a>
+          </div>
+          <div class="col-lg-3 mb-3">
+            {{#each settings.footer.links_right}}
+            <a class="bxi-footer-link mb-2 d-block fs-6" href="#">{{this}}</a>
+            {{/each}}
           </div>
         </div>
       </div>

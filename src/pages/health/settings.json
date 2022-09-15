@@ -1,0 +1,95 @@
+{
+  "settings": {
+    "primary_color": "#163657",
+    "title": "BXHealth",
+    "images": {
+      "favicon": "/health/favicon.ico",
+      "apple_touch_icon": "/health/apple-touch-icon.png",
+      "logo": "/health/logo.svg",
+      "dialog_logo": "/health/logo.svg",
+      "dashboard_logo": "/health/logo-white.svg"
+    },
+    "header": {
+      "links": {
+        "items": ["Patient Care", "Health Plans", "Education", "Tools & Resources", "Learning"]
+      }
+    },
+    "home_page": {
+      "banner": {
+        "background_image": "/health/banner.jpg",
+        "title": "Advanced medicine. Personal care.",
+        "button": "Learn More"
+      },
+      "app_hero": {
+        "title": "Anywhere, any time.",
+        "sub_title": "Try the new BXHealth online/telemed. 24/7 access for patients.",
+        "image": "/health/home-hero-card.jpg"
+      },
+      "alert_banner": {
+        "message": "Ready to get started? I'm a:",
+        "patient_link": "Patient",
+        "caregiver_link": "Caregiver"
+      },
+      "programs": [
+        {
+          "title": "Your account, our app.",
+          "description": "Access your acccount with myBXHealth app for your mobile or tablet device.",
+          "link": "Get the App"
+        },
+        {
+          "title": "Incredible people.",
+          "description": "BXHealth's 8,000 professionals are working hard for you.",
+          "link": "Meet Our People"
+        },
+        {
+          "title": "Innovation at work.",
+          "description": "Pacing the industry with advances in healthcare and technology.",
+          "link": "Learn More"
+        }
+      ]
+    },
+    "dashboard": {
+      "username": "",
+      "welcome": "Welcome",
+      "sidebar": {
+        "links": [
+          "Pay & Transfer",
+          "Banking & Credit Accounts",
+          "Loans & Lines of Credit",
+          "Investment Accounts",
+          "Profile & Settings",
+          "Messages"
+        ]
+      },
+      "events_hero": {
+        "banner_image": "/health/classes-events.png",
+        "title": "Classes & Events",
+        "description": "See and sign up for patient only opportunities",
+        "link": "Learn More"
+      },
+      "portal": {
+        "title": "Your BXHealth Homebase",
+        "dropdown_placeholder": "Things I Can Do",
+      }
+    },
+    "footer": {
+      "links_left": [
+        "Our Company",
+        "Investor Relations",
+        "Corporate Citizenship",
+        "News",
+        "Locations"
+      ],
+      "links_right": [
+        "Privacy & Security",
+        "Terms of Use",
+        "Disclosures",
+        "Accessibility"
+      ],
+      "phone_number": "800.543.2276",
+      "email": "help@bxfinance.com",
+      "chat": "Chat with Us",
+      "copyright": "© BXHealth, 2022"
+    }
+  }
+}
