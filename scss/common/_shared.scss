@@ -1,7 +1,8 @@
 @import "./mixins";
 
 &.retail.dashboard,
-&.finance.dashboard {
+&.finance.dashboard,
+&.health.dashboard {
   background-color: var(--bxi-portal-bg-color);
 
   .component-bg-color {
