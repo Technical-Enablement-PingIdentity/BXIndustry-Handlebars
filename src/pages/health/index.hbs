@@ -57,8 +57,12 @@
     <section class="bxi-banner py-4 mb-5">
       <div class="container">
         <span class="fs-4 me-3">{{settings.home_page.alert_banner.message}}</span>
+        {{#if settings.home_page.alert_banner.patient_link}}
         <button class="button button--link me-5 fs-5">{{settings.home_page.alert_banner.patient_link}}</button>
+        {{/if}}
+        {{#if settings.home_page.alert_banner.caregiver_link}}
         <button class="button button--link me-5 fs-5">{{settings.home_page.alert_banner.caregiver_link}}</button>
+        {{/if}}
       </div>
     </section>
     <section class="container">
