@@ -53,11 +53,11 @@
       "welcome": "Welcome",
       "sidebar": {
         "links": [
-          "Pay & Transfer",
-          "Banking & Credit Accounts",
-          "Loans & Lines of Credit",
-          "Investment Accounts",
-          "Profile & Settings",
+          "Coverage & Benefits",
+          "Claims & Accounts",
+          "Prescriptions & Pharmacies",
+          "Health Resources",
+          "My Settings",
           "Messages"
         ]
       },
@@ -70,6 +70,49 @@
       "portal": {
         "title": "Your BXHealth Homebase",
         "dropdown_placeholder": "Things I Can Do",
+        "component_header": "My Account Info",
+        "patient_number_label": "My BXHealth Patient Number:",
+        "patient_number": "123456",
+        "patient_links": [ "Coverage Details", "Provider Info" ],
+        "actions": [
+          {
+            "icon": "/health/icon-virtual-visit.svg",
+            "header": "Schedule a Virtual Visit",
+            "description": "With AnyVirtualHealth, visit online or by phone.",
+            "button_text": "Book Appointment"
+          },
+          {
+            "icon": "/health/icon-rx.svg",
+            "header": "RX Delivery",
+            "description": "Get your prescriptions filled or renewed via home delivery, for BXHealth patients.",
+            "button_text": "Learn More"
+          },
+          {
+            "icon": "/health/icon-document.svg",
+            "header": "Symptom Checker",
+            "description": "Our online tools help you check common symptoms for everyday ailments.",
+            "button_text": "Try It"
+          }
+        ],
+        "links_header": "Quick Links",
+        "quick_links": [
+          {
+            "icon": "/health/icon-sthescope.svg",
+            "text": "Find a Physician"
+          },
+          {
+            "icon": "/health/icon-person.svg",
+            "text": "Family Records"
+          },
+          {
+            "icon": "/health/icon-brief-case.svg",
+            "text": "Manage Your Claims"
+          },
+          {
+            "icon": "/health/icon-gear.svg",
+            "text": "More Resources"
+          }
+        ]
       }
     },
     "footer": {

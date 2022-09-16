@@ -127,7 +127,6 @@
     }
 
     .events-hero {
-
       @include breakpoint-lt-lg {
         max-width: 400px;
       }
@@ -135,6 +134,28 @@
       &-header {
         margin-top: -4rem;
         color: var(--bxi-events-hero-header-color);
+      }
+    }
+
+    .patient-links {
+      a:not(:last-child) {
+        border-radius: 0;
+        margin-right: .5rem;
+        padding-right: .5rem;
+        border-right: 1px solid var(--bxi-primary-color);
+      }
+    }
+
+    .action-tile {
+      background-color: var(--bxi-portal-bg-color);
+      img {
+        height: 55px;
+      }
+    }
+
+    .quick-links {
+      img {
+        width: 16px;
       }
     }
   }

@@ -76,8 +76,39 @@
                 </div>
               </div>
             </div>
-            <div class="component-bg-color">
-              Content Goes here
+            <div class="component-bg-color p-3 mb-4">
+              <div class="row mb-3">
+                <div class="col-lg-6 mb-3 mb-lg-0">
+                  <h6 class="bxi-ff-secondary fw-bold mb-3">{{settings.dashboard.portal.component_header}}</h6>
+                  <h6 class="bxi-ff-secondary fw-light mb-0 text-nowrap">{{settings.dashboard.portal.patient_number_label}} <span class="bxi-ff-secondary fw-light text-decoration-underline">{{settings.dashboard.portal.patient_number}}</span></h6>
+                </div>
+                <div class="patient-links col-lg-6 d-flex align-items-end justify-content-start justify-content-lg-end">
+                  {{#each settings.dashboard.portal.patient_links}}
+                  <a class="button button--link">{{this}}</a>
+                  {{/each}}
+                </div>
+              </div>
+              <div class="row g-3">
+                {{#each settings.dashboard.portal.actions}}
+                <div class="col-lg-4">
+                  <div class="action-tile d-flex flex-column align-items-center text-center p-3 h-100">
+                    <img class="mb-4" src="{{icon}}" />
+                    <h3 class="mb-4 fw-bold">{{header}}</h3>
+                    <p class="bxi-ff-secondary fw-light">{{description}}</p>
+                    <button class="button button--lg mt-auto">{{button_text}}</button>
+                  </div>
+                </div>
+                {{/each}}
+              </div>
+              <h6 class="bxi-ff-secondary fw-bold my-3">{{settings.dashboard.portal.links_header}}</h6>
+              <div class="quick-links d-flex flex-wrap">
+                {{#each settings.dashboard.portal.quick_links}}
+                <a class="button button--link text-nowrap me-4">
+                  <img class="me-1" src="{{icon}}" />
+                  {{text}}
+                </a>
+                {{/each}}
+              </div>
             </div>
           </div>
         </div>
