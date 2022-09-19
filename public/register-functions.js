@@ -1,4 +1,4 @@
-function registerFunctions() {
+function registerFunctions(logger) {
 
   /**
    * Add custom code here to do any page load actions, called on body tag in onload=""
@@ -10,6 +10,7 @@ function registerFunctions() {
     const usernameContainer = document.getElementById('username-container');
     const username = sessionStorage.getItem('bxi_username');
     if (usernameContainer && username) {
+      logger.log(`username found in session storage and a container was found, '${username}' will be displayed`)
       usernameContainer.textContent = username;
     }
   };
@@ -22,6 +23,7 @@ function registerFunctions() {
 
     // Change this to sessionStorage.clear() if you'd like to remove everything
     sessionStorage.removeItem('bxi_username');
+    logger.log('Logout occured, username has been cleared from session storage if it existed');
     // This call should be last
     window.location.assign(`/${window.location.pathname.split('/')[1]}`);
   };
@@ -43,9 +45,11 @@ function registerFunctions() {
   });
 
   bxi.registerFunction('defaultAuthnSuccess', (response) => {
+    logger.log('defaultAuthnSuccess called with DV response', response)
     // Check for username in response, if present set it in sessionStorage and redirect to the dashboard
     const username = window.bxi.getParameterCaseInsensitive(response.additionalProperties, 'username');
     if (username) {
+      logger.log('username found in response, setting it in session storage and redirecting to dashboard');
       sessionStorage.setItem('bxi_username', username);
 
       // Generic vertical doesn't have a dashboard page

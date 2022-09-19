@@ -25,6 +25,7 @@ function getBxiEnvironmentVariables() {
         'BXI_REMIX_POLICY_ID',
         'BXI_SHOW_REMIX_BUTTON',
         'BXI_GLITCH_REMIX_PROJECT',
+        'BXI_DEBUG_LOGGING',
     ];
 
     Object.keys(process.env).forEach(env => { 
