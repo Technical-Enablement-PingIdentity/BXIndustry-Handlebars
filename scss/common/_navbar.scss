@@ -14,6 +14,20 @@
   }
 }
 
+.static-user-icon {
+  border: 1px solid var(--bxi-primary-color);
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg path {
+    fill: var(--bxi-primary-color);
+  }
+ }
+
 .navbar-toggler {
   background: transparent;
   border: none;

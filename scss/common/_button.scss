@@ -3,18 +3,18 @@
   font-weight: 500;
   font-size: 12px;
   border: none;
-  background: var(--primary-button-background);
-  color: #fff;
+  background: var(--bxi-button-bg-color);
+  color: var(--bxi-button-color);
   cursor: pointer;
 
   &:hover, &:active {
     border: none;
-    background: var(--primary-button-background-hover);
-    color: #fff;
+    background: var(--bxi-button-bg-hover-color);
+    color: var(--bxi-button-color);
   }
 }
 
-a.button, .button--link {
+a, a.button, .button--link {
   text-transform: none;
   text-decoration: none;
 }
@@ -24,12 +24,13 @@ a.button, .button--link {
 }
 
 .button--md {
-  padding: 13px 26px;
+  padding: 10px 26px;
   font-size: 14px;
 }
 
 .button--lg {
   padding: 16px 27px;
+  font-size: 14px;
 }
 
 .button--icon {
@@ -44,6 +45,11 @@ a.button, .button--link {
   svg {
     position: absolute;
   }
+
+  &.button--md {
+    width: 42px;
+    height: 42px;
+  }
 }
 
 .button--submit {
@@ -56,6 +62,7 @@ a.button, .button--link {
   color: var(--outline-button-color);
 
   &:hover, &:active {
+    color: var(--outline-button-color);
     background: var(--outline-button-hover-color);
     border: 1px solid var(--outline-button-hover-color);
   }

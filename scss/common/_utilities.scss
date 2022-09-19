@@ -111,9 +111,10 @@
 .bxi-bg-image {
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
-.bxi-cta-title {
+.bxi-main-header {
   font-weight: 700;
   font-size: 2rem;
 

@@ -8,9 +8,7 @@
       "dialog_logo": "/company/auth-dialog-logo.png"
     },
     "header": {
-      "links": {
-        "items": ["About", "Investor", "Personal", "FAQs", "Contact"]
-      }
+      "links": ["About", "Investor", "Personal", "FAQs", "Contact"]
     },
     "home_page": {
       "banner": {

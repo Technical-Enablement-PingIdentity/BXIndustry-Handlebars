@@ -10,9 +10,7 @@
       "dashboard_logo": "/health/logo-white.svg"
     },
     "header": {
-      "links": {
-        "items": ["Patient Care", "Health Plans", "Education", "Tools & Resources", "Learning"]
-      }
+      "links": ["Patient Care", "Health Plans", "Education", "Tools & Resources", "Learning"]
     },
     "home_page": {
       "banner": {

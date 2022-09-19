@@ -1,0 +1,120 @@
+@import "../common/mixins";
+
+&.manufacturing {
+  .button {
+    text-transform: uppercase;
+  }
+
+  .button--nav-link,
+  .bxi-footer-link {
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+
+  .bxi-footer *,
+  .button,
+  .button--nav-link {
+    font-family: var(--bxi-secondary-font);
+  }
+
+  @include breakpoint-lg {
+    .bxi-auth-buttons {
+      .button--nav-link {
+        color: var(--link-button-color);
+    
+        &:hover {
+          color: var(--link-button-hover-color);
+        }
+    
+        &:not(:last-child) {
+          padding-right: 1rem;
+          border-right: 2px solid var(--bxi-secondary-color)
+        }
+      }
+    }
+  }
+
+ &.home {
+   .banner {
+      &:after {
+        content: " ";
+        position: absolute;
+        height: 100%;
+        width: 50%;
+        right: 0;
+        top: 0;
+        background: var(--bxi-banner-content-bg);
+
+        @include breakpoint-lt-lg {
+          height: 50%;
+          width: 100%;
+          top: 50%;
+        }
+      }
+
+      &-content {
+        min-height: 630px;
+
+        @include breakpoint-lg {
+          width: 50%;
+        }
+
+        &-color {
+          color: var(--bxi-banner-content-color);
+        }
+      }
+    }
+
+    .services {
+      &-color {
+        color: var(--bxi-services-color);
+      }
+
+      &-link {
+        color: var(--bxi-services-link-color);
+        border-top: 2px solid var(--bxi-services-link-bg-hover-color);
+        
+        &:hover {
+          color: var(--bxi-services-link-hover-color);
+          background-color: var(--bxi-services-link-bg-hover-color);
+        }
+      }
+    }
+  }
+
+  &.dashboard {
+    background-color: var(--bxi-portal-bg-color);
+
+    .navbar {
+      background-color: var(--bxi-dashboard-nav-bg-color);
+
+      @include breakpoint-lg {
+        .button--nav-link {
+          color: var(--link-button-color);
+  
+          &:hover {
+            color: var(--link-button-hover-color);
+          }
+        }
+      }
+    }
+
+    .bxi-header {
+      box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.11);
+    }
+
+    .services {
+      min-height: 300px;
+
+      &-image {
+        min-height: 225px;
+        
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
