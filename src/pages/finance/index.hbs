@@ -29,8 +29,8 @@
         <div class="container">
           <div class="bxi-navbar bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse mt-2" id="navbarNav">
             <ul class="navbar-nav p-3 p-lg-0 py-lg-4">
-              {{#each settings.header.links.items}}
-              <li class="nav-item pb-2"><a class="button button--nav-link fs-6 ps-0 pe-lg-4">{{this}}</a></li>
+              {{#each settings.header.links}}
+              <li class="nav-item pb-2"><a class="nav-link bxi-nav-link fs-6 ps-0 pe-lg-4">{{this}}</a></li>
               {{/each}}
             </ul>
           </div>
@@ -72,7 +72,7 @@
         {{/each}}
       </div>
     </section>
-    <footer class="bxi-footer-color py-5">
+    <footer class="bxi-footer py-5">
       <div class="container text-center text-lg-start">
         <div class="row">
           <div class="col-lg-4 mb-3">
@@ -107,11 +107,7 @@
           </div>
         </div>
       </div>
-      <section class="container">
-        <div class="d-flex justify-content-between align-items-center flex-column flex-md-row">
-          {{> remix }}
-        </div>
-      </section>
+      {{> remix }}
     </footer>
     {{> modal}}
   </body>

@@ -16,8 +16,8 @@
           </a>
           <div class="bxi-navbar bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse justify-content-center mt-3" id="navbarNav">
             <ul class="navbar-nav pb-2">
-              {{#each settings.header.links.items}}
-              <li class="nav-item"><a class="nav-link button px-3 pt-2 button--nav-link">{{this}}</a></li>
+              {{#each settings.header.links}}
+              <li class="nav-item"><a class="nav-link px-3 pt-2 pt-lg-0 bxi-nav-link">{{this}}</a></li>
               {{/each}}
             </ul>
           </div>
@@ -40,10 +40,10 @@
           <div class="container w-100">
             <div class="my-5">
               <h4 class="mb-4 bxi-banner__text">{{settings.home_page.banner.supertitle}}</h4>
-              <h1 class="bxi-cta-title bxi-banner__text mb-3 mb-lg-4">{{settings.home_page.banner.title}}</h1>
+              <h1 class="bxi-main-header bxi-banner__text mb-3 mb-lg-4">{{settings.home_page.banner.title}}</h1>
               <p class="fs-5 lh-base mb-4 bxi-banner__text">{{settings.home_page.banner.subtitle}}</p>
               {{#if settings.home_page.banner.button_text}}
-              <button class="button button--md">{{settings.home_page.banner.button_text}}</button>
+              <button class="button button--lg">{{settings.home_page.banner.button_text}}</button>
               {{/if}}
             </div>
           </div>
@@ -80,12 +80,12 @@
         </div>
       </div>
     </section>
-    <footer class="bxi-footer-color py-4">
+    <footer class="bxi-footer bxi-footer py-4">
       <div class="container">
         <div class="d-block d-lg-flex align-items-center justify-content-between mb-sm-3 mb-4">
           <ul class="d-none d-md-flex mb-4 mb-md-3 mb-lg-0 p-0 ls-none">
             {{#each settings.footer.links }}
-              <li class="bxi-footer-link fs-6 me-4">{{this}}</li>
+              <li class="fs-6 me-4"><a href="#" class="bxi-footer-link">{{this}}</a></li>
             {{/each}}
           </ul>
           <div class="footer-contacts d-flex flex-column-reverse flex-md-row justify-content-start align-items-center align-items-md-start justify-content-md-between justify-content-lg-end">
@@ -117,10 +117,8 @@
         </div>
       </div>
       <section class="container">
-        <div class="d-flex justify-content-between align-items-center flex-column flex-md-row">
-          <p class="mb-3 mb-md-0 fs-8 bxi-copyright-color">{{settings.footer.copyright}}</p>
-          {{> remix }}
-        </div>
+        <p class="mb-3 mb-md-0 fs-8 bxi-copyright-color">{{settings.footer.copyright}}</p>
+        {{> remix }}
       </section>
     </footer>
     {{> modal}}

@@ -1,49 +1,35 @@
 @import "../common/mixins";
 
 &.health {
-
-  .button {
+  .button, 
+  .bxi-nav-link,
+  .bxi-footer-link {
     font-family: var(--bxi-secondary-font);
     font-size: 16px;
     border-radius: 3rem;
   }
 
-  .bxi-footer-link {
-    font-family: var(--bxi-secondary-font);
-    font-size: 16px;
-  }
-
   @include breakpoint-lt-lg {
     .bxi-navbar,
     .bxi-auth-buttons {
-      .button--nav-link {
-        color: var(--nav-link-button-color-inverse);
+      .bxi-nav-link {
+        color: var(--bxi-nav-link-color-inverse);
       }
     }
   }
 
   .bxi-banner {
-    color: var(--bxi-banner-color);
-    background-color: var(--bxi-banner-bg-color);
+    color: var(--bxi-health-banner-color);
+    background-color: var(--bxi-health-banner-bg-color);
   }
 
 
   .bxi-navbar {
-    .button--nav-link {
+    .bxi-nav-link {
       font-weight: 300;
 
       &:hover {
         font-weight: 400;
-      }
-    }
-  }
-
-  .bxi-footer {
-    .button--icon {
-      &:hover {
-        svg path {
-          fill: var(--bxi-secondary-color);
-        }
       }
     }
   }
@@ -53,12 +39,16 @@
       height: 600px;
 
       &-color {
-        color: var(--bxi-header-color);
+        color: var(--bxi-health-header-color);
+      }
+
+      .health-header-icon {
+        @include color-icon(var(--bxi-link-button-color));
       }
     }
 
     .app-hero {
-      background-color: var(--bxi-hero-bg-color);
+      background-color: var(--bxi-health-hero-bg-color);
       height: 480px;
 
       @include breakpoint-lt-md {
@@ -70,7 +60,7 @@
       }
 
       &-color {
-        color: var(--bxi-hero-color);
+        color: var(--bxi-health-hero-color);
       }
 
       &-image {
@@ -91,11 +81,11 @@
     }
 
     .bxi-banner {
-      color: var(--bxi-banner-color);
-      background-color: var(--bxi-banner-bg-color);
+      color: var(--bxi-health-banner-color);
+      background-color: var(--bxi-health-banner-bg-color);
 
       .button {
-        color: var(--bxi-banner-color);
+        color: var(--bxi-health-banner-color);
         font-weight: 300;
 
         &:hover {
@@ -103,7 +93,7 @@
         }
 
         &:after {
-          @include triangle(5px, var(--bxi-banner-color), 'right') {
+          @include triangle(5px, var(--bxi-health-banner-color), 'right') {
             margin-top: .5rem;
             margin-left: 1rem;
           }
@@ -115,14 +105,14 @@
   &.dashboard {
     .bxi-navbar,
     .bxi-auth-buttons {
-      .button--nav-link {
-        color: var(--nav-link-button-color-inverse);
+      .bxi-nav-link {
+        color: var(--bxi-nav-link-color-inverse);
       }
     }
 
     @include breakpoint-lg {
       .bxi-auth-buttons {
-        border-left: 1px solid var(--nav-link-button-color-inverse);
+        border-left: 1px solid var(--bxi-nav-link-color-inverse);
       }
     }
 
@@ -133,7 +123,7 @@
 
       &-header {
         margin-top: -4rem;
-        color: var(--bxi-events-hero-header-color);
+        color: var(--bxi-health-events-header-color);
       }
     }
 
@@ -147,7 +137,7 @@
     }
 
     .action-tile {
-      background-color: var(--bxi-portal-bg-color);
+      background-color: var(--bxi-dashboard-bg-color);
       img {
         height: 55px;
       }

@@ -1,6 +1,5 @@
 {
   "settings": {
-    "primary_color": "#163657",
     "title": "BXHealth",
     "images": {
       "favicon": "/health/favicon.ico",
@@ -10,9 +9,7 @@
       "dashboard_logo": "/health/logo-white.svg"
     },
     "header": {
-      "links": {
-        "items": ["Patient Care", "Health Plans", "Education", "Tools & Resources", "Learning"]
-      }
+      "links": ["Patient Care", "Health Plans", "Education", "Tools & Resources", "Learning"]
     },
     "home_page": {
       "banner": {

@@ -15,8 +15,8 @@
             <img width="200" src="{{settings.images.logo}}" alt="Logo" />
           </a>
           <div class="d-flex flex-row mt-2 position-relative">
-            {{> pinIcon class="mt-2 me-3 d-lg-block d-none" fill=settings.primary_color }}
-            {{> messageIcon class="mt-2 me-3 d-lg-block d-none" fill=settings.primary_color }}
+            {{> pinIcon class="mt-2 me-3 d-lg-block d-none health-header-icon" }}
+            {{> messageIcon class="mt-2 me-3 d-lg-block d-none health-header-icon" }}
             <div class="bxi-auth-buttons bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse p-3 py-lg-1 bxi-zi-2">
               {{!-- See src/home-nav-buttons.hbs to update auth buttons --}}
               {{> homeNavButtons }}
@@ -29,8 +29,8 @@
         <div class="container bxi-zi-2">
           <div class="bxi-navbar bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse mt-2" id="navbarNav">
             <ul class="navbar-nav p-3 p-lg-0 py-lg-4">
-              {{#each settings.header.links.items}}
-              <li class="nav-item pb-2"><a class="button button--nav-link fs-6 ps-0 pe-lg-4">{{this}}</a></li>
+              {{#each settings.header.links}}
+              <li class="nav-item pb-2"><a class="nav-link bxi-nav-link fs-6 ps-0 pe-lg-4">{{this}}</a></li>
               {{/each}}
             </ul>
           </div>
@@ -76,7 +76,7 @@
         {{/each}}
       </div>
     </section>
-    <footer class="bxi-footer bxi-footer-color py-5">
+    <footer class="bxi-footer bxi-footer py-5">
       <div class="container text-center text-lg-start">
         <div class="row">
           <div class="col-lg-3 mb-3">
@@ -116,11 +116,7 @@
           </div>
         </div>
       </div>
-      <section class="container">
-        <div class="d-flex justify-content-between align-items-center flex-column flex-md-row">
-          {{> remix }}
-        </div>
-      </section>
+      {{> remix }}
     </footer>
     {{> modal}}
   </body>

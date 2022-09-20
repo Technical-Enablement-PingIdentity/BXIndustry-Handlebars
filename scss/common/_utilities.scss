@@ -46,24 +46,13 @@
   }
 }
 
-.bxi-footer-color {
-  color: var(--footer-text-color);
-  background-color: var(--footer-background-color);
-}
-
-.bxi-footer-link {
-  color: var(--footer-link-text-color);
-  transition: 0.2s;
-  cursor: pointer;
-  text-decoration: none;
-
-  &:hover {
-    color: var(--footer-link-text-hover-color);
-  }
+.bxi-footer {
+  color: var(--bxi-footer-color);
+  background-color: var(--bxi-footer-bg-color);
 }
 
 .bxi-copyright-color {
-  color: var(--copyright-text-color);
+  color: var(--bxi-copyright-color);
 }
 
 .bxi-color-primary {
@@ -91,11 +80,11 @@
 }
 
 .bxi-nav-color {
-  color: var(--navigation-color);
+  color: var(--bxi-company-nav-color);
 }
 
 .bxi-nav-bg-color {
-  background: var(--navigation-background-color);
+  background: var(--bxi-company-nav-bg-color);
 }
 
 .bxi-bg-transparent {
@@ -111,9 +100,10 @@
 .bxi-bg-image {
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
-.bxi-cta-title {
+.bxi-main-header {
   font-weight: 700;
   font-size: 2rem;
 

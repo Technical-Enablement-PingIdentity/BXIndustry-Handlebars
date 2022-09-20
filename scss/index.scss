@@ -10,7 +10,7 @@
   * {
     color: inherit;
     font-weight: 400;
-    font-family: var(--bxi-main-font);
+    font-family: var(--bxi-primary-font);
   }
   // End resets
 
@@ -24,7 +24,6 @@
     margin-top: auto;
   }
 
-  @import "./common/base";
   @import "./common/button";
   @import "./common/dialog";
   @import "./common/forms";
@@ -37,5 +36,6 @@
   @import "./finance/customizations";
   @import "./generic/customizations";
   @import "./health/customizations";
+  @import "./manufacturing/customizations";
   @import "./retail/customizations";
 }

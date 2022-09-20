@@ -58,6 +58,17 @@ $breakpoints: (
     }
 }
 
+@mixin color-icon($color) {
+    .stroke-target {
+        stroke: $color;
+    }
+
+    .fill-target {
+        fill: $color;
+    }
+}
+
+
 
 // Used to create a triangle, typically included in 
 // ::before or ::after, pass positioning in through @content
@@ -97,4 +108,3 @@ $breakpoints: (
         @error "Invalid $direction " + $direction + ", valid directions are up, down, left or right."
     }
 }
-

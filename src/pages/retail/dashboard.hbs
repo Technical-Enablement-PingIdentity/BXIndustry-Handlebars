@@ -18,9 +18,9 @@
             {{> notificationIcon class="mt-1 me-3 d-lg-block d-none" }}
             {{> pinIcon class="mt-1 me-3 d-lg-block d-none" }}
             {{> cartIcon class="mt-1 me-3 d-lg-block d-none" }}
-            <div class="bxi-auth-buttons bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse p-3 py-lg-1">
+            <div class="bxi-auth-buttons bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse px-lg-3 py-lg-1">
               {{> userIcon class="d-none d-lg-inline me-3"}}
-              <button onclick="bxi.logout()" class="button button--nav-link">Log Out</button>
+              <button onclick="bxi.logout()" class="button bxi-nav-link">Log Out</button>
             </div>
             <div class="bxi-user-icon bxi-bg-primary pb-3 pb-lg-0 mt-2 mt-lg-0" data-bs-toggle="collapse" data-bs-target=".bxi-auth-buttons">
               {{> userIcon }}
@@ -29,16 +29,16 @@
         </div>
         <div class="container">
           <div class="bxi-navbar bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse mt-2" id="navbarNav">
-            <ul class="navbar-nav p-3 p-lg-0 py-lg-4">
-              {{#each settings.header.links.items}}
-              <li class="nav-item pb-2"><a class="button button--nav-link fs-6 ps-0 pe-lg-4">{{this}}</a></li>
+            <ul class="navbar-nav p-2 p-lg-0 py-lg-4">
+              {{#each settings.header.links}}
+              <li class="nav-item pb-2"><a class="nav-link bxi-nav-link fs-6 ps-0 pe-lg-4">{{this}}</a></li>
               {{/each}}
             </ul>
           </div>
         </div>
       </nav>
     </header>
-    <section class="component-bg-color">
+    <section class="bxi-component-bg-color">
       <div class="container py-3">
         <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-between align-items-center">
           <h2>{{settings.dashboard.welcome}} <span id="username-container">{{settings.dashboard.username}}</span></h2>
@@ -52,10 +52,10 @@
     <section class="portal">
       <div class="container">
         <div class="row mt-4">
-          <div class="col-lg-4 order-2 order-lg-1">
+          <div class="col-lg-4 order-2 order-lg-1 mb-5">
             <ul class="ls-none ps-0 mb-4">
               {{#each settings.dashboard.sidebar.links}}
-              <li class="mb-2 ps-5 p-3 component-bg-color rounded-3 position-relative portal-sidebar-dropdown cursor-pointer">
+              <li class="mb-2 ps-5 p-3 bxi-component-bg-color rounded-3 position-relative portal-sidebar-dropdown cursor-pointer">
                 {{this}}
               </li>
               {{/each}}
@@ -75,12 +75,12 @@
                 <h4 class="mb-3 mb-sm-0 mt-1">{{settings.dashboard.portal.title}}</h4>
               </div>
               <div class="col-sm-6 d-flex justify-content-center justify-content-sm-end">
-                <div class="portal-header-dropdown component-bg-color fst-italic py-2 ps-3 pe-5 rounded-1 position-relative cursor-pointer">
+                <div class="portal-header-dropdown bxi-component-bg-color fst-italic py-2 ps-3 pe-5 rounded-1 position-relative cursor-pointer">
                   {{settings.dashboard.portal.dropdown_placeholder}}
                 </div>
               </div>
             </div>
-            <div class="p-4 component-bg-color">
+            <div class="p-4 bxi-component-bg-color">
               <div class="row">
                 {{#each settings.dashboard.portal.products}}
                 <div class="col-sm-6 col-lg-4 mb-4">
@@ -91,7 +91,7 @@
                   {{#each delivery_options}}
                   <p class="fs-8 fw-light mb-2">{{this}}</p>
                   {{/each}}
-                  <button class="button button--md mt-3">{{> cartIcon class="me-2 cart-icon"}}Add</button>
+                  <button class="button button--lg mt-3">{{> cartIcon class="me-2 cart-icon"}}Add</button>
                 </div>
                 {{/each}}
               </div>
@@ -116,7 +116,7 @@
         </div>
       </div>
     </section>
-    <footer class="bxi-footer-color py-5">
+    <footer class="bxi-footer py-5">
       <div class="container text-center text-lg-start">
         <div class="row">
           <div class="col-lg-3 mb-3">
@@ -156,11 +156,7 @@
           </div>
         </div>
       </div>
-      <section class="container">
-        <div class="d-flex justify-content-between align-items-center flex-column flex-md-row">
-          {{> remix }}
-        </div>
-      </section>
+      {{> remix }}
     </footer>
     {{> modal}}
   </body>
