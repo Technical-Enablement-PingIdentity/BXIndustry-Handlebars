@@ -1,11 +1,13 @@
+
 import FlowContainerWrapper from '/js/flow-container-wrapper.js';
 import initFunctionRegistry from '/js/function-registry.js';
+import Logger from '/js/logger.js';
 import registerFunctions from '/register-functions.js';
 
-
 (function () {
-  initFunctionRegistry();
-  registerFunctions();
+  const logger = new Logger(window._env_.BXI_DEBUG_LOGGING === 'true');
+  initFunctionRegistry(logger);
+  registerFunctions(logger);
 
   let activeWidget = null;
   let isStaticWidget = false;
@@ -13,6 +15,7 @@ import registerFunctions from '/register-functions.js';
 
   const flowTriggers = document.querySelectorAll('[data-dv-flow]');
   flowTriggers.forEach(flowTrigger => {
+    logger.log(`Configuring flow trigger ${flowTrigger.dataset.dvFlow} for element`, flowTrigger);
     switch (flowTrigger.dataset.dvFlow) {
       case "modal":
         flowTrigger.addEventListener('click', event => handleDvModalCallback(event.target, 'modal-widgetbox'));
@@ -22,7 +25,7 @@ import registerFunctions from '/register-functions.js';
         launchStaticWidget(flowTrigger);
         break;
       default:
-        console.warn('Invalid flow trigger detected valid values for data-dv-flow are "modal" or "static"');
+        logger.warn('Invalid flow trigger detected valid values for data-dv-flow are "modal" or "static"');
     }
   });
 
@@ -82,6 +85,8 @@ import registerFunctions from '/register-functions.js';
       throw Error('Policy ID is required to launch a flow.');
     }
 
+    logger.log('Launching static flow');
+
     launchFlow(widgetContainer, widgetWrapper);
   }
 
@@ -102,15 +107,21 @@ import registerFunctions from '/register-functions.js';
       ? `?${new URLSearchParams(Object.keys(urlParams).reduce((acc, key) => urlParams[key] ? {...acc, [key]: urlParams[key]} : acc, {}))}`
       : '';
 
+    logger.log('Calling token endpoint', tokenEndpoint);
+
     const tokenResponse = await fetch(tokenEndpoint);
+    logger.log('Token response received', tokenResponse)
     const tokenData = await tokenResponse.json();
+    logger.log('Token data parsed from response', tokenData);
 
     if (tokenResponse.status !== 200) {
       widgetWrapper.displayError(tokenData.error || 'An unkown error occured, see glitch server side logs for more details');
+      logger.error('Token response was not successful', tokenResponse);
       return;
     }
     
     const parameters = await widgetWrapper.getDvRequestParams();
+    logger.log('DaVinci request parameters', parameters);
 
     const dvWidgetProps = {
       config: {
@@ -123,19 +134,24 @@ import registerFunctions from '/register-functions.js';
       },
       useModal: false,
       successCallback: async response => {
+        logger.log('DaVinci flow successful', response);
         if (widgetWrapper.SuccessCallback) {
+          logger.log('SuccessCallback exists on widget wrapper');
           await bxi.callFunction(widgetWrapper.SuccessCallback, response);
         }
         
         modal?.hide();   
       },
       errorCallback: async error => {
+        logger.error('DaVinci flow was not successful');
         if (widgetWrapper.ErrorCallback) {
+          logger.log('ErrorCallback exists on widget wrapper');
           await bxi.callFunction(widgetWrapper.ErrorCallback, error);
         }
       }
     };
 
+    logger.log('Rendering DV widget with request parameters', dvWidgetProps);
     window.davinci.skRenderScreen(flowContainer, dvWidgetProps);
 
     activeWidget = flowContainer;

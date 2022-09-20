@@ -3,33 +3,25 @@
   font-weight: 500;
   font-size: 12px;
   border: none;
-  background: var(--primary-button-background);
-  color: #fff;
+  background: var(--bxi-button-bg-color);
+  color: var(--bxi-button-color);
   cursor: pointer;
 
   &:hover, &:active {
     border: none;
-    background: var(--primary-button-background-hover);
-    color: #fff;
+    background: var(--bxi-button-bg-hover-color);
+    color: var(--bxi-button-color);
   }
 }
 
-a.button, .button--link {
-  text-transform: none;
-  text-decoration: none;
-}
-
-.button--link:hover {
-  color: var(--bxi-primary-color);
-}
-
 .button--md {
-  padding: 13px 26px;
+  padding: 10px 26px;
   font-size: 14px;
 }
 
 .button--lg {
   padding: 16px 27px;
+  font-size: 14px;
 }
 
 .button--icon {
@@ -44,20 +36,40 @@ a.button, .button--link {
   svg {
     position: absolute;
   }
+
+  &.button--md {
+    width: 42px;
+    height: 42px;
+  }
 }
 
 .button--submit {
   min-width: 300px;
 }
 
+.bxi-footer {
+  .button--outline {
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+  
+    &:hover, &:active {
+      color: #fff;
+      background: var(--bxi-primary-color);
+      border: 1px solid #fff;
+    }
+  }
+}
+
 .button--outline {
   background: transparent;
-  border: 1px solid var(--outline-button-color);
-  color: var(--outline-button-color);
+  border: 1px solid var(--bxi-primary-color);
+  color: var(--bxi-primary-color);
 
   &:hover, &:active {
-    background: var(--outline-button-hover-color);
-    border: 1px solid var(--outline-button-hover-color);
+    color: #fff;
+    background: var(--bxi-primary-color);
+    border: 1px solid #fff;
   }
 
   &.button--facebook {
@@ -113,24 +125,41 @@ a.button, .button--link {
   padding: 0;
   font-size: 16px;
   background: transparent;
-  color: var(--link-button-color);
+  color: var(--bxi-link-button-color);
 
   &:hover {
-    color: var(--link-button-hover-color);
+    color: var(--bxi-link-button-hover-color);
     background: transparent;
   }
 }
 
-.button--nav-link,
-.nav-link.button--nav-link {
+a, a.button, .button--link {
+  text-transform: none;
+  text-decoration: none;
+}
+
+.bxi-nav-link,
+.nav-link.bxi-nav-link {
   padding: 0;
   background: transparent;
-  color: var(--nav-link-button-color);
+  color: var(--bxi-nav-link-color);
   font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
 
   &:hover {
-    color: var(--nav-link-button-hover-color);
+    color: var(--bxi-nav-link-hover-color);
     background: transparent;
+  }
+}
+
+.bxi-footer-link {
+  color: var(--bxi-footer-link-color);
+  transition: 0.2s;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--bxi-footer-link-hover-color);
   }
 }
 

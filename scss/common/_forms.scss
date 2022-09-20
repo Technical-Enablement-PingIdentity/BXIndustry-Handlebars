@@ -1,7 +1,8 @@
-input, select {
+input, select, textarea {
   border-radius: 2px;
   padding: .75rem 1rem;
   border: 1px solid #909DAA;
+  outline: none;
 
   &:focus {
     box-shadow: none;

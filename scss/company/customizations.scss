@@ -1,19 +1,19 @@
 @import '../common/mixins';
 
 &.company {
-  .button {
+  .button, .bxi-nav-link {
     text-transform: uppercase;
   }
 
   @include breakpoint-lg {
     .bxi-auth-buttons {
       // Add button separator
-      .button--nav-link {
+      .bxi-nav-link {
         padding-bottom: .25rem;
         padding-top: .25rem;
 
         &:not(:last-child) {
-          border-right: 1px solid var(--nav-link-button-color);
+          border-right: 1px solid var(--bxi-nav-link-color);
           padding-right: 1rem;
           margin-right: 1rem;
         }
@@ -23,21 +23,21 @@
 
   .bxi-banner {
     margin-top: -4.5rem;
-    color: var(--bxi-banner-text-color);
+    color: var(--bxi-company-banner-color);
 
     &__image {
       height: 600px;
     }
 
     &__text {
-      color: var(--bxi-banner-text-color);
+      color: var(--bxi-company-banner-color);
     }
   }
 
   .video-tile {
     &__thumbnail {
       .thumbnail-overlay {
-        background: var(--video-tile-overlay-background);
+        background: var(--bxi-company-video-overlay-bg);
       }
   
       .thumbnail-button {
@@ -96,7 +96,7 @@
     
       &-bullet {
           flex: 0 0 45px;
-          color: var(--bullet-index-color);
+          color: var(--bxi-company-bullet-color);
       }
     }
     
@@ -109,12 +109,16 @@
     .filter-dropdown {
       box-shadow: 0px 8px 12px -6px rgba(35, 21, 91, 0.05), 0px 14px 64px -4px rgba(35, 21, 91, 0.05);
       padding: .75rem 1.5rem;
+
+      &-caret {
+        @include color-icon(var(--bxi-company-filter-caret-color));
+      }
     }
 
     .filter-button {
       margin-top: 17px;
       padding: 13px 1.5rem;
-      background: var(--filter-button-background-color);
+      background: var(--bxi-company-filter-button-bg-color);
     }
 
     .thumbnail-overlay {
@@ -124,15 +128,15 @@
     .components {
       height: 400px;
       background-color: #fff;
-      border: var(--components-border);
+      border: var(--bxi-company-components-border);
 
       &-icon {
         width: 70px;
         height: 70px;
         font-size: 60px;
         line-height: 1.2;
-        color: var(--components-icon-color);
-        background: var(--components-icon-background);
+        color: var(--bxi-company-components-icon-color);
+        background: var(--bxi-company-components-icon-bg);
       }
 
       .button {

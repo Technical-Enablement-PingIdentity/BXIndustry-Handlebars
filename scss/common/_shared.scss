@@ -1,13 +1,11 @@
 @import "./mixins";
 
-&.retail.dashboard,
-&.finance.dashboard,
-&.health.dashboard {
-  background-color: var(--bxi-portal-bg-color);
+.bxi-component-bg-color {
+  background-color: var(--bxi-component-bg-color);
+}
 
-  .component-bg-color {
-    background-color: var(--bxi-component-bg-color);
-  }
+&.dashboard {
+  background-color: var(--bxi-dashboard-bg-color);
 
   .portal-sidebar-dropdown {
     &::before {

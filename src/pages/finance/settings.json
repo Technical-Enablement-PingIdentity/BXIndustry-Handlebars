@@ -8,9 +8,7 @@
       "dialog_logo": "/finance/auth-dialog-logo.png"
     },
     "header": {
-      "links": {
-        "items": ["Banking", "Credit Cards", "Investment", "Loans & Mortgages", "Business Banking"]
-      }
+      "links": ["Banking", "Credit Cards", "Investment", "Loans & Mortgages", "Business Banking"]
     },
     "rewards_card": {
       "title": "Meet SHINE.",
