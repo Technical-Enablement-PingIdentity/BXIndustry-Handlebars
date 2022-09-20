@@ -43,7 +43,7 @@
 }
 
 .bxi-auth-buttons {
-  .button--nav-link:not(:last-child) {
+  .bxi-nav-link:not(:last-child) {
     margin-right: 1rem;
   }
 }
@@ -63,7 +63,7 @@
     right: 0;
     padding: .5rem .5rem 0 .5rem;
 
-    .button--nav-link {
+    .bxi-nav-link {
       white-space: nowrap;
       display: block;
       margin-bottom: .5rem;

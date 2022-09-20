@@ -51,17 +51,6 @@
   background-color: var(--bxi-footer-bg-color);
 }
 
-.bxi-footer-link {
-  color: var(--bxi-footer-link-color);
-  transition: 0.2s;
-  cursor: pointer;
-  text-decoration: none;
-
-  &:hover {
-    color: var(--bxi-footer-link-hover-color);
-  }
-}
-
 .bxi-copyright-color {
   color: var(--bxi-copyright-color);
 }

@@ -1,14 +1,14 @@
 @import '../common/mixins';
 
 &.company {
-  .button {
+  .button, .bxi-nav-link {
     text-transform: uppercase;
   }
 
   @include breakpoint-lg {
     .bxi-auth-buttons {
       // Add button separator
-      .button--nav-link {
+      .bxi-nav-link {
         padding-bottom: .25rem;
         padding-top: .25rem;
 

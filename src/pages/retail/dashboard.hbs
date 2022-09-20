@@ -20,7 +20,7 @@
             {{> cartIcon class="mt-1 me-3 d-lg-block d-none" }}
             <div class="bxi-auth-buttons bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse px-lg-3 py-lg-1">
               {{> userIcon class="d-none d-lg-inline me-3"}}
-              <button onclick="bxi.logout()" class="button button--nav-link">Log Out</button>
+              <button onclick="bxi.logout()" class="button bxi-nav-link">Log Out</button>
             </div>
             <div class="bxi-user-icon bxi-bg-primary pb-3 pb-lg-0 mt-2 mt-lg-0" data-bs-toggle="collapse" data-bs-target=".bxi-auth-buttons">
               {{> userIcon }}
@@ -31,7 +31,7 @@
           <div class="bxi-navbar bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse mt-2" id="navbarNav">
             <ul class="navbar-nav p-2 p-lg-0 py-lg-4">
               {{#each settings.header.links}}
-              <li class="nav-item pb-2"><a class="button button--nav-link fs-6 ps-0 pe-lg-4">{{this}}</a></li>
+              <li class="nav-item pb-2"><a class="bxi-nav-link fs-6 ps-0 pe-lg-4">{{this}}</a></li>
               {{/each}}
             </ul>
           </div>

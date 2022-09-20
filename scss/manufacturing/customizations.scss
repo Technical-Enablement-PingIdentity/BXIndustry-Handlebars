@@ -5,7 +5,7 @@
     text-transform: uppercase;
   }
 
-  .button--nav-link,
+  .bxi-nav-link,
   .bxi-footer-link {
     font-size: 1rem;
     text-transform: uppercase;
@@ -13,13 +13,13 @@
 
   .bxi-footer *,
   .button,
-  .button--nav-link {
+  .bxi-nav-link {
     font-family: var(--bxi-secondary-font);
   }
 
   @include breakpoint-lg {
     .bxi-auth-buttons {
-      .button--nav-link {
+      .bxi-nav-link {
         color: var(--bxi-link-button-color);
     
         &:hover {
@@ -87,7 +87,7 @@
       background-color: var(--bxi-manufacturing-dashboard-nav-bg-color);
 
       @include breakpoint-lg {
-        .button--nav-link {
+        .bxi-nav-link {
           color: var(--bxi-link-button-color);
   
           &:hover {

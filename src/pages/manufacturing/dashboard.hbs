@@ -17,7 +17,7 @@
           <div class="bxi-navbar collapse navbar-collapse bxi-bg-primary bxi-bg-lg-transparent justify-content-center py-2" id="navbarNav">
             <ul class="navbar-nav">
               {{#each settings.dashboard.header.links}}
-              <li class="nav-item"><a class="button button--nav-link px-3">{{this}}</a></li>
+              <li class="nav-item"><a class="bxi-nav-link px-3">{{this}}</a></li>
               {{/each}}
             </ul>
           </div>
@@ -30,7 +30,7 @@
               {{> userIcon }}
             </div>
             <div class="bxi-auth-buttons bxi-bg-primary bxi-bg-lg-transparent collapse navbar-collapse">
-              <button onclick="bxi.logout()" class="button button--nav-link mb-1 mb-lg-0">Log Out</button>
+              <button onclick="bxi.logout()" class="button bxi-nav-link mb-1 mb-lg-0">Log Out</button>
             </div>
           </div>
         </div>

@@ -14,15 +14,6 @@
   }
 }
 
-a, a.button, .button--link {
-  text-transform: none;
-  text-decoration: none;
-}
-
-.button--link:hover {
-  color: var(--bxi-primary-color);
-}
-
 .button--md {
   padding: 10px 26px;
   font-size: 14px;
@@ -142,16 +133,33 @@ a, a.button, .button--link {
   }
 }
 
-.button--nav-link,
-.nav-link.button--nav-link {
+a, a.button, .button--link {
+  text-transform: none;
+  text-decoration: none;
+}
+
+.bxi-nav-link,
+.nav-link.bxi-nav-link {
   padding: 0;
   background: transparent;
   color: var(--bxi-nav-link-color);
   font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
 
   &:hover {
     color: var(--bxi-nav-link-hover-color);
     background: transparent;
+  }
+}
+
+.bxi-footer-link {
+  color: var(--bxi-footer-link-color);
+  transition: 0.2s;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--bxi-footer-link-hover-color);
   }
 }
 
