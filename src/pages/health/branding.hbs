@@ -1,6 +1,7 @@
 <style>
   :root {
-    --bxi-main-font: 'capitolium-2', serif;
+    /* Global Variables - used in common styles */
+    --bxi-primary-font: 'capitolium-2', serif;
     --bxi-secondary-font: 'filson-soft', sans-serif;
     /* Primary color is located in settings file for this vertical because it is needed to color icons in header */
     --bxi-primary-color: {{settings.primary_color}};
@@ -8,26 +9,27 @@
     --bxi-button-color: #fff;
     --bxi-button-bg-color: #332842;
     --bxi-button-bg-hover-color: var(--bxi-primary-color);
-    --link-button-color: var(--bxi-primary-color);
-    --link-button-hover-color: #332842;
-    --nav-link-button-color: var(--link-button-color);
-    --nav-link-button-hover-color: var(--link-button-hover-color);
-    --nav-link-button-color-inverse: #fff;
-    --bxi-header-color: var(--bxi-primary-color);
-    --bxi-hero-color: #000;
-    --bxi-hero-bg-color: #fff;
-    --bxi-banner-bg-color: var(--bxi-primary-color);
-    --bxi-banner-color: #fff;
-    --bxi-portal-bg-color: #f3f3f3;
+    --bxi-link-button-color: var(--bxi-primary-color);
+    --bxi-link-button-hover-color: #332842;
+    --bxi-nav-link-color: var(--bxi-link-button-color);
+    --bxi-nav-link-hover-color: var(--bxi-link-button-hover-color);
+    --bxi-nav-link-color-inverse: #fff;
+    --bxi-dashboard-bg-color: #f3f3f3;
     --bxi-component-bg-color: #fff;
-    --bxi-component-border-color: #456159;
+    --bxi-footer-bg-color: var(--bxi-secondary-color);
+    --bxi-footer-link-color: #fff;
+    --bxi-footer-link-hover-color: #d2d2d2;
+    --bxi-footer-color: #fff;
+    --bxi-copyright-color: #fff;
     --bxi-header-dropdown-color: #8c8f8f;
     --bxi-header-dropdown-border-color: #c6cdcf;
-    --bxi-events-hero-header-color: #fff;
-    --footer-background-color: var(--bxi-secondary-color);
-    --footer-link-text-color: #fff;
-    --footer-link-text-hover-color: #d2d2d2;
-    --footer-text-color: #fff;
-    --copyright-text-color: #fff;
+
+    /* Vertical Specific Variables - used in <vertical>/customizations.scss */
+    --bxi-health-header-color: var(--bxi-primary-color);
+    --bxi-health-hero-color: #000;
+    --bxi-health-hero-bg-color: #fff;
+    --bxi-health-banner-color: #fff;
+    --bxi-health-banner-bg-color: var(--bxi-primary-color);
+    --bxi-health-events-header-color: #fff;
   }
 </style>

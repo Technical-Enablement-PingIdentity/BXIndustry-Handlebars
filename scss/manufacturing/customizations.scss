@@ -20,10 +20,10 @@
   @include breakpoint-lg {
     .bxi-auth-buttons {
       .button--nav-link {
-        color: var(--link-button-color);
+        color: var(--bxi-link-button-color);
     
         &:hover {
-          color: var(--link-button-hover-color);
+          color: var(--bxi-link-button-hover-color);
         }
     
         &:not(:last-child) {
@@ -43,7 +43,7 @@
         width: 50%;
         right: 0;
         top: 0;
-        background: var(--bxi-banner-content-bg);
+        background: var(--bxi-manufacturing-banner-bg-color);
 
         @include breakpoint-lt-lg {
           height: 50%;
@@ -60,40 +60,38 @@
         }
 
         &-color {
-          color: var(--bxi-banner-content-color);
+          color: var(--bxi-manufacturing-banner-color);
         }
       }
     }
 
     .services {
       &-color {
-        color: var(--bxi-services-color);
+        color: var(--bxi-manufacturing-service-color);
       }
 
       &-link {
-        color: var(--bxi-services-link-color);
-        border-top: 2px solid var(--bxi-services-link-bg-hover-color);
+        color: var(--bxi-manufacturing-service-link-color);
+        border-top: 2px solid var(--bxi-manufacturing-service-link-bg-hover-color);
         
         &:hover {
-          color: var(--bxi-services-link-hover-color);
-          background-color: var(--bxi-services-link-bg-hover-color);
+          color: var(--bxi-manufacturing-service-link-hover-color);
+          background-color: var(--bxi-manufacturing-service-link-bg-hover-color);
         }
       }
     }
   }
 
   &.dashboard {
-    background-color: var(--bxi-portal-bg-color);
-
     .navbar {
-      background-color: var(--bxi-dashboard-nav-bg-color);
+      background-color: var(--bxi-manufacturing-dashboard-nav-bg-color);
 
       @include breakpoint-lg {
         .button--nav-link {
-          color: var(--link-button-color);
+          color: var(--bxi-link-button-color);
   
           &:hover {
-            color: var(--link-button-hover-color);
+            color: var(--bxi-link-button-hover-color);
           }
         }
       }

@@ -1,32 +1,33 @@
 <style>
   :root {
-    --bxi-main-font: 'Noto Sans', sans-serif;
+    /* Global Variables - used in common styles */
+    --bxi-primary-font: 'Noto Sans', sans-serif;
     --bxi-secondary-font: 'Mohave', sans-serif;
     --bxi-primary-color: #0E264C;
     --bxi-secondary-color: #F1CA00;
     --bxi-button-color: var(--bxi-primary-color);
     --bxi-button-bg-color: var(--bxi-secondary-color);
     --bxi-button-bg-hover-color: #D1B210;
-    --link-button-color: var(--bxi-primary-color);
-    --link-button-hover-color: var(--bxi-secondary-color);
-    --nav-link-button-color: #fff;
-    --nav-link-button-hover-color: var(--bxi-secondary-color);
-    --bxi-header-bg-color: #fff;
-    --bxi-nav-bg-color: var(--bxi-primary-color);
-    --bxi-banner-content-color: #fff;
-    --bxi-banner-content-bg: rgba(8, 20, 38, 0.6);
-    --bxi-services-color: #fff;
-    --bxi-services-link-color: var(--bxi-secondary-color);
-    --bxi-services-link-hover-color: var(--bxi-primary-color);
-    --bxi-services-link-bg-hover-color: var(--bxi-secondary-color);
-    --bxi-dashboard-nav-bg-color: #fff;
-    --bxi-portal-bg-color: #f3f3f3;
+    --bxi-link-button-color: var(--bxi-primary-color);
+    --bxi-link-button-hover-color: var(--bxi-secondary-color);
+    --bxi-nav-link-color: #fff;
+    --bxi-nav-link-hover-color: var(--bxi-secondary-color);
+    --bxi-dashboard-bg-color: #f3f3f3;
     --bxi-component-bg-color: #fff;
-    --footer-background-color: #2C3741;
-    --footer-link-text-color: #fff;
-    --footer-link-text-hover-color: var(--bxi-secondary-color);
-    --footer-text-color: #fff;
-    --copyright-text-color: #fff;
-    --copyright-bg-color: var(--bxi-primary-color)
+    --bxi-footer-bg-color: #2C3741;
+    --bxi-footer-link-color: #fff;
+    --bxi-footer-link-hover-color: var(--bxi-secondary-color);
+    --bxi-footer-color: #fff;
+    --bxi-copyright-color: #fff;
+    --copyright-bg-color: var(--bxi-primary-color);
+
+    /* Vertical Specific Variables - used in <vertical>/customizations.scss */
+    --bxi-manufacturing-banner-color: #fff;
+    --bxi-manufacturing-banner-bg-color: rgba(8, 20, 38, 0.6);
+    --bxi-manufacturing-service-color: #fff;
+    --bxi-manufacturing-service-link-color: var(--bxi-secondary-color);
+    --bxi-manufacturing-service-link-hover-color: var(--bxi-primary-color);
+    --bxi-manufacturing-service-link-bg-hover-color: var(--bxi-secondary-color);
+    --bxi-manufacturing-dashboard-nav-bg-color: #fff;
   }
 </style>

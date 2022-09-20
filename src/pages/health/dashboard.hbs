@@ -16,9 +16,9 @@
           </a>
           <div class="d-flex flex-row position-relative">
             {{> messageIcon class="mt-2 me-3 d-none d-lg-block" }}
-            <div class="bxi-auth-buttons bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse p-3 py-lg-1">
+            <div class="bxi-auth-buttons bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse p-2 p-lg-3 py-lg-1">
               {{> userIcon class="d-none d-lg-inline me-3"}}
-              <button onclick="bxi.logout()" class="button button--nav-link">Log Out</button>
+              <button onclick="bxi.logout()" class="button button--nav-link mb-0">Log Out</button>
             </div>
             <div class="bxi-user-icon bxi-bg-primary" data-bs-toggle="collapse" data-bs-target=".bxi-auth-buttons">
               {{> userIcon }}
@@ -36,7 +36,7 @@
         </div>
       </nav>
     </header>
-    <section class="component-bg-color">
+    <section class="bxi-component-bg-color">
       <div class="container py-3">
         <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-between align-items-center">
           <h2 class="fw-bold">{{settings.dashboard.welcome}} <span class="fw-bold" id="username-container">{{settings.dashboard.username}}</span></h2>
@@ -53,12 +53,12 @@
           <div class="col-lg-4 order-2 order-lg-1">
             <ul class="ls-none ps-0 mb-3">
               {{#each settings.dashboard.sidebar.links}}
-              <li class="mb-2 ps-5 p-3 component-bg-color rounded-3 position-relative portal-sidebar-dropdown cursor-pointer bxi-ff-secondary fw-lighter">
+              <li class="mb-2 ps-5 p-3 bxi-component-bg-color rounded-3 position-relative portal-sidebar-dropdown cursor-pointer bxi-ff-secondary fw-lighter">
                 {{this}}
               </li>
               {{/each}}
             </ul>
-            <div class="events-hero rounded-4 overflow-hidden mx-auto pb-4 mb-4 component-bg-color">
+            <div class="events-hero rounded-4 overflow-hidden mx-auto pb-4 mb-4 bxi-component-bg-color">
               <img class="events-hero-image d-block w-100" src="{{settings.dashboard.events_hero.banner_image}}" />
               <h3 class="p-4 events-hero-header fw-bold">{{settings.dashboard.events_hero.title}}</h3>
               <p class="ps-4 fs-6 fw-light bxi-ff-secondary">{{settings.dashboard.events_hero.description}}</p>
@@ -71,12 +71,12 @@
                 <h4 class="mb-3 mb-sm-0 mt-1 fw-boldish">{{settings.dashboard.portal.title}}</h4>
               </div>
               <div class="col-sm-5 d-flex justify-content-center justify-content-sm-end">
-                <div class="portal-header-dropdown component-bg-color py-2 ps-3 pe-5 rounded-1 position-relative cursor-pointer bxi-ff-secondary fw-light">
+                <div class="portal-header-dropdown bxi-component-bg-color py-2 ps-3 pe-5 rounded-1 position-relative cursor-pointer bxi-ff-secondary fw-light">
                   {{settings.dashboard.portal.dropdown_placeholder}}
                 </div>
               </div>
             </div>
-            <div class="component-bg-color p-3 mb-4">
+            <div class="bxi-component-bg-color p-3 mb-4">
               <div class="row mb-3">
                 <div class="col-lg-6 mb-3 mb-lg-0">
                   <h6 class="bxi-ff-secondary fw-bold mb-3">{{settings.dashboard.portal.component_header}}</h6>

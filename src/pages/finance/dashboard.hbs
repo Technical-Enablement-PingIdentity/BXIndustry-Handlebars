@@ -26,7 +26,7 @@
           </div>
         </div>
         <div class="container">
-          <div class="bxi-navbar bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse mt-2" id="navbarNav">
+          <div class="bxi-navbar bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse mt-2 bxi-zi-2" id="navbarNav">
             <ul class="navbar-nav p-3 p-lg-0 py-lg-4">
               {{#each settings.header.links}}
               <li class="nav-item pb-2"><a class="button button--nav-link fs-6 ps-0 pe-lg-4">{{this}}</a></li>
@@ -36,7 +36,7 @@
         </div>
       </nav>
     </header>
-    <section class="component-bg-color">
+    <section class="bxi-component-bg-color">
       <div class="container py-3">
         <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-between align-items-center">
           <h2 class="fw-boldish">{{settings.dashboard.welcome}} <span class="fw-boldish" id="username-container">{{settings.dashboard.username}}</span></h2>
@@ -53,7 +53,7 @@
           <div class="col-lg-4 order-2 order-lg-1">
             <ul class="ls-none ps-0 mb-3">
               {{#each settings.dashboard.sidebar.links}}
-              <li class="mb-2 ps-5 p-3 component-bg-color rounded-3 position-relative portal-sidebar-dropdown cursor-pointer">
+              <li class="mb-2 ps-5 p-3 bxi-component-bg-color rounded-3 position-relative portal-sidebar-dropdown cursor-pointer">
                 {{this}}
               </li>
               {{/each}}
@@ -71,13 +71,13 @@
                 <h4 class="mb-3 mb-sm-0 mt-1 fw-boldish">{{settings.dashboard.portal.title}}</h4>
               </div>
               <div class="col-sm-6 d-flex justify-content-center justify-content-sm-end">
-                <div class="portal-header-dropdown component-bg-color fst-italic py-2 ps-3 pe-5 rounded-1 position-relative cursor-pointer">
+                <div class="portal-header-dropdown bxi-component-bg-color fst-italic py-2 ps-3 pe-5 rounded-1 position-relative cursor-pointer">
                   {{settings.dashboard.portal.dropdown_placeholder}}
                 </div>
               </div>
             </div>
             {{#each settings.dashboard.portal.account_tiles}}
-            <div class="account-tile component-bg-color mb-3 mb-lg-4 ps-5 p-3 position-relative rounded-bottom">
+            <div class="account-tile bxi-component-bg-color mb-3 mb-lg-4 ps-5 p-3 position-relative rounded-bottom">
               <div class="row mb-3">
                 <div class="col-7 d-flex align-items-center">
                   <h6>{{title}}</h6>
