@@ -56,15 +56,29 @@ a, a.button, .button--link {
   min-width: 300px;
 }
 
+.bxi-footer {
+  .button--outline {
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+  
+    &:hover, &:active {
+      color: #fff;
+      background: var(--bxi-primary-color);
+      border: 1px solid #fff;
+    }
+  }
+}
+
 .button--outline {
   background: transparent;
-  border: 1px solid var(--outline-button-color);
-  color: var(--outline-button-color);
+  border: 1px solid var(--bxi-primary-color);
+  color: var(--bxi-primary-color);
 
   &:hover, &:active {
-    color: var(--outline-button-color);
-    background: var(--outline-button-hover-color);
-    border: 1px solid var(--outline-button-hover-color);
+    color: #fff;
+    background: var(--bxi-primary-color);
+    border: 1px solid #fff;
   }
 
   &.button--facebook {

@@ -37,16 +37,6 @@
     }
   }
 
-  .bxi-footer {
-    .button--icon {
-      &:hover {
-        svg path {
-          fill: var(--bxi-secondary-color);
-        }
-      }
-    }
-  }
-
   &.home {
     .bxi-header {
       height: 600px;
