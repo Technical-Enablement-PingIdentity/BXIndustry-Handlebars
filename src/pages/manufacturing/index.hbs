@@ -32,7 +32,7 @@
             <div class="bxi-navbar bxi-bg-primary collapse navbar-collapse bxi-zi-2" id="navbarNav">
               <ul class="navbar-nav p-2 pb-0 py-lg-3 px-lg-0 d-flex justify-content-between w-100">
                 {{#each settings.home_page.header.links}}
-                <li class="nav-item mb-2 mb-lg-0"><a class="bxi-nav-link">{{this}}</a></li>
+                <li class="nav-item mb-2 mb-lg-0"><a class="nav-link bxi-nav-link">{{this}}</a></li>
                 {{/each}}
                 <li>{{> searchIcon class="d-none d-lg-block mt-1" }}</li>
               </ul>
@@ -41,12 +41,14 @@
         </div>
       </nav>
     </header>
-    <section class="banner bxi-bg-image position-relative" style="background-image: url('{{settings.home_page.banner.background_image}}')">
+    <section class="bxi-banner bxi-bg-image position-relative" style="background-image: url('{{settings.home_page.banner.background_image}}')">
         <div class="container">
-          <div class="banner-content ms-0 ms-lg-auto d-flex p-5 justify-content-end justify-content-lg-center flex-column">
-            <h1 class="bxi-zi-2 bxi-ff-secondary text-uppercase bxi-main-header banner-content-color">{{settings.home_page.banner.title}}</h1>
-            <h4 class="bxi-zi-2 banner-content-color mb-3 mb-lg-5">{{settings.home_page.banner.subtitle}}</h4>
+          <div class="bxi-banner-content ms-0 ms-lg-auto d-flex p-5 justify-content-end justify-content-lg-center flex-column">
+            <h1 class="bxi-zi-2 bxi-ff-secondary text-uppercase bxi-main-header bxi-banner-content-color">{{settings.home_page.banner.title}}</h1>
+            <h4 class="bxi-zi-2 bxi-banner-content-color mb-3 mb-lg-5">{{settings.home_page.banner.subtitle}}</h4>
+            {{#if settings.home_page.banner.button}}
             <button class="button button--lg align-self-start bxi-zi-2">{{settings.home_page.banner.button}}</button>
+            {{/if}}
           </div>
         </div>
     </section>

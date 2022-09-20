@@ -35,7 +35,7 @@
   }
 
  &.home {
-   .banner {
+   .bxi-banner {
       &:after {
         content: " ";
         position: absolute;
@@ -73,6 +73,7 @@
       &-link {
         color: var(--bxi-manufacturing-service-link-color);
         border-top: 2px solid var(--bxi-manufacturing-service-link-bg-hover-color);
+        text-decoration: none;
         
         &:hover {
           color: var(--bxi-manufacturing-service-link-hover-color);
