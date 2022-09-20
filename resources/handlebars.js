@@ -33,11 +33,6 @@ export function initHandlebarsHelpers(hbs) {
     hbs.registerHelper('indexBullet', (value, _) => {
         return `0${(parseInt(value) + 1)}`.slice(-2);
     });
-
-    // If first value is truthy, return that otherwise return default value, used for e.g., setting default fill on icons 
-    hbs.registerHelper('valueOrDefault', (value, defaultValue) => {
-        return new hbs.SafeString(value || defaultValue);
-    });
 }
 
 /**

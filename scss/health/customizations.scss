@@ -44,6 +44,10 @@
       &-color {
         color: var(--bxi-health-header-color);
       }
+
+      .health-header-icon {
+        @include color-icon(var(--bxi-link-button-color));
+      }
     }
 
     .app-hero {
