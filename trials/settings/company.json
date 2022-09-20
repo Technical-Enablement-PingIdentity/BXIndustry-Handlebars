@@ -9,7 +9,7 @@
     "home_page": {
       "banner": {
         "background_image": "banner.png",
-        "button_text": "Get Started",
+        "button_text": "",
         "video_tiles": [
           "video-tile-1.png",
           "video-tile-2.png",

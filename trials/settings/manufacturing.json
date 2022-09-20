@@ -1,0 +1,38 @@
+{
+  "settings": {
+    "images": {
+      "favicon": "favicon.ico",
+      "apple_touch_icon": "apple-touch-icon.png",
+      "logo": "logo.png",
+      "dialog_logo": "auth-dialog-logo.png"
+    },
+    "home_page": {
+      "banner": {
+        "background_image": "banner.jpg",
+        "button": ""
+      }
+    },
+    "dashboard": {
+      "services": [
+        {
+          "image": "dashboard-block-1.jpg",
+          "title": "Quality Control Systems",
+          "description": "Ensure top quality for the products that are manufactured in your production line.",
+          "button": "Go to Service"
+        },
+        {
+          "image": "dashboard-block-2.jpg",
+          "title": "Operational Set Up of Manufacturing",
+          "description": "Get set up with the ability to manufacture products quickly.",
+          "button": "Go to Service"
+        },
+        {
+          "image": "dashboard-block-3.jpg",
+          "title": "Production Line Audit",
+          "description": "Get consulting and advice on how to make your production line more efficient and safer.",
+          "button": "Go to Service"
+        }
+      ]
+    }
+  }
+}

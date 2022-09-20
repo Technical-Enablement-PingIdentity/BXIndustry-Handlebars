@@ -7,9 +7,7 @@
       "dialog_logo": "auth-dialog-logo.svg"
     },
     "header": {
-      "links": {
-        "items": ["Store", "Weekly Deals", "Extraordinary Club", "Departments", "The BXCard"]
-      }
+      "links":  ["Store", "Weekly Deals", "Extraordinary Club", "Departments", "The BXCard"]
     },
     "home_page": {
       "sale_tile": {
