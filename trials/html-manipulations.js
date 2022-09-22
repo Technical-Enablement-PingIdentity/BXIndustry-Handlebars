@@ -25,6 +25,7 @@ export function htmlManipulations(htmlDocument) {
 
   // Remove onload and onclick js event to prevent errors
   htmlDocument = htmlDocument.replace(/\sonload=".*?"/, '');
+  htmlDocument = htmlDocument.replace(/onclick="bxi.logout\(\)"/, 'id="bxi-log-out"');
   htmlDocument = htmlDocument.replace(/\sonclick=".*?"/, '');
 
   // Remove background-image from style attributes
