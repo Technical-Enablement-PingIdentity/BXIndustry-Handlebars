@@ -11,23 +11,23 @@
           <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand pt-0" href="#">
             <img width="150" src="{{settings.images.logo}}" alt="Logo" />
           </a>
-          <div class="bxi-navbar bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse justify-content-center mt-2" id="navbarNav">
-            <ul class="navbar-nav pb-2">
-              {{#each settings.header.links.items}}
-              <li class="nav-item"><a class="nav-link button px-3 pt-2 button--nav-link">{{this}}</a></li>
+          <div class="bxi-navbar bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav py-2">
+              {{#each settings.header.links}}
+              <li class="nav-item"><a class="nav-link px-3 pt-2 pt-lg-0 bxi-nav-link">{{this}}</a></li>
               {{/each}}
             </ul>
           </div>
           <div class="d-flex flex-row position-relative">
             <p id="username-container" class="bxi-nav-color me-3 d-none d-sm-flex m-0 align-items-center">{{settings.dashboard.username}}</p>
-            <div class="bxi-user-icon bxi-bg-primary me-0 me-lg-3 pe-lg-none" data-bs-toggle="collapse" data-bs-target=".bxi-auth-buttons">
+            <div class="bxi-user-icon d-flex bxi-bg-primary me-0 me-lg-3 pe-lg-none" data-bs-toggle="collapse" data-bs-target=".bxi-auth-buttons">
               {{> userIcon }}
             </div>
             <div class="bxi-auth-buttons bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse p-2 p-lg-0">
-              <button onclick="bxi.logout()" class="button button--nav-link">Log Out</button>
+              <button onclick="bxi.logout()" class="button bxi-nav-link">Log Out</button>
             </div>
           </div>
         </div>
@@ -39,17 +39,17 @@
         {{> dashboardButtons}}
       </div>
       <div class="row">
-        <div class="col-xl-8 col-xs-12 dashboard-section__reporting">
+        <div class="col-xl-8 dashboard-section__reporting">
           <h1 class="bxi-ff-secondary fw-bold my-4 fs-1">{{settings.dashboard.title}}</h1>
           <p class="mb-0">{{settings.dashboard.filter_header}}</p>
           <div class="d-flex align-items-center flex-wrap">
             {{#each settings.dashboard.filters}}
             <div class="filter-dropdown mt-3 me-3 cursor-pointer">
               {{this}}
-              {{> caretIcon class="ms-3" fill="#930909" }}
+              {{> caretIcon class="ms-3 filter-dropdown-caret" }}
             </div>
             {{/each}}
-            <button class="button button--md filter-button">{{settings.dashboard.filter_button}}</button>
+            <button class="button filter-button fs-7">{{settings.dashboard.filter_button}}</button>
           </div>
           <div>
             <img class="d-none d-sm-block mt-3 w-100 h-auto"
@@ -60,27 +60,26 @@
           </div>
           <div class="row">
             {{#each settings.dashboard.small_charts}}
-            <div class="col-xs-12 col-sm-6">
+            <div class="col-sm-6">
               <img class="w-100 h-auto mt-3" src="{{this}}" alt="Small chart" />
             </div>
             {{/each}}
-
           </div>
           <div class="reporting__components components d-flex flex-column my-3 p-4 justify-content-center align-items-center">
             <div class="components-icon text-center mb-3 rounded-circle">{{settings.dashboard.components_section.icon}}</div>
             <h4 class="fw-boldish fs-6 mb-3">{{settings.dashboard.components_section.title}}</h4>
             <p class="fs-8 mb-3 text-center">{{settings.dashboard.components_section.subtitle}}</p>
-            <button class="button button--md">{{settings.dashboard.components_section.button}}</button>
+            <button class="button button--lg">{{settings.dashboard.components_section.button}}</button>
           </div>
           {{#if env.BXI_DASHBOARD_POLICY_ID}}
             <div class="mb-3" data-dv-flow="static" data-policy-id="{{env.BXI_DASHBOARD_POLICY_ID}}"></div>
           {{/if}}
         </div>
-        <div class="col-xl-4 col-xs-12 mb-5">
+        <div class="col-xl-4 mb-5">
           <h4 class="my-4">{{settings.dashboard.videos.title}}</h4>
           <div class="row">
           {{#each settings.dashboard.videos.video_tiles}}
-          <div class="video-tile__thumbnail position-relative gx-3 gy-3 col-xs-12 col-md-6 col-xl-12">
+          <div class="video-tile__thumbnail position-relative gx-3 gy-3 col-md-6 col-xl-12">
             <div class="thumbnail-overlay position-absolute h-100"></div>
             <img src={{this}} alt="Video tile {{@index}}" />
             <button class="button thumbnail-button position-absolute top-50 start-50 translate-middle rounded-circle"></button>
@@ -90,7 +89,7 @@
         </div>
       </div>
     </section>
-    <footer class="bxi-footer-color py-4">
+    <footer class="bxi-footer py-4">
       <div class="container">
         <div class="d-block d-lg-flex align-items-center justify-content-between mb-sm-3 mb-4">
           <ul class="d-none d-md-flex mb-4 mb-md-3 mb-lg-0 p-0 ls-none">
@@ -127,10 +126,8 @@
         </div>
       </div>
       <section class="container">
-        <div class="d-flex justify-content-between align-items-center flex-column flex-md-row">
-          <p class="mb-3 mb-md-0 fs-8 bxi-copyright-color">{{settings.footer.copyright}}</p>
-          {{> remix }}
-        </div>
+        <p class="mb-3 mb-md-0 fs-8 bxi-copyright-color">{{settings.footer.copyright}}</p>
+        {{> remix }}
       </section>
     </footer>
     {{> modal}}

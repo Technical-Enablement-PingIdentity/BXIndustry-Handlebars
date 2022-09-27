@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{#> head }}
+    {{> financeBranding }}
+  {{/head}}
+  <body onload="bxi.pageLoad()" class="bxi finance home">
+    {{> variables}}
+    <header class="bxi-header bxi-bg-image" style="background-image: url('{{settings.home_page.banner.background_image}}')">
+      <nav class="navbar navbar-expand-lg pt-lg-4 pb-0 flex-wrap navbar-dark">
+        <div class="container">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand pt-0" href="#">
+            <img width="200" src="{{settings.images.logo}}" alt="Logo" />
+          </a>
+          <div class="d-flex flex-row mt-2 position-relative">
+            {{> pinIcon class="mt-1 me-3 d-lg-block d-none" }}
+            {{> notificationIcon class="mt-1 me-3 d-lg-block d-none" }}
+            <div class="bxi-auth-buttons bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse p-3 py-lg-1">
+              {{!-- See src/home-nav-buttons.hbs to update auth buttons --}}
+              {{> homeNavButtons }}
+            </div>
+            <div class="bxi-user-icon bxi-bg-primary" data-bs-toggle="collapse" data-bs-target=".bxi-auth-buttons">
+              {{> userIcon }}
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="bxi-navbar bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse mt-2" id="navbarNav">
+            <ul class="navbar-nav p-3 p-lg-0 py-lg-4">
+              {{#each settings.header.links}}
+              <li class="nav-item pb-2"><a class="nav-link bxi-nav-link fs-6 ps-0 pe-lg-4">{{this}}</a></li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+        <div class="container mt-5">
+          <div class="row w-100">
+            <div class="col-lg-8 col-md-6">
+              <h1 class="fw-bold bxi-header-color">{{settings.home_page.banner.title}}</h1>
+              <p class="bxi-header-color">{{settings.home_page.banner.sub_title}}</p>
+              {{#if settings.home_page.banner.button}}
+              <button class="button button--lg">{{settings.home_page.banner.button}}</button>
+              {{/if}}
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="rewards-card p-4 rounded-4 overflow-hidden ms-auto">
+                <h4 class="rewards-card-color">{{settings.rewards_card.title}}</h4>
+                <p class="rewards-card-color fs-7">{{settings.rewards_card.sub_title}}</p>
+                <img class="rewards-card-image d-block" src="{{settings.rewards_card.image}}" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <section class="bxi-banner py-4 mb-5">
+      <div class="container">
+        <span class="fs-4 me-3">{{settings.home_page.alert_banner.message}}</span>
+        <span class="fs-4 fw-boldish cursor-pointer">{{settings.home_page.alert_banner.link}}</span>
+      </div>
+    </section>
+    <section class="container">
+      <div class="row">
+        {{#each settings.home_page.programs}}
+        <div class="col-lg-4 mb-5">
+          <h4 class="fw-boldish">{{title}}</h4>
+          <p class="mb-3">{{description}}</p>
+          <a class="button button--link" href="#">{{link}}</a>
+        </div>
+        {{/each}}
+      </div>
+    </section>
+    <footer class="bxi-footer py-5">
+      <div class="container text-center text-lg-start">
+        <div class="row">
+          <div class="col-lg-4 mb-3">
+            <ul class="d-flex justify-content-center justify-content-lg-start ls-none ps-0 mb-3">
+              <li>
+                <button class="button button--outline button--icon me-lg-3 me-5">
+                  {{> facebookIcon }}
+                </button>
+              </li>
+              <li>
+                <button class="button button--outline button--icon me-lg-3 me-5">
+                  {{> twitterIcon }}
+                </button>
+              </li>
+              <li>
+                <button class="button button--outline button--icon">
+                  {{> instagramIcon }}
+                </button>
+              </li>
+            </ul>
+            <p class="mb-3 mb-md-0 fs-8 bxi-copyright-color">{{settings.footer.copyright}}</p>
+          </div>
+          <div class="col-lg-4 mb-3">
+            {{#each settings.footer.links}}
+            <a class="bxi-footer-link mb-2 d-block fs-6" href="#">{{this}}</a>
+            {{/each}}
+          </div>
+          <div class="col-lg-4 mb-3">
+            <a class="bxi-footer-link mb-2 d-block fs-6 fw-bold" href="#">{{settings.footer.phone_number}}</a>
+            <a class="bxi-footer-link mb-2 d-block fs-6 fw-bold" href="#">{{settings.footer.email}}</a>
+            <a class="bxi-footer-link mb-2 d-block fs-6 fw-bold" href="#">{{settings.footer.chat}}</a>
+          </div>
+        </div>
+      </div>
+      {{> remix }}
+    </footer>
+    {{> modal}}
+  </body>
+</html>

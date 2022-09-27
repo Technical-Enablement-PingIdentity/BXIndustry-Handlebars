@@ -3,15 +3,7 @@ import fs from 'fs';
 import helpers from './helpers.js';
 
 export function initHandlebars(fastify) {
-    // Used in company vertical, turns 1 into 01, should handle double digit numbers as well!
-    handlebars.registerHelper('indexBullet', (value, _) => {
-        return `0${(parseInt(value) + 1)}`.slice(-2);
-    });
-
-    // If first value is truthy, return that otherwise return default value, used for e.g., setting default fill on icons 
-    handlebars.registerHelper('valueOrDefault', (value, defaultValue) => {
-        return new handlebars.SafeString(value || defaultValue);
-    });
+    initHandlebarsHelpers(handlebars);
 
     // View is a templating manager for fastify
     fastify.register(import('@fastify/view'), {
@@ -32,6 +24,18 @@ export function initHandlebars(fastify) {
 }
 
 /**
+ * Register Handlebars helper functions
+ * 
+ * @param {object} hbs Imported handlebars instance, this needs to be passed because it is used for trials compilation
+ */
+export function initHandlebarsHelpers(hbs) {
+    // Used in company vertical, turns 1 into 01, should handle double digit numbers as well!
+    hbs.registerHelper('indexBullet', (value, _) => {
+        return `0${(parseInt(value) + 1)}`.slice(-2);
+    });
+}
+
+/**
  * Gets all partials from a directory and names the partials based on kebab-file-name-case -> camelCase + suffix
  * 
  * e.g., sign-in-email-otp.hbs -> signInEmailOtp<suffix>
@@ -40,7 +44,7 @@ export function initHandlebars(fastify) {
  * @param {string} suffix suffix to use when naming partials
  * @returns Object with key value pairs of partials { [partialName]: '<file-location>' }
  */
-function getPartialsFromDirectory(directory, suffix = '') {
+export function getPartialsFromDirectory(directory, suffix = '') {
     return fs.readdirSync(directory)
         .reduce((acc, file) => 
             (file.endsWith('.hbs') ? { ...acc,  [`${file.replace('.hbs', '').replace(/-./g, x => x[1].toUpperCase())}${suffix}`]: `${directory}/${file}`} : acc), {});

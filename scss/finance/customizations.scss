@@ -1,0 +1,103 @@
+@import "../common/mixins";
+
+&.finance {
+  .button {
+    font-size: 16px;
+    border-radius: .5rem;
+
+    &--icon {
+      border-radius: 50%;
+    }
+  }
+
+  @include breakpoint-lg {
+    .bxi-auth-buttons {
+      border-left: 1px solid #fff;
+    }
+  }
+
+  .rewards-card {
+    background-color: var(--bxi-finance-rewards-bg-color);
+
+    &-color {
+      color: var(--bxi-finance-rewards-color);
+    }
+
+    &-image {
+      margin-top: -1.5rem;
+      margin-left: auto;
+    }
+  }
+  
+  .bxi-banner {
+    color: var(--bxi-finance-banner-color);
+    background-color: var(--bxi-finance-banner-bg-color);
+  }
+
+  &.home {
+    .bxi-header {
+      height: 600px;
+  
+      &-color {
+        color: var(--bxi-finance-header-color);
+      }
+    }
+
+    .rewards-card {
+      height: 200px;
+      margin-top: 2rem;
+      
+      @include breakpoint-md {
+        margin-top: -2rem;
+        height: 480px;
+      }
+  
+      @include breakpoint-lg {
+        margin-top: -4rem;
+        max-width: 348px;
+      }
+  
+      &-image {
+        height: 200px;
+
+        @include breakpoint-md {
+          margin-left: -5rem;
+          height: 400px;
+        }
+      }
+    }
+  }
+
+  &.dashboard {
+    .rewards-card {
+      max-height: 350px;
+
+      &-image {
+        height: 350px;
+        margin-bottom: -1.5rem;
+        margin-right: -1.5rem;
+      }
+    }
+
+    .account-tile {
+      border-top: 2px solid var(--bxi-finance-component-border-color);
+
+      .accounts-row {
+        padding-bottom: .5rem;
+        margin-bottom: .5rem;
+        border-bottom: 1px solid #c6cdcf;
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+
+      &::before {
+        @include triangle(5px, #000, 'down') {
+          top: 2rem;
+          left: 1.25rem;
+        }
+      }
+    }
+  }
+}

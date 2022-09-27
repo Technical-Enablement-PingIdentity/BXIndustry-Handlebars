@@ -1,0 +1,152 @@
+@import "../common/mixins";
+
+&.health {
+  .button, 
+  .bxi-nav-link,
+  .bxi-footer-link {
+    font-family: var(--bxi-secondary-font);
+    font-size: 16px;
+    border-radius: 3rem;
+  }
+
+  @include breakpoint-lt-lg {
+    .bxi-navbar,
+    .bxi-auth-buttons {
+      .bxi-nav-link {
+        color: var(--bxi-nav-link-color-inverse);
+      }
+    }
+  }
+
+  .bxi-banner {
+    color: var(--bxi-health-banner-color);
+    background-color: var(--bxi-health-banner-bg-color);
+  }
+
+
+  .bxi-navbar {
+    .bxi-nav-link {
+      font-weight: 300;
+
+      &:hover {
+        font-weight: 400;
+      }
+    }
+  }
+
+  &.home {
+    .bxi-header {
+      height: 600px;
+
+      &-color {
+        color: var(--bxi-health-header-color);
+      }
+
+      .health-header-icon {
+        @include color-icon(var(--bxi-link-button-color));
+      }
+    }
+
+    .app-hero {
+      background-color: var(--bxi-health-hero-bg-color);
+      height: 480px;
+
+      @include breakpoint-lt-md {
+        max-height: 340px;
+      }
+
+      @include breakpoint-lg {
+        margin-top: -3rem;
+      }
+
+      &-color {
+        color: var(--bxi-health-hero-color);
+      }
+
+      &-image {
+        width: 400px;
+        bottom: 0;
+        right: -5px;
+
+        @include breakpoint-lt-md {
+          bottom: -100px;
+        }
+      }
+    }
+
+    @include breakpoint-lg {
+      .bxi-auth-buttons {
+        border-left: 1px solid var(--bxi-primary-color);
+      }
+    }
+
+    .bxi-banner {
+      color: var(--bxi-health-banner-color);
+      background-color: var(--bxi-health-banner-bg-color);
+
+      .button {
+        color: var(--bxi-health-banner-color);
+        font-weight: 300;
+
+        &:hover {
+          font-weight: 400;
+        }
+
+        &:after {
+          @include triangle(5px, var(--bxi-health-banner-color), 'right') {
+            margin-top: .5rem;
+            margin-left: 1rem;
+          }
+        }
+      }
+    }
+  }
+
+  &.dashboard {
+    .bxi-navbar,
+    .bxi-auth-buttons {
+      .bxi-nav-link {
+        color: var(--bxi-nav-link-color-inverse);
+      }
+    }
+
+    @include breakpoint-lg {
+      .bxi-auth-buttons {
+        border-left: 1px solid var(--bxi-nav-link-color-inverse);
+      }
+    }
+
+    .events-hero {
+      @include breakpoint-lt-lg {
+        max-width: 400px;
+      }
+
+      &-header {
+        margin-top: -4rem;
+        color: var(--bxi-health-events-header-color);
+      }
+    }
+
+    .patient-links {
+      a:not(:last-child) {
+        border-radius: 0;
+        margin-right: .5rem;
+        padding-right: .5rem;
+        border-right: 1px solid var(--bxi-primary-color);
+      }
+    }
+
+    .action-tile {
+      background-color: var(--bxi-dashboard-bg-color);
+      img {
+        height: 55px;
+      }
+    }
+
+    .quick-links {
+      img {
+        width: 16px;
+      }
+    }
+  }
+}

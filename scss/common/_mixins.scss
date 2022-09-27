@@ -58,18 +58,28 @@ $breakpoints: (
     }
 }
 
-/** 
-Used to create a triangle, typically included in 
-::before or ::after, pass positioning in through @content
+@mixin color-icon($color) {
+    .stroke-target {
+        stroke: $color;
+    }
 
-Valid options for $direction are up, down, left or right
-
-Usage example:
-@include triangle (5px, #000, "down") {
-    top: 1rem;
-    left: .5rem;
+    .fill-target {
+        fill: $color;
+    }
 }
-*/
+
+
+
+// Used to create a triangle, typically included in 
+// ::before or ::after, pass positioning in through @content
+//
+// Valid options for $direction are up, down, left or right
+//
+// Usage example:
+// @include triangle (5px, #000, "down") {
+//     top: 1rem;
+//     left: .5rem;
+// }
 @mixin triangle($size, $color, $direction) {
     clear: both;
     content: "";
@@ -98,4 +108,3 @@ Usage example:
         @error "Invalid $direction " + $direction + ", valid directions are up, down, left or right."
     }
 }
-

@@ -17,6 +17,7 @@ import fetch from 'node-fetch';
 // Internal js files
 import helpers from './resources/helpers.js';
 import { initHandlebars } from './resources/handlebars.js';
+import Logger from './public/js/logger.js';
 
 // Initialize variables that are no longer available by default in Modules
 const __filename = fileURLToPath(import.meta.url);
@@ -26,10 +27,14 @@ const __dirname = path.dirname(__filename);
 const bxiEnvVars = helpers.getBxiEnvironmentVariables();
 const verticals = helpers.getVerticals();
 
+const debug = process.env.BXI_DEBUG_LOGGING === 'true';
+
+const logger = new Logger(debug);
+
 // Require the fastify framework and instantiate it
 const fastify = Fastify({
   // Set this to true for detailed logging
-  logger: false,
+  logger: debug,
   ignoreTrailingSlash: true
 });
 
@@ -41,15 +46,18 @@ fastify.register(import('@fastify/static'), {
  
 initHandlebars(fastify);
 
-
 // Our home page route
 // Redirects to the default vertical (if set in environment variables) or falls back on generic
 fastify.get('/', function (_, reply) {
   const defaultVertical = process.env.BXI_ACTIVE_VERTICAL;
-  reply.redirect(`/${helpers.isValidVertical(defaultVertical) ? defaultVertical : 'generic'}`);
+  const redirectVertical = helpers.isValidVertical(defaultVertical) ? defaultVertical : 'generic';
+
+  logger.log(`Root hit, defined default vertical is: '${defaultVertical}' redirecting to: '${redirectVertical}'`);
+  reply.redirect(`/${redirectVertical}`);
 });
 
 fastify.get('/.well-known/security.txt', function (_, reply) {
+  logger.log(`/.well-known/securtiy.txt was hit, redirecting ping identity's version`);
   reply.redirect(`http://www.pingidentity.com/.well-known/security.txt`);
 });
 
@@ -74,11 +82,13 @@ fastify.get('/dvtoken', async function (request, reply) {
   const parsedResponse = await tokenResponse.json();
 
   if (!parsedResponse.success) {
-    console.error('An error Occured');
-    console.error('Parsed Response', parsedResponse);
-    console.error('Raw', tokenResponse);
+    logger.error('An error Occured');
+    logger.error('Parsed Response', parsedResponse);
+    logger.error('Raw', tokenResponse);
     return reply.code(500).send({error: `An error occured getting DaVinci token. See Glitch server logs for more details, code: ${parsedResponse.httpResponseCode}, message: '${parsedResponse.message}'.`});
   }
+
+  logger.log('Successfully retreived sdktoken for DaVinci', parsedResponse);
 
   reply.send({
     token: parsedResponse.access_token,
@@ -89,7 +99,7 @@ fastify.get('/dvtoken', async function (request, reply) {
 
 // Set up shortcuts endpoints, shows all verticals with applicable links
 fastify.get('/shortcuts', (_, reply) => {
-  return reply.view('src/pages/shortcuts.hbs', verticals.map(vertical => {
+  const viewParams = verticals.map(vertical => {
     const settings = helpers.getSettingsFile(vertical).settings;
     return { 
       name: settings.title, 
@@ -98,14 +108,19 @@ fastify.get('/shortcuts', (_, reply) => {
       dashboard: vertical !== 'generic' ? `/${vertical}/dashboard` : '',
       dialogExamples: vertical !== 'generic'? `/${vertical}/dialog-examples` : '',
     };
-  }));
+  });
+
+  logger.log('/shortcuts endpoint hit, sending view data', viewParams);
+  return reply.view('src/pages/shortcuts.hbs', viewParams);
 });
 
 // Generic does not have dashboard or dialog-examples page
 helpers.getVerticals().forEach(vertical => {
   // Vertical Home Page
   fastify.get(`/${vertical}`, function (_, reply) {
-    return reply.view(`src/pages/${vertical}/index.hbs`, getViewParams(vertical));
+    const viewParams = getViewParams(vertical);
+    logger.log(`/${vertical} hit, sending home page view data`, viewParams);
+    return reply.view(`src/pages/${vertical}/index.hbs`, viewParams);
   });
 
   // Generic does not have dashboard or dialog examples pages
@@ -115,34 +130,41 @@ helpers.getVerticals().forEach(vertical => {
 
   // Vertical Dashboard Page
   fastify.get(`/${vertical}/dashboard`, function (_, reply) {
-    return reply.view(`src/pages/${vertical}/dashboard.hbs`, getViewParams(vertical));
+    const viewParams = getViewParams(vertical);
+    logger.log(`/${vertical}/dashboard hit, sending dashboard page view data`, viewParams);
+    return reply.view(`src/pages/${vertical}/dashboard.hbs`, viewParams);
   });
 
   // Vertical Dialog Examples Page
   fastify.get(`/${vertical}/dialog-examples`, function (_, reply) {
     const settings = helpers.getSettingsFile(vertical).settings;
-    return reply.view(`src/pages/dialog-examples.hbs`, { 
+    const viewParams = { 
       vertical, 
       brandingPartial: () => `${vertical}Branding`,
       dialogLogo: settings.images.dialog_logo,
       favicon: settings.images.favicon || '/generic/favicon.ico',
       appleTouchIcon: settings.images.apple_touch_icon || '/generic/apple-touch-icon.png',
-    });
+    };
+    logger.log(`/${vertical}/dialog-examples hit, sending view data`, viewParams);
+    return reply.view(`src/pages/dialog-examples.hbs`, viewParams);
   });
 
   // Redirect old /admin urls to dashboard
   fastify.get(`/${vertical}/admin`, function (_, reply) {
+    logger.log(`/${vertical}/admin hit, redirecting to dashboard instead`)
     reply.redirect(`/${vertical}/dashboard`);
   });
 });
 
 // Just in case /generic/dashboard is hit, redirect to generic
 fastify.get('/generic/dashboard', (_, reply) => {
+  logger.log(`/generic/dashboard hit, redirecting to /generic since this doesn't exist`);
   reply.redirect('/generic');
 });
 
 // Redirect 404s to base url rather than throwing errors
 fastify.setNotFoundHandler((_, reply) => {
+  logger.log('Invalid url, redirecting to root');
   reply.redirect('/');
 });
 
