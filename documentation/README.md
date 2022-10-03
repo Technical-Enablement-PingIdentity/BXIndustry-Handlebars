@@ -34,15 +34,19 @@ https://github.com/Technical-Enablement-PingIdentity/BXIndustry-Handlebars/blob/
 
 # Introduction<a name="introduction"></a>
 
-[BXIndustry](https://demo.bxgeneric.org/) is a unique demo in that it allows demo-ers to bootstrap DaVinci demonstrations! It allows demo-ers to tailor the skins to highlight a number of DaVinci flows that they have developed or will be developing. There are many different industry verticals which can be cloned and adapted on Glitch to tailor to your prospect or customer for a more personalized demo in the field. 
+[BXIndustry](https://demo.bxgeneric.org/) is a unique demo in that it allows demonstrators to bootstrap DaVinci demonstrations! It allows demo-ers to tailor the skins to highlight a number of DaVinci flows that they have developed or will be developing. There are many different industry verticals which can be cloned and adapted on Glitch to tailor to your prospect or customer for a more personalized demo in the field. 
 
 The following verticals are available in Glitch for your to remix:
 1. [Generic](https://demo.bxgeneric.org/generic) - Formerly BXGeneric
 2. [Company](https://demo.bxgeneric.org/company)
+3. [Finance](https://demo.bxgeneric.org/finance)
+4. [Health](https://demo.bxgeneric.org/health)
+5. [Manufacturing](https://demo.bxgeneric.org/manufacturing)
+6. [Retail](https://demo.bxgeneric.org/retail)
 
 With BXIndustry, you can choose a vertical you would like to use, build your workflows and forms in DaVinci, and update the settings.json file to change page content such as text and images. HTML templates are available for different modal forms for use in DaVinci see [HTML Templates for DaVinci](#templates).
 
-**Note: Flows are now customized in BXI via HTML data attributes for simplicity, please see the documentation on [bxi-davinci.js](#bxi-davinci-js) for more information.**
+**Note: Flows are now customized in BXI via HTML data attributes for simplicity. Please see the documentation on [bxi-davinci.js](#bxi-davinci-js) for more information.**
 
 ## Standard Flows<a name="standard-flows"></a>
 
@@ -54,20 +58,24 @@ Authentication will ask for the previously registered email and password, then p
 
 ## Remixing<a name="remixing"></a>
 
-To remix BXIndustry, scroll to the bottom of the page on any vertical and click the **Remix on Glitch** button. During the remixing process, you can modify all DaVinci API values or leave them as-is to use the default settings. The values collected from this form can be found in the .env file of your Remix at a later time if needed, see the [environment](#environment) section.
+To remix BXIndustry, scroll to the bottom of the page on any vertical and click the **Remix on Glitch** button. During the remixing process, you can modify all DaVinci API values or leave them as-is to use the default settings. The values collected from this form can be found in the .env file of your Remix at a later time if needed. See the [environment](#environment) section.
 
 **Note: The remix form will pre-populate the default authentication and registration flows. These values can be modified to import your own custom flows or leave them as-is to use the default settings.**
 
 The default vertical should be one value from the list:
 
 - company
+- finance
 - generic
+- health
+- manufacturing
+- retail
 
-**Note: When trying to remix in Safari or with content blockers, you may not get a new tab with your remix after you complete the remix form, if this happens you should get an error screen with a textarea containing the URL for a new remix, copy/paste this into a new tab and you should be all set!**
+**Note: When trying to remix in Safari or with content blockers, you may not get a new tab with your remix after you complete the remix form. If this happens you should get an error screen with a textarea containing the URL for a new remix. Copy/paste this into a new tab and you should be all set!**
 
 ## An (IMPORTANT!!) Note on Versioning<a name="versioning-note"></a>
 
-We recommend making as many changes in DaVinci workflows as you can because there is no easy upgrade path to new BXI versions in your existing remixes when we release new features and bug fixes. Furthur customizations to BXI can typically be done in a small subset of files to make porting to new remixes easy. See the [project structure](#project-structure) section for more details.
+We recommend making as many changes in DaVinci workflows as you can because there is no easy upgrade path to new BXI versions in your existing remixes when we release new features and bug fixes. Further customizations to BXI can typically be done in a small subset of files to make porting to new remixes easy. See the [project structure](#project-structure) section for more details.
 
 ## Another (IMPORTANT!!) Note on CSS<a name="css-note"></a>
 
@@ -83,7 +91,7 @@ Use the gear icon in the bottom right corner to open the “shortcut” page for
 
 ## BXGeneric<a name="bxgeneric"></a>
 
-[BXGeneric](https://demo.bxgeneric.org/) is now part of BXIndustry! To create a BXG remix click **Remix on Glitch**, and change the vertical dropdown to Generic. When Generic is chosen you will be prompted for a static policy id, this is the flow that is loaded on the page when it loads. Generic is essentially just another vertical, so it is located at `<hostname>/generic`, and the Log In and Sign Up buttons are the same as any other vertical in BXI.
+[BXGeneric](https://demo.bxgeneric.org/) is now part of BXIndustry! To create a BXG remix click **Remix on Glitch**, and change the vertical dropdown to Generic. When Generic is chosen you will be prompted for a static policy id. This is the flow that is loaded on the page when it loads. Generic is essentially just another vertical so it is located at `<hostname>/generic`. The Log In and Sign Up buttons are the same as any other vertical in BXI.
 
 **Note: BXGeneric does not include a dashboard page at this time, so you will not be redirected anywhere after you complete registration or log in.**
 
@@ -109,7 +117,7 @@ The Dashboard section in the file includes the `"username"` key, which will be d
 
 ### Simulate Logout<a name="simulate-logout"></a>
 
-Currently logout redirects the user to the current vertical home page, if you need to add any tear-down logic like clearing session data there is now a function in `public/register-functions.js` called `bxi.logout` where you can add customizations. Be sure to add code before the `window.location.assign` call or it will be ignored.
+Currently, logout redirects the user to the current vertical home page. If you need to add any tear-down logic like clearing session data, there is now a function in public/register-functions.js called bxi.logout where you can add customizations. Be sure to add code before the `window.location.assign` call or it will be ignored.
 
 ## Project Structure<a name="project-structure"></a>
 
@@ -125,7 +133,7 @@ Buttons to launch DaVinci flows are now located in `src/home-nav-buttons.hbs` an
 
 ### Vertical Files<a name="vertical-files"></a>
 
-Each vertical contains 4 files in case you only need to focus on one vertical for your demo, these are located in `src/pages/<vertical>`:
+Each vertical contains four files in case you only need to focus on one vertical for your demo, these are located in `src/pages/<vertical>`:
 
 - `src/pages/<vertical>/settings.json` - Simple content changes may be made in this file
 - `src/pages/<vertical>/index.hbs` - root page of your vertical (e.g., `<hostname>/company`), contains home page HTML
@@ -201,7 +209,7 @@ To build out your UI's manually there is a collection of all elements used in th
 
 ### Other Locations<a name="other-locations"></a>
 
-Generally speaking you should not need to change files that were not previously mentioned, and shouldn't unless you know what you're doing. However for information purposes as follows is a quick description of other locations within BXI:
+Generally speaking you should not need to change files that were not previously mentioned, and shouldn't unless you know what you're doing. For information purposes, below is a quick description of other locations within BXI:
 
 - `public/js/*` - internal BXI JavaScript resources
 - `public/bxi-davinci.js` - internal JavaScript file wrapping DaVinci and bootstrapping [data-attributes](#bxi-davinci-js)
@@ -263,7 +271,7 @@ bxi.registerFunction('callbackName', async () => {...}); // Anonymous function u
 bxi.registerFunction(async function callbackName() {...}); // Named function usage
 ```
 
-To use a registry function add the name of the registered function (case sensative) to the appropriate data attribute on the HTML control
+To use a registry function add the name of the registered function (case sensitive) to the appropriate data attribute on the HTML control
 
 ```html
 <button data-dv-flow="modal" data-policy-id="xxx" data-success-callback="callbackName">Log In</button>
