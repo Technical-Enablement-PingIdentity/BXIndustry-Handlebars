@@ -1,17 +1,17 @@
 {
   "settings": {
     "images": {
-      "favicon": "favicon.ico",
-      "apple_touch_icon": "apple-touch-icon.png",
-      "logo": "logo-white.png",
-      "dialog_logo": "auth-dialog-logo.png"
+      "favicon": "./favicon.ico",
+      "apple_touch_icon": "./apple-touch-icon.png",
+      "logo": "./logo-white.png",
+      "dialog_logo": "./auth-dialog-logo.png"
     },
     "rewards_card": {
-      "image": "rewards-card.png"
+      "image": "./rewards-card.png"
     },
     "home_page": {
       "banner": {
-        "background_image": "banner.jpg",
+        "background_image": "./banner.jpg",
         "button": ""
       },
       "alert_banner": {

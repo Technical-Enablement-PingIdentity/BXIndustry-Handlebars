@@ -1,20 +1,20 @@
 {
   "settings": {
     "images": {
-      "favicon": "favicon.ico",
-      "apple_touch_icon": "apple-touch-icon.png",
-      "logo": "logo.svg",
-      "dialog_logo": "logo.svg",
-      "dashboard_logo": "logo-white.svg"
+      "favicon": "./favicon.ico",
+      "apple_touch_icon": "./apple-touch-icon.png",
+      "logo": "./logo.svg",
+      "dialog_logo": "./logo.svg",
+      "dashboard_logo": "./logo-white.svg"
     },
     "home_page": {
       "banner": {
-        "background_image": "banner.jpg",
+        "background_image": "./banner.jpg",
         "title": "Advanced medicine. Personal care.",
         "button": ""
       },
       "app_hero": {
-        "image": "home-hero-card.jpg"
+        "image": "./home-hero-card.jpg"
       },
       "alert_banner": {
         "message": "",
@@ -33,24 +33,24 @@
         ]
       },
       "events_hero": {
-        "banner_image": "classes-events.png"
+        "banner_image": "./classes-events.png"
       },
       "portal": {
         "actions": [
           {
-            "icon": "icon-virtual-visit.svg",
+            "icon": "./icon-virtual-visit.svg",
             "header": "Schedule a Virtual Visit",
             "description": "With AnyVirtualHealth, visit online or by phone.",
             "button_text": "Book Appointment"
           },
           {
-            "icon": "icon-rx.svg",
+            "icon": "./icon-rx.svg",
             "header": "RX Delivery",
             "description": "Get your prescriptions filled or renewed via home delivery, for BXHealth patients.",
             "button_text": "Learn More"
           },
           {
-            "icon": "icon-document.svg",
+            "icon": "./icon-document.svg",
             "header": "Symptom Checker",
             "description": "Our online tools help you check common symptoms for everyday ailments.",
             "button_text": "Try It"
@@ -58,19 +58,19 @@
         ],
         "quick_links": [
           {
-            "icon": "icon-sthescope.svg",
+            "icon": "./icon-sthescope.svg",
             "text": "Find a Physician"
           },
           {
-            "icon": "icon-person.svg",
+            "icon": "./icon-person.svg",
             "text": "Family Records"
           },
           {
-            "icon": "icon-brief-case.svg",
+            "icon": "./icon-brief-case.svg",
             "text": "Manage Your Claims"
           },
           {
-            "icon": "icon-gear.svg",
+            "icon": "./icon-gear.svg",
             "text": "More Resources"
           }
         ]
