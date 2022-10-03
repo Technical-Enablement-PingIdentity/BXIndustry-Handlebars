@@ -53,9 +53,9 @@
           </div>
           <div>
             <img class="d-none d-sm-block mt-3 w-100 h-auto"
-              src={{settings.dashboard.large_chart}} alt="Large chart" />
+              src="{{settings.dashboard.large_chart}}" alt="Large chart" />
             <img class="d-block d-sm-none mt-3 w-100 h-auto"
-              src={{settings.dashboard.large_chart_mobile}} alt="Large
+              src="{{settings.dashboard.large_chart_mobile}}" alt="Large
               chart" />
           </div>
           <div class="row">
@@ -81,7 +81,7 @@
           {{#each settings.dashboard.videos.video_tiles}}
           <div class="video-tile__thumbnail position-relative gx-3 gy-3 col-md-6 col-xl-12">
             <div class="thumbnail-overlay position-absolute h-100"></div>
-            <img src={{this}} alt="Video tile {{@index}}" />
+            <img src="{{this}}" alt="Video tile {{@index}}" />
             <button class="button thumbnail-button position-absolute top-50 start-50 translate-middle rounded-circle"></button>
           </div>
           {{/each}}
