@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{#> head }}
+    {{> airlinesBranding }}
+  {{/head}}
+  <body onload="bxi.pageLoad()" class="bxi airlines dashboard">
+    {{> variables}}
+    <header>
+      <nav class="navbar navbar-expand-lg flex-wrap p-0">
+        <div class="container py-2">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand pt-0" href="#">
+            <img width="150" src="{{settings.images.logo}}" alt="Logo" />
+          </a>
+          <div class="bxi-navbar collapse navbar-collapse bxi-zi-2 ps-0 ps-lg-2 bxi-bg-secondary bxi-bg-lg-transparent" id="navbarNav">
+            <ul class="navbar-nav p-2 pb-0 py-lg-3 px-lg-0 d-flex w-100">
+              {{#each settings.header.links}}
+              <li class="nav-item mb-2 me-0 me-xl-2 mb-lg-0"><a class="nav-link bxi-nav-link">{{this}}</a></li>
+              {{/each}}
+            </ul>
+          </div>
+          <div class="d-flex flex-row position-relative">
+            <p id="username-container" class="bxi-color-primary fw-bold d-none d-sm-flex mb-0 mt-1 me-2 mt-lg-0">{{settings.dashboard.username}}</p>
+            <div class="bxi-user-icon d-flex d-lg-none bxi-bg-primary" data-bs-toggle="collapse" data-bs-target=".bxi-auth-buttons">
+              {{> userIcon }}
+            </div>
+            <div class="d-none d-lg-flex static-user-icon me-2">
+              {{> userIcon }}
+            </div>
+            <div class="bxi-auth-buttons bxi-bg-primary bxi-bg-lg-transparent collapse navbar-collapse">
+              <button onclick="bxi.logout()" class="button bxi-nav-link mb-1 mb-lg-0">Log Out</button>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <section class="bxi-banner bxi-bg-image position-relative" style="background-image: url('{{settings.home_page.banner.background_image}}')">
+        <div class="container">
+          
+        </div>
+    </section>
+    <footer class="bxi-footer bxi-footer pt-5">
+      <div class="container">
+        <div class="d-block mb-sm-3 mb-4">
+          <ul class="d-none d-md-flex flex-wrap mb-4 p-0 ls-none">
+            {{#each settings.footer.links }}
+              <li class="me-4 mb-2"><a class="bxi-footer-link" href="#">{{this}}</a></li>
+            {{/each}}
+          </ul>
+          <div class="footer-contacts mt-4 d-flex flex-column-reverse flex-md-row align-items-center align-items-md-start">
+            <div class="footer-support me-0 me-md-4">
+              <div class="text-center text-md-start mb-3 fs-6">{{settings.footer.phone_number}}</div>
+              <button class="button button--outline py-3">Online support</button>
+            </div>
+            <div class="ms-0 ms-md-3">
+              <div class="ms-0 mb-3 text-center text-md-start fs-6">FOLLOW US:</div>
+              <ul class="d-flex align-items-center ls-none ps-0">
+                <li>
+                  <button class="button button--outline button--icon button--lg me-md-3 me-5">
+                    {{> facebookIcon }}
+                  </button>
+                </li>
+                <li>
+                  <button class="button button--outline button--icon button--lg me-md-3 me-5">
+                    {{> twitterIcon }}
+                  </button>
+                </li>
+                <li>
+                  <button class="button button--outline button--icon button--lg">
+                    {{> instagramIcon }}
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <section class="bxi-footer bxi-bg-secondary pb-4">
+      <div class="container">
+        <p class="fs-8 m-0 text-center text-md-start">{{settings.footer.copyright}}</p>
+        {{> remix }}
+      </div>
+    </section>
+    {{> modal}}
+  </body>
+</html>

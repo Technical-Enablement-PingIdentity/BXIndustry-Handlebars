@@ -115,3 +115,11 @@
     font-size: 3.75rem;
   }
 }
+
+.bxi-icon-color-primary {
+  @include color-icon(var(--bxi-primary-color));
+}
+
+.bxi-icon-color-secondary {
+  @include color-icon(var(--bxi-secondary-color));
+}

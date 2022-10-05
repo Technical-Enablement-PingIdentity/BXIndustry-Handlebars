@@ -1,0 +1,43 @@
+@import '../common/mixins';
+
+&.airlines {
+  a,
+  .button {
+    text-transform: uppercase;
+    border-radius: 2px;
+    font-weight: 600;
+  }
+
+  .bxi-footer-link {
+    font-size: 14px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  @include breakpoint-lg {
+    .bxi-nav-link {
+      color: var(--bxi-link-button-color);
+
+      &:hover {
+        color: var(--bxi-link-button-hover-color);
+      }
+    }
+  }
+
+  &.home {
+    @include breakpoint-lg {
+      .bxi-auth-buttons {
+        .bxi-nav-link {
+          padding: 10px 20px;
+          @include standard-button-styles();
+        }
+      }
+    }
+  }
+
+  &.dashboard {
+    #username-container {
+      padding-top: 2px;
+    }
+  }
+}

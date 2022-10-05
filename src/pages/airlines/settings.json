@@ -1,0 +1,31 @@
+{
+  "settings": {
+    "title": "BXAirlines",
+    "images": {
+      "favicon": "/airlines/favicon.ico",
+      "apple_touch_icon": "/airlines/apple-touch-icon.png",
+      "logo": "/airlines/logo.png",
+      "dialog_logo": "/airlines/auth-dialog-logo.png"
+    },
+    "header": {
+      "links": [
+        "Plan & Book",
+        "Discover Destinations",
+        "Miles & More",
+        "Help Center"
+      ]
+    },
+    "footer": {
+      "links": [
+        "Passenger Rights",
+        "Cargo Shipments",
+        "Customer Services",
+        "Corporate Customers",
+        "Privacy & Cookie Policy",
+        "Accessibility"
+      ],
+      "phone_number": "800 568 9678",
+      "copyright": "© BXAirlines, 2022. All rights reserved."
+    }
+  }
+}
