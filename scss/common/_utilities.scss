@@ -14,6 +14,10 @@
   font-size: 12px;
 }
 
+.bxi-overflow-x-scroll {
+  overflow-x: scroll;
+}
+
 .bxi-zi-1 {
   z-index: 1;
 }
@@ -103,6 +107,12 @@
   background-repeat: no-repeat;
 }
 
+.bxi-img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .bxi-main-header {
   font-weight: 700;
   font-size: 2rem;
@@ -113,5 +123,23 @@
 
   @include breakpoint-lg {
     font-size: 3.75rem;
+  }
+}
+
+.bxi-icon-color-primary {
+  @include color-icon(var(--bxi-primary-color));
+}
+
+.bxi-icon-color-secondary {
+  @include color-icon(var(--bxi-secondary-color));
+}
+
+.bxi-stretch-third-md {
+  @include breakpoint-lt-lg {
+    .col-md-6 {
+      &:nth-child(3) {
+        width: 100%;
+      }
+    }
   }
 }
