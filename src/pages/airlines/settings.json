@@ -15,6 +15,71 @@
         "Help Center"
       ]
     },
+    "home_page": {
+      "banner": {
+        "background_image": "/airlines/banner.jpg",
+        "title": "Fly Like a Dream",
+        "subtitle": "Travel comfortably and safely to thousands of destinations around the globe",
+        "search": {
+          "inputs": [
+            {
+              "label": "From",
+              "placeholder": "Departure"
+            },
+            {
+              "label": "To",
+              "placeholder": "Destination"
+            },
+            {
+              "label": "Dates",
+              "placeholder": "Choose the date"
+            }
+          ],
+          "button": "Show"
+        }
+      },
+      "additional_links": [
+        {
+          "icon": "/airlines/check-in-icon.svg",
+          "text": "Check In"
+        },
+        {
+          "icon": "/airlines/aircraft-icon.svg",
+          "text": "Flight Status"
+        },
+        {
+          "icon": "/airlines/check-icon.svg",
+          "text": "Your Bookings"
+        },
+        {
+          "icon": "/airlines/bordered-aircraft-icon.svg",
+          "text": "Priority Pass"
+        }
+      ],
+      "offers_section": {
+        "title": "Hot offers for popular destinations",
+        "offers": [
+          {
+            "background_image": "/airlines/offer-1.jpg",
+            "location": "New York — London",
+            "price": "$90.99",
+            "button": "Book a Ticket"
+          },
+          {
+            "background_image": "/airlines/offer-2.jpg",
+            "location": "New York — Paris",
+            "price": "$179.99",
+            "button": "Book a Ticket"
+          },
+          {
+            "background_image": "/airlines/offer-3.jpg",
+            "location": "Londin — Berlin",
+            "price": "$45.99",
+            "button": "Book a Ticket"
+          }
+        ]
+      }
+    },
     "footer": {
       "links": [
         "Passenger Rights",

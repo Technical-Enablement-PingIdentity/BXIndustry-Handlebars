@@ -34,10 +34,45 @@
         </div>
       </nav>
     </header>
-    <section class="bxi-banner bxi-bg-image position-relative" style="background-image: url('{{settings.home_page.banner.background_image}}')">
-        <div class="container">
-          
+    <section class="bxi-banner bxi-bg-image position-relative py-5" style="background-image: url('{{settings.home_page.banner.background_image}}')">
+      <div class="container d-flex flex-column justify-content-between">
+        <div>
+          <h1 class="bxi-main-header bxi-banner--text">{{settings.home_page.banner.title}}</h1>
+          <h4 class="bxi-banner--text">{{settings.home_page.banner.subtitle}}</h4>
         </div>
+        <div class="d-flex flex-column flex-lg-row">
+          {{#each settings.home_page.banner.search.inputs}}
+          <div class="bxi-banner-input-container me-0 me-lg-3 mb-3 pt-2">
+            <label class="fs-8 ms-3 d-block">{{label}}</label>
+            <input class="border-0 pt-1" type="text" placeholder="{{placeholder}}" />
+          </div>
+          {{/each}}
+          <button class="bxi-banner-input-button button mb-3 py-3 py-lg-0"><div>{{settings.home_page.banner.search.button}}</div>{{> arrowIcon}}</button>
+        </div>
+      </div>
+    </section>
+    <section class="additional-links d-flex justify-content-around flex-column flex-lg-row mb-5">
+      {{#each settings.home_page.additional_links}}
+      <div class="d-flex justify-content-center align-items-center w-100 py-4">
+        {{{inlineSvg icon}}}
+        <a class="button button--link text-capitalize fs-5 ms-3 fw-normal" href="#" class="ms-3">{{text}}</a>
+      </div>
+      {{/each}}
+    </section>
+    <section class="bxi-offers-section container mb-5">
+      <h1 class="bxi-ff-secondary bxi-main-header fw-bold mb-4">{{settings.home_page.offers_section.title}}</h1>
+      <div class="row bxi-stretch-third-md">
+        {{#each settings.home_page.offers_section.offers}}
+        <div class="col-md-6 col-lg-4">
+          <div class="mb-4 d-flex p-4 flex-column align-items-start overflow-hidden bxi-offers-section-offer position-relative">
+            <img class="position-absolute top-50 start-50 translate-middle" src="{{background_image}}" />
+            <h4 class="position-relative bxi-offers-section--text bxi-zi-2">{{location}}</h4>
+            <h2 class="position-relative bxi-offers-section--text bxi-zi-2 fw-bold">{{price}}</h2>
+            <button class="button fw-normal position-relative mt-auto mb-4 py-3 px-5">{{button}}</button>
+          </div>
+        </div>
+        {{/each}}
+      </div>
     </section>
     <footer class="bxi-footer bxi-footer pt-5">
       <div class="container">

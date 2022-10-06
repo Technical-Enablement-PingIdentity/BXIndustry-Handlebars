@@ -123,3 +123,13 @@
 .bxi-icon-color-secondary {
   @include color-icon(var(--bxi-secondary-color));
 }
+
+.bxi-stretch-third-md {
+  @include breakpoint-lt-lg {
+    .col-md-6 {
+      &:nth-child(3) {
+        width: 100%;
+      }
+    }
+  }
+}
