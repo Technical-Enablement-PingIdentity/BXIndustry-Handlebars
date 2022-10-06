@@ -62,19 +62,98 @@
           {
             "background_image": "/airlines/offer-1.jpg",
             "location": "New York — London",
-            "price": "$90.99",
+            "price": "$300.99",
             "button": "Book a Ticket"
           },
           {
             "background_image": "/airlines/offer-2.jpg",
             "location": "New York — Paris",
-            "price": "$179.99",
+            "price": "$379.99",
             "button": "Book a Ticket"
           },
           {
             "background_image": "/airlines/offer-3.jpg",
             "location": "Londin — Berlin",
             "price": "$45.99",
+            "button": "Book a Ticket"
+          }
+        ]
+      }
+    },
+    "dashboard": {
+      "header": "Welcome on Board",
+      "profile_tabs": [
+        "My Account",
+        "Timetable",
+        "Personal Offers",
+        "Settings"
+      ],
+      "overview": {
+        "icon": "/airlines/bordered-aircraft-icon.svg",
+        "description": "Your Miles:",
+        "value": "3458"
+      },
+      "booked_flights": [
+        {
+          "title": "Flights you can check in for",
+          "flights": [
+            {
+              "title": "FG4567 New York — London",
+              "date": "12/14/2022",
+              "time": "15:25",
+              "button": "Check In"
+            },
+            {
+              "title": "DF2398 London — Berlin",
+              "date": "12/15/2022",
+              "time": "01:15",
+              "button": "Check In"
+            }
+          ]
+        },
+        {
+          "title": "All flights",
+          "flights": [
+            {
+              "title": "MK5677 Berlin — New York",
+              "date": "12.22.2022",
+              "time": "14:30",
+              "button": ""
+            },
+            {
+              "title": "DS5233 New-York — Seattle",
+              "date": "01/22/2023",
+              "time": "13:10",
+              "button": ""
+            },
+            {
+              "title": "DS5233 Seattle — New York",
+              "date": "01/26/2022",
+              "time": "18:00",
+              "button": ""
+            },
+            {
+              "title": "FG4567 New York — London",
+              "date": "02/06/2022",
+              "time": "17:20",
+              "button": ""
+            }
+          ]
+        }
+      ],
+      "personal_offers": {
+        "title":"Personal Offers",
+        "offers": [
+          {
+            "background_image": "/airlines/offer-1.jpg",
+            "location": "New York — Toronto",
+            "price": "$109.99",
+            "button": "Book a Ticket"
+          },
+          {
+            "background_image": "/airlines/offer-2.jpg",
+            "location": "New York — Paris",
+            "price": "$279.99",
             "button": "Book a Ticket"
           }
         ]
