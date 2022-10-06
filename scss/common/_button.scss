@@ -1,17 +1,8 @@
+@import "./mixins";
+
 .button {
   padding: 6px 27px;
-  font-weight: 500;
-  font-size: 12px;
-  border: none;
-  background: var(--bxi-button-bg-color);
-  color: var(--bxi-button-color);
-  cursor: pointer;
-
-  &:hover, &:active {
-    border: none;
-    background: var(--bxi-button-bg-hover-color);
-    color: var(--bxi-button-color);
-  }
+  @include standard-button-styles();
 }
 
 .button--md {

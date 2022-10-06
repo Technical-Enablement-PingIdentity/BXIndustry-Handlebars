@@ -33,6 +33,14 @@ export function initHandlebarsHelpers(hbs) {
     hbs.registerHelper('indexBullet', (value, _) => {
         return `0${(parseInt(value) + 1)}`.slice(-2);
     });
+
+    hbs.registerHelper('inlineSvg', (value, _) => {
+        if (!value.startsWith('/')) {
+            value = `/${value}`;
+        }
+
+        return fs.readFileSync(`public${value}`);
+    });
 }
 
 /**

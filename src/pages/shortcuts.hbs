@@ -25,39 +25,66 @@
       color: #0a57ca;
     }
 
-    .align-header-with-buttons {
-      padding-left: 20px !important;
+    table {
+      box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
+    }
+
+    .bxi thead {
+      background-color: #324960;
+      color: #fff;
+    }
+
+    .cell-container {
+      min-height: 70px;
     }
   </style>
 </head>
 <body class="bxi">
-  <h1 class="text-center my-4">Verticals</h1>
-  <div class="container">
-    <table class="table">
+  <div class="container positon-relative">
+    <button class="btn btn-link position-absolute mt-4" id="back-button" onclick="history.back()"><< Go Back</button>
+    <h1 class="text-center my-4 fw-bold">Verticals</h1>
+    <table class="table table-striped">
       <thead>
         <tr>
-          <th class="text-center">Logo</th>
-          <th class="align-header-with-buttons">Pages</th>
+          <th class="text-center fs-7 fw-bold">Logo</th>
+          <th class="text-center fs-7 fw-bold">Pages</th>
         </tr>
       </thead>
-      {{#each this}}
-      <tr>
-        <td class="text-center py-3">
-          <img class="vertical-logo ms-auto" src="{{logo}}" alt="{{name}}" />
-        </td>
-        <td class="py-3">
-          <a class="btn btn-link" href="{{home}}">Home</a>
-          {{#if dashboard}}
-          <a class="btn btn-link" href="{{dashboard}}">Dashboard</a>
-          {{/if}}
-          {{#if dialogExamples}}
-          <a class="btn btn-link" href="{{dialogExamples}}">Dialog Examples</a>
-          {{/if}}
-        </td>
-      </tr>
-      {{/each}}
+      <tbody>
+        {{#each this}}
+        <tr>
+          <td>
+            <div class="cell-container d-flex justify-content-center align-items-center">
+              <img class="vertical-logo" src="{{logo}}" alt="{{name}}" />
+            </div>
+          </td>
+          <td>
+            <div class="cell-container d-flex align-items-center justify-content-center flex-wrap">
+              <a class="btn btn-link" href="{{home}}">Home</a>
+              {{#if dashboard}}
+              <a class="btn btn-link" href="{{dashboard}}">Dashboard</a>
+              {{/if}}
+              {{#if dialogExamples}}
+              <a class="btn btn-link" href="{{dialogExamples}}">Dialog Examples</a>
+              {{/if}}
+            </div>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
     </table>
   </div>
   {{> remix}}
+
+  <script type="text/javascript">
+    (() => {
+      // We want to prevent the back button navigating if the page was not access via a link
+      // technically this COULD take you outside BXI if someone links to this page, but that's 
+      // an edge case and would probably be okay anyway.
+      if (!document.referrer) {
+        document.getElementById('back-button').style.display = 'none';
+      }
+    })();
+  </script>
 </body>
 </html>

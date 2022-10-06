@@ -68,6 +68,21 @@ $breakpoints: (
     }
 }
 
+@mixin standard-button-styles() {
+    font-weight: 500;
+    font-size: 12px;
+    border: none;
+    background: var(--bxi-button-bg-color);
+    color: var(--bxi-button-color);
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+  
+    &:hover, &:active {
+      border: none;
+      background: var(--bxi-button-bg-hover-color);
+      color: var(--bxi-button-color);
+    }
+}
 
 
 // Used to create a triangle, typically included in 
