@@ -1,0 +1,46 @@
+@import '../common/mixins';
+
+&.education {
+  .button {
+    border-radius: 2rem;
+    font-size: 14px;
+  }
+
+  .bxi-nav-link {
+    font-size: 1rem;
+    @include breakpoint-lg {
+      color: var(--bxi-link-button-color);
+
+      &:hover {
+        color: var(--bxi-link-button-hover-color);
+      }
+    }
+  }
+
+  .notification-icon {
+    width: 25px;
+    height: 25px;
+    margin-bottom: 2px;
+  }
+
+  &.home {
+    @include breakpoint-lt-lg {
+      .bxi-auth-buttons .button:hover,
+      .bxi-navbar .bxi-nav-link:hover {
+        color: var(--bxi-secondary-color);
+      }
+    }
+
+    .bxi-auth-buttons {
+      .bxi-nav-link {
+        font-size: 14px;
+        
+        @include breakpoint-lg {
+          padding: 10px 20px;
+          border-radius: 0;
+          @include standard-button-styles();
+        }
+      }
+    }
+  }
+}
