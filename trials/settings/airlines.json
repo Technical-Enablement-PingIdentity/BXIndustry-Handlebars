@@ -1,0 +1,127 @@
+{
+  "settings": {
+    "images": {
+      "favicon": "./favicon.ico",
+      "apple_touch_icon": "./apple-touch-icon.png",
+      "logo": "./logo.png",
+      "dialog_logo": "./auth-dialog-logo.png"
+    },
+    "home_page": {
+      "banner": {
+        "background_image": "./banner.jpg"
+      },
+      "additional_links": [
+        {
+          "icon": "/airlines/check-in-icon.svg",
+          "text": "Check In"
+        },
+        {
+          "icon": "/airlines/aircraft-icon.svg",
+          "text": "Flight Status"
+        },
+        {
+          "icon": "/airlines/check-icon.svg",
+          "text": "Your Bookings"
+        },
+        {
+          "icon": "/airlines/bordered-aircraft-icon.svg",
+          "text": "Priority Pass"
+        }
+      ],
+      "offers_section": {
+        "title": "Hot offers for popular destinations",
+        "offers": [
+          {
+            "background_image": "./offer-1.jpg",
+            "location": "New York — London",
+            "price": "$300.99",
+            "button": "Book a Ticket"
+          },
+          {
+            "background_image": "./offer-2.jpg",
+            "location": "New York — Paris",
+            "price": "$379.99",
+            "button": "Book a Ticket"
+          },
+          {
+            "background_image": "./offer-3.jpg",
+            "location": "Londin — Berlin",
+            "price": "$45.99",
+            "button": "Book a Ticket"
+          }
+        ]
+      }
+    },
+    "dashboard": {
+      "overview": {
+        "icon": "/airlines/bordered-aircraft-icon.svg",
+        "description": "Your Miles:",
+        "value": "3458"
+      },
+      "booked_flights": [
+        {
+          "title": "Flights you can check in for",
+          "flights": [
+            {
+              "title": "FG4567 New York — London",
+              "date": "12/14/2022",
+              "time": "15:25",
+              "button": ""
+            },
+            {
+              "title": "DF2398 London — Berlin",
+              "date": "12/15/2022",
+              "time": "01:15",
+              "button": ""
+            }
+          ]
+        },
+        {
+          "title": "All flights",
+          "flights": [
+            {
+              "title": "MK5677 Berlin — New York",
+              "date": "12.22.2022",
+              "time": "14:30",
+              "button": ""
+            },
+            {
+              "title": "DS5233 New-York — Seattle",
+              "date": "01/22/2023",
+              "time": "13:10",
+              "button": ""
+            },
+            {
+              "title": "DS5233 Seattle — New York",
+              "date": "01/26/2022",
+              "time": "18:00",
+              "button": ""
+            },
+            {
+              "title": "FG4567 New York — London",
+              "date": "02/06/2022",
+              "time": "17:20",
+              "button": ""
+            }
+          ]
+        }
+      ],
+      "personal_offers": {
+        "offers": [
+          {
+            "background_image": "./offer-1.jpg",
+            "location": "New York — Toronto",
+            "price": "$109.99",
+            "button": "Book a Ticket"
+          },
+          {
+            "background_image": "./offer-2.jpg",
+            "location": "New York — Paris",
+            "price": "$279.99",
+            "button": "Book a Ticket"
+          }
+        ]
+      }
+    }
+  }
+}

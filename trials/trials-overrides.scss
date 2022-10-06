@@ -1,6 +1,16 @@
 .bxi {
   // Scope our version of bootstrap to .bxi so they don't bleed out of our app
   @import './node_modules/bootstrap/scss/bootstrap.scss';
+
+  // These are here because most of the ids (with the exception of username-container) aren't even present except for in trials builds
+  #bxi-sign-up,
+  #bxi-log-in,
+  #bxi-profile-management,
+  #bxi-account-recovery,
+  #username-container,
+  #bxi-log-out {
+    position: relative;
+  }
   
   // As little as possible should be added to this file, try to resolve P1 style issues in the main bxi repo where possible
   // for better maintainability, inline images are not supported in P1, so those MUST be included here in order to work.

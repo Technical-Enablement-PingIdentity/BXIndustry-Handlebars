@@ -9,7 +9,7 @@ export function compileHandlebars({bxiRepoBasePath, testBuild, verticals, destin
   console.info('Compiling handlebars templates...');
   registerPartials(bxiRepoBasePath, testBuild);
   registerBrandingPartials(verticals, bxiRepoBasePath);
-  initHandlebarsHelpers(Handlebars);
+  initHandlebarsHelpers(Handlebars, bxiRepoBasePath);
 
   console.info('All partials registered');
 
