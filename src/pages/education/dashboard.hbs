@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   {{#> head }}
-    {{> airlinesBranding }}
+    {{> educationBranding }}
   {{/head}}
-  <body onload="bxi.pageLoad()" class="bxi airlines dashboard">
+  <body onload="bxi.pageLoad()" class="bxi education dashboard">
     {{> variables}}
     <header>
       <nav class="navbar navbar-expand-lg flex-wrap p-0">
@@ -22,14 +22,15 @@
             </ul>
           </div>
           <div class="d-flex flex-row position-relative align-items-center">
+            {{> notificationIcon class="d-none d-lg-block me-3 bxi-icon-color-secondary notification-icon" }}
             <p id="username-container" class="bxi-color-primary fw-bold d-none d-sm-flex mb-0 pt-0 me-2 mt-lg-0">{{settings.dashboard.username}}</p>
             <div class="bxi-user-icon d-flex d-lg-none bxi-bg-primary" data-bs-toggle="collapse" data-bs-target=".bxi-auth-buttons">
               {{> userIcon }}
             </div>
-            <div class="d-none d-lg-flex static-user-icon me-2 rounded-1">
+            <div class="d-none d-lg-flex static-user-icon me-2">
               {{> userIcon }}
             </div>
-            <div class="bxi-auth-buttons bxi-bg-primary bxi-bg-lg-transparent collapse navbar-collapse">
+            <div class="bxi-auth-buttons bxi-bg-primary bxi-zi-2 bxi-bg-lg-transparent collapse navbar-collapse">
               <button onclick="bxi.logout()" class="button bxi-nav-link mb-1 mb-lg-0">Log Out</button>
             </div>
           </div>
@@ -37,73 +38,71 @@
       </nav>
     </header>
     <section class="bxi-bg-secondary">
-      <div class="container fw-bold">
-        <div class="d-flex justify-content-between align-items-center">
-          <h1 class="bxi-header-color bxi-main-header bxi-ff-secondary py-4">{{settings.dashboard.header}}</h1>
-          <div class="bxi-overview d-none d-sm-flex align-items-center p-3">
-            {{{inlineSvg settings.dashboard.overview.icon}}}
-            <div class="ms-4">
-              <p class="bxi-header-color mb-1 fs-8">{{settings.dashboard.overview.description}}</p>
-              <h4 class="bxi-header-color">{{settings.dashboard.overview.value}}</h4>
-            </div>
-          </div>
-        </div>
-        <div class="d-flex bxi-profile-tabs bxi-overflow-x-auto">
-          {{#each settings.dashboard.profile_tabs}}
-          <div class="bxi-header-color px-3 py-2 text-uppercase cursor-pointer text-nowrap">{{this}}</div>
-          {{/each}}
-        </div>
+      <div class="container py-4 d-flex flex-nowrap bxi-overflow-x-auto">
+        {{#each settings.dashboard.links}}
+        <a href="#" class="bxi-nav-link me-4 text-nowrap ">{{this}}</a>
+        {{/each}}
       </div>
     </section>
-    <section class="container mt-3">
-      <div class="d-flex flex-column flex-md-row justify-content-end">
+    <section class="container">
+      <div class="d-flex flex-column flex-md-row justify-content-end mt-4">
         {{!-- See src/dashboard-buttons.hbs to update dashboard buttons --}}
         {{> dashboardButtons}}
       </div>
-      <div class="row my-5">
-        <div class="col-lg-7 col-xl-8">
-          {{#each settings.dashboard.booked_flights}}
-          <div class="mb-4 bxi-flights">
-            <div class="px-4 py-3 bxi-header-color bxi-bg-secondary">{{title}}</div>
-            {{#each flights}}
-            <div class="d-flex justify-content-between p-4 align-items-center bxi-flight-info bxi-flights--bg-color">
-              <div>
-                <h5 class="bxi-flights--title-color">{{title}}</h5>
-                <div>
-                  <span class="me-3 bxi-flight-info--color fs-7">{{> calendarIcon }} {{date}}</span>
-                  <span class="me-3 bxi-flight-info--color fs-7">{{> clockIcon }} {{time}}</span>
+      <div class="row mt-5">
+        <div class="col-lg-7 col-xl-8 mb-5">
+          <div class="bxi-education-portal rounded-2">
+            <div class="px-5 py-4">
+              <h6 class="bxi-education-dashboard--color">{{settings.dashboard.portal.header}}</h6>
+              <h1 class="bxi-main-header bxi-ff-secondary">{{settings.dashboard.portal.program}}</h1>
+              {{#each settings.dashboard.portal.summary_items}}
+              <h6 class="bxi-education-dashboard--color">{{this}}</h6>
+              {{/each}}
+            </div>
+            {{#each settings.dashboard.portal.checklist}}
+            <div class="d-flex justify-content-between bxi-checklist-item py-4 px-5">
+              <div class="d-flex align-items-center">
+                <div class="bxi-checkmark d-flex justify-content-center align-items-center rounded-circle{{#if complete}} bxi-checkmark--checked{{/if}}">
+                  {{> checkmarkIcon}}
+                </div>
+                <div class="ms-3">
+                  <h5 class="bxi-education-dashboard--color fw-bold mb-0">{{name}}</h5>
                 </div>
               </div>
-              {{#if button}}
-              <button class="button button--md">{{button}}</button>
-              {{/if}}
+              <div class="bxi-checklist-time d-flex flex-nowrap align-items-center">
+                {{> timerIcon }}
+                <span class="d-inline-block ms-2 bxi-checklist-time--color">{{time}}</span>
+              </div>
             </div>
             {{/each}}
           </div>
-          {{/each}}
         </div>
-        <div class="col-lg-5 col-xl-4 bxi-offers-section">
-          <h1 class="bxi-secondary-color bxi-main-header bxi-ff-secondary">{{settings.dashboard.personal_offers.title}}</h1>
-          {{#each settings.dashboard.personal_offers.offers}}
-          <div class="mb-4 d-flex p-4 flex-column align-items-start overflow-hidden bxi-offers-section-offer position-relative">
-            <img class="position-absolute top-50 start-50 translate-middle bxi-img-cover" src="{{background_image}}" />
-            <h4 class="position-relative bxi-offers-section--text bxi-zi-2">{{location}}</h4>
-            <h2 class="position-relative bxi-offers-section--text bxi-zi-2 fw-bold">{{price}}</h2>
-            <button class="button fw-normal position-relative mt-auto mb-4 py-3 px-5">{{button}}</button>
+        <div class="col-lg-5 col-xl-4">
+          <h1 class="bxi-main-header bxi-education-dashboard--color bxi-ff-secondary">{{settings.dashboard.sidebar.title}}</h1>
+          <div class="row">
+            {{#each settings.dashboard.sidebar.articles}}
+            <div class="col-sm-12 col-md-4 col-lg-12">
+              <div class="bxi-program mb-4 overflow-hidden rounded-2 position-relative cursor-pointer">
+                <img class="bxi-img-cover position-absolute top-50 start-50 translate-middle" src="{{image}}" />
+                <div class="w-100 h-100 bxi-program-overlay position-relative bxi-zi-2 d-flex align-items-end justify-content-center">
+                  <h5 class="bxi-program-color p-4 fw-bold">{{title}}</h5>
+                </div>
+              </div>
+            </div>
+            {{/each}}
           </div>
-          {{/each}}
         </div>
       </div>
     </section>
-    <footer class="bxi-footer pt-5">
+    <footer class="bxi-footer pt-5 pb-4">
       <div class="container">
-        <div class="d-block mb-sm-3 mb-4">
+        <div class="d-block mb-sm-3 mb-4 d-lg-flex justify-content-between">
           <ul class="d-none d-md-flex flex-wrap mb-4 p-0 ls-none">
             {{#each settings.footer.links }}
               <li class="me-4 mb-2"><a class="bxi-footer-link" href="#">{{this}}</a></li>
             {{/each}}
           </ul>
-          <div class="footer-contacts mt-4 d-flex flex-column-reverse flex-md-row align-items-center align-items-md-start">
+          <div class="footer-contacts d-flex flex-column-reverse flex-md-row align-items-center align-items-md-start">
             <div class="footer-support me-0 me-md-4">
               <div class="text-center text-md-start mb-3 fs-6">{{settings.footer.phone_number}}</div>
               <button class="button button--outline py-3">Online support</button>
@@ -132,9 +131,9 @@
         </div>
       </div>
     </footer>
-    <section class="bxi-footer bxi-bg-secondary pb-4">
+    <section class="bxi-footer bxi-copyright-bg-color py-4">
       <div class="container">
-        <p class="fs-8 m-0 text-center text-md-start bxi-copyright-color">{{settings.footer.copyright}}</p>
+        <p class="fs-8 m-0 text-md-start bxi-copyright-color">{{settings.footer.copyright}}</p>
         {{> remix }}
       </div>
     </section>

@@ -70,7 +70,6 @@ $breakpoints: (
 
 @mixin standard-button-styles() {
     font-weight: 500;
-    font-size: 12px;
     border: none;
     background: var(--bxi-button-bg-color);
     color: var(--bxi-button-color);

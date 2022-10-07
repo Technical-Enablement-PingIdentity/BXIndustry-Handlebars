@@ -14,8 +14,8 @@
   font-size: 12px;
 }
 
-.bxi-overflow-x-scroll {
-  overflow-x: scroll;
+.bxi-overflow-x-auto {
+  overflow-x: auto;
 }
 
 .bxi-zi-1 {
@@ -24,6 +24,18 @@
 
 .bxi-zi-2 {
   z-index: 2;
+}
+
+.bxi-zi-3 {
+  z-index: 3;
+}
+
+.bxi-zi-4 {
+  z-index: 4;
+}
+
+.bxi-zi-5 {
+  z-index: 5;
 }
 
 .bxi-truncate {
