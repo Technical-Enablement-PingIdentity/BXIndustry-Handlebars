@@ -1,0 +1,49 @@
+{
+  "settings": {
+    "images": {
+      "favicon": "./favicon.ico",
+      "apple_touch_icon": "./apple-touch-icon.png",
+      "logo": "./logo.png",
+      "dialog_logo": "./auth-dialog-logo.png"
+    },
+    "home_page": {
+      "banner": {
+        "image": "./banner.jpg"
+      },
+      "programs_section": {
+        "programs": [
+          {
+            "title": "Finance",
+            "image": "./program-1.jpg"
+          },
+          {
+            "title": "Analytics",
+            "image": "./program-2.jpg"
+          },
+          {
+            "title": "Development",
+            "image": "./program-3.jpg"
+          }
+        ]
+      }
+    },
+    "dashboard": {
+      "sidebar": {
+        "articles": [
+          {
+            "image": "./article-1.jpg",
+            "title": "5 Outside the Box Strategies for Successful Financial Analysis"
+          },
+          {
+            "image": "./article-1.jpg",
+            "title": "How to Make a Successful Career Jump"
+          },
+          {
+            "image": "./article-1.jpg",
+            "title": "How Businesses Can Save Time and Money with Smart Purchasing"
+          }
+        ]
+      }
+    }
+  }
+}
