@@ -36,7 +36,7 @@
         </div>
       </nav>
     </header>
-    <section class="bxi-bg-secondary mb-5">
+    <section class="bxi-bg-secondary">
       <div class="container fw-bold">
         <div class="d-flex justify-content-between align-items-center">
           <h1 class="bxi-header-color bxi-main-header bxi-ff-secondary py-4">{{settings.dashboard.header}}</h1>
@@ -48,7 +48,7 @@
             </div>
           </div>
         </div>
-        <div class="d-flex bxi-profile-tabs bxi-overflow-x-scroll">
+        <div class="d-flex bxi-profile-tabs bxi-overflow-x-auto">
           {{#each settings.dashboard.profile_tabs}}
           <div class="bxi-header-color px-3 py-2 text-uppercase cursor-pointer text-nowrap">{{this}}</div>
           {{/each}}
@@ -56,7 +56,11 @@
       </div>
     </section>
     <section class="container mt-3">
-      <div class="row mb-5">
+      <div class="d-flex flex-column flex-md-row justify-content-end">
+        {{!-- See src/dashboard-buttons.hbs to update dashboard buttons --}}
+        {{> dashboardButtons}}
+      </div>
+      <div class="row my-5">
         <div class="col-lg-7 col-xl-8">
           {{#each settings.dashboard.booked_flights}}
           <div class="mb-4 bxi-flights">
@@ -91,7 +95,7 @@
         </div>
       </div>
     </section>
-    <footer class="bxi-footer bxi-footer pt-5">
+    <footer class="bxi-footer pt-5">
       <div class="container">
         <div class="d-block mb-sm-3 mb-4">
           <ul class="d-none d-md-flex flex-wrap mb-4 p-0 ls-none">
@@ -130,7 +134,7 @@
     </footer>
     <section class="bxi-footer bxi-bg-secondary pb-4">
       <div class="container">
-        <p class="fs-8 m-0 text-center text-md-start">{{settings.footer.copyright}}</p>
+        <p class="fs-8 m-0 text-center text-md-start bxi-copyright-color">{{settings.footer.copyright}}</p>
         {{> remix }}
       </div>
     </section>
