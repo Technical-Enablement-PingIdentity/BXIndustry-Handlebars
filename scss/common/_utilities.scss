@@ -136,6 +136,19 @@
   @include breakpoint-lg {
     font-size: 3.75rem;
   }
+
+  &-xl {
+    font-weight: 700;
+    font-size: 36px;
+
+    @include breakpoint-md {
+      font-size: 52px;
+    }
+  
+    @include breakpoint-lg {
+      font-size: 82px;
+    }
+  }
 }
 
 .bxi-icon-color-primary {

@@ -51,7 +51,7 @@
       </div>
       <div class="row mt-5">
         <div class="col-lg-7 col-xl-8 mb-5">
-          <div class="bxi-education-portal rounded-2">
+          <div class="bxi-education-portal rounded-2 mb-4">
             <div class="px-5 py-4">
               <h6 class="bxi-education-dashboard--color">{{settings.dashboard.portal.header}}</h6>
               <h1 class="bxi-main-header bxi-ff-secondary">{{settings.dashboard.portal.program}}</h1>
@@ -76,6 +76,9 @@
             </div>
             {{/each}}
           </div>
+          {{#if env.BXI_DASHBOARD_POLICY_ID}}
+          <div class="mb-3" data-dv-flow="static" data-policy-id="{{env.BXI_DASHBOARD_POLICY_ID}}"></div>
+          {{/if}}
         </div>
         <div class="col-lg-5 col-xl-4">
           <h1 class="bxi-main-header bxi-education-dashboard--color bxi-ff-secondary">{{settings.dashboard.sidebar.title}}</h1>

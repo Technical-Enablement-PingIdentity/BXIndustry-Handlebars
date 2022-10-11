@@ -126,6 +126,16 @@ a, a.button, .button--link {
   text-decoration: none;
 }
 
+.bxi-auth-buttons {
+  .bxi-nav-link {
+    color: var(--bxi-auth-button-color);
+
+    &:hover {
+      color: var(--bxi-auth-button-hover-color);
+    }
+  }
+}
+
 .bxi-nav-link,
 .nav-link.bxi-nav-link {
   padding: 0;
