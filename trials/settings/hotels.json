@@ -1,0 +1,43 @@
+{
+  "settings": {
+    "images": {
+      "favicon": "./favicon.ico",
+      "apple_touch_icon": "./apple-touch-icon.png",
+      "logo": "./logo.png",
+      "dialog_logo": "./auth-dialog-logo.png"
+    },
+    "home_page": {
+      "banner": {
+        "background_image": "./banner.jpg"
+      },
+      "features_section": {
+        "features": [
+          {
+            "image": "./offer-1.jpg",
+            "description": "12 Hotels in the World's Best Places"
+          },
+          {
+            "image": "./offer-2.jpg",
+            "description": "Rooms with a unique interior, from Standard to VIP suites"
+          },
+          {
+            "image": "./offer-3.jpg",
+            "description": "Premium restaurants in our hotels"
+          },
+          {
+            "image": "./offer-4.jpg",
+            "description": "Spa and lounge zones"
+          }
+        ]
+      }
+    },
+    "dashboard": {
+      "portal": {
+        "image": "./apartment.jpg"
+      },
+      "offer": {
+        "image": "./banner.jpg"
+      }
+    }
+  }
+}
