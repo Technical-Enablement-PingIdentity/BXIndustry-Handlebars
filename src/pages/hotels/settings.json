@@ -1,0 +1,119 @@
+{
+  "settings": {
+    "title": "BXHotels",
+    "images": {
+      "favicon": "/hotels/favicon.ico",
+      "apple_touch_icon": "/hotels/apple-touch-icon.png",
+      "logo": "/hotels/logo.png",
+      "dialog_logo": "/hotels/auth-dialog-logo.png"
+    },
+    "header": {
+      "links": ["Hotels", "Destinations", "Experiences", "Offers", "Loyalty Program"]
+    },
+    "home_page": {
+      "banner": {
+        "background_image": "/hotels/banner.jpg",
+        "title": "Stay awhile, and relax!",
+        "subtitle": "Book you visit to our hotel",
+        "search": {
+          "inputs": [
+            {
+              "label": "Check-In — Check-Out",
+              "placeholder": "Arrive — Depart",
+              "icon": "calendarIcon"
+            },
+            {
+              "label": "Rooms",
+              "placeholder": "1 room",
+              "icon": "keyIcon"
+            },
+            {
+              "label": "Guests",
+              "placeholder": "2 Adults",
+              "icon": "userIcon"
+            }
+          ],
+          "button": "Check Availability"
+        }
+      },
+
+      "features_section": {
+        "title": "The very best, all for you",
+        "features": [
+          {
+            "image": "/hotels/offer-1.jpg",
+            "description": "12 Hotels in the World's Best Places"
+          },
+          {
+            "image": "/hotels/offer-2.jpg",
+            "description": "Rooms with a unique interior, from Standard to VIP suites"
+          },
+          {
+            "image": "/hotels/offer-3.jpg",
+            "description": "Premium restaurants in our hotels"
+          },
+          {
+            "image": "/hotels/offer-4.jpg",
+            "description": "Spa and lounge zones"
+          }
+        ]
+      }
+    },
+    "dashboard": {
+      "username": "",
+      "header": "Welcome Back",
+      "portal": {
+        "tabs": [
+          "My Reservation",
+          "Activity",
+          "Settings"
+        ],
+        "title": "Deluxe Apartment",
+        "image": "/hotels/apartment.jpg",
+        "reservation_info": [
+          {
+            "icon": "calendarIcon",
+            "details": "10/25/2022 - 11/01/2022"
+          },
+          {
+            "icon": "userIcon",
+            "details": "2 Adults"
+          },
+          {
+            "icon": "foodIcon",
+            "details": "Breakfast and dinner included"
+          },
+          {
+            "icon": "dollarIcon",
+            "details": "$1493"
+          }
+        ],
+        "button": "Details",
+        "alert": "You can cancel your reservation until 10/25/2022"
+      },
+      "sidebar": {
+        "title": "BXHotels Loyalty Program",
+        "card": {
+          "title": "Points You've Earned:",
+          "points": "3452"
+        },
+        "link": "More About Loyalty Program"
+      },
+      "offer": {
+        "image": "/hotels/banner.jpg",
+        "title": "50% off spa packages",
+        "button": "Show Details"
+      }
+    },
+    "footer": {
+      "links": [
+        "Hotels",
+        "Customer Service",
+        "Corporate",
+        "Legal",
+        "Help"
+      ],
+      "copyright": "© BXHotels, 2022.  All rights reserved."
+    }
+  }
+}
