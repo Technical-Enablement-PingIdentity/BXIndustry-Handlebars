@@ -1,31 +1,29 @@
 @import "../common/mixins";
 
 &.manufacturing {
-  .button {
-    text-transform: uppercase;
-  }
-
-  .bxi-nav-link,
-  .bxi-footer-link {
-    font-size: 1rem;
+  .bxi-button, .bxi-link {
     text-transform: uppercase;
   }
 
   .bxi-footer *,
-  .button,
-  .bxi-nav-link {
+  .bxi-button,
+  .bxi-link {
     font-family: var(--bxi-secondary-font);
+  }
+
+  .bxi-auth-buttons {
+    .bxi-button {
+      @include breakpoint-lt-lg {
+        &:hover {
+          color: var(--bxi-secondary-color);
+        }
+      }
+    }
   }
 
   @include breakpoint-lg {
     .bxi-auth-buttons {
-      .bxi-nav-link {
-        color: var(--bxi-link-button-color);
-    
-        &:hover {
-          color: var(--bxi-link-button-hover-color);
-        }
-    
+      .bxi-button {
         &:not(:last-child) {
           padding-right: 1rem;
           border-right: 2px solid var(--bxi-secondary-color)
@@ -86,16 +84,6 @@
   &.dashboard {
     .navbar {
       background-color: var(--bxi-manufacturing-dashboard-nav-bg-color);
-
-      @include breakpoint-lg {
-        .bxi-nav-link {
-          color: var(--bxi-link-button-color);
-  
-          &:hover {
-            color: var(--bxi-link-button-hover-color);
-          }
-        }
-      }
     }
 
     .bxi-header {

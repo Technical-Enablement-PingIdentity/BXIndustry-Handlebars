@@ -1,19 +1,23 @@
 @import "../common/mixins";
 
 &.hotels {
-
   .button {
     text-transform: uppercase;
+  }
+
+  .bxi-link {
     font-size: 14px;
   }
 
   .bxi-auth-buttons {
-    .bxi-nav-link {
+    .bxi-button {
       text-transform: uppercase;
 
-      &:not(:last-child) {
-        padding: .15rem 1rem .15rem;
-        border-right: 1px solid white;
+      @include breakpoint-lg {
+        &:not(:last-child) {
+          padding: .15rem 1rem .15rem;
+          border-right: 1px solid white;
+        }
       }
     }
   }

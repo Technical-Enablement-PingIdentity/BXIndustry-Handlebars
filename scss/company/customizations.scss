@@ -1,19 +1,20 @@
 @import '../common/mixins';
 
 &.company {
-  .button, .bxi-nav-link {
+  .bxi-button {
     text-transform: uppercase;
+  }
+
+  .bxi-link {
+    font-size: 14px;
   }
 
   @include breakpoint-lg {
     .bxi-auth-buttons {
       // Add button separator
-      .bxi-nav-link {
-        padding-bottom: .25rem;
-        padding-top: .25rem;
-
+      .bxi-button {
         &:not(:last-child) {
-          border-right: 1px solid var(--bxi-nav-link-color);
+          border-right: 1px solid #fff;
           padding-right: 1rem;
           margin-right: 1rem;
         }
@@ -139,7 +140,7 @@
         background: var(--bxi-company-components-icon-bg);
       }
 
-      .button {
+      .bxi-button {
         background: var(--bxi-primary-color);
       }
     }
