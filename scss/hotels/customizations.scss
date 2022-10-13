@@ -1,10 +1,9 @@
 @import "../common/mixins";
 
 &.hotels {
-  .button {
+  .bxi-button {
     text-transform: uppercase;
   }
-
   .bxi-link {
     font-size: 14px;
   }
@@ -134,7 +133,7 @@
         color: var(--bxi-hotels-dashboard-offer-color);
       }
 
-      .button {
+      .bxi-button {
         min-width: 300px;
         color: var(--bxi-primary-color);
         background-color: var(--bxi-hotels-dashboard-offer-color);
