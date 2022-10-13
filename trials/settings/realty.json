@@ -1,0 +1,104 @@
+{
+  "settings": {
+    "images": {
+      "favicon": "./favicon.ico",
+      "apple_touch_icon": "./apple-touch-icon.png",
+      "logo": "./logo.png",
+      "dialog_logo": "./auth-dialog-logo.png"
+    },
+    "home_page": {
+      "banner": {
+        "background_image": "./banner.jpg"
+      },
+      "showcase": {
+        "units": [
+          {
+            "title": "Junior",
+            "description": "Apartment Complex",
+            "location": "Chicago",
+            "image": "./offer-1.jpg"
+          },
+          {
+            "title": "New Riverside",
+            "description": "Apartment Complex",
+            "location": "Saint Paul",
+            "image": "./offer-2.jpg"
+          },
+          {
+            "title": "Golden Phoenix",
+            "description": "Business Center",
+            "location": "Columbus",
+            "image": "./offer-3.jpg"
+          },
+          {
+            "title": "Silver Stone",
+            "description": "Apartment Complex",
+            "location": "Chicago",
+            "image": "./offer-4.jpg"
+          }
+        ]
+      }
+    },
+    "dashboard": {
+      "properties": {
+        "units": [
+          {
+            "image": "./offer-1.jpg",
+            "description": "Apartment Complex",
+            "title": "Junior",
+            "location": "Chicago, IL 60638, USA",
+            "availability": "35 apartments for rent",
+            "price": "from $2300 per Month",
+            "button": "All Details"
+          },
+          {
+            "image": "./offer-2.jpg",
+            "description": "Apartment Complex",
+            "title": "New Riverside",
+            "location": "Chicago, IL 60657, USA",
+            "availability": "12 apartments for rent",
+            "price": "from $2750 per Month",
+            "button": "All Details"
+          },
+          {
+            "image": "./offer-3.jpg",
+            "description": "Apartment Complex",
+            "title": "FreeLife",
+            "location": "Chicago, IL 60249, USA",
+            "availability": "6 apartments for rent",
+            "price": "from $1900 per Month",
+            "button": "All Details"
+          },
+          {
+            "image": "./offer-4.jpg",
+            "description": "Apartment Complex",
+            "title": "Scotland",
+            "location": "Chicago, IL 60622, USA",
+            "availability": "44 apartments for rent",
+            "price": "from $3000 per Month",
+            "button": "All Details"
+          }
+        ],
+        "showcase": {
+          "units": [
+            {
+              "image": "./offer-5.jpg",
+              "description": "New Riverside",
+              "title": "Studio Apartment",
+              "location": "Chicago",
+              "price": "$300,000"
+            },
+            {
+              "image": "./offer-6.jpg",
+              "description": "New Riverside",
+              "title": "One-Bedroom Apartment",
+              "location": "Chicago",
+              "price": "$380,000"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+
