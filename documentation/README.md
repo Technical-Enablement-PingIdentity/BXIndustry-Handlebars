@@ -170,10 +170,10 @@ You can add images in two ways:
 - CDN URL (e.g., Glitch Assets)
 - File name (extension included) - will be delivered from internal `public/<vertical>` folder, if you'd like to add/update images, you can add them to that folder and reference them in the associated [settings.json](#vertical-settings) file.
 
-The `common_images` section includes basic pictures for the specific vertical (favicon and logo). These can also be full urls if you've uploaded images to Glitch Assets (or elsewhere).
+The `images` section includes basic pictures for the specific vertical (favicon and logo). These can also be full urls if you've uploaded images to Glitch Assets (or elsewhere).
 
 ```json
-  "common_images": {
+  "images": {
     "favicon": "/<vertical>/favicon.ico",
     "apple_touch_icon": "/<vertical>/apple-touch-icon.png",
     "logo": "/<vertical>/logo.png",
@@ -184,7 +184,7 @@ The `common_images` section includes basic pictures for the specific vertical (f
 If you would like to remove an image because you have rebranded, you can just set the image property to an empty string, e.g., to remove the logo from dialogs:
 
 ```json
-  "common_images": {
+  "images": {
     ...
     "dialog_logo": "",
   }

@@ -1,27 +1,13 @@
 @import '../common/mixins';
 
 &.airlines {
-  a,
-  .button {
+  .bxi-button {
     text-transform: uppercase;
     border-radius: 2px;
-    font-weight: 600;
   }
 
-  .bxi-footer-link {
+  .bxi-link { 
     font-size: 14px;
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-
-  @include breakpoint-lg {
-    .bxi-nav-link {
-      color: var(--bxi-link-button-color);
-
-      &:hover {
-        color: var(--bxi-link-button-hover-color);
-      }
-    }
   }
 
   .bxi-offers-section {
@@ -44,28 +30,9 @@
     &--text {
       color: var(--bxi-airlines-offers-color)
     }
-
-    .button {
-      color: var(--bxi-secondary-color);
-      background-color: var(--bxi-airlines-offer-button-bg-color);
-
-      &:hover {
-        color: var(--bxi-airlines-offer-button-hover-color);
-        background-color: var(--bxi-primary-color);
-      }
-    }
   }
 
   &.home {
-    @include breakpoint-lg {
-      .bxi-auth-buttons {
-        .bxi-nav-link {
-          padding: 10px 20px;
-          @include standard-button-styles();
-        }
-      }
-    }
-
     .bxi-banner {
       & > div {
         min-height: 550px;
@@ -116,13 +83,6 @@
   &.dashboard {
     #username-container {
       padding-top: 2px;
-    }
-
-    @include breakpoint-lt-lg {
-      .bxi-auth-buttons .button:hover,
-      .bxi-navbar .bxi-nav-link:hover {
-        color: var(--bxi-secondary-color);
-      }
     }
 
     .static-user-icon {

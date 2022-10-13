@@ -1,25 +1,13 @@
 @import '../common/mixins';
 
 &.education {
-  .button {
+  .bxi-button {
     border-radius: 2rem;
-    font-size: 1rem;
   }
 
-  .bxi-nav-link {
-    font-size: 1rem;
-    text-decoration: none;
-  }
-
-  .navbar {
-    .bxi-nav-link {
-      @include breakpoint-lg {
-        color: var(--bxi-link-button-color);
-  
-        &:hover {
-          color: var(--bxi-link-button-hover-color);
-        }
-      }
+  .bxi-auth-buttons {
+    .bxi-button {
+      margin-bottom: .25rem;
     }
   }
 
@@ -51,21 +39,12 @@
   }
 
   &.home {
-    @include breakpoint-lt-lg {
-      .bxi-auth-buttons .button:hover,
-      .bxi-navbar .bxi-nav-link:hover {
-        color: var(--bxi-secondary-color);
-      }
-    }
-
     .bxi-auth-buttons {
-      .bxi-nav-link {
-        font-size: 14px;
-
+      .bxi-button {
         @include breakpoint-lg {
-          padding: 10px 20px;
+          font-size: 14px;
           border-radius: 0;
-          @include standard-button-styles();
+          margin-bottom: 0;
         }
       }
     }
@@ -139,16 +118,6 @@
   }
 
   &.dashboard {
-    @include breakpoint-lt-lg {
-      .navbar {
-        .bxi-nav-link {
-          &:hover {
-            color: var(--bxi-secondary-color);
-          }
-        }
-      }
-    }
-
     .bxi-education-dashboard--color {
       color: var(--bxi-education-portal-color);
     }

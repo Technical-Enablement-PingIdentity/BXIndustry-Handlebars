@@ -15,7 +15,7 @@
             <img width="150" src="{{settings.images.logo}}" alt="Logo" />
           </a>
           <div class="d-flex flex-row position-relative">
-            <div class="bxi-auth-buttons bxi-bg-primary bxi-bg-lg-transparent collapse navbar-collapse bxi-zi-2">
+            <div class="bxi-auth-buttons bxi-auth-buttons--primary-link bxi-bg-primary bxi-bg-lg-transparent collapse navbar-collapse bxi-zi-2 p-2 p-lg-0">
               {{!-- See src/home-nav-buttons.hbs to update auth buttons --}}
               {{> homeNavButtons }}
             </div>
@@ -32,7 +32,9 @@
             <div class="bxi-navbar bxi-bg-primary collapse navbar-collapse bxi-zi-2" id="navbarNav">
               <ul class="navbar-nav p-2 pb-0 py-lg-3 px-lg-0 d-flex justify-content-between w-100">
                 {{#each settings.home_page.header.links}}
-                <li class="nav-item mb-2 mb-lg-0"><a class="nav-link bxi-nav-link">{{this}}</a></li>
+                <li class="nav-item mb-2 mb-lg-0">
+                  <a class="bxi-link bxi-link-light--secondary">{{this}}</a>
+                </li>
                 {{/each}}
                 <li>{{> searchIcon class="d-none d-lg-block mt-1" }}</li>
               </ul>
@@ -47,7 +49,7 @@
             <h1 class="bxi-zi-2 bxi-ff-secondary text-uppercase bxi-main-header bxi-banner-content-color">{{settings.home_page.banner.title}}</h1>
             <h4 class="bxi-zi-2 bxi-banner-content-color mb-3 mb-lg-5">{{settings.home_page.banner.subtitle}}</h4>
             {{#if settings.home_page.banner.button}}
-            <button class="button button--lg align-self-start bxi-zi-2">{{settings.home_page.banner.button}}</button>
+            <button class="bxi-button bxi-button--lg align-self-start bxi-zi-2">{{settings.home_page.banner.button}}</button>
             {{/if}}
           </div>
         </div>
@@ -73,29 +75,29 @@
         <div class="d-block d-lg-flex justify-content-between mb-sm-3 mb-4">
           <ul class="d-none d-md-flex mb-4 p-0 ls-none">
             {{#each settings.footer.links }}
-              <li class="me-4"><a class="bxi-footer-link" href="#">{{this}}</a></li>
+              <li class="me-4"><a class="bxi-link bxi-link-light--secondary" href="#">{{this}}</a></li>
             {{/each}}
           </ul>
           <div class="footer-contacts d-flex flex-column-reverse flex-md-row justify-content-start align-items-center align-items-md-start justify-content-md-between justify-content-lg-end">
             <div class="footer-support me-0 me-lg-4">
               <div class="text-center text-md-start mb-3 fw-bold fs-5">{{settings.footer.phone_number}}</div>
-              <button class="button button--outline button--md">Online support</button>
+              <button class="bxi-button bxi-button--outline bxi-button--lg fs-7">Online support</button>
             </div>
             <div class="ms-0 ms-md-3">
               <div class="ms-0 mb-3 text-center text-md-start fw-bold fs-5">Follow us:</div>
               <ul class="d-flex align-items-center ls-none ps-0">
                 <li>
-                  <button class="button button--outline button--icon button--md me-md-3 me-5">
+                  <button class="bxi-button bxi-button--outline bxi-button--icon bxi-button--lg me-md-3 me-5">
                     {{> facebookIcon }}
                   </button>
                 </li>
                 <li>
-                  <button class="button button--outline button--icon button--md me-md-3 me-5">
+                  <button class="bxi-button bxi-button--outline bxi-button--icon bxi-button--lg me-md-3 me-5">
                     {{> twitterIcon }}
                   </button>
                 </li>
                 <li>
-                  <button class="button button--outline button--icon button--md">
+                  <button class="bxi-button bxi-button--outline bxi-button--icon bxi-button--lg">
                     {{> instagramIcon }}
                   </button>
                 </li>
