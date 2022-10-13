@@ -46,12 +46,6 @@
   display: flex;
 }
 
-.bxi-auth-buttons {
-  .bxi-nav-link:not(:last-child) {
-    margin-right: 1rem;
-  }
-}
-
 @include breakpoint-lt-lg {
   // Make the collapsible nav menu float (rather than push page down)
   .bxi-navbar {
@@ -66,11 +60,5 @@
     min-width: 100px;
     right: 0;
     padding: .5rem .5rem 0 .5rem;
-
-    .bxi-nav-link {
-      white-space: nowrap;
-      display: block;
-      margin-bottom: .5rem;
-    }
   }
 }

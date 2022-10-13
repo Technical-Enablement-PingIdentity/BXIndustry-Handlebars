@@ -118,16 +118,6 @@
   }
 
   &.dashboard {
-    @include breakpoint-lt-lg {
-      .navbar {
-        .bxi-nav-link {
-          &:hover {
-            color: var(--bxi-secondary-color);
-          }
-        }
-      }
-    }
-
     .bxi-education-dashboard--color {
       color: var(--bxi-education-portal-color);
     }

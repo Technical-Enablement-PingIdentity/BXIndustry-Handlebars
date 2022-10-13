@@ -1,18 +1,19 @@
 @import "../common/mixins";
 
 &.health {
-  .button, 
-  .bxi-nav-link,
-  .bxi-footer-link {
+  .bxi-button, 
+  .bxi-link {
     font-family: var(--bxi-secondary-font);
     border-radius: 3rem;
   }
 
   @include breakpoint-lt-lg {
-    .bxi-navbar,
     .bxi-auth-buttons {
-      .bxi-nav-link {
-        color: var(--bxi-nav-link-color-inverse);
+      .bxi-button {
+        color: #fff;
+        &:hover {
+          color: #fff;
+        }
       }
     }
   }
@@ -20,17 +21,6 @@
   .bxi-banner {
     color: var(--bxi-health-banner-color);
     background-color: var(--bxi-health-banner-bg-color);
-  }
-
-
-  .bxi-navbar {
-    .bxi-nav-link {
-      font-weight: 300;
-
-      &:hover {
-        font-weight: 400;
-      }
-    }
   }
 
   &.home {
@@ -83,7 +73,7 @@
       color: var(--bxi-health-banner-color);
       background-color: var(--bxi-health-banner-bg-color);
 
-      .button {
+      .bxi-button {
         color: var(--bxi-health-banner-color);
         font-weight: 300;
 
@@ -104,7 +94,7 @@
   &.dashboard {
     .bxi-navbar,
     .bxi-auth-buttons {
-      .bxi-nav-link {
+      .bxi-button {
         color: var(--bxi-nav-link-color-inverse);
       }
     }
