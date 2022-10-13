@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BXIndustry Docs</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+  
+  <link rel="stylesheet" href="/styles.css">
+
+  {{> (brandingPartial)}}
+
+  <style>
+    .icon-color .fill-target {
+      fill: black;
+    }
+
+    .icon-color .stroke-target {
+      stroke: black;
+    }
+
+    .table td:nth-child(2) {
+      min-width: 200px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-8"><h1>Documentation</h1></div>
+      <div class="col-4">
+        <select id="select-vertical" class="form-select">
+          {{#each verticals}}
+          <option value="{{this}}">{{this}}</option>
+          {{/each}}
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="bxi {{selectedVertical}}">
+    <div class="container">
+      <h3>Buttons</h3>
+      <div id="vertical-styling">
+        <table class="table table-striped mb-5">
+          <thead>
+            <tr>
+              <td>Description</td>
+              <td>Example</td>
+              <td>Code Snippet</td>
+              <td>Notes</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Small Button</td>
+              <td><button class="button">Click Me</button></td>
+              <td><code>&lt;button class="bxi-button"&gt;Click Me&lt;/button&gt;</code></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Medium Button</td>
+              <td><button class="button button--md">Click Me</button></td>
+              <td><code>&lt;button class="bxi-button bxi-button-md"&gt;Click Me&lt;/button&gt;</code></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Large Button</td>
+              <td><button class="button button--lg">Click Me</button></td>
+              <td><code>&lt;button class="bxi-button bxi-button-lg"&gt;Click Me&lt;/button&gt;</code></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Link Button</td>
+              <td><button class="button button--link">Click Me</button></td>
+              <td><code>&lt;button class="bxi-button bxi-button-link"&gt;Click Me&lt;/button&gt;</code></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Medium Icon Button</td>
+              <td><button class="button button--md button--icon">{{> facebookIcon}}</button></td>
+              <td><code>&lt;button class="bxi-button bxi-button-md bxi-button-icon"&gt;\{{> facebookIcon}}&lt;/button&gt;</code></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Icon Button</td>
+              <td><button class="button button--icon">{{> facebookIcon}}</button></td>
+              <td><code>&lt;button class="bxi-button bxi-button-icon"&gt;\{{> facebookIcon}}&lt;/button&gt;</code></td>
+              <td class="fs-8">Default size is same as bxi-button-lg</td>
+            </tr>
+            <tr>
+              <td>Outline Button</td>
+              <td><button class="button button--outline">Click Me</button></td>
+              <td><code>&lt;button class="bxi-button bxi-button-outline"&gt;Click Me&lt;/button&gt;</code></td>
+              <td class="fs-8">Works with all sizes (bxi-button-md or bxi-button-lg)</td>
+            </tr>
+            <tr>
+              <td>Footer Outline Button</td>
+              <td class="bxi-footer"><button class="button button--md button--outline">Click Me</button></td>
+              <td>
+                <pre>
+                  <code>
+&lt;footer class="bxi-footer"&gt;
+  ...
+  &lt;button class="bxi-button bxi-button-outline"&gt;Click Me&lt;/button&gt;
+  ...
+&lt;/footer&gt;
+                  </code>
+                </pre>
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Footer Outline Icon Button</td>
+              <td class="bxi-footer"><button class="button button--outline button--icon">{{> twitterIcon}}</button></td>
+              <td>
+                <pre>
+                  <code>
+&lt;footer class="bxi-footer"&gt;
+  ...
+  &lt;button class="button button--outline button--icon"&gt;\{{> twitterIcon }}&lt;/button&gt;
+  ...
+&lt;/footer&gt;
+                  </code>
+                </pre>
+              </td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>Navigation Links</h3>
+      <table class="table table-striped mb-5">
+        <thead>
+          <tr>
+            <td>Description</td>
+            <td>Example</td>
+            <td>Usage</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Nav Link</td>
+            <td><a class="bxi-nav-link">Link</a></td>
+            <td><code>&lt;a class="bxi-nav-link"&gt;Link&lt;/a&gt;</code></td>
+          </tr>
+          <tr>
+            <td>Nav Link Dark Background</td>
+            <td class="bxi-bg-secondary"><a class="bxi-nav-link-dark-bg">Link</a></td>
+            <td><code>&lt;a class="bxi-nav-link-light"&gt;Link&lt;/a&gt;</code></td>
+          </tr>
+        </tbody>
+      </table>
+      <h3>Icons</h3>
+      <table class="table table-striped mb-5">
+        <thead>
+          <tr>
+            <td>Description</td>
+            <td>Example</td>
+            <td>Usage</td>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each icons}}
+          <tr>
+            <td class="text-capitalize">{{icon}}</td>
+            <td class="icon-color">{{> (lookup. 'partial')}}</td>
+            <td><code>\{{> {{partial}} }}</code></td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script type="text/javascript">
+    (() => {
+      const selectVerticalDropdown = document.getElementById('select-vertical');
+      selectVerticalDropdown.value = '{{selectedVertical}}';
+      selectVerticalDropdown.addEventListener('change', (e) => {
+        location.assign('/docs?vertical=' + e.target.value);
+      });
+    })();
+  </script>
+</body>
+</html>

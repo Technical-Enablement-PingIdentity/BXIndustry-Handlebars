@@ -11,19 +11,21 @@
           <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand pt-0" href="#">
             <img width="150" src="{{settings.images.logo}}" alt="Logo" />
           </a>
-          <div class="bxi-navbar bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse justify-content-center mt-3" id="navbarNav">
-            <ul class="navbar-nav pb-2">
+          <div class="bxi-navbar bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse justify-content-center mt-lg-3" id="navbarNav">
+            <ul class="navbar-nav pb-3 pt-1 pt-lg-0">
               {{#each settings.header.links}}
-              <li class="nav-item"><a class="nav-link px-3 pt-2 pt-lg-0 bxi-nav-link">{{this}}</a></li>
+              <li class="nav-item">
+                <a class="nav-link px-3 pt-2 pt-lg-0 pb-0 bxi-link bxi-link-light--primary">{{this}}</a>
+              </li>
               {{/each}}
             </ul>
           </div>
-          <div class="d-flex flex-row mt-2 position-relative">
+          <div class="d-flex flex-row position-relative">
             {{> searchIcon class="mt-1 me-3 d-lg-block d-none" }}
-            <div class="bxi-auth-buttons bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse p-2 pb-0 p-lg-0">
+            <div class="bxi-auth-buttons bxi-auth-buttons--link bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse ps-3 p-2 p-lg-0">
               {{!-- See src/home-nav-buttons.hbs to update auth buttons --}}
               {{> homeNavButtons }}
             </div>
@@ -43,7 +45,7 @@
               <h1 class="bxi-main-header bxi-banner__text mb-3 mb-lg-4">{{settings.home_page.banner.title}}</h1>
               <p class="fs-5 lh-base mb-4 bxi-banner__text">{{settings.home_page.banner.subtitle}}</p>
               {{#if settings.home_page.banner.button_text}}
-              <button class="button button--lg">{{settings.home_page.banner.button_text}}</button>
+              <button class="bxi-button bxi-button--lg">{{settings.home_page.banner.button_text}}</button>
               {{/if}}
             </div>
           </div>
@@ -55,7 +57,7 @@
           <div class="video-tile__thumbnail me-3 w-100 position-relative">
             <div class="thumbnail-overlay position-absolute top-0 start-0 w-100 h-100"></div>
             <img src="{{this}}" alt="Video tile {{@index}}" />
-            <button class="button thumbnail-button position-absolute top-50 start-50 translate-middle rounded-circle"></button>
+            <button class="bxi-button thumbnail-button position-absolute top-50 start-50 translate-middle rounded-circle"></button>
           </div>
           {{/each}}
         </div>
@@ -85,29 +87,29 @@
         <div class="d-block d-lg-flex align-items-center justify-content-between mb-sm-3 mb-4">
           <ul class="d-none d-md-flex mb-4 mb-md-3 mb-lg-0 p-0 ls-none">
             {{#each settings.footer.links }}
-              <li class="fs-6 me-4"><a href="#" class="bxi-footer-link">{{this}}</a></li>
+              <li class="fs-6 me-4"><a href="#" class="bxi-link bxi-link-light--primary fs-6">{{this}}</a></li>
             {{/each}}
           </ul>
           <div class="footer-contacts d-flex flex-column-reverse flex-md-row justify-content-start align-items-center align-items-md-start justify-content-md-between justify-content-lg-end">
             <div class="footer-support">
               <div class="text-center text-md-start mb-3">{{settings.footer.phone_number}}</div>
-              <button class="button button--outline button--lg">Online support</button>
+              <button class="bxi-button bxi-button--outline bxi-button--lg">Online support</button>
             </div>
             <div class="ms-0 ms-md-3">
               <div class="ms-0 mb-3 text-center text-md-start">Follow us:</div>
               <ul class="d-flex align-items-center ls-none ps-0">
                 <li>
-                  <button class="button button--outline button--icon me-md-3 me-5">
+                  <button class="bxi-button bxi-button--outline bxi-button--icon bxi-button--lg me-md-3 me-5">
                     {{> facebookIcon }}
                   </button>
                 </li>
                 <li>
-                  <button class="button button--outline button--icon me-md-3 me-5">
+                  <button class="bxi-button bxi-button--outline bxi-button--icon bxi-button--lg me-md-3 me-5">
                     {{> twitterIcon }}
                   </button>
                 </li>
                 <li>
-                  <button class="button button--outline button--icon">
+                  <button class="bxi-button bxi-button--outline bxi-button--icon bxi-button--lg">
                     {{> instagramIcon }}
                   </button>
                 </li>
