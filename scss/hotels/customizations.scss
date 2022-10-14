@@ -36,8 +36,6 @@
 
       &-input-container {
         background-color: white;
-
-        @include color-icon(var(--bxi-primary-color));
       }
     }
 
@@ -76,8 +74,6 @@
       }
 
       &-details {
-        @include color-icon(var(--bxi-primary-color));
-
         .icon-container {
           width: 22px;
           display: flex;
@@ -100,8 +96,6 @@
         box-shadow: 10px 10px 10px 0 var(--bxi-hotels-dashboard-card-shadow-color);
 
         .star-container {
-          @include color-icon(var(--bxi-primary-color));
-
           svg {
             margin: 0 2px;
           }
