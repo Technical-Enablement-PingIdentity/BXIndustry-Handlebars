@@ -103,7 +103,7 @@ fastify.get('/docs', (request, reply) => {
   const icons = fs.readdirSync('src/partials/icons').map(file => file.replace('.hbs', ''));
   return reply.view('src/docs/index.hbs', {
     selectedVertical: vertical,
-    verticals: verticals,
+    verticals: verticals.filter(v => v !== 'generic'),
     brandingPartial: () => `${vertical}Branding`,
     icons: icons.map(icon => ({ icon: icon, partial: icon + 'Icon'}))
   });

@@ -14,6 +14,12 @@
   font-size: 12px !important;
 }
 
+.pe-lg-none {
+  @include breakpoint-lg {
+    pointer-events: none;
+  }
+}
+
 .bxi-overflow-x-auto {
   overflow-x: auto;
 }
@@ -56,12 +62,6 @@
   font-family: var(--bxi-secondary-font);
 }
 
-.pe-lg-none {
-  @include breakpoint-lg {
-    pointer-events: none;
-  }
-}
-
 .bxi-footer {
   color: var(--bxi-footer-color);
   background-color: var(--bxi-footer-bg-color);
@@ -93,14 +93,6 @@
 
 .bxi-bg-secondary {
   background-color: var(--bxi-secondary-color);
-}
-
-.bxi-nav-color {
-  color: var(--bxi-company-nav-color);
-}
-
-.bxi-nav-bg-color {
-  background: var(--bxi-company-nav-bg-color);
 }
 
 .bxi-bg-transparent {
