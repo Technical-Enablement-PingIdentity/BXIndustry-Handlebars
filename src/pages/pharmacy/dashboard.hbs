@@ -43,7 +43,7 @@
         {{!-- See src/dashboard-buttons.hbs to update dashboard buttons --}}
         {{> dashboardButtons}}
       </div>
-      <div class="row mt-5">
+      <div class="row mt-5 mb-4">
         <div class="col-lg-8 order-2 order-lg-1">
           <h1 class="bxi-main-header bxi-color-secondary bxi-ff-secondary">{{settings.dashboard.portal.header}}</h1>
           <div class="row">
@@ -74,6 +74,7 @@
             </div>
           </div>
           {{/each}}
+          <button class="bxi-button bxi-button--outline bxi-button--lg w-100">{{settings.dashboard.portal.sidebar.button}}</button>
         </div>
       </div>
       {{#if env.BXI_DASHBOARD_POLICY_ID}}
