@@ -1,0 +1,104 @@
+{
+  "settings": {
+    "title": "BXPharmacy",
+    "images": {
+      "favicon": "/pharmacy/favicon.ico",
+      "apple_touch_icon": "/pharmacy/apple-touch-icon.png",
+      "logo": "/pharmacy/logo.png",
+      "dialog_logo": "/pharmacy/auth-dialog-logo.png"
+    },
+    "header": {
+      "links": [
+        "About Us",
+        "Products",
+        "Science",
+        "News",
+        "Contacts"
+      ]
+    },
+    "home_page": {
+      "banner": {
+        "background_image": "/pharmacy/banner.jpg",
+        "title": "A pharmacy company for a new generation",
+        "subtitle": "See how we use cutting-edge science to create quality medicines"
+      },
+      "services": [
+        {
+          "icon": "/pharmacy/pill-icon.svg",
+          "title": "Pharmaceutical Production",
+          "description": "Perfect production means high-quality products, every time",
+          "button": "More"
+        },
+        {
+          "icon": "/pharmacy/contract-icon.svg",
+          "title": "Contract Production",
+          "description": "When your brand is on the line, it's important to choose a manufacturer you trust",
+          "button": "More"
+        },
+        {
+          "icon": "/pharmacy/science-icon.svg",
+          "title": "Research & Development",
+          "description": "Need a solution? Leverage the best brains in the business",
+          "button": "More"
+        }
+      ]
+    },
+    "dashboard": {
+      "portal": {
+        "header": "Key Directions",
+        "articles": [
+          {
+            "image": "/pharmacy/article-1.jpg",
+            "description": "Partnering in Cardiology",
+            "button": "More"
+          },
+          {
+            "image": "/pharmacy/article-2.jpg",
+            "description": "Partnering in Women's Healthcare",
+            "button": "More"
+          },
+          {
+            "image": "/pharmacy/article-3.jpg",
+            "description": "Partnering in Oncology",
+            "button": "More"
+          },
+          {
+            "image": "/pharmacy/article-4.jpg",
+            "description": "Partnering in Ophthalmology",
+            "button": "More"
+          }
+        ],
+        "sidebar": {
+          "header": "Your applications",
+          "applications": [
+            {
+              "banner": "Accepted",
+              "name": "Registration document N2394",
+              "date": "10/25/2022"
+            },
+            {
+              "banner": "Accepted",
+              "name": "September delivery list",
+              "date": "10/20/2022"
+            },
+            {
+              "banner": "Accepted",
+              "name": "August delivery list",
+              "date": "9/18/2022"
+            }
+          ],
+          "button": "Add Application"
+        }
+      }
+    },
+    "footer": {
+      "links": [
+        "Company",
+        "Careers",
+        "Help and Support",
+        "Privacy Policy"
+      ],
+      "copyright": "© BXPharmacy, 2022. All rights reserved."
+    }
+  }
+}

@@ -1,0 +1,95 @@
+@import '../common/mixins';
+
+&.pharmacy {
+  background-color: var(--bxi-pharmacy-page-bg-color);
+
+  .navbar {
+    background-color: var(--bxi-pharmacy-navbar-bg-color);
+  }
+
+  &.home {
+    .bxi-banner {
+      height: 790px;
+
+      &-content {
+        height: 550px;
+
+        background: linear-gradient(180deg, rgba(0,0,0,0) 0%, var(--bxi-pharmacy-banner-bg-color) 100%);
+
+        &-color {
+          color: var(--bxi-pharmacy-banner-color);
+        }
+      }
+    }
+
+    .bxi-services {
+      @include breakpoint-lg {
+        margin-top: -70px;
+      }
+      
+      .bxi-service:not(:last-child) {
+        border-bottom: 1px solid var(--bxi-pharmacy-services-border-color);
+
+        @include breakpoint-lg {
+          border-bottom: none;
+          border-right: 1px solid var(--bxi-pharmacy-services-border-color);
+        }
+      }
+
+      svg {
+        @include color-icon(var(--bxi-primary-color));
+      }
+
+      &-bg-color {
+        background-color: var(--bxi-pharmacy-services-bg-color);
+      }
+
+      &-description-color {
+        color: var(--bxi-pharmacy-services-description-color);
+      }
+    }
+  }
+
+  &.dashboard {
+    #username-container {
+      margin-top: 3px;
+    }
+
+    .bxi-component-bg-color {
+      background-color: var(--bxi-pharmacy-dashboard-component-bg-color);
+    }
+
+    .bxi-article {
+      &:hover {
+        .bxi-article-img {
+          transform: scale(1.1);
+        }
+      }
+
+      &-img {
+        transition: 0.2s;
+        height: 182px;
+        width: auto;
+
+        @include breakpoint-lt-md {
+          height: auto;
+          width: 100%;
+        }
+      }
+    }
+
+    .bxi-sidebar-banner-color {
+      color: var(--bxi-pharmacy-dashboard-banner-color);
+    }
+
+    .bxi-sidebar-application-date {
+      &-color {
+        color: var(--bxi-pharmacy-dashboard-application-date-color);
+      }
+
+      svg {
+        @include color-icon(var(--bxi-pharmacy-dashboard-application-date-color));
+      }
+    }
+  }
+}
