@@ -40,8 +40,10 @@ function registerFunctions(logger) {
    * so you may register callbacks anywhere in your application as long as it's after bxi-davinci.js is loaded (initFunctionRegistry() has been called)
    */
 
-  bxi.registerFunction('remixParameters', () => {
-    return { Vertical: window.location.pathname.split('/')[1] }
+  bxi.registerFunction('remixParameters', async () => {
+    const verticals = await fetch('/verticals');
+    const verticalsParam = (await verticals.json()).map(v => ({ name: v.charAt(0).toUpperCase() + v.slice(1), value: v }));
+    return { CurrentVertical: window.location.pathname.split('/')[1], Verticals: verticalsParam };
   });
 
   bxi.registerFunction('defaultAuthnSuccess', (response) => {

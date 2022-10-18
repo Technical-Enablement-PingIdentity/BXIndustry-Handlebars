@@ -109,6 +109,10 @@ fastify.get('/docs', (request, reply) => {
   });
 });
 
+fastify.get('/verticals', (_, reply) => {
+  reply.code(200).header('Content-Type', 'application/json; charset=utf-8').send(verticals);
+});
+
 // Set up shortcuts endpoints, shows all verticals with applicable links
 fastify.get('/shortcuts', (_, reply) => {
   const viewParams = verticals.map(vertical => {
