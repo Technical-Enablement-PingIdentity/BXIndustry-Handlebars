@@ -1,0 +1,61 @@
+{
+  "settings": {
+    "images": {
+      "favicon": "./favicon.ico",
+      "apple_touch_icon": "./apple-touch-icon.png",
+      "logo": "./logo.png",
+      "dialog_logo": "./auth-dialog-logo.png"
+    },
+    "home_page": {
+      "banner": {
+        "background_image": "./banner.jpg"
+      },
+      "services": [
+        {
+          "icon": "/pharmacy/pill-icon.svg",
+          "title": "Pharmaceutical Production",
+          "description": "Perfect production means high-quality products, every time",
+          "button": "More"
+        },
+        {
+          "icon": "/pharmacy/contract-icon.svg",
+          "title": "Contract Production",
+          "description": "When your brand is on the line, it's important to choose a manufacturer you trust",
+          "button": "More"
+        },
+        {
+          "icon": "/pharmacy/science-icon.svg",
+          "title": "Research & Development",
+          "description": "Need a solution? Leverage the best brains in the business",
+          "button": "More"
+        }
+      ]
+    },
+    "dashboard": {
+      "portal": {
+        "articles": [
+          {
+            "image": "./article-1.jpg",
+            "description": "Partnering in Cardiology",
+            "button": "More"
+          },
+          {
+            "image": "./article-2.jpg",
+            "description": "Partnering in Women's Healthcare",
+            "button": "More"
+          },
+          {
+            "image": "./article-3.jpg",
+            "description": "Partnering in Oncology",
+            "button": "More"
+          },
+          {
+            "image": "./article-4.jpg",
+            "description": "Partnering in Ophthalmology",
+            "button": "More"
+          }
+        ]
+      }
+    }
+  }
+}
