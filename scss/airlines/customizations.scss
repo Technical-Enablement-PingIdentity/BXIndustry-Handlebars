@@ -58,8 +58,6 @@
     }
 
     .additional-links {
-      @include color-icon(var(--bxi-primary-color));
-
       & > div {
         border: 1px solid #dbdbdb;
         
@@ -102,7 +100,6 @@
 
     .bxi-overview {
       border: 1px solid var(--bxi-airlines-dashboard-header-color);
-      @include color-icon(var(--bxi-primary-color));
     }
 
     .bxi-profile-tabs {

@@ -19,6 +19,7 @@
   &.bxi-button--white {
     color: var(--bxi-primary-color);
     background-color: #fff;
+    background: #fff;
 
     &:hover {
       color: #fff;
@@ -29,6 +30,7 @@
   &.bxi-button--white-secondary {
     color: var(--bxi-secondary-color);
     background-color: #fff;
+    background: #fff;
 
     &:hover {
       color: #fff;
@@ -291,7 +293,7 @@
   }
 }
 
-a, a.bxi-button, .button--link {
+a, a.bxi-button, .bxi-button--link {
   text-transform: none;
   text-decoration: none;
 }

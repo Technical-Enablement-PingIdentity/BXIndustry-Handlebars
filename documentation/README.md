@@ -38,11 +38,15 @@ https://github.com/Technical-Enablement-PingIdentity/BXIndustry-Handlebars/blob/
 
 The following verticals are available in Glitch for your to remix:
 1. [Generic](https://demo.bxgeneric.org/generic) - Formerly BXGeneric
-2. [Company](https://demo.bxgeneric.org/company)
-3. [Finance](https://demo.bxgeneric.org/finance)
-4. [Health](https://demo.bxgeneric.org/health)
-5. [Manufacturing](https://demo.bxgeneric.org/manufacturing)
-6. [Retail](https://demo.bxgeneric.org/retail)
+2. [Airlines](https://demo.bxgeneric.org/airline)
+3. [Company](https://demo.bxgeneric.org/company)
+4. [Education](https://demo.bxgeneric.org/education)
+5. [Finance](https://demo.bxgeneric.org/finance)
+6. [Health](https://demo.bxgeneric.org/health)
+7. [Manufacturing](https://demo.bxgeneric.org/manufacturing)
+8. [Pharmacy](https://demo.bxgeneric.org/pharmacy)
+9. [Realty](https://demo.bxgeneric.org/realty)
+10. [Retail](https://demo.bxgeneric.org/retail)
 
 With BXIndustry, you can choose a vertical you would like to use, build your workflows and forms in DaVinci, and update the settings.json file to change page content such as text and images. HTML templates are available for different modal forms for use in DaVinci see [HTML Templates for DaVinci](#templates).
 
@@ -64,11 +68,15 @@ To remix BXIndustry, scroll to the bottom of the page on any vertical and click 
 
 The default vertical should be one value from the list:
 
+- airlines
 - company
+- education
 - finance
 - generic
 - health
 - manufacturing
+- pharmacy
+- realty
 - retail
 
 **Note: When trying to remix in Safari or with content blockers, you may not get a new tab with your remix after you complete the remix form. If this happens you should get an error screen with a textarea containing the URL for a new remix. Copy/paste this into a new tab and you should be all set!**
