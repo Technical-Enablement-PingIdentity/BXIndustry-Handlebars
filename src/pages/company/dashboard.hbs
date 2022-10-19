@@ -74,7 +74,7 @@
             <button class="bxi-button bxi-button--lg">{{settings.dashboard.components_section.button}}</button>
           </div>
           {{#if env.BXI_DASHBOARD_POLICY_ID}}
-          <div class="mb-3" data-dv-flow="static" data-policy-id="{{env.BXI_DASHBOARD_POLICY_ID}}"></div>
+          <div class="mb-3" data-dv-flow="modal" data-policy-id="{{env.BXI_DASHBOARD_POLICY_ID}}"></div>
           {{/if}}
         </div>
         <div class="col-xl-4 mb-5">
@@ -108,17 +108,17 @@
               <div class="ms-0 mb-3 text-center text-md-start">Follow us:</div>
               <ul class="d-flex align-items-center ls-none ps-0">
                 <li>
-                  <button class="bxi-button bxi-button--outline bxi-button--icon bxi-button--xl me-md-3 me-5">
+                  <button class="bxi-button bxi-button--outline bxi-button--icon bxi-button--lg me-md-3 me-5">
                     {{> facebookIcon }}
                   </button>
                 </li>
                 <li>
-                  <button class="bxi-button bxi-button--outline bxi-button--icon bxi-button--xl me-md-3 me-5">
+                  <button class="bxi-button bxi-button--outline bxi-button--icon bxi-button--lg me-md-3 me-5">
                     {{> twitterIcon }}
                   </button>
                 </li>
                 <li>
-                  <button class="bxi-button bxi-button--outline bxi-button--icon bxi-button--xl">
+                  <button class="bxi-button bxi-button--outline bxi-button--icon bxi-button--lg">
                     {{> instagramIcon }}
                   </button>
                 </li>
