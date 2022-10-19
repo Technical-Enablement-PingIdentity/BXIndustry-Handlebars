@@ -26,4 +26,10 @@
     max-width: 500px;
     margin: 0 auto;
   }
+
+  &.hide-vertical-logo {
+    .dialog-logo img {
+      display: none;
+    }
+  }
 }
