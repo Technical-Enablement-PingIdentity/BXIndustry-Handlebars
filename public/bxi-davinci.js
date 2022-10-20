@@ -24,7 +24,9 @@ import registerFunctions from '/register-functions.js';
         break;
       case "static":
         isStaticWidget = true;
-        launchStaticWidget(flowTrigger);
+        if (!activeWidget) {
+          launchStaticWidget(flowTrigger);
+        }
         break;
       default:
         logger.warn('Invalid flow trigger detected valid values for data-dv-flow are "modal" or "static"');
@@ -57,7 +59,7 @@ import registerFunctions from '/register-functions.js';
 
       if (wrapper.DvFlowType === 'modal') {
         showModal(wrapper);
-        launchFlow(document.getElementById('modal-widgetbox'), wrapper, continueToken);
+        await launchFlow(document.getElementById('modal-widgetbox'), wrapper, continueToken);
       } else if (wrapper.DvFlowType === 'static') {
         launchStaticWidget(el, continueToken);
       } else {
