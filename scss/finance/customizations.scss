@@ -1,13 +1,16 @@
 @import "../common/mixins";
 
 &.finance {
-  .button {
-    font-size: 16px;
+  .bxi-button {
     border-radius: .5rem;
 
     &--icon {
       border-radius: 50%;
     }
+  }
+
+  .bxi-auth-buttons .bxi-button {
+    font-size: 1rem;
   }
 
   @include breakpoint-lg {

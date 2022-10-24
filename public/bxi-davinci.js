@@ -4,7 +4,7 @@ import initFunctionRegistry from '/js/function-registry.js';
 import Logger from '/js/logger.js';
 import registerFunctions from '/register-functions.js';
 
-(function () {
+(async function () {
   const logger = new Logger(window._env_.BXI_DEBUG_LOGGING === 'true');
   initFunctionRegistry(logger);
   registerFunctions(logger);
@@ -12,6 +12,8 @@ import registerFunctions from '/register-functions.js';
   let activeWidget = null;
   let isStaticWidget = false;
   let modal = null;
+
+  await checkContinueToken();
 
   const flowTriggers = document.querySelectorAll('[data-dv-flow]');
   flowTriggers.forEach(flowTrigger => {
@@ -22,12 +24,51 @@ import registerFunctions from '/register-functions.js';
         break;
       case "static":
         isStaticWidget = true;
-        launchStaticWidget(flowTrigger);
+        if (!activeWidget) {
+          launchStaticWidget(flowTrigger);
+        }
         break;
       default:
         logger.warn('Invalid flow trigger detected valid values for data-dv-flow are "modal" or "static"');
     }
   });
+
+  async function checkContinueToken() {
+    // Check for continueToken
+    const urlParams = new URLSearchParams(window.location.search);
+    const continueToken = urlParams.get('continueToken');
+    if (continueToken) {
+      window.history.replaceState({}, document.title, window.location.pathname);
+      await handleContinueToken(continueToken);
+    } else {
+      // If there's no continueToken on page load we don't care about this
+      sessionStorage.removeItem('bxi_runningPolicyId');
+    }
+  }
+  
+  async function handleContinueToken(continueToken) {
+    const policyId = sessionStorage.getItem('bxi_runningPolicyId');
+    if (policyId) {
+      const el = document.querySelector(`[data-policy-id="${policyId}"]`);
+
+      if (!el) {
+        logger.warn(`Element with data-policy-id="${policyId}" was not found, flow could not be resumed`);
+      }
+
+      const wrapper = new FlowContainerWrapper(el);
+
+      if (wrapper.DvFlowType === 'modal') {
+        showModal(wrapper);
+        await launchFlow(document.getElementById('modal-widgetbox'), wrapper, continueToken);
+      } else if (wrapper.DvFlowType === 'static') {
+        launchStaticWidget(el, continueToken);
+      } else {
+        logger.warn('Flow could not be continued, invalid data-dv-flow type encountered, valid values for data-dv-flow are "modal" or "static"');
+      }
+    } else {
+      logger.warn('Flow could not be continued because there was no bxi_runningPolicyId in session storage');
+    }
+  }
 
   async function handleDvModalCallback(target, flowContainerId) {
     const widgetWrapper = new FlowContainerWrapper(target);
@@ -43,12 +84,12 @@ import registerFunctions from '/register-functions.js';
 
     await launchFlow(document.getElementById(flowContainerId), widgetWrapper);
 
-    showModal(target.dataset.hideLogo === 'true', widgetWrapper);
+    showModal(widgetWrapper);
   }
 
-  function showModal(hideLogo, widgetWrapper) {
+  function showModal(widgetWrapper) {
     const modalEl = document.getElementById('dv-modal');
-    if (hideLogo) {
+    if (widgetWrapper.HideLogo) {
       modalEl.classList.add('hide-vertical-logo');
     }
 
@@ -63,8 +104,9 @@ import registerFunctions from '/register-functions.js';
       activeWidget = null;
       modal = null;
       modalEl.removeEventListener('hidden.bs.modal', listener);
+      sessionStorage.removeItem('bxi_runningPolicyId');
 
-      if (hideLogo) {
+      if (widgetWrapper.HideLogo) {
         modalEl.classList.remove('hide-vertical-logo');
       }
 
@@ -74,7 +116,7 @@ import registerFunctions from '/register-functions.js';
     }
   }
 
-  function launchStaticWidget(widgetContainer) {
+  function launchStaticWidget(widgetContainer, continueToken) {
     if (!widgetContainer) {
       widgetContainer = document.querySelector('[data-dv-flow="static"]');
     }
@@ -87,14 +129,16 @@ import registerFunctions from '/register-functions.js';
 
     logger.log('Launching static flow');
 
-    launchFlow(widgetContainer, widgetWrapper);
+    launchFlow(widgetContainer, widgetWrapper, continueToken);
   }
 
-  async function launchFlow(flowContainer, widgetWrapper) {
+  async function launchFlow(flowContainer, widgetWrapper, continueToken) {
     if (activeWidget) {
       window.davinci.cleanup(activeWidget);
       activeWidget = null;
     }
+
+    sessionStorage.setItem('bxi_runningPolicyId', widgetWrapper.PolicyId);
 
     let tokenEndpoint = '/dvtoken';
 
@@ -125,9 +169,9 @@ import registerFunctions from '/register-functions.js';
 
     const dvWidgetProps = {
       config: {
-        method: 'runFlow',
+        method: continueToken ? 'continueFlow' : 'runFlow',
         apiRoot: tokenData.apiRoot,
-        accessToken: tokenData.token,
+        accessToken: continueToken || tokenData.token,
         companyId: tokenData.companyId,
         policyId: widgetWrapper.PolicyId,
         parameters,
@@ -144,6 +188,7 @@ import registerFunctions from '/register-functions.js';
       },
       errorCallback: async error => {
         logger.error('DaVinci flow was not successful');
+        sessionStorage.removeItem('bxi_runningPolicyId');
         if (widgetWrapper.ErrorCallback) {
           logger.log('ErrorCallback exists on widget wrapper');
           await bxi.callFunction(widgetWrapper.ErrorCallback, error);

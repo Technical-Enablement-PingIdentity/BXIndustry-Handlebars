@@ -2,7 +2,7 @@
 
 .bxi {
   // Resets for ui-library_style.css (trials)
-  .button {
+  .bxi-button {
     all: revert;
     box-sizing: border-box;
   }
@@ -27,15 +27,21 @@
   @import "./common/button";
   @import "./common/dialog";
   @import "./common/forms";
+  @import "./common/link";
   @import "./common/mixins";
   @import "./common/navbar";
   @import "./common/shared";
   @import "./common/utilities";
 
+  @import "./airlines/customizations";
   @import "./company/customizations";
+  @import "./education/customizations";
   @import "./finance/customizations";
   @import "./generic/customizations";
   @import "./health/customizations";
+  @import "./hotels/customizations";
   @import "./manufacturing/customizations";
+  @import "./pharmacy/customizations";
+  @import "./realty/customizations";
   @import "./retail/customizations";
 }

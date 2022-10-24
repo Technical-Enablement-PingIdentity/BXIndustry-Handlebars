@@ -15,10 +15,10 @@
             <img width="200" src="{{settings.images.logo}}" alt="Logo" />
           </a>
           <div class="d-flex flex-row position-relative">
-            {{> notificationIcon class="mt-1 me-3 d-none d-lg-block" }}
-            <div class="bxi-auth-buttons bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse p-3 py-lg-1">
+            {{> notificationIcon class="mt-2 me-3 d-none d-lg-block" }}
+            <div class="bxi-auth-buttons bxi-auth-buttons--white-link bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse p-2 py-lg-1">
               {{> userIcon class="d-none d-lg-inline me-3"}}
-              <button onclick="bxi.logout()" class="button bxi-nav-link">Log Out</button>
+              <button onclick="bxi.logout()" class="bxi-button">Log Out</button>
             </div>
             <div class="bxi-user-icon bxi-bg-primary" data-bs-toggle="collapse" data-bs-target=".bxi-auth-buttons">
               {{> userIcon }}
@@ -29,7 +29,7 @@
           <div class="bxi-navbar bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse mt-2 bxi-zi-2" id="navbarNav">
             <ul class="navbar-nav p-3 p-lg-0 py-lg-4">
               {{#each settings.header.links}}
-              <li class="nav-item pb-2"><a class="nav-link bxi-nav-link fs-6 ps-0 pe-lg-4">{{this}}</a></li>
+              <li class="nav-item pb-2"><a class="bxi-link bxi-link--white fs-6 ps-0 pe-lg-4">{{this}}</a></li>
               {{/each}}
             </ul>
           </div>
@@ -61,7 +61,7 @@
             <div class="rewards-card p-4 rounded-4 overflow-hidden ms-auto mb-4">
               <h4 class="rewards-card-color">{{settings.rewards_card.title}}</h4>
               <p class="rewards-card-color fs-7">{{settings.rewards_card.sub_title}}</p>
-              <a href="#" class="button button--link">{{settings.rewards_card.link}}</a>
+              <a href="#" class="bxi-button bxi-button--link">{{settings.rewards_card.link}}</a>
               <img class="rewards-card-image d-block" src="{{settings.rewards_card.image}}" />
             </div>
           </div>
@@ -83,7 +83,7 @@
                   <h6>{{title}}</h6>
                 </div>
                 <div class="col-5">
-                  <button class="button w-100 bxi-truncate py-2">{{action}}</button>
+                  <button class="bxi-button w-100 bxi-truncate py-2">{{action}}</button>
                 </div>
               </div>
               <div class="row">
@@ -96,7 +96,7 @@
               </div>
               {{#each accounts}}
               <div class="row accounts-row me-0">
-                <div class="col-7 bxi-truncate"><a href="#" class="button button--link">{{name}}</a></div>
+                <div class="col-7 bxi-truncate"><a href="#" class="bxi-button bxi-button--link">{{name}}</a></div>
                 <div class="col-5">{{amount}}</div>
               </div>
               {{/each}}
@@ -115,17 +115,17 @@
           <div class="col-lg-4 mb-3">
             <ul class="d-flex justify-content-center justify-content-lg-start ls-none ps-0 mb-3">
               <li>
-                <button class="button button--outline button--icon me-lg-3 me-5">
+                <button class="bxi-button bxi-button--outline bxi-button--md bxi-button--icon me-lg-3 me-5">
                   {{> facebookIcon }}
                 </button>
               </li>
               <li>
-                <button class="button button--outline button--icon me-lg-3 me-5">
+                <button class="bxi-button bxi-button--outline bxi-button--md bxi-button--icon me-lg-3 me-5">
                   {{> twitterIcon }}
                 </button>
               </li>
               <li>
-                <button class="button button--outline button--icon">
+                <button class="bxi-button bxi-button--outline bxi-button--md bxi-button--icon">
                   {{> instagramIcon }}
                 </button>
               </li>
@@ -134,13 +134,13 @@
           </div>
           <div class="col-lg-4 mb-3">
             {{#each settings.footer.links}}
-            <a class="bxi-footer-link mb-2 d-block fs-6" href="#">{{this}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block fs-6" href="#">{{this}}</a>
             {{/each}}
           </div>
           <div class="col-lg-4 mb-3">
-            <a class="bxi-footer-link mb-2 d-block fs-6 fw-bold" href="#">{{settings.footer.phone_number}}</a>
-            <a class="bxi-footer-link mb-2 d-block fs-6 fw-bold" href="#">{{settings.footer.email}}</a>
-            <a class="bxi-footer-link mb-2 d-block fs-6 fw-bold" href="#">{{settings.footer.chat}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold" href="#">{{settings.footer.phone_number}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold" href="#">{{settings.footer.email}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold" href="#">{{settings.footer.chat}}</a>
           </div>
         </div>
       </div>

@@ -18,9 +18,9 @@
             {{> notificationIcon class="mt-1 me-3 d-lg-block d-none" }}
             {{> pinIcon class="mt-1 me-3 d-lg-block d-none" }}
             {{> cartIcon class="mt-1 me-3 d-lg-block d-none" }}
-            <div class="bxi-auth-buttons bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse px-lg-3 py-lg-1">
+            <div class="bxi-auth-buttons bxi-auth-buttons--white-link bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse p-2 p-lg-0 px-lg-3">
               {{> userIcon class="d-none d-lg-inline me-3"}}
-              <button onclick="bxi.logout()" class="button bxi-nav-link">Log Out</button>
+              <button onclick="bxi.logout()" class="bxi-button">Log Out</button>
             </div>
             <div class="bxi-user-icon bxi-bg-primary pb-3 pb-lg-0 mt-2 mt-lg-0" data-bs-toggle="collapse" data-bs-target=".bxi-auth-buttons">
               {{> userIcon }}
@@ -31,7 +31,7 @@
           <div class="bxi-navbar bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse mt-2" id="navbarNav">
             <ul class="navbar-nav p-2 p-lg-0 py-lg-4">
               {{#each settings.header.links}}
-              <li class="nav-item pb-2"><a class="nav-link bxi-nav-link fs-6 ps-0 pe-lg-4">{{this}}</a></li>
+              <li class="nav-item pb-2"><a class="bxi-link bxi-link--white fs-6 ps-0 pe-lg-4">{{this}}</a></li>
               {{/each}}
             </ul>
           </div>
@@ -91,7 +91,7 @@
                   {{#each delivery_options}}
                   <p class="fs-8 fw-light mb-2">{{this}}</p>
                   {{/each}}
-                  <button class="button button--lg mt-3">{{> cartIcon class="me-2 cart-icon"}}Add</button>
+                  <button class="bxi-button bxi-button--lg mt-3">{{> cartIcon class="me-2 cart-icon"}}Add</button>
                 </div>
                 {{/each}}
               </div>
@@ -125,17 +125,17 @@
           <div class="col-lg-3 mb-3">
             <ul class="d-flex justify-content-center justify-content-lg-start ls-none ps-0 mb-3">
               <li>
-                <button class="button button--outline button--icon me-lg-3 me-5">
+                <button class="bxi-button bxi-button--outline bxi-button--icon me-lg-3 me-5">
                   {{> facebookIcon }}
                 </button>
               </li>
               <li>
-                <button class="button button--outline button--icon me-lg-3 me-5">
+                <button class="bxi-button bxi-button--outline bxi-button--icon me-lg-3 me-5">
                   {{> twitterIcon }}
                 </button>
               </li>
               <li>
-                <button class="button button--outline button--icon">
+                <button class="bxi-button bxi-button--outline bxi-button--icon">
                   {{> instagramIcon }}
                 </button>
               </li>
@@ -144,17 +144,17 @@
           </div>
           <div class="col-lg-3 mb-3">
             {{#each settings.footer.navigation.links_left}}
-            <a class="bxi-footer-link mb-2 d-block fs-6" href="#">{{this}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block fs-6" href="#">{{this}}</a>
             {{/each}}
           </div>
           <div class="col-lg-3 mb-3">
-            <a class="bxi-footer-link mb-2 d-block fs-6 fw-bold" href="#">{{settings.footer.phone_number}}</a>
-            <a class="bxi-footer-link mb-2 d-block fs-6 fw-bold" href="#">{{settings.footer.email}}</a>
-            <a class="bxi-footer-link mb-2 d-block fs-6 fw-bold" href="#">{{settings.footer.chat}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold" href="#">{{settings.footer.phone_number}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold" href="#">{{settings.footer.email}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold" href="#">{{settings.footer.chat}}</a>
           </div>
           <div class="col-lg-3 mb-3">
             {{#each settings.footer.navigation.links_right}}
-            <a class="bxi-footer-link mb-2 d-block fs-6" href="#">{{this}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block fs-6" href="#">{{this}}</a>
             {{/each}}
           </div>
         </div>

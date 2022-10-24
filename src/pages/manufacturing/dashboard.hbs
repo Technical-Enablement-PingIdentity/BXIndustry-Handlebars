@@ -14,10 +14,12 @@
           <a class="navbar-brand pt-0" href="#">
             <img width="150" src="{{settings.images.logo}}" alt="Logo" />
           </a>
-          <div class="bxi-navbar collapse navbar-collapse bxi-bg-primary bxi-bg-lg-transparent justify-content-center py-2" id="navbarNav">
+          <div class="bxi-navbar collapse navbar-collapse bxi-bg-primary bxi-bg-lg-transparent justify-content-center p-2" id="navbarNav">
             <ul class="navbar-nav">
               {{#each settings.dashboard.header.links}}
-              <li class="nav-item"><a class="nav-link bxi-nav-link px-3">{{this}}</a></li>
+              <li class="nav-item">
+                <a class="bxi-link bxi-link-light--secondary bxi-link-lg--primary me-4">{{this}}</a>
+              </li>
               {{/each}}
             </ul>
           </div>
@@ -29,8 +31,8 @@
             <div class="d-none d-lg-flex static-user-icon me-2">
               {{> userIcon }}
             </div>
-            <div class="bxi-auth-buttons bxi-bg-primary bxi-bg-lg-transparent collapse navbar-collapse">
-              <button onclick="bxi.logout()" class="button bxi-nav-link mb-1 mb-lg-0">Log Out</button>
+            <div class="bxi-auth-buttons bxi-auth-buttons--primary-link bxi-bg-primary bxi-bg-lg-transparent collapse navbar-collapse">
+              <button onclick="bxi.logout()" class="bxi-button mb-1 mb-lg-0">Log Out</button>
             </div>
           </div>
         </div>
@@ -45,21 +47,21 @@
         <h1 class="bxi-main-header bxi-color-primary bxi-ff-secondary text-uppercase my-4">{{settings.dashboard.portal_header}}</h1>
         <div class="d-flex flex-column flex-sm-row">
           {{#each settings.dashboard.buttons}}
-          <button class="button button--outline button--md ms-3 mb-3">{{this}}</button>
+          <button class="bxi-button bxi-button--outline bxi-button--md ms-3 mb-3">{{this}}</button>
           {{/each}}
         </div>
       </div>
       {{#each settings.dashboard.services}}
       <div class="row bxi-component-bg-color mb-4 mx-2 mx-sm-0">
         <div class="col-md-5 overflow-hidden position-relative services-image">
-          <img class="position-absolute top-50 start-50 translate-middle" src="{{image}}" alt="{{title}}">
+          <img class="position-absolute top-50 start-50 translate-middle bxi-img-cover" src="{{image}}" alt="{{title}}">
         </div>
         <div class="col-md-7 px-4 py-5 d-flex justify-content-between flex-column">
           <div>
             <h4 class="bxi-color-primary fw-bold">{{title}}</h4>
             <p class="bxi-color-primary">{{description}}</p>
           </div>
-          <button class="button button--md align-self-start">{{button}}</button>
+          <button class="bxi-button bxi-button--md align-self-start">{{button}}</button>
         </div>
       </div>
       {{/each}}
@@ -67,34 +69,34 @@
       <div class="mb-3 bxi-component-bg-color" data-dv-flow="static" data-policy-id="{{env.BXI_DASHBOARD_POLICY_ID}}"></div>
       {{/if}}
     </section>
-    <footer class="bxi-footer bxi-footer py-5">
+    <footer class="bxi-footer py-5 mt-5">
       <div class="container">
         <div class="d-block d-lg-flex justify-content-between mb-sm-3 mb-4">
-          <ul class="d-none d-md-flex mb-4 mb-md-3 mb-lg-0 p-0 ls-none justify-content-center justify-content-lg-start">
+          <ul class="d-none d-md-flex mb-4 p-0 ls-none">
             {{#each settings.footer.links }}
-            <li class="bxi-footer-link me-4">{{this}}</li>
+              <li class="me-4"><a class="bxi-link bxi-link-light--secondary" href="#">{{this}}</a></li>
             {{/each}}
           </ul>
           <div class="footer-contacts d-flex flex-column-reverse flex-md-row justify-content-start align-items-center align-items-md-start justify-content-md-between justify-content-lg-end">
             <div class="footer-support me-0 me-lg-4">
               <div class="text-center text-md-start mb-3 fw-bold fs-5">{{settings.footer.phone_number}}</div>
-              <button class="button button--outline button--md">Online support</button>
+              <button class="bxi-button bxi-button--outline bxi-button--lg fs-7">Online support</button>
             </div>
             <div class="ms-0 ms-md-3">
               <div class="ms-0 mb-3 text-center text-md-start fw-bold fs-5">Follow us:</div>
               <ul class="d-flex align-items-center ls-none ps-0">
                 <li>
-                  <button class="button button--outline button--icon button--md me-md-3 me-5">
+                  <button class="bxi-button bxi-button--outline bxi-button--icon bxi-button--lg me-md-3 me-5">
                     {{> facebookIcon }}
                   </button>
                 </li>
                 <li>
-                  <button class="button button--outline button--icon button--md me-md-3 me-5">
+                  <button class="bxi-button bxi-button--outline bxi-button--icon bxi-button--lg me-md-3 me-5">
                     {{> twitterIcon }}
                   </button>
                 </li>
                 <li>
-                  <button class="button button--outline button--icon button--md">
+                  <button class="bxi-button bxi-button--outline bxi-button--icon bxi-button--lg">
                     {{> instagramIcon }}
                   </button>
                 </li>
@@ -106,7 +108,7 @@
     </footer>
     <section class="bxi-footer bxi-bg-primary py-4">
       <div class="container">
-        <p class="fs-8 m-0 text-center text-md-start">{{settings.footer.copyright}}</p>
+        <p class="fs-8 m-0 text-center text-md-start bxi-copyright-color">{{settings.footer.copyright}}</p>
         {{> remix }}
       </div>
     </section>

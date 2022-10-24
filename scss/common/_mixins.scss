@@ -5,8 +5,7 @@ $breakpoints: (
   "sm": 576px,
   "md": 768px,
   "lg": 992px,
-  "xl": 1200px,
-  "xxl": 1400px
+  "xl": 1200px
 );
 
 
@@ -67,7 +66,6 @@ $breakpoints: (
         fill: $color;
     }
 }
-
 
 
 // Used to create a triangle, typically included in 

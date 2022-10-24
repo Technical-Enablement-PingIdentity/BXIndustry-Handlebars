@@ -27,7 +27,8 @@ https://github.com/Technical-Enablement-PingIdentity/BXIndustry-Handlebars/blob/
         1. [Additional Information on data-dv-params](#additional-info-params)
         2. [Additional Information on Callbacks](#additional-info-callbacks)
         3. [Examples](#bxi-davinci-examples)
-    5. [Debugging](#debugging)
+    5. [Continue Tokens](#continue-tokens)
+    6. [Debugging](#debugging)
 3. [Installation](#installation)
     1. [Local Set Up](#local-set-up)
     2. [Environment](#environment)
@@ -38,11 +39,15 @@ https://github.com/Technical-Enablement-PingIdentity/BXIndustry-Handlebars/blob/
 
 The following verticals are available in Glitch for your to remix:
 1. [Generic](https://demo.bxgeneric.org/generic) - Formerly BXGeneric
-2. [Company](https://demo.bxgeneric.org/company)
-3. [Finance](https://demo.bxgeneric.org/finance)
-4. [Health](https://demo.bxgeneric.org/health)
-5. [Manufacturing](https://demo.bxgeneric.org/manufacturing)
-6. [Retail](https://demo.bxgeneric.org/retail)
+2. [Airlines](https://demo.bxgeneric.org/airline)
+3. [Company](https://demo.bxgeneric.org/company)
+4. [Education](https://demo.bxgeneric.org/education)
+5. [Finance](https://demo.bxgeneric.org/finance)
+6. [Health](https://demo.bxgeneric.org/health)
+7. [Manufacturing](https://demo.bxgeneric.org/manufacturing)
+8. [Pharmacy](https://demo.bxgeneric.org/pharmacy)
+9. [Realty](https://demo.bxgeneric.org/realty)
+10. [Retail](https://demo.bxgeneric.org/retail)
 
 With BXIndustry, you can choose a vertical you would like to use, build your workflows and forms in DaVinci, and update the settings.json file to change page content such as text and images. HTML templates are available for different modal forms for use in DaVinci see [HTML Templates for DaVinci](#templates).
 
@@ -64,11 +69,15 @@ To remix BXIndustry, scroll to the bottom of the page on any vertical and click 
 
 The default vertical should be one value from the list:
 
+- airlines
 - company
+- education
 - finance
 - generic
 - health
 - manufacturing
+- pharmacy
+- realty
 - retail
 
 **Note: When trying to remix in Safari or with content blockers, you may not get a new tab with your remix after you complete the remix form. If this happens you should get an error screen with a textarea containing the URL for a new remix. Copy/paste this into a new tab and you should be all set!**
@@ -170,10 +179,10 @@ You can add images in two ways:
 - CDN URL (e.g., Glitch Assets)
 - File name (extension included) - will be delivered from internal `public/<vertical>` folder, if you'd like to add/update images, you can add them to that folder and reference them in the associated [settings.json](#vertical-settings) file.
 
-The `common_images` section includes basic pictures for the specific vertical (favicon and logo). These can also be full urls if you've uploaded images to Glitch Assets (or elsewhere).
+The `images` section includes basic pictures for the specific vertical (favicon and logo). These can also be full urls if you've uploaded images to Glitch Assets (or elsewhere).
 
 ```json
-  "common_images": {
+  "images": {
     "favicon": "/<vertical>/favicon.ico",
     "apple_touch_icon": "/<vertical>/apple-touch-icon.png",
     "logo": "/<vertical>/logo.png",
@@ -184,7 +193,7 @@ The `common_images` section includes basic pictures for the specific vertical (f
 If you would like to remove an image because you have rebranded, you can just set the image property to an empty string, e.g., to remove the logo from dialogs:
 
 ```json
-  "common_images": {
+  "images": {
     ...
     "dialog_logo": "",
   }
@@ -323,6 +332,9 @@ This example will result in parameters that are sent to DaVinci with the flow st
 }
 ```
 **Note: you can use `data-dv-param` in conjunction with a `data-parameter-factory` callback function. The callback function is given priority over the `data-dv-param` attributes if any duplicate properties are encountered.**
+
+## Continue Tokens<a name="continue-tokens"></a>
+Continue tokens are handled out of the box in BXI, bxi-davinci will attempt to continue the flow in the same container where they were originally launched from. If you redirect to a different page within BXI from the 'Appication Return To URL' field in your connector, make sure to add a static or modal element on the new page with the same data-policy-id attribute for the continueToken logic to hook onto.
 
 ## Debugging<a name="debugging"></a>
 You can add an additional key to the .env file at the base of your project to see advanced debugging output. There will be additional logging both in the server terminal and in your browser.

@@ -9,6 +9,7 @@ import 'dotenv/config';
 // NodeJS imports
 import { fileURLToPath } from 'url';
 import path from 'path';
+import fs from 'fs';
 
 // External libraries
 import Fastify from 'fastify';
@@ -95,6 +96,21 @@ fastify.get('/dvtoken', async function (request, reply) {
     companyId: companyId,
     apiRoot: dvBaseUrl
   });
+});
+
+fastify.get('/docs', (request, reply) => {
+  const vertical = request.query.vertical || 'company';
+  const icons = fs.readdirSync('src/partials/icons').map(file => file.replace('.hbs', ''));
+  return reply.view('src/docs/index.hbs', {
+    selectedVertical: vertical,
+    verticals: verticals.filter(v => v !== 'generic'),
+    brandingPartial: () => `${vertical}Branding`,
+    icons: icons.map(icon => ({ icon: icon, partial: icon + 'Icon'}))
+  });
+});
+
+fastify.get('/verticals', (_, reply) => {
+  reply.code(200).header('Content-Type', 'application/json; charset=utf-8').send(verticals);
 });
 
 // Set up shortcuts endpoints, shows all verticals with applicable links
