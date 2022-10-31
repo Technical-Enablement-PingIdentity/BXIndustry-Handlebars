@@ -27,7 +27,8 @@ https://github.com/Technical-Enablement-PingIdentity/BXIndustry-Handlebars/blob/
         1. [Additional Information on data-dv-params](#additional-info-params)
         2. [Additional Information on Callbacks](#additional-info-callbacks)
         3. [Examples](#bxi-davinci-examples)
-    5. [Debugging](#debugging)
+    5. [Continue Tokens](#continue-tokens)
+    6. [Debugging](#debugging)
 3. [Installation](#installation)
     1. [Local Set Up](#local-set-up)
     2. [Environment](#environment)
@@ -331,6 +332,9 @@ This example will result in parameters that are sent to DaVinci with the flow st
 }
 ```
 **Note: you can use `data-dv-param` in conjunction with a `data-parameter-factory` callback function. The callback function is given priority over the `data-dv-param` attributes if any duplicate properties are encountered.**
+
+## Continue Tokens<a name="continue-tokens"></a>
+Continue tokens are handled out of the box in BXI, bxi-davinci will attempt to continue the flow in the same container where they were originally launched from. If you redirect to a different page within BXI from the 'Appication Return To URL' field in your connector, make sure to add a static or modal element on the new page with the same data-policy-id attribute for the continueToken logic to hook onto.
 
 ## Debugging<a name="debugging"></a>
 You can add an additional key to the .env file at the base of your project to see advanced debugging output. There will be additional logging both in the server terminal and in your browser.
