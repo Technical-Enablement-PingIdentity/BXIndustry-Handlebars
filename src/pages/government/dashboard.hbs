@@ -49,6 +49,12 @@
       </div>
     </header>
     <section class="bxi-component-bg-color mb-5">
+      <div class="container">
+        <div class="d-flex flex-column flex-md-row justify-content-end mt-4">
+          {{!-- See src/dashboard-buttons.hbs to update dashboard buttons --}}
+          {{> dashboardButtons}}
+        </div>
+      </div>
       <div class="container p-5">
         <div class="row">
           {{#each settings.dashboard.services}}
@@ -70,6 +76,9 @@
           </div>
           {{/each}}
         </div>
+        {{#if env.BXI_DASHBOARD_POLICY_ID}}
+        <div class="mb-3" data-dv-flow="static" data-policy-id="{{env.BXI_DASHBOARD_POLICY_ID}}"></div>
+        {{/if}}
       </div>
     </section>
     <section class="container">
