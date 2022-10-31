@@ -1,0 +1,55 @@
+{
+  "settings": {
+    "images": {
+      "favicon": "./favicon.ico",
+      "apple_touch_icon": "./apple-touch-icon.png",
+      "logo": "./logo.png",
+      "dialog_logo": "./auth-dialog-logo.png"
+    },
+    "home_page": {
+      "banner": {
+        "background_image": "./banner.jpg"
+      }
+    },
+    "dashboard": {
+      "services": [
+        {
+          "title": "Fines",
+          "line_items": [
+            "1 new fine",
+            "5 paid fines"
+          ],
+          "icon": "./portal-block-1.png",
+          "button": "Open"
+        },
+        {
+          "title": "Document Requests",
+          "line_items": [
+            "2 in progress"
+          ],
+          "icon": "./portal-block-2.png",
+          "button": "Open"
+        },
+        {
+          "title": "Programs",
+          "line_items": [
+            "1 new program",
+            "4 accepted"
+          ],
+          "icon": "./portal-block-3.png",
+          "button": "Open"
+        },
+        {
+          "title": "Utilities",
+          "line_items": [
+            "Electricity",
+            "Water supply",
+            "Gas"
+          ],
+          "icon": "./portal-block-4.png",
+          "button": "Open"
+        }
+      ]
+    }
+  }
+}
