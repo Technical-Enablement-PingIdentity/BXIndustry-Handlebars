@@ -10,24 +10,6 @@
       "banner": {
         "background_image": "./banner.jpg"
       },
-      "additional_links": [
-        {
-          "icon": "/airlines/check-in-icon.svg",
-          "text": "Check In"
-        },
-        {
-          "icon": "/airlines/aircraft-icon.svg",
-          "text": "Flight Status"
-        },
-        {
-          "icon": "/airlines/check-icon.svg",
-          "text": "Your Bookings"
-        },
-        {
-          "icon": "/airlines/bordered-aircraft-icon.svg",
-          "text": "Priority Pass"
-        }
-      ],
       "offers_section": {
         "title": "Hot offers for popular destinations",
         "offers": [
@@ -53,11 +35,6 @@
       }
     },
     "dashboard": {
-      "overview": {
-        "icon": "/airlines/bordered-aircraft-icon.svg",
-        "description": "Your Miles:",
-        "value": "3458"
-      },
       "booked_flights": [
         {
           "title": "Flights you can check in for",

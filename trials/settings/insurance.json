@@ -1,0 +1,27 @@
+{
+  "settings": {
+    "images": {
+      "favicon": "./favicon.ico",
+      "apple_touch_icon": "./apple-touch-icon.png",
+      "logo": "./logo.png",
+      "dialog_logo": "./auth-dialog-logo.png"
+    },
+    "header": {
+      "button": ""
+    },
+    "home_page": {
+      "banner": {
+        "background_image": "./banner.jpg"
+      }
+    },
+    "dashboard": {
+      "username": "",
+      "portal": {
+        "button": ""
+      },
+      "advertisement": {
+        "image": "./car-driver.jpg"
+      }
+    }
+  }
+}
