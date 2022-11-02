@@ -74,7 +74,8 @@
     min-width: 300px;
   }
 
-  &.bxi-button--outline {
+  &.bxi-button--outline,
+  &.bxi-button--outline-secondary {
     background: transparent;
     border: 1px solid var(--bxi-primary-color);
     color: var(--bxi-primary-color);
@@ -91,6 +92,19 @@
       svg {
         @include color-icon(#fff);
       }
+    }
+  }
+
+  &.bxi-button--outline-secondary {
+    border: 1px solid var(--bxi-secondary-color);
+    color: var(--bxi-secondary-color);
+
+    svg {
+      @include color-icon(var(--bxi-secondary-color));
+    }
+  
+    &:hover, &:active {
+      background: var(--bxi-secondary-color);
     }
   }
 
@@ -199,7 +213,8 @@
   &.bxi-auth-buttons--white-link,
   &.bxi-auth-buttons--primary-link,
   &.bxi-auth-buttons--secondary-link,
-  &.bxi-auth-buttons--outline {
+  &.bxi-auth-buttons--outline-light-bg,
+  &.bxi-auth-buttons--outline-dark-bg {
     .bxi-button {
       background: transparent;
       font-size: 1rem;
@@ -238,7 +253,7 @@
     }
   }
 
-  &.bxi-auth-buttons--outline {
+  &.bxi-auth-buttons--outline-dark-bg {
     .bxi-button {
       padding: .3rem 1.5rem;
       border: 1px solid #fff;
@@ -252,7 +267,31 @@
         padding: 0;
         border: none;
 
-        &:hover{
+        &:hover {
+          background-color: transparent;
+          color: var(--bxi-primary-color);
+        }
+      }
+    }
+  }
+
+  &.bxi-auth-buttons--outline-light-bg {
+    .bxi-button {
+      padding: .3rem 1.5rem;
+      border: 1px solid var(--bxi-primary-color);
+      color: var(--bxi-primary-color);
+
+      &:hover {
+        color: #fff;
+        background-color: var(--bxi-primary-color);
+      }
+
+      @include breakpoint-lt-lg {
+        color: #fff;
+        padding: 0;
+        border: none;
+
+        &:hover {
           background-color: transparent;
           color: var(--bxi-primary-color);
         }
