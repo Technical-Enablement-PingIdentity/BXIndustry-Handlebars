@@ -20,6 +20,10 @@
   }
 }
 
+.text-none {
+  text-transform: none !important;
+}
+
 .bxi-overflow-x-auto {
   overflow-x: auto;
 }
@@ -159,4 +163,20 @@
       }
     }
   }
+}
+
+.bxi-fill-primary {
+  fill: var(--bxi-primary-color);
+}
+
+.bxi-fill-secondary {
+  fill: var(--bxi-secondary-color);
+}
+
+.bxi-stroke-primary {
+  stroke: var(--bxi-primary-color);
+}
+
+.bxi-stroke-secondary {
+  stroke: var(--bxi-secondary-color);
 }
