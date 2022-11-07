@@ -1,0 +1,63 @@
+{
+  "settings": {
+    "images": {
+      "favicon": "./favicon.ico",
+      "apple_touch_icon": "./apple-touch-icon.png",
+      "logo": "./logo.png",
+      "dialog_logo": "./auth-dialog-logo.png"
+    },
+    "home_page": {
+      "hero": {
+        "image_left": "./banner-left-side.png",
+        "image_right": "./banner-right-side.png",
+        "button": ""
+      },
+      "banner": {
+        "background_image": "./banner.jpg"
+      },
+      "services": {
+        "title": "Our Services",
+        "items": [
+          {
+            "image": "./child.jpg",
+            "title": "Family Assistance",
+            "description": "Help families affected by the pandemic and recent ecological crises",
+            "button": "Donate"
+          },
+          {
+            "image": "./homeless-person.jpg",
+            "title": "Fight Homelessness",
+            "description": "We proudly support all members of our community. Help us connect those in need with valuable assistance and resources",
+            "button": "Donate"
+          },
+          {
+            "image": "./animal.jpg",
+            "title": "Support Local Animal Shelters",
+            "description": "By giving local animal shelters manpower & support, we help our furry friends find loving homes",
+            "button": "Donate"
+          }
+        ]
+      }
+    },
+    "dashboard": {
+      "articles": [
+        {
+          "title": "Help for traumatized homeless animals",
+          "image": "./article-1.jpg"
+        },
+        {
+          "title": "Help with warm clothes for homeless people",
+          "image": "./article-2.jpg"
+        },
+        {
+          "title": "Help with food for homeless people",
+          "image": "./article-3.jpg"
+        },
+        {
+          "title": "Help children get ready for school",
+          "image": "./article-4.jpg"
+        }
+      ]
+    }
+  }
+}
