@@ -1,0 +1,92 @@
+{
+  "settings": {
+    "title": "BXEats",
+    "images": {
+      "favicon": "/eats/favicon.ico",
+      "apple_touch_icon": "/eats/apple-touch-icon.png",
+      "logo": "/eats/logo.png",
+      "dialog_logo": "/eats/auth-dialog-logo.png"
+    },
+    "header": {
+      "links": [
+        "Delivery",
+        "Express",
+        "Shops",
+        "Promo",
+        "Recipes"
+      ]
+    },
+    "home_page": {
+      "banner": {
+        "image": "/eats/banner.jpg",
+        "title": "Groceries from our store to your door in 30 minutes",
+        "subtitle": "Order your favorite products online, and we'll deliver them to your home"
+      },
+      "programs_section": {
+        "title": "Popular Programs",
+        "programs": [
+        ]
+      }
+    },
+    "dashboard": {
+      "links": [
+        "Applications",
+        "Taxes & Fees",
+        "Programs",
+        "Utilities",
+        "Initiatives",
+        "Your City"
+      ],
+      "portal": {
+        "header": "Your Current Program",
+        "program": "Finance",
+        "summary_items": [
+          "2 of 5 topics complete",
+          "0 of 3 tests complete"
+        ],
+        "checklist": [
+          {
+            "complete": true,
+            "name": "What are assets and liabilities.",
+            "time": "9 min"
+          },
+          {
+            "complete": true,
+            "name": "Asset optimization.",
+            "time": "12 min"
+          },
+          {
+            "complete": false,
+            "name": "Risks. Defining the risk profile.",
+            "time": "10 min"
+          },
+          {
+            "complete": false,
+            "name": "Banking products. How to choose a bank.",
+            "time": "9 min"
+          },
+          {
+            "complete": false,
+            "name": "Stocks and how to choose a broker.",
+            "time": "9 min"
+          }
+        ]
+      },
+      "sidebar": {
+        "title": "Articles",
+        "articles": [
+        ]
+      }
+    },
+    "footer": {
+      "links": [
+        "Programs",
+        "Careers",
+        "Blog",
+        "Help & Support"
+      ],
+      "phone_number": "800 568 9678",
+      "copyright": "© BXEats, 2022. All rights reserved."
+    }
+  }
+}
