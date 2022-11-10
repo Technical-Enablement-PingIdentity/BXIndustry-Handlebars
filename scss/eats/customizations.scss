@@ -1,9 +1,11 @@
 @import '../common/mixins';
 
 &.eats {
-  .bxi-button {
-    border-radius: 2rem;
-  }
+  // .bxi-button {
+  //   // border: 1px solid var(--bxi-primary-color);
+  //   border-radius: 100px;
+  //   background-color: #fff;
+  // }
 
   .bxi-auth-buttons {
     .bxi-button {
@@ -35,9 +37,10 @@
   &.home {
     .bxi-auth-buttons {
       .bxi-button {
+        border: 1px solid var(--bxi-primary-color);
         @include breakpoint-lg {
           font-size: 14px;
-          border-radius: 0;
+          border-radius: 100px;
           margin-bottom: 0;
         }
       }
@@ -49,7 +52,7 @@
       }
       
       &__image {
-        height: 300px;
+        height: 500px;
         @include breakpoint-md {
           height: 700px;
         }
@@ -71,51 +74,180 @@
         height: 55%;
       }
     }
+    
+    .bxi-order-form {
+      height: 100%;
+      background-color: var(--bxi-eats-order-bg-color);
+
+      &__bg {
+        background-color: var(--bxi-primary-color);
+        height: 300px;
+      }
+
+      h5 {
+        font-size: 54px;
+        line-height: 76px;
+        font-weight: 700;
+        text-align: center;
+      }
+
+      .bxi-order {
+        background-color: var(--bxi-eats-order-form-bg-color);
+        max-width: 1012px;
+        box-shadow: 6px 6px 40px rgb(0 0 0 / 15%);
+        border-radius: 14px;
+        margin-top: -270px;
+      }
+
+      .bxi-input-container {
+        border: 1px solid #CECECE;
+        background-color: var(--bxi-dashboard-bg-color);
+      }
+
+      .bxi-button {
+        background-color: var(--bxi-primary-color);
+        color: var(--bxi-button-bg-color);
+        border-radius: 100px;
+        min-width: 254px;
+        margin: auto;
+
+        &:hover {
+          background-color: #25874D;
+        }
+      }
+    }
+
+    .bxi-discounts-section {
+      background-color: var(--bxi-eats-order-bg-color);
+
+      &__text-small {
+        color: var(--bxi-eats-discounts-color);
+      }
+
+      &__text-st {
+        text-decoration: line-through black; 
+      }
+
+      .bxi-discounts-row {
+        margin: 0px 70px 118px 70px;
+      }
+
+      .bxi-discounts-section-discount {
+        background-color: var(--bxi-dashboard-bg-color);
+        height: 85%;
+        border: 1px solid #E0E0E0;
+        border-radius: 8px;
+      }
+
+      .bxi-discounts-footer {
+
+        &__side {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
+      .product-img {
+        height: 164px;
+        object-fit: contain;
+      }
+
+      .bxi-button {
+        border-radius: 100px;
+      }
+    }
+
+    .bxi-footer {
+      .bxi-button {
+        border-radius: 100px;
+        border: 1px solid var(--bxi-button-bg-color);
+      }
+      .bxi-copyright-color {
+        color: var(--bxi-footer-color);
+      }
+    }
   }
 
   &.dashboard {
     .bxi-eats-dashboard--color {
       color: var(--bxi-eats-portal-color);
     }
+    
+    .bxi-dashboard {
+      background-color: var(--bxi-eats-dashboard-container-bg-color);
 
-    .bxi-eats-portal {
-      background-color: var(--bxi-eats-portal-bg-color);
-      border: 1px solid var(--bxi-eats-portal-border-color);
+      .bxi-categories {
+        color: var(--bxi-button-bg-color);
 
-      .bxi-checklist-item {
-        border-top: 1px solid var(--bxi-eats-portal-checklist-item-border-color);
-
-        .bxi-checkmark {
-          width: 25px;
-          min-width: 25px;
-          height: 25px;
-          border: 1px solid var(--bxi-eats-portal-checkmark-border-color);
-
-          svg {
-            display: none;
-          }
-
-          &--checked {
-            background-color: var(--bxi-eats-portal-checkmark-bg-color);
-            border: none;
-
-            svg {
-              display: block
-            }
+        .img-wrapper {
+          &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(180deg, rgba(33, 33, 33, 0.48) 9.94%, rgba(36, 36, 36, 0) 94.52%);
+            z-index: 1;
           }
         }
 
-        .bxi-checklist-time {
-          @include color-icon(var(--bxi-eats-portal-checklist-item-border-color));
+      }
+    }
+    // .bxi-eats-portal {
+    //   background-color: var(--bxi-eats-portal-bg-color);
+    //   border: 1px solid var(--bxi-eats-portal-border-color);
 
-          &--color {
-            color: var(--bxi-eats-portal-checkmark-border-color);
-          }
+    //   .bxi-checklist-item {
+    //     border-top: 1px solid var(--bxi-eats-portal-checklist-item-border-color);
 
-          & > span {
-            width: 60px;
-          }
-        }
+    //     .bxi-checkmark {
+    //       width: 25px;
+    //       min-width: 25px;
+    //       height: 25px;
+    //       border: 1px solid var(--bxi-eats-portal-checkmark-border-color);
+
+    //       svg {
+    //         display: none;
+    //       }
+
+    //       &--checked {
+    //         background-color: var(--bxi-eats-portal-checkmark-bg-color);
+    //         border: none;
+
+    //         svg {
+    //           display: block
+    //         }
+    //       }
+    //     }
+
+    //     .bxi-checklist-time {
+    //       @include color-icon(var(--bxi-eats-portal-checklist-item-border-color));
+
+    //       &--color {
+    //         color: var(--bxi-eats-portal-checkmark-border-color);
+    //       }
+
+    //       & > span {
+    //         width: 60px;
+    //       }
+    //     }
+    //   }
+    // }
+
+    .bxi-dashboard {
+      background-color: var(--bxi-eats-dashboard-container-bg-color);
+    }
+
+    .bxi-footer {
+      .bxi-button {
+        border-radius: 100px;
+        border: 1px solid var(--bxi-button-bg-color);
+      }
+      .bxi-copyright-color {
+        color: var(--bxi-footer-color);
       }
     }
   }

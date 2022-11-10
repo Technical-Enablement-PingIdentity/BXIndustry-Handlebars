@@ -29,7 +29,7 @@
               {{> groceryIcon class="d-none d-lg-block me-4 bxi-icon-color-secondary"}}
               {{> favoriteIcon class="d-none d-lg-block me-4 bxi-icon-color-secondary"}}
               {{!-- See src/home-nav-buttons.hbs to update auth buttons --}}
-              {{> homeNavButtons }}
+              {{> homeNavButtons}}
             </div>
             <div class="bxi-user-icon bxi-bg-primary" data-bs-toggle="collapse" data-bs-target=".bxi-auth-buttons">
               {{> userIcon }}
@@ -40,29 +40,61 @@
     </header>
     <section class="bxi-banner__image bxi-bg-image position-relative d-flex align-items-end" style="background-image: url('{{settings.home_page.banner.image}}')">
       <div class="bxi-banner-content d-flex flex-column justify-content-center">
-              <div class="container">
-                <div class="row">
-                  <div class="col-lg-7 bxi-zi-2">
-                <h2 class="bxi-main-header-xl lh-1 bxi-ff-secondary bxi-banner--text my-4">{{settings.home_page.banner.title}}</h2>
-                <h5 class="bxi-banner--text fw-bold mb-5">{{settings.home_page.banner.subtitle}}</h5>
-                </div>
-                </div>
-              </div>
-      </div>
-    </section>
-    <section class="container my-5">
-      <h1 class="bxi-main-header bxi-color-secondary bxi-ff-secondary">{{settings.home_page.programs_section.title}}</h1>
-      <div class="row">
-        {{#each settings.home_page.programs_section.programs}}
-        <div class="col-md-4">
-          <div class="bxi-program mb-4 overflow-hidden position-relative cursor-pointer">
-            <img class="bxi-img-cover position-absolute top-50 start-50 translate-middle" src="{{image}}" />
-            <div class="w-100 h-100 bxi-program-overlay position-relative bxi-zi-2 d-flex align-items-end justify-content-center">
-              <h4 class="bxi-program-color mb-4 fw-bold">{{title}}</h4>
-            </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-7 bxi-zi-2">
+          <h2 class="bxi-main-header-xl lh-1 bxi-ff-secondary bxi-banner--text my-4">{{settings.home_page.banner.title}}</h2>
+          <h5 class="bxi-banner--text fw-bold mb-5">{{settings.home_page.banner.subtitle}}</h5>
+          </div>
           </div>
         </div>
-        {{/each}}
+      </div>
+    </section>
+    <section class="bxi-order-form">
+      <div class="bxi-order-form__bg"></div>
+      <div class="container bxi-order d-flex flex-column justify-content-center mb-5">
+        <h5 class="bxi-ff-secondary mt-5">{{settings.home_page.order_form.title}}</h5>
+        <div class="row ps-4 pe-4">
+          <div class="col-lg-5">
+            {{#each settings.home_page.order_form.inputs}}
+            <div class="bxi-input-container me-0 me-lg-3 mb-2 mt-5 ms-3 pt-2">
+              <input class="border-0 pt-1" type="text" placeholder="{{placeholder}}" />
+            </div>
+            {{/each}}
+            <button type="button" class="bxi-button bxi-ff-primary mt-5 ms-5 pt-3 pb-3">{{settings.home_page.order_form.button}}</button>
+          </div>
+          <div class="col-lg-7">
+            <img src="{{settings.home_page.order_form.image}}" />
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <section class="bxi-discounts-section">
+    <div class="container">
+      <h1 class="bxi-ff-secondary bxi-main-header fw-bold mt-5 mb-4 text-center">{{settings.home_page.discounts_section.title}}</h1>
+        <div class="row bxi-stretch-third-md bxi-discounts-row">
+          {{#each settings.home_page.discounts_section.discounts}}
+          <div class="col-md-6 col-lg-3">
+            <div class="mb-5 d-flex p-4 flex-column overflow-hidden bxi-discounts-section-discount position-relative">
+              <img class="product-img align-items-center" src="{{image}}" />
+              <div class="bxi-discount-body d-flex flex-column">
+                <div class="row">
+                  <div class="col-md-7">
+                  <h6 class="position-relative bxi-discounts-section__text bxi-zi-2 fw-bold">{{item}}</h6>
+                  <p class="position-relative bxi-discounts-section__text-small bxi-zi-2">{{amount}}</p>
+                  <p class="position-relative bxi-discounts-section__text-st bxi-zi-2 fw-bold text-danger m-0">{{price}}</p>
+                  <h5 class="position-relative bxi-discounts-section__text bxi-zi-2 fw-bold">{{new_price}}</h5>
+                  </div>
+                  <button class="bxi-button bxi-button--icon bxi-button--lg bxi-bg-primary mt-5 ms-3">
+                    {{> groceryIcon }}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          {{/each}}
+        </div>
       </div>
     </section>
     <footer class="bxi-footer pt-5 pb-4">
@@ -75,11 +107,9 @@
           </ul>
           <div class="footer-contacts d-flex flex-column-reverse flex-md-row align-items-center align-items-md-start">
             <div class="footer-support me-0 me-md-4">
-              <div class="text-center text-md-start mb-3 fs-6">{{settings.footer.phone_number}}</div>
-              <button class="bxi-button bxi-button--md py-3 bxi-button--outline mt-1">Online support</button>
+              <button class="bxi-button bxi-button--md py-3 bxi-button--outline mt-1">Online Support</button>
             </div>
             <div class="ms-0 ms-md-3">
-              <div class="ms-0 mb-3 text-center text-md-start fs-6">FOLLOW US:</div>
               <ul class="d-flex align-items-center ls-none ps-0">
                 <li>
                   <button class="bxi-button bxi-button--outline bxi-button--icon bxi-button--lg me-md-3 me-5">

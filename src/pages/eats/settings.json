@@ -9,6 +9,7 @@
     },
     "header": {
       "links": [
+        "Product Catalog",
         "Delivery",
         "Express",
         "Shops",
@@ -22,56 +23,76 @@
         "title": "Groceries from our store to your door in 30 minutes",
         "subtitle": "Order your favorite products online, and we'll deliver them to your home"
       },
-      "programs_section": {
-        "title": "Popular Programs",
-        "programs": [
+      "order_form": {
+        "title": "$10 Promo code for your first order",
+        "image": "/eats/order-form-image.jpg",
+        "inputs": [
+          {
+            "placeholder": "Your Name"
+          },
+          {
+            "placeholder": "Phone Number"
+          }
+        ],
+        "button": "Get promo code"
+      },
+      "discounts_section": {
+        "title": "Discounts on fresh fruit and vegetables",
+        "discounts": [
+          {
+            "image": "/eats/product-1.jpg",
+            "item": "Fresh Apples",
+            "amount": "1 lb",
+            "price": "$2.99",
+            "new_price": "$1.99"
+          },
+          {
+            "image": "/eats/product-2.jpg",
+            "item": "Juicy Oranges",
+            "amount": "3 lb bag",
+            "price": "$6.00",
+            "new_price": "$4.99"
+          },
+          {
+            "image": "/eats/product-3.jpg",
+            "item": "Bananas",
+            "amount": "each",
+            "price": "$0.40",
+            "new_price": "$0.25"
+          },
+          {
+            "image": "/eats/product-4.jpg",
+            "item": "Tomatoes",
+            "amount": "1 lb",
+            "price": "$2.99",
+            "new_price": "$1.50"
+          }
         ]
       }
     },
     "dashboard": {
-      "links": [
-        "Applications",
-        "Taxes & Fees",
-        "Programs",
-        "Utilities",
-        "Initiatives",
-        "Your City"
+      "title": "Welcome",
+      "description": "Choose a category below for increased cashback", 
+      "categories": [
+        {
+          "background_image": "/eats/product-category-1.jpg",
+          "percentage": "4%",
+          "category": "Fresh Vegetables",
+          "button": "Choose"
+        },
+        {
+          "background_image": "/eats/product-category-2.jpg",
+          "percentage": "2%",
+          "category": "Fresh Meat",
+          "button": "Choose"
+        },
+        {
+          "background_image": "/eats/product-category-3.jpg",
+          "percentage": "5%",
+          "category": "Local Cheese",
+          "button": "Choose"
+        }
       ],
-      "portal": {
-        "header": "Your Current Program",
-        "program": "Finance",
-        "summary_items": [
-          "2 of 5 topics complete",
-          "0 of 3 tests complete"
-        ],
-        "checklist": [
-          {
-            "complete": true,
-            "name": "What are assets and liabilities.",
-            "time": "9 min"
-          },
-          {
-            "complete": true,
-            "name": "Asset optimization.",
-            "time": "12 min"
-          },
-          {
-            "complete": false,
-            "name": "Risks. Defining the risk profile.",
-            "time": "10 min"
-          },
-          {
-            "complete": false,
-            "name": "Banking products. How to choose a bank.",
-            "time": "9 min"
-          },
-          {
-            "complete": false,
-            "name": "Stocks and how to choose a broker.",
-            "time": "9 min"
-          }
-        ]
-      },
       "sidebar": {
         "title": "Articles",
         "articles": [
@@ -80,12 +101,12 @@
     },
     "footer": {
       "links": [
-        "Programs",
-        "Careers",
-        "Blog",
-        "Help & Support"
+        "About",
+        "Customer Service",
+        "Partners",
+        "Collaboration",
+        "Contacts"
       ],
-      "phone_number": "800 568 9678",
       "copyright": "© BXEats, 2022. All rights reserved."
     }
   }
