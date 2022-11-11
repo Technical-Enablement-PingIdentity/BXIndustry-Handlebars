@@ -1,12 +1,6 @@
 @import '../common/mixins';
 
 &.eats {
-  // .bxi-button {
-  //   // border: 1px solid var(--bxi-primary-color);
-  //   border-radius: 100px;
-  //   background-color: #fff;
-  // }
-
   .bxi-auth-buttons {
     .bxi-button {
       margin-bottom: .25rem;
@@ -181,6 +175,8 @@
         color: var(--bxi-button-bg-color);
 
         .img-wrapper {
+          height: 75%;
+
           &::before {
             content: "";
             display: block;
@@ -194,48 +190,84 @@
           }
         }
 
+        .bxi-button {
+          border-radius: 100px;
+          color: var(--bxi-button-bg-color);
+        }
+
+      }
+
+      .bxi-eats-portal {
+        background-color: var(--bxi-dashboard-bg-color);
+
+        &--header {
+          font-size: 55px;
+          font-weight: 600;
+        }
+
+        &--text {
+          color: var(--bxi-eats-portal-checkmark-border-color);
+        }
+
+        .bxi-checkmark {
+          width: 25px;
+          min-width: 25px;
+          height: 25px;
+          border: 1px solid var(--bxi-primary-color);
+
+          svg {
+            display: none;
+          }
+
+          &--checked {
+            background-color: var(--bxi-primary-color);
+            border: none;
+
+            svg {
+              display: block
+            }
+          }
+        }
+
+        .bxi-checklist-item {
+          border-top: 1px solid #BEC9DB;
+        }
+      }
+
+      .bxi-finance-card {
+        // width: 75%;
+        max-width: 307px;
+        height: 50%;
+        margin: auto;
+        background: linear-gradient(109.68deg, #32B668 6.61%, #29864F 93.88%);
+        box-shadow: 2px 4px 19px rgb(0 0 0 / 25%);
+        border-radius: 11px;
+        color: var(--bxi-button-bg-color);
+
+        &--line {
+          height: 40px;
+          background: rgba(29, 41, 34, 0.19);
+        }
+      }
+
+      .bxi-document {
+        @include color-icon(var(--bxi-primary-color));
+
+        &--color {
+          color: var(--bxi-primary-color);
+        }
+
+        & > span {
+          width: 60px;
+        }
+      }
+
+      .bxi-eats-sidebar {
+        background-color: var(--bxi-dashboard-bg-color);
+        height: 100%;
+        width: 100%;
       }
     }
-    // .bxi-eats-portal {
-    //   background-color: var(--bxi-eats-portal-bg-color);
-    //   border: 1px solid var(--bxi-eats-portal-border-color);
-
-    //   .bxi-checklist-item {
-    //     border-top: 1px solid var(--bxi-eats-portal-checklist-item-border-color);
-
-    //     .bxi-checkmark {
-    //       width: 25px;
-    //       min-width: 25px;
-    //       height: 25px;
-    //       border: 1px solid var(--bxi-eats-portal-checkmark-border-color);
-
-    //       svg {
-    //         display: none;
-    //       }
-
-    //       &--checked {
-    //         background-color: var(--bxi-eats-portal-checkmark-bg-color);
-    //         border: none;
-
-    //         svg {
-    //           display: block
-    //         }
-    //       }
-    //     }
-
-    //     .bxi-checklist-time {
-    //       @include color-icon(var(--bxi-eats-portal-checklist-item-border-color));
-
-    //       &--color {
-    //         color: var(--bxi-eats-portal-checkmark-border-color);
-    //       }
-
-    //       & > span {
-    //         width: 60px;
-    //       }
-    //     }
-    //   }
-    // }
 
     .bxi-dashboard {
       background-color: var(--bxi-eats-dashboard-container-bg-color);

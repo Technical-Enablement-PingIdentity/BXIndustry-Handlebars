@@ -26,7 +26,7 @@
           <div class="d-flex flex-row position-relative align-items-center">
             {{> groceryIcon class="d-none d-lg-block me-4 bxi-icon-color-secondary"}}
             {{> favoriteIcon class="d-none d-lg-block me-4 bxi-icon-color-secondary"}}
-            {{> notificationIcon class="d-none d-lg-block me-3 bxi-icon-color-secondary notification-icon" }}
+            {{> bellIcon class="d-none d-lg-block me-4 bxi-icon-color-secondary" }}
             <p id="username-container" class="bxi-color-primary fw-bold d-none d-sm-flex mb-0 pt-0 me-2 mt-lg-0">{{settings.dashboard.username}}</p>
             <div class="bxi-user-icon d-flex d-lg-none bxi-bg-primary" data-bs-toggle="collapse" data-bs-target=".bxi-auth-buttons">
               {{> userIcon }}
@@ -43,43 +43,38 @@
     </header>
     <section class="bxi-dashboard position-relative d-flex align-items-end">
       <div class="container">
-        <h1 class="bxi-ff-secondary bxi-main-header fw-bold mb-4">{{settings.dashboard.title}}</h1>
-        <h3 class="bxi-color-primary">{{settings.dashboard.description}}</h3>
+        <h1 class="bxi-ff-secondary bxi-main-header fw-bold mb-2 mt-5">{{settings.dashboard.title}}</h1>
+        <h2 class="bxi-color-primary bxi-ff-secondary fw-bold mb-4">{{settings.dashboard.description}}</h2>
         <div class="row bxi-stretch-third-md">
           {{#each settings.dashboard.categories}}
           <div class="col-md-6 col-lg-4">
             <div class="bxi-categories mb-4 d-flex p-4 flex-column align-items-start overflow-hidden position-relative">
               <div class="img-wrapper"><img class="position-absolute top-50 start-50 translate-middle bxi-img-cover" src="{{background_image}}" /></div>
-              <h2 class="position-relative bxi-categories-section--text bxi-zi-2 fw-bold">{{percentage}}</h2>
-              <h5 class="position-relative bxi-categories-section--text bxi-zi-2">{{category}}</h5>
-              <button class="bxi-button bxi-bg-primary fw-normal position-relative mt-auto mb-4 py-3 px-5">{{button}}</button>
+              <h1 class="position-relative bxi-categories-section--text bxi-zi-2 fw-bold mb-0">{{percentage}}</h1>
+              <h5 class="position-relative bxi-categories-section--text bxi-zi-2 fw-bold mb-5">{{category}}</h5>
+              <button class="bxi-button bxi-bg-primary fw-bold position-relative mt-5 mb-4 py-3 px-5">{{button}}</button>
             </div>
           </div>
           {{/each}}
         </div>
-        {{!-- <div class="row mt-5">
+        <div class="row mt-5">
           <div class="col-lg-7 col-xl-8 mb-5">
-            <div class="bxi-eats-portal rounded-2 mb-4">
-              <div class="px-5 py-4">
-                <h6 class="bxi-eats-dashboard--color">{{settings.dashboard.portal.header}}</h6>
-                <h1 class="bxi-main-header bxi-ff-secondary">{{settings.dashboard.portal.program}}</h1>
-                {{#each settings.dashboard.portal.summary_items}}
-                <h6 class="bxi-eats-dashboard--color">{{this}}</h6>
-                {{/each}}
-              </div>
-              {{#each settings.dashboard.portal.checklist}}
-              <div class="d-flex justify-content-between bxi-checklist-item py-4 px-5">
+            <div class="bxi-eats-portal rounded-2 mb-4 p-2">
+              <h1 class="bxi-eats-portal--header bxi-ff-secondary mt-3 ms-4 mb-4">{{settings.dashboard.portal.title}}</h1>
+              {{#each settings.dashboard.portal.orders}}
+              <div class="d-flex justify-content-between bxi-checklist-item py-3 px-5">
                 <div class="d-flex align-items-center">
-                  <div class="bxi-checkmark d-flex justify-content-center align-items-center rounded-circle{{#if complete}} bxi-checkmark--checked{{/if}}">
+                  <div class="bxi-checkmark d-flex justify-content-center align-items-center rounded-circle bxi-checkmark--checked">
                     {{> checkmarkIcon}}
                   </div>
-                  <div class="ms-3">
-                    <h5 class="bxi-eats-dashboard--color fw-bold mb-0">{{name}}</h5>
+                  <div class="ms-4">
+                    <h5 class="bxi-eats-dashboard--color fw-bold mb-0">{{date}}</h5>
+                    <p class="bxi-eats-portal--text mb-0">{{items}}</p>
                   </div>
                 </div>
-                <div class="bxi-checklist-time d-flex flex-nowrap align-items-center">
-                  {{> timerIcon }}
-                  <span class="d-inline-block ms-2 bxi-checklist-time--color">{{time}}</span>
+                <div class="bxi-document d-flex flex-nowrap align-items-center">
+                  {{> documentIcon class='me-0'}}
+                  <span class="d-inline-block ms-2 bxi-document--color ms-0">{{button}}</span>
                 </div>
               </div>
               {{/each}}
@@ -89,21 +84,19 @@
             {{/if}}
           </div>
           <div class="col-lg-5 col-xl-4">
-            <h1 class="bxi-main-header bxi-eats-dashboard--color bxi-ff-secondary">{{settings.dashboard.sidebar.title}}</h1>
             <div class="row">
-              {{#each settings.dashboard.sidebar.articles}}
-              <div class="col-sm-12 col-md-4 col-lg-12">
-                <div class="bxi-program mb-4 overflow-hidden rounded-2 position-relative cursor-pointer">
-                  <img class="bxi-img-cover position-absolute top-50 start-50 translate-middle" src="{{image}}" />
-                  <div class="w-100 h-100 bxi-program-overlay position-relative bxi-zi-2 d-flex align-items-end justify-content-center">
-                    <h5 class="bxi-program-color p-4 fw-bold">{{title}}</h5>
-                  </div>
+              <div class="col-sm-12 col-md-4 col-lg-12 bxi-eats-sidebar rounded-2 mb-4">
+                <h1 class="bxi-eats-portal--header bxi-eats-dashboard--color bxi-ff-secondary fw-bold ms-0 mt-4 text-center ">{{settings.dashboard.sidebar.title}}</h1>
+                <div class="bxi-finance-card text-center bxi-bg-primary pb-1 mt-4">
+                  <p class="bxi-finance-card--description pt-3 mb-1">{{settings.dashboard.sidebar.card.description}}</p>
+                  <h1 class="bxi-main-header bxi-ff-secondary">{{settings.dashboard.sidebar.card.amount}}</h1>
+                  <div class="bxi-finance-card--line mb-4"></div>
                 </div>
+                <p class="bxi-color-primary text-center fw-bold mt-5 mb-5">{{settings.dashboard.sidebar.card.link}}</p>
               </div>
-              {{/each}}
             </div>
           </div>
-        </div> --}}
+        </div>
       </div>
     </section>
     <footer class="bxi-footer pt-5 pb-4">
