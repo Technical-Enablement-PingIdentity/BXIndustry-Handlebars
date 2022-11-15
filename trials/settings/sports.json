@@ -8,7 +8,8 @@
     },
     "home_page": {
       "banner": {
-        "background_image": "./banner.jpg"
+        "background_image": "./banner.jpg",
+        "button": ""
       },
       "news_section": {
         "articles": [
