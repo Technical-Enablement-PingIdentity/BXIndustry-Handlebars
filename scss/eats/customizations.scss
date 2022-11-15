@@ -1,10 +1,8 @@
 @import '../common/mixins';
 
 &.eats {
-  .bxi-auth-buttons {
-    .bxi-button {
-      margin-bottom: .25rem;
-    }
+  .bxi-button {
+    border-radius: 50px;
   }
 
   .bxi-copyright-bg-color {
@@ -29,17 +27,6 @@
   }
 
   &.home {
-    .bxi-auth-buttons {
-      .bxi-button {
-        border: 1px solid var(--bxi-primary-color);
-        @include breakpoint-lg {
-          font-size: 14px;
-          border-radius: 100px;
-          margin-bottom: 0;
-        }
-      }
-    }
-
     .bxi-banner {
       &--text {
         color: var(--bxi-eats-banner-color);
@@ -99,15 +86,7 @@
       }
 
       .bxi-button {
-        background-color: var(--bxi-primary-color);
-        color: var(--bxi-button-bg-color);
-        border-radius: 100px;
         min-width: 254px;
-        margin: auto;
-
-        &:hover {
-          background-color: #25874D;
-        }
       }
     }
 
@@ -146,17 +125,9 @@
         height: 164px;
         object-fit: contain;
       }
-
-      .bxi-button {
-        border-radius: 100px;
-      }
     }
 
     .bxi-footer {
-      .bxi-button {
-        border-radius: 100px;
-        border: 1px solid var(--bxi-button-bg-color);
-      }
       .bxi-copyright-color {
         color: var(--bxi-footer-color);
       }
@@ -175,7 +146,7 @@
     
     .bxi-dashboard {
       .bxi-categories {
-        color: var(--bxi-button-bg-color);
+        color: var(--bxi-eats-portal-category-color);
 
         .img-wrapper {
           height: 75%;
@@ -192,12 +163,6 @@
             z-index: 1;
           }
         }
-
-        .bxi-button {
-          border-radius: 100px;
-          color: var(--bxi-button-bg-color);
-        }
-
       }
 
       .bxi-eats-portal {
@@ -244,7 +209,7 @@
         background: linear-gradient(var(--bxi-eats-finance-card-gradient));
         box-shadow: 2px 4px 19px rgb(0 0 0 / 25%);
         border-radius: 11px;
-        color: var(--bxi-button-bg-color);
+        color: var(--bxi-eats-portal-category-color);
 
         &--line {
           height: 40px;
@@ -272,10 +237,6 @@
     }
 
     .bxi-footer {
-      .bxi-button {
-        border-radius: 100px;
-        border: 1px solid var(--bxi-button-bg-color);
-      }
       .bxi-copyright-color {
         color: var(--bxi-footer-color);
       }
