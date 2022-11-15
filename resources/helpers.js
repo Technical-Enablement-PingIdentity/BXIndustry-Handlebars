@@ -104,5 +104,5 @@ export default {
     getVerticals: getVerticals,
     isValidVertical: isValidVertical,
     importWithCacheBusting: importWithCacheBusting,
-    getSettingsFile: getSettingsFile
+    getSettingsFile: getSettingsFile,
 }
