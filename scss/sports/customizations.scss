@@ -1,0 +1,295 @@
+@import '../common/mixins';
+
+&.sports {
+
+  .bxi-button {
+    border-radius: 2rem;
+    background: var(--bxi-sports-nav-bg-color);
+    font-family: var(--bxi-primary-font);
+    font-size: 14px;
+    font-weight:300;
+    padding: .8rem 1.7rem;
+
+    &:hover {
+      background: var(--bxi-sports-nav-bg-hover-color);
+    }
+
+    &.outline {
+      background: none;
+      &.active {
+        background: var(--bxi-primary-color);
+        color:#fff;
+      }
+    }
+  }
+
+  .bxi-auth-buttons--outline-light-bg {
+    .bxi-button {
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 600;
+      min-width: 82px;
+      padding: .7rem 1.5rem;
+      border: 1px solid var(--bxi-primary-color);
+      color: var(--bxi-primary-color);
+
+      &:hover {
+        color: #fff;
+        background-color: var(--bxi-primary-color);
+      }
+
+      @include breakpoint-lt-lg {
+        padding: 7px;
+
+        &:not(:last-child) {
+          margin-bottom: .7rem;
+          margin-right: 0rem!important;
+        }
+
+        &:hover {
+          background-color: var(--bxi-primary-color);
+          color: #fff;
+        }
+      }
+
+      &:not(:last-child) {
+        margin-right: 1rem;
+      }
+    }
+  }
+
+  .bxi-link {
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .bxi-button--icon {
+    border-radius: 30px;
+    background: var(--bxi-secondary-color);
+    padding: 0;
+      &:hover {
+        background: #fff;
+        svg {
+          @include color-icon(var(--bxi-secondary-color));
+        }
+    }
+  }
+
+  .bxi-button.bxi-button--icon.bxi-button--lg {
+    margin-top: 4px;
+    width: 45px;
+    height: 45px;
+  }
+
+  .bxi-button--link {
+    color: var(--bxi-primary-color);
+    font-size: inherit;
+    background: none;
+    padding: 0;
+      &:hover {
+        color: var(--bxi-secondary-color);
+        background: none;
+    }
+  }
+
+  bxi-user-icon {
+    svg {
+      @include color-icon(var(--bxi-primary-color))
+    }
+  }
+
+  .bxi-bg-white {
+     background-color: #fff;
+  }
+
+  .bxi-banner-title {
+    margin-bottom: 1.5rem;
+    font-family: var(--bxi-secondary-font);
+    font-size: 64px;
+    line-height: 76px;
+    font-weight: 700;
+    max-width: 600px;
+    -webkit-font-smoothing: antialiased;
+
+    @include breakpoint-lt-lg {
+      font-size: 32px;
+      line-height: 42px;
+    }
+  }
+
+  .bxi-banner-text {
+    margin-bottom: 1.5rem;
+    font-family: var(--bxi-primary-font);
+    font-size: 22px;
+    max-width: 560px;
+    -webkit-font-smoothing: antialiased;
+
+    &.lh-base {
+      line-height: 36px!important;
+
+      @include breakpoint-lt-lg {
+        line-height: 22px!important;
+      }
+    }
+
+    @include breakpoint-lt-lg {
+      font-size: 16px;
+    }
+  }
+
+  .bxi-banner-overlay {
+    background: linear-gradient(92.33deg, rgba(0, 3, 11, 0.8) 27.4%, rgba(0, 4, 14, 0) 82.41%);
+    min-height: 650px;
+  }
+
+  .footer-support {
+    bxi-link {
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    .bxi-button {     
+      width: 186px;
+      padding: 10px 24px;
+      border-radius: 30px;
+      border: 1px solid #fff;
+      background: transparent;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 24px;
+      color: #fff;
+      text-decoration: none;
+      text-align: center;
+      transition: 0.2s;
+      cursor: pointer;
+      
+      &:hover {
+        background: #fff;
+        color: var(--bxi-secondary-color);
+      }
+    }
+  }
+
+  .footer-contacts-text {
+    font-family: var(--bxi-secondary-font)!important;
+  }
+
+  .bxi-copyright-bg-color {
+    background-color: var(--bxi-sports-copyright-bg-color);
+  }
+
+  .bxi-tiles {
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    height: 250px;
+    padding-top: 50px;
+
+    &:hover {
+      padding-top: 0;
+    }
+
+    &-overlay {
+      background: linear-gradient(3.88deg, rgba(0, 3, 11, 0.8) 18.71%, rgba(0, 4, 14, 0) 69.21%);
+    }
+  }
+
+  .bxi-subscription {
+    border-radius: 0.5rem;
+    border: 1px solid #A6ACBA;
+    background: #fff;
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    height: 300px;
+    padding-top: 20px;
+
+    .tile__title {
+      font-size: 1.17rem;
+    }
+
+    .tile__card {
+      color: #fff;
+      margin-bottom: 1.5rem;
+      border-radius: 12px;
+      padding: 1rem;
+      height: 125px;
+      width: 202px;
+      margin:auto;
+
+      &.basic {
+        background: linear-gradient(90deg, rgb(80, 183, 249) -4.66%, rgb(52, 118, 191) 107.71%);
+      }
+
+      &.standard {
+        background: linear-gradient(88.03deg, rgb(238, 39, 26) 28.16%, rgb(147, 34, 9) 105.25%);
+      }
+
+      &.premium {
+        background: linear-gradient(82.7deg, rgb(237, 205, 35) 0.09%, rgb(219, 144, 31) 71.71%, rgb(241, 21, 34) 144.32%);
+      }
+
+      &.__heading {
+        font-size: 14px!important;
+      }
+    }
+  }
+
+  .dashboard-content {
+    background-color: #f3f3f3;
+  }
+
+  .bxi-dashboard-banner-title {
+    margin-bottom: 1rem;
+    font-family: var(--bxi-secondary-font);
+    font-size: 44px;
+    line-height: 76px;
+    font-weight: 700;
+    max-width: 600px;
+    -webkit-font-smoothing: antialiased;
+
+    @include breakpoint-lt-lg {
+      font-size: 32px;
+      line-height: 42px;
+    }
+  }
+
+  .bxi-dashboard-banner-text {
+    margin-bottom: 1.5rem;
+    font-family: var(--bxi-primary-font);
+    font-size: 20px;
+    max-width: 560px;
+    -webkit-font-smoothing: antialiased;
+
+    &.lh-base {
+      line-height: 26px!important;
+
+      @include breakpoint-lt-lg {
+        line-height: 22px!important;
+      }
+    }
+
+    @include breakpoint-lt-lg {
+      font-size: 16px;
+    }
+  }
+
+  .bxi-dashboard-banner-overlay {
+    background: linear-gradient(92.33deg, rgba(0, 3, 11, 0.8) 27.4%, rgba(0, 4, 14, 0) 82.41%);
+  }
+
+  .learn {
+    color: var(--bxi-secondary-color);
+    &:hover {
+      color: var(--bxi-primary-color);
+    }
+  }
+
+  h4.dot:before {
+    color: red;
+    content: "●";
+    font-size: 24px;
+    padding-right:5px;
+  }
+}

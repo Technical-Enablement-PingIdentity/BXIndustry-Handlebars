@@ -99,10 +99,18 @@ function getSettingsFile(vertical) {
     return {};
 }
 
+function times(n,block){
+    var accum = '';
+    for(var i = 0; i < n; ++i)
+        accum += block.fn(i);
+    return accum;
+}
+
 export default {
     getBxiEnvironmentVariables: getBxiEnvironmentVariables,
     getVerticals: getVerticals,
     isValidVertical: isValidVertical,
     importWithCacheBusting: importWithCacheBusting,
     getSettingsFile: getSettingsFile,
+    times: times
 }
