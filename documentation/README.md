@@ -41,13 +41,14 @@ The following verticals are available in Glitch for your to remix:
 1. [Generic](https://demo.bxgeneric.org/generic) - Formerly BXGeneric
 2. [Airlines](https://demo.bxgeneric.org/airline)
 3. [Company](https://demo.bxgeneric.org/company)
-4. [Education](https://demo.bxgeneric.org/education)
-5. [Finance](https://demo.bxgeneric.org/finance)
-6. [Health](https://demo.bxgeneric.org/health)
-7. [Manufacturing](https://demo.bxgeneric.org/manufacturing)
-8. [Pharmacy](https://demo.bxgeneric.org/pharmacy)
-9. [Realty](https://demo.bxgeneric.org/realty)
-10. [Retail](https://demo.bxgeneric.org/retail)
+4. [Eats] (https://demo.bxgeneric.org/eats)
+5. [Education](https://demo.bxgeneric.org/education)
+6. [Finance](https://demo.bxgeneric.org/finance)
+7. [Health](https://demo.bxgeneric.org/health)
+8. [Manufacturing](https://demo.bxgeneric.org/manufacturing)
+9. [Pharmacy](https://demo.bxgeneric.org/pharmacy)
+10. [Realty](https://demo.bxgeneric.org/realty)
+11. [Retail](https://demo.bxgeneric.org/retail)
 
 With BXIndustry, you can choose a vertical you would like to use, build your workflows and forms in DaVinci, and update the settings.json file to change page content such as text and images. HTML templates are available for different modal forms for use in DaVinci see [HTML Templates for DaVinci](#templates).
 
