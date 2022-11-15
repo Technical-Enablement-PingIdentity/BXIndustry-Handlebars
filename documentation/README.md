@@ -41,7 +41,7 @@ The following verticals are available in Glitch for your to remix:
 1. [Generic](https://demo.bxgeneric.org/generic) - Formerly BXGeneric
 2. [Airlines](https://demo.bxgeneric.org/airline)
 3. [Company](https://demo.bxgeneric.org/company)
-4. [Eats] (https://demo.bxgeneric.org/eats)
+4. [Eats](https://demo.bxgeneric.org/eats)
 5. [Education](https://demo.bxgeneric.org/education)
 6. [Finance](https://demo.bxgeneric.org/finance)
 7. [Government](https://demo.bxgeneric.org/government)
