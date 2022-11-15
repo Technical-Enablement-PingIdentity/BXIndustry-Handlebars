@@ -52,7 +52,8 @@ The following verticals are available in Glitch for your to remix:
 12. [Pharmacy](https://demo.bxgeneric.org/pharmacy)
 13. [Realty](https://demo.bxgeneric.org/realty)
 14. [Retail](https://demo.bxgeneric.org/retail)
-15. [Volunteer](https://demo.bxgeneric.org/volunteer)
+15. [Sports](https://demo.bxgeneric.org/sports)
+16. [Volunteer](https://demo.bxgeneric.org/volunteer)
 
 With BXIndustry, you can choose a vertical you would like to use, build your workflows and forms in DaVinci, and update the settings.json file to change page content such as text and images. HTML templates are available for different modal forms for use in DaVinci see [HTML Templates for DaVinci](#templates).
 
@@ -76,14 +77,20 @@ The default vertical should be one value from the list:
 
 - airlines
 - company
+- eats
 - education
 - finance
 - generic
+- government
 - health
+- hotels
+- insurance
 - manufacturing
 - pharmacy
 - realty
 - retail
+- sports
+- volunteer
 
 **Note: When trying to remix in Safari or with content blockers, you may not get a new tab with your remix after you complete the remix form. If this happens you should get an error screen with a textarea containing the URL for a new remix. Copy/paste this into a new tab and you should be all set!**
 
