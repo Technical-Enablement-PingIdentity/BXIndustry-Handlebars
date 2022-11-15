@@ -1,0 +1,52 @@
+{
+  "settings": {
+    "images": {
+      "favicon": "./favicon.ico",
+      "apple_touch_icon": "./apple-touch-icon.png",
+      "logo": "./logo.png",
+      "dialog_logo": "./auth-dialog-logo.png"
+    },
+    "home_page": {
+      "banner": {
+        "background_image": "./banner.jpg"
+      },
+      "news_section": {
+        "articles": [
+          {
+            "background_image": "./cyclist.jpg",
+            "title": "Tour de Romandie: Ethan Hayter wins prologue"
+          },
+          {
+            "background_image": "./sprinter.jpg",
+            "title": "Meet the British sprinter who won gold"
+          },
+          {
+            "background_image": "./hockey.jpg",
+            "title": "The Puck Podcast: Chatting with the Cup Contenders"
+          }
+        ]
+      }
+    },
+    "dashboard": {
+      "banner": {
+        "background_image": "./olympics.png"
+      },
+      "streaming_section": {
+        "shows": [
+          {
+            "background_image": "./boxing.png",
+            "title": "Watch Live: Boxing Championship 2022"
+          },
+          {
+            "background_image": "./american-football.png",
+            "title": "Watch Live: NFL Draft 2022"
+          },
+          {
+            "background_image": "./horse-racing.png",
+            "title": "Replay: Champion of Champions 2021"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "settings": {
+    "images": {
+      "favicon": "./favicon.ico",
+      "apple_touch_icon": "./apple-touch-icon.png",
+      "logo": "./logo.png",
+      "dialog_logo": "./auth-dialog-logo.png"
+    },
+    "header": {
+      "links": [
+        "Delivery",
+        "Express",
+        "Shops",
+        "Promo",
+        "Recipes"
+      ]
+    },
+    "home_page": {
+      "banner": {
+        "image": "./banner.jpg"
+      },
+      "order_form": {
+        "image": "./order-form-image.jpg"
+      },
+      "discounts_section": {
+        "discounts": [
+          {
+            "image": "./product-1.jpg",
+            "item": "Fresh Apples",
+            "amount": "1 lb",
+            "price": "$2.99",
+            "new_price": "$1.99"
+          },
+          {
+            "image": "./product-2.jpg",
+            "item": "Juicy Oranges",
+            "amount": "3 lb bag",
+            "price": "$6.00",
+            "new_price": "$4.99"
+          },
+          {
+            "image": "./product-3.jpg",
+            "item": "Bananas",
+            "amount": "each",
+            "price": "$0.40",
+            "new_price": "$0.25"
+          },
+          {
+            "image": "./product-4.jpg",
+            "item": "Tomatoes",
+            "amount": "1 lb",
+            "price": "$2.99",
+            "new_price": "$1.50"
+          }
+        ]
+      }
+    },
+    "dashboard": {
+      "categories": [
+        {
+          "background_image": "./product-category-1.jpg",
+          "percentage": "4%",
+          "category": "Fresh Vegetables",
+          "button": "Choose"
+        },
+        {
+          "background_image": "./product-category-2.jpg",
+          "percentage": "2%",
+          "category": "Fresh Meat",
+          "button": "Choose"
+        },
+        {
+          "background_image": "./product-category-3.jpg",
+          "percentage": "5%",
+          "category": "Local Cheese",
+          "button": "Choose"
+        }
+      ]
+    }
+  }
+}

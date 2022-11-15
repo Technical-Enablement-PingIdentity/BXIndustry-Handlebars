@@ -1,0 +1,15 @@
+.bxi {
+  &.sports {
+    &.home {
+      .bxi-banner {
+        background-image: url('banner.jpg');
+      }
+    }
+
+    &.dashboard {
+      .bxi-dashboard-banner {
+        background-image: url('olympics.png');
+      }
+    }
+  }
+}
