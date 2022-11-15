@@ -122,15 +122,15 @@
       margin:auto;
 
       &.basic {
-        background: linear-gradient(90deg, rgb(80, 183, 249) -4.66%, rgb(52, 118, 191) 107.71%);
+        background: var(--bxi-sports-basic-bg-color);
       }
 
       &.standard {
-        background: linear-gradient(88.03deg, rgb(238, 39, 26) 28.16%, rgb(147, 34, 9) 105.25%);
+        background: var(--bxi-sports-standard-bg-color);
       }
 
       &.premium {
-        background: linear-gradient(82.7deg, rgb(237, 205, 35) 0.09%, rgb(219, 144, 31) 71.71%, rgb(241, 21, 34) 144.32%);
+        background: var(--bxi-sports-premium-bg-color);
       }
 
       &.__heading {
@@ -190,7 +190,7 @@
   }
 
   h4.dot:before {
-    color: red;
+    color: var(--bxi-sports-dot-color);
     content: "●";
     font-size: 24px;
     padding-right:5px;
