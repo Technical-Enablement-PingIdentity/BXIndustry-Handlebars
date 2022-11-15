@@ -3,57 +3,23 @@
 &.sports {
 
   .bxi-button {
-    border-radius: 2rem;
-    background: var(--bxi-sports-nav-bg-color);
-    font-family: var(--bxi-primary-font);
-    font-size: 14px;
-    font-weight:300;
-    padding: .8rem 1.7rem;
+    border-radius: 50px;
 
-    &:hover {
-      background: var(--bxi-sports-nav-bg-hover-color);
-    }
+    &.active {
+      color: var(--bxi-button-color);
+      background: var(--bxi-primary-color);
 
-    &.outline {
-      background: none;
-      &.active {
-        background: var(--bxi-primary-color);
-        color:#fff;
+      &:hover {
+        border: 1px solid var(--bxi-primary-color);
       }
     }
   }
 
   .bxi-auth-buttons--outline-light-bg {
     .bxi-button {
-      border-radius: 30px;
-      font-size: 12px;
-      font-weight: 600;
-      min-width: 82px;
-      padding: .7rem 1.5rem;
-      border: 1px solid var(--bxi-primary-color);
-      color: var(--bxi-primary-color);
-
-      &:hover {
-        color: #fff;
-        background-color: var(--bxi-primary-color);
-      }
-
-      @include breakpoint-lt-lg {
-        padding: 7px;
-
-        &:not(:last-child) {
-          margin-bottom: .7rem;
-          margin-right: 0rem!important;
-        }
-
-        &:hover {
-          background-color: var(--bxi-primary-color);
-          color: #fff;
-        }
-      }
-
-      &:not(:last-child) {
-        margin-right: 1rem;
+      @include breakpoint-lg {
+        font-size: 12px;
+        padding: .5rem 1.5rem;
       }
     }
   }
@@ -61,41 +27,6 @@
   .bxi-link {
     font-size: 14px;
     font-weight: 400;
-  }
-
-  .bxi-button--icon {
-    border-radius: 30px;
-    background: var(--bxi-secondary-color);
-    padding: 0;
-      &:hover {
-        background: #fff;
-        svg {
-          @include color-icon(var(--bxi-secondary-color));
-        }
-    }
-  }
-
-  .bxi-button.bxi-button--icon.bxi-button--lg {
-    margin-top: 4px;
-    width: 45px;
-    height: 45px;
-  }
-
-  .bxi-button--link {
-    color: var(--bxi-primary-color);
-    font-size: inherit;
-    background: none;
-    padding: 0;
-      &:hover {
-        color: var(--bxi-secondary-color);
-        background: none;
-    }
-  }
-
-  bxi-user-icon {
-    svg {
-      @include color-icon(var(--bxi-primary-color))
-    }
   }
 
   .bxi-bg-white {
@@ -140,34 +71,6 @@
   .bxi-banner-overlay {
     background: linear-gradient(92.33deg, rgba(0, 3, 11, 0.8) 27.4%, rgba(0, 4, 14, 0) 82.41%);
     min-height: 650px;
-  }
-
-  .footer-support {
-    bxi-link {
-      font-size: 12px;
-      font-weight: 400;
-    }
-
-    .bxi-button {     
-      width: 186px;
-      padding: 10px 24px;
-      border-radius: 30px;
-      border: 1px solid #fff;
-      background: transparent;
-      font-weight: 600;
-      font-size: 12px;
-      line-height: 24px;
-      color: #fff;
-      text-decoration: none;
-      text-align: center;
-      transition: 0.2s;
-      cursor: pointer;
-      
-      &:hover {
-        background: #fff;
-        color: var(--bxi-secondary-color);
-      }
-    }
   }
 
   .footer-contacts-text {

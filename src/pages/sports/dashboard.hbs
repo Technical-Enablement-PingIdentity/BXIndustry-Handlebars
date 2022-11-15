@@ -7,7 +7,7 @@
     {{> variables}}
     <header>
       <nav class="navbar navbar-expand-lg flex-wrap p-0">
-        <div class="container pt-2">
+        <div class="container">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -15,16 +15,16 @@
             <img width="150" src="{{settings.images.logo}}" alt="Logo" />
           </a>
           <div class="bxi-navbar collapse navbar-collapse bxi-zi-5 ps-0 ps-lg-0 bxi-bg-primary bxi-bg-lg-transparent" id="navbarNav">
-            <ul class="navbar-nav p-3 ps-3 pb-0 py-lg-2 d-flex w-100">
+            <ul class="navbar-nav p-3 ps-3 pb-0 py-lg-2 mt-1 d-flex w-100">
               {{#each settings.header.links}}
               <li class="nav-item mb-2 me-2 me-xl-2">
-                <a class="nav-link bxi-link bxi-link-light--secondary bxi-link-lg--secondary">{{this}}</a>
+                <a class="nav-link bxi-link bxi-link-light--secondary bxi-link-lg--secondary py-0 py-lg-2">{{this}}</a>
               </li>
               {{/each}}
             </ul>
           </div>
           <div class="d-flex flex-row position-relative align-items-center">
-            <p id="username-container" class="bxi-color-primary fw-bold d-none d-sm-flex mb-0 pt-0 me-2 mt-lg-0">{{settings.dashboard.username}}</p>
+            <p id="username-container" class="bxi-color-primary fw-bold d-none d-sm-flex mb-0 pt-0 me-2 mt-lg-1">{{settings.dashboard.username}}</p>
             <div class="bxi-user-icon d-flex d-lg-none bxi-bg-primary mt-1" data-bs-toggle="collapse" data-bs-target=".bxi-auth-buttons">
               {{> userIcon }}
             </div>
@@ -80,11 +80,10 @@
                       {{/times}}
                     </div>
                   </div>
-
-                  <div class="align-items-center bxi-auth-buttons--outline-light-bg py-3">
-                    <button class="bxi-button outline {{state}}">{{button}}</button>
+                  <div class="align-items-center py-3">
+                    <button class="bxi-button bxi-button--md bxi-button--outline {{state}}">{{button}}</button>
                   </div>
-                  <p><a class="nav-link bxi-link bxi-link-light--secondary bxi-link-lg--secondary text-uppercase fs-7 learn">{{learn}}</a></p>
+                  <p><a class="nav-link bxi-link text-uppercase fs-7 learn">{{learn}}</a></p>
                   </div>
                 </div>
               </div>
@@ -115,8 +114,8 @@
      </div>
     <footer class="bxi-footer pt-5">
       <div class="container">
-        <div class="d-block d-lg-flex justify-content-between mb-sm-0 mb-0">
-          <ul class="d-none d-md-flex mb-4 mb-md-3 mb-lg-0 p-0 ls-none mr-auto">
+        <div class="d-block d-xl-flex justify-content-between mb-sm-3 mb-4">
+          <ul class="d-none d-md-flex mb-4 mb-md-3 mb-lg-0 p-0 ls-none">
             {{#each settings.footer.links }}
               <li class="me-4">
                 <a href="#" class="bxi-link bxi-link-light--primary fw-lighter">{{this}}</a>
@@ -125,7 +124,7 @@
           </ul>
           <div class="footer-contacts d-flex flex-column-reverse flex-md-row justify-content-start align-items-center align-items-md-start justify-content-md-between justify-content-lg-end">
             <div class="footer-support me-lg-5">
-              <div class="text-center text-md-start mb-4 fw-bolder fs-5 footer-contacts-text">{{settings.footer.phone_number}}</div>
+              <div class="text-center text-md-start mb-3 fw-bolder fs-5 footer-contacts-text">{{settings.footer.phone_number}}</div>
               <button class="bxi-button bxi-button--outline bxi-button--lg">Online support</button>
             </div>
             <div class="ms-0 ms-md-3">
