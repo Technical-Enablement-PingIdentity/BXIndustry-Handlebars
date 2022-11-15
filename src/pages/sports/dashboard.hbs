@@ -40,16 +40,19 @@
     </header>
     <div class="dashboard-content">
       <div class="container my-3">
+        <div class="d-flex flex-column flex-md-row justify-content-end mt-4">
+          {{!-- See src/dashboard-buttons.hbs to update dashboard buttons --}}
+          {{> dashboardButtons}}
+        </div>
         <h1 class="py-2 bxi-ff-secondary fw-bold">Welcome</h3>
         <section class="bxi-dashboard-banner bxi-bg-image position-relative bxi-zi-0" style="background-image: url('{{settings.dashboard.banner.background_image}}')">
           <div class="bxi-dashboard-banner-overlay">
             <div class="container d-flex flex-column justify-content-between">
               <div class="p-5">
                 <div class="pt-5">
-                    <h1 class="bxi-dashboard-banner-title text-white">{{settings.dashboard.banner.title}}</h1>
-                    <h4 class="bxi-dashboard-banner-text text-white lh-base">{{settings.dashboard.banner.subtitle}}</h4>
-                    <button class="bxi-button bxi-button--lg me-3 mb-3 try">{{settings.dashboard.banner.button}}</button>
-                  </div>
+                  <h1 class="bxi-dashboard-banner-title text-white">{{settings.dashboard.banner.title}}</h1>
+                  <h4 class="bxi-dashboard-banner-text text-white lh-base">{{settings.dashboard.banner.subtitle}}</h4>
+                  <button class="bxi-button bxi-button--lg me-3 mb-3 try">{{settings.dashboard.banner.button}}</button>
                 </div>
               </div>
             </div>
@@ -110,8 +113,11 @@
             {{/each}}
           </div>
         </section>
+        {{#if env.BXI_DASHBOARD_POLICY_ID}}
+        <div class="mb-3" data-dv-flow="static" data-policy-id="{{env.BXI_DASHBOARD_POLICY_ID}}"></div>
+        {{/if}}
       </div>
-     </div>
+    </div>
     <footer class="bxi-footer pt-5">
       <div class="container">
         <div class="d-block d-xl-flex justify-content-between mb-sm-3 mb-4">

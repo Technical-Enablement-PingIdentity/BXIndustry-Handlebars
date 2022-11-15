@@ -38,18 +38,19 @@
     </header>
     <section class="bxi-banner bxi-bg-image position-relative bxi-zi-0" style="background-image: url('{{settings.home_page.banner.background_image}}')">
       <div class="bxi-banner-overlay">
-      <div class="container d-flex flex-column justify-content-between">
-        <div class="p-5">
-          <div class="pt-5">
+        <div class="container d-flex flex-column justify-content-between">
+          <div class="p-5">
             <div class="pt-5">
-              <h1 class="bxi-banner-title text-white">{{settings.home_page.banner.title}}</h1>
-              <h4 class="bxi-banner-text text-white lh-base">{{settings.home_page.banner.subtitle}}</h4>
-              <button class="bxi-button bxi-button--lg me-3 mb-3 try">{{settings.home_page.banner.button}}</button>
+              <div class="pt-5">
+                <h1 class="bxi-banner-title text-white">{{settings.home_page.banner.title}}</h1>
+                <h4 class="bxi-banner-text text-white lh-base">{{settings.home_page.banner.subtitle}}</h4>
+                {{#if settings.home_page.banner.button}}
+                <button class="bxi-button bxi-button--lg me-3 mb-3 try">{{settings.home_page.banner.button}}</button>
+                {{/if}}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      </div>
       </div>
     </section>
      <section class="container my-3">
