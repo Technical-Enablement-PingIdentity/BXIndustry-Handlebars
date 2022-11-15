@@ -135,13 +135,16 @@
   }
 
   &.dashboard {
+    background-color: var(--bxi-eats-dashboard-container-bg-color);
+
+    .navbar {
+      background-color: var(--bxi-dashboard-bg-color);
+    }
     .bxi-eats-dashboard--color {
       color: var(--bxi-eats-portal-color);
     }
     
     .bxi-dashboard {
-      background-color: var(--bxi-eats-dashboard-container-bg-color);
-
       .bxi-categories {
         color: var(--bxi-eats-portal-category-color);
 
@@ -200,11 +203,10 @@
       }
 
       .bxi-finance-card {
-        // width: 75%;
         max-width: 307px;
         height: 50%;
         margin: auto;
-        background: linear-gradient(109.68deg, #32B668 6.61%, #29864F 93.88%);
+        background: linear-gradient(var(--bxi-eats-finance-card-gradient));
         box-shadow: 2px 4px 19px rgb(0 0 0 / 25%);
         border-radius: 11px;
         color: var(--bxi-eats-portal-category-color);
@@ -232,10 +234,6 @@
         height: 100%;
         width: 100%;
       }
-    }
-
-    .bxi-dashboard {
-      background-color: var(--bxi-eats-dashboard-container-bg-color);
     }
 
     .bxi-footer {

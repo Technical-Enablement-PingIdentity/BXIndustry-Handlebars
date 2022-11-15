@@ -43,7 +43,11 @@
     </header>
     <section class="bxi-dashboard position-relative d-flex align-items-end">
       <div class="container">
-        <h1 class="bxi-ff-secondary bxi-main-header fw-bold mb-2 mt-5">{{settings.dashboard.title}}</h1>
+        <div class="d-flex flex-column flex-md-row justify-content-end mt-4">
+          {{!-- See src/dashboard-buttons.hbs to update dashboard buttons --}}
+          {{> dashboardButtons}}
+        </div>
+        <h1 class="bxi-ff-secondary bxi-main-header fw-bold mb-2 mt-3">{{settings.dashboard.title}}</h1>
         <h2 class="bxi-color-primary bxi-ff-secondary fw-bold mb-4">{{settings.dashboard.description}}</h2>
         <div class="row bxi-stretch-third-md">
           {{#each settings.dashboard.categories}}
@@ -72,10 +76,10 @@
                     <p class="bxi-eats-portal--text mb-0">{{items}}</p>
                   </div>
                 </div>
-                <div class="bxi-document d-flex flex-nowrap align-items-center">
+                <button class="bxi-document bxi-button bxi-button--link d-flex flex-nowrap align-items-center">
                   {{> documentIcon class='me-0'}}
                   <span class="d-inline-block ms-2 bxi-document--color ms-0">{{button}}</span>
-                </div>
+                </button>
               </div>
               {{/each}}
             </div>
@@ -84,15 +88,15 @@
             {{/if}}
           </div>
           <div class="col-lg-5 col-xl-4">
-            <div class="row">
-              <div class="col-sm-12 col-md-4 col-lg-12 bxi-eats-sidebar rounded-2 mb-4">
-                <h1 class="bxi-eats-portal--header bxi-eats-dashboard--color bxi-ff-secondary fw-bold ms-0 mt-4 text-center ">{{settings.dashboard.sidebar.title}}</h1>
+            <div class="col-sm-12 col-md-4 col-lg-12 mb-4">
+              <div class="bxi-eats-sidebar rounded-2 pb-5">
+                <h1 class="bxi-eats-portal--header bxi-eats-dashboard--color bxi-ff-secondary fw-bold ms-0 pt-4 text-center ">{{settings.dashboard.sidebar.title}}</h1>
                 <div class="bxi-finance-card text-center bxi-bg-primary pb-1 mt-4">
                   <p class="bxi-finance-card--description pt-3 mb-1">{{settings.dashboard.sidebar.card.description}}</p>
                   <h1 class="bxi-main-header bxi-ff-secondary">{{settings.dashboard.sidebar.card.amount}}</h1>
                   <div class="bxi-finance-card--line mb-4"></div>
                 </div>
-                <p class="bxi-color-primary text-center fw-bold mt-5 mb-5">{{settings.dashboard.sidebar.card.link}}</p>
+                <a href="#" class="bxi-link text-center fw-bold d-block mt-5 mx-auto">{{settings.dashboard.sidebar.card.link}}</a>
               </div>
             </div>
           </div>
