@@ -1,0 +1,96 @@
+{
+  "settings": {
+    "title": "BXInsurance",
+    "images": {
+      "favicon": "/insurance/favicon.ico",
+      "apple_touch_icon": "/insurance/apple-touch-icon.png",
+      "logo": "/insurance/logo.png",
+      "dialog_logo": "/insurance/auth-dialog-logo.png"
+    },
+    "header": {
+      "links": ["Private Clients", "Corporate Clients", "Partners", "Insurance Cases", "Personal Manager", "Contracts", "About", "Career"],
+      "button": "SOS. Insured Event"
+    },
+    "home_page": {
+      "banner": {
+        "background_image": "/insurance/banner.jpg",
+        "title": "You are protected",
+        "subtitle": "Complex solutions for your insurance needs."
+      },
+      "services": [
+        {
+          "icon": "/insurance/home.svg",
+          "title": "Home",
+          "description": "Apartments, houses and condos"
+        },
+        {
+          "icon": "/insurance/car.svg",
+          "title": "Car",
+          "description": "All types of auto insurance"
+        },
+        {
+          "icon": "/insurance/travel.svg",
+          "title": "Travel",
+          "description": "Trip insurance"
+        },
+        {
+          "icon": "/insurance/health.svg",
+          "title": "Health",
+          "description": "Your health, family protection"
+        },
+        {
+          "icon": "/insurance/property.svg",
+          "title": "Property",
+          "description": "Personal property, purchase protection"
+        },
+        {
+          "icon": "/insurance/investments.svg",
+          "title": "Investments",
+          "description": "Insurance for a comfortable retirement"
+        }
+      ]
+    },
+    "dashboard": {
+      "username": "",
+      "portal": {
+        "header": "My personal area",
+        "button": "Account Settings",
+        "services": [
+          {
+            "logo": "/insurance/insurance-policy-icon.svg",
+            "title": "Insurance Policies",
+            "description": "Here you can find all your policies for all types of insurance"
+          },
+          {
+            "logo": "/insurance/calculation-icon.svg",
+            "title": "Calculations",
+            "description": "Here you can see all saved calculations"
+          },
+          {
+            "logo": "/insurance/status-icon.svg",
+            "title": "Production Line Audit",
+            "description": "Keep track of your insurance claim status"
+          }
+        ]
+      },
+      "advertisement": {
+        "title": "Take care of your car",
+        "description": "50% discount on annual car insurance",
+        "button": "Show Details",
+        "image": "/insurance/car-driver.jpg"
+      }
+    },
+    "footer": {
+      "links": [
+        "About",
+        "Site Map",
+        "Terms of Use",
+        "Insurance Rules",
+        "Q&A",
+        "Privacy"
+      ],
+      "phone_number": "800 568 9678",
+      "copyright": "© BXInsurance, 2022. All rights reserved."
+    }
+  }
+}

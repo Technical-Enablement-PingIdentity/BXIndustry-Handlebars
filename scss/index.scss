@@ -19,6 +19,7 @@
   display: flex;
   flex-direction: column;
   margin: 0;
+  overflow-x: hidden;
 
   footer {
     margin-top: auto;
@@ -35,13 +36,18 @@
 
   @import "./airlines/customizations";
   @import "./company/customizations";
+  @import "./eats/customizations";
   @import "./education/customizations";
   @import "./finance/customizations";
   @import "./generic/customizations";
+  @import "./government/customizations";
   @import "./health/customizations";
   @import "./hotels/customizations";
+  @import "./insurance/customizations";
   @import "./manufacturing/customizations";
   @import "./pharmacy/customizations";
   @import "./realty/customizations";
   @import "./retail/customizations";
+  @import "./sports/customizations";
+  @import "./volunteer/customizations";
 }
