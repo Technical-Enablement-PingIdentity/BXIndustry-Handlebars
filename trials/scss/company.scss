@@ -4,5 +4,9 @@
       // Inline background-image not support in P1
       background-image: url('./banner.png');
     }
+
+    .video-tile__thumbnail .thumbnail-button {
+      display: none;
+    }
   }
 }
