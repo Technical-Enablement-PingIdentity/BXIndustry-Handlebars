@@ -8,28 +8,28 @@
     <header>
       <nav class="navbar navbar-expand-lg flex-wrap p-0">
         <div class="container py-2">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <a class="navbar-brand pt-0" href="#">
-            <img width="150" src="{{settings.images.logo}}" alt="Logo" />
-          </a>
-          <div class="bxi-navbar collapse navbar-collapse bxi-zi-5 ps-0 ps-lg-2 bxi-bg-secondary bxi-bg-lg-transparent" id="navbarNav">
-            <ul class="navbar-nav p-2 pb-0 py-lg-3 px-lg-0 d-flex justify-content-end w-100 me-4">
+          <div class="bxi-nav">
+            <a class="bxi-nav-toggle" role="button">
+              {{> hamburgerIcon }}
+            </a>
+            <ul class="bxi-nav-links bxi-bg-secondary">
               {{#each settings.header.links}}
-              <li class="nav-item mb-2 me-3 me-xl-3 mb-lg-0">
-                <a class="bxi-link bxi-link-light--primary bxi-link-lg--secondary">{{this}}</a>
+              <li>
+                <a class="bxi-link bxi-link-light--primary">{{this}}</a>
               </li>
               {{/each}}
             </ul>
+            <a class="navbar-brand pt-0 ms-3" href="#">
+              <img width="150" src="{{settings.images.logo}}" alt="Logo" />
+            </a>
           </div>
           <div class="d-flex flex-row position-relative">
-            <div class="bxi-auth-buttons bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse bxi-zi-2 pb-2 pb-lg-0">
+            <div class="bxi-user-icon bxi-bg-primary">
+              {{> userIcon }}
+            </div>
+            <div class="bxi-auth-buttons bxi-bg-secondary bxi-bg-lg-transparent bxi-zi-2 pb-2 pb-lg-0">
               {{!-- See src/home-nav-buttons.hbs to update auth buttons --}}
               {{> homeNavButtons }}
-            </div>
-            <div class="bxi-user-icon bxi-bg-primary" data-bs-toggle="collapse" data-bs-target=".bxi-auth-buttons">
-              {{> userIcon }}
             </div>
           </div>
         </div>

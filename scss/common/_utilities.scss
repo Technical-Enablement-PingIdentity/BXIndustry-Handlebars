@@ -1,3 +1,5 @@
+@import "./mixins";
+
 .fw-boldish {
   font-weight: 500;
 }
@@ -153,6 +155,14 @@
 
 .bxi-icon-color-secondary {
   @include color-icon(var(--bxi-secondary-color));
+}
+
+.bxi-icon-color-white {
+  @include color-icon(#fff);
+}
+
+.bxi-icon-color-black {
+  @include color-icon(#000);
 }
 
 .bxi-stretch-third-md {
