@@ -49,9 +49,15 @@ initHandlebars(fastify);
 
 // Our home page route
 // Redirects to the default vertical (if set in environment variables) or falls back on generic
-fastify.get('/', function (_, reply) {
+fastify.get('/', function (request, reply) {
+  if (request.hostname.includes('bxgeneric.org')) {
+    logger.log('Arrived from bxgeneric domain, redirecting generic vertical');
+    reply.redirect('/generic');
+    return;
+  }
+
   const defaultVertical = process.env.BXI_ACTIVE_VERTICAL;
-  const redirectVertical = helpers.isValidVertical(defaultVertical) ? defaultVertical : 'generic';
+  const redirectVertical = helpers.isValidVertical(defaultVertical) ? defaultVertical : 'company';
 
   logger.log(`Root hit, defined default vertical is: '${defaultVertical}' redirecting to: '${redirectVertical}'`);
   reply.redirect(`/${redirectVertical}`);

@@ -7,30 +7,30 @@
     {{> variables}}
     <header>
       <nav class="navbar navbar-expand-lg flex-wrap p-0">
-        <div class="container">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <a class="navbar-brand pb-3" href="#">
-            <img width="150" src="{{settings.images.logo}}" alt="Logo" />
-          </a>
-          <div class="bxi-navbar collapse navbar-collapse bxi-zi-5 ps-0 ps-lg-0 bxi-bg-primary bxi-bg-lg-transparent" id="navbarNav">
-            <ul class="navbar-nav p-3 ps-3 pb-0 mt-1 py-lg-2 d-flex w-100">
+        <div class="container py-2">
+          <div class="bxi-nav">
+            <a class="bxi-nav-toggle" role="button">
+              {{> hamburgerIcon }}
+            </a>
+            <ul class="bxi-nav-links bxi-bg-secondary">
               {{#each settings.header.links}}
-              <li class="nav-item mb-2 me-2 me-xl-2">
-                <a class="nav-link bxi-link bxi-link-light--secondary bxi-link-lg--secondary py-0 py-lg-2">{{this}}</a>
+              <li>
+                <a class="bxi-link bxi-link-light--primary">{{this}}</a>
               </li>
               {{/each}}
             </ul>
+            <a class="navbar-brand pt-0 ms-3" href="#">
+              <img width="150" src="{{settings.images.logo}}" alt="Logo" />
+            </a>
           </div>
           <div class="d-flex flex-row position-relative">
-            <div class="bxi-auth-buttons bxi-auth-buttons--outline-light-bg bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse bxi-zi-2 pb-2 pb-lg-0">
-              {{> searchIcon class="d-none d-lg-block mt-0 me-3 bxi-icon-color-secondary" }}
+            <div class="bxi-user-icon bxi-bg-primary">
+              {{> userIcon }}
+            </div>
+            <div class="bxi-auth-buttons bxi-auth-buttons--outline-light-bg bxi-bg-secondary bxi-bg-lg-transparent bxi-zi-2 pb-2 pb-lg-0">
+              {{> searchIcon class="d-none d-lg-block mt-2 me-3 bxi-icon-color-secondary" }}
               {{!-- See src/home-nav-buttons.hbs to update auth buttons --}}
               {{> homeNavButtons }}
-            </div>
-            <div class="bxi-user-icon bxi-bg-primary" data-bs-toggle="collapse" data-bs-target=".bxi-auth-buttons">
-              {{> userIcon }}
             </div>
           </div>
         </div>
@@ -39,7 +39,7 @@
     <section class="bxi-banner bxi-bg-image position-relative bxi-zi-0" style="background-image: url('{{settings.home_page.banner.background_image}}')">
       <div class="bxi-banner-overlay">
         <div class="container d-flex flex-column justify-content-between">
-          <div class="p-5">
+          <div class="p-5 ps-0">
             <div class="pt-5">
               <div class="pt-5">
                 <h1 class="bxi-banner-title text-white">{{settings.home_page.banner.title}}</h1>

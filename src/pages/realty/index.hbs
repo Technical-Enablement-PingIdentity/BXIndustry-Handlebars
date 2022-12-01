@@ -8,29 +8,29 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark position-relative bxi-zi-2">
         <div class="container">
-          <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <a class="navbar-brand pt-0" href="#">
-            <img width="150" src="{{settings.images.logo}}" alt="Logo" />
-          </a>
-          <div class="bxi-navbar bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse justify-content-center mt-lg-3" id="navbarNav">
-            <ul class="navbar-nav pb-3 pt-1 pt-lg-0">
+          <div class="bxi-nav">
+            <a class="bxi-nav-toggle" role="button">
+              {{> hamburgerIcon }}
+            </a>
+            <ul class="bxi-nav-links bxi-bg-secondary">
               {{#each settings.header.links}}
-              <li class="nav-item">
-                <a class="nav-link px-3 pt-2 pt-lg-0 pb-0 bxi-link bxi-link-light--primary text-uppercase">{{this}}</a>
+              <li>
+                <a class="bxi-link bxi-link-light--primary">{{this}}</a>
               </li>
               {{/each}}
             </ul>
+            <a class="navbar-brand pt-0 ms-3" href="#">
+              <img width="150" src="{{settings.images.logo}}" alt="Logo" />
+            </a>
           </div>
           <div class="d-flex flex-row position-relative">
             {{> searchIcon class="mt-2 me-3 d-lg-block d-none" }}
-            <div class="bxi-auth-buttons bxi-auth-buttons--outline-dark-bg bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse ps-3 p-2 p-lg-0">
+            <div class="bxi-user-icon bxi-bg-primary">
+              {{> userIcon }}
+            </div>
+            <div class="bxi-auth-buttons bxi-auth-buttons--outline-dark-bg bxi-bg-secondary bxi-bg-lg-transparent ps-3 p-2 p-lg-0">
               {{!-- See src/home-nav-buttons.hbs to update auth buttons --}}
               {{> homeNavButtons }}
-            </div>
-            <div class="bxi-user-icon bxi-bg-primary" data-bs-toggle="collapse" data-bs-target=".bxi-auth-buttons">
-              {{> userIcon }}
             </div>
           </div>
         </div>

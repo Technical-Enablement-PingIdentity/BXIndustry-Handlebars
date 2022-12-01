@@ -8,35 +8,35 @@
     <header>
       <nav class="navbar navbar-expand-lg flex-wrap p-0">
         <div class="container py-2">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <a class="navbar-brand pt-0" href="#">
-            <img width="150" src="{{settings.images.logo}}" alt="Logo" />
-          </a>
-          <div class="bxi-navbar collapse navbar-collapse bxi-zi-2 ps-0 ps-lg-2 bxi-bg-primary bxi-bg-lg-transparent" id="navbarNav">
-            <ul class="navbar-nav p-2 pb-0 py-lg-3 px-lg-0 d-flex w-100 justify-content-center">
+          <div class="bxi-nav">
+            <a class="bxi-nav-toggle" role="button">
+              {{> hamburgerIcon }}
+            </a>
+            <ul class="bxi-nav-links bxi-bg-secondary">
               {{#each settings.dashboard.header_links}}
-              <li class="nav-item mb-2 mx-lg-3 me-xl-3 mb-lg-0">
-                <a class="bxi-link bxi-link-light--secondary bxi-link-lg--secondary">{{this}}</a>
+              <li>
+                <a class="bxi-link bxi-link-light--primary">{{this}}</a>
               </li>
               {{/each}}
               {{#each settings.dashboard.subnav_links}}
-              <li class="d-lg-none nav-item mb-2 mx-lg-3 me-xl-3 mb-lg-0">
-                <a class="bxi-link bxi-link-light--secondary bxi-link-lg--secondary">{{this}}</a>
+              <li class="d-block d-lg-none">
+                <a class="bxi-link bxi-link-light--primary">{{this}}</a>
               </li>
               {{/each}}
             </ul>
+            <a class="navbar-brand pt-0 ms-3" href="#">
+              <img width="150" src="{{settings.images.logo}}" alt="Logo" />
+            </a>
           </div>
           <div class="d-flex flex-row position-relative align-items-center">
             <p id="username-container" class="bxi-color-primary fw-bold d-none d-sm-flex mb-0 pt-0 me-2 mt-lg-0">{{settings.dashboard.username}}</p>
-            <div class="bxi-user-icon d-flex d-lg-none bxi-bg-primary" data-bs-toggle="collapse" data-bs-target=".bxi-auth-buttons">
+            <div class="bxi-user-icon d-flex d-lg-none bxi-bg-primary">
               {{> userIcon }}
             </div>
             <div class="d-none d-lg-flex static-user-icon me-2 rounded-circle">
               {{> userIcon }}
             </div>
-            <div class="bxi-auth-buttons bxi-auth-buttons--secondary-link bxi-bg-primary bxi-bg-lg-transparent collapse navbar-collapse pb-1 pb-lg-0">
+            <div class="bxi-auth-buttons bxi-auth-buttons--secondary-link bxi-bg-primary bxi-bg-lg-transparent pb-1 pb-lg-0">
               <button onclick="bxi.logout()" class="bxi-button mb-1 mb-lg-0">Log Out</button>
             </div>
           </div>
