@@ -155,6 +155,14 @@
   @include color-icon(var(--bxi-secondary-color));
 }
 
+.bxi-icon-color-white {
+  @include color-icon(#fff);
+}
+
+.bxi-icon-color-black {
+  @include color-icon(#000);
+}
+
 .bxi-stretch-third-md {
   @include breakpoint-lt-lg {
     .col-md-6 {

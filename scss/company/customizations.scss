@@ -9,10 +9,12 @@
     font-size: 14px;
   }
 
-  @include breakpoint-lg {
-    .bxi-auth-buttons {
-      // Add button separator
-      .bxi-button {
+  .bxi-auth-buttons {
+    // Add button separator
+    .bxi-button {
+      font-size: 14px;
+
+      @include breakpoint-lg {
         &:not(:last-child) {
           border-right: 1px solid #fff;
           padding-right: 1rem;

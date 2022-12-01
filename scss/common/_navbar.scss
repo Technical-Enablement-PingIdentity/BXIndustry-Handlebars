@@ -56,9 +56,84 @@
 
   .bxi-auth-buttons {
     position: absolute;
-    top: 40px;
+    top: 30px;
     min-width: 100px;
     right: 0;
     padding: .5rem .5rem 0 .5rem;
+  }
+}
+
+.navbar-dark {
+  .bxi-nav-toggle {
+    @include color-icon(#fff);
+  }
+}
+
+.bxi-nav {
+  display: flex;
+  position: relative;
+  align-items: center;
+
+  &-toggle {
+    display: flex;
+    flex-direction: column;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin-right: .25rem;
+    &-line {
+      display: inline-block;
+      height: 1px;
+      @include color-icon(#000);
+      width: 100%;
+    }
+
+    &:hover, &:active, &:focus {
+      & + .bxi-nav-links {
+        display: block;
+      }
+    }
+  }
+
+  &-links {
+    position: absolute;
+    display: none;
+    top: 30px;
+    left: 0;
+    list-style: none;
+    padding: .5rem 1rem;
+    z-index: 10;
+
+    &:hover, &:active {
+      display: block;
+    }
+  }
+}
+
+@include breakpoint-lt-lg {
+  .bxi-user-icon {
+    & ~ .bxi-auth-buttons {
+      display: none;
+
+      .bxi-button {
+        white-space: nowrap;
+        font-size: 1rem;
+        display: block;
+
+        &:not(:last-child) {
+          margin-bottom: .5rem;
+        }
+      }
+
+      &:hover {
+        display: block;
+      }
+    }
+
+    &:hover, &:active, &:focus {
+      & ~ .bxi-auth-buttons {
+        display: block;
+      }
+    }
   }
 }

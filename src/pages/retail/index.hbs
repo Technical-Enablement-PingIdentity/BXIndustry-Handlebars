@@ -8,26 +8,35 @@
     <header>
       <nav class="navbar navbar-expand-lg pt-lg-4 flex-wrap navbar-dark bxi-bg-primary">
         <div class="container">
-          <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <a class="navbar-brand pt-0" href="#">
-            <img width="150" src="{{settings.images.logo}}" alt="Logo" />
-          </a>
+          <div class="bxi-nav">
+            <a class="bxi-nav-toggle d-lg-none" role="button">
+              {{> hamburgerIcon }}
+            </a>
+            <ul class="bxi-nav-links bxi-bg-secondary">
+              {{#each settings.header.links}}
+              <li>
+                <a class="bxi-link bxi-link--white">{{this}}</a>
+              </li>
+              {{/each}}
+            </ul>
+            <a class="navbar-brand pt-0 ms-3 ms-lg-0" href="#">
+              <img width="150" src="{{settings.images.logo}}" alt="Logo" />
+            </a>
+          </div>
           <div class="d-flex flex-row mt-2 position-relative">
             {{> pinIcon class="mt-2 me-3 d-lg-block d-none" }}
             {{> cartIcon class="mt-2 me-3 d-lg-block d-none" }}
-            <div class="bxi-auth-buttons bxi-auth-buttons--white-link bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse p-2 py-lg-1">
+            <div class="bxi-user-icon bxi-bg-primary pb-3 pb-lg-0 mt-2 mt-lg-0">
+              {{> userIcon }}
+            </div>
+            <div class="bxi-auth-buttons bxi-auth-buttons--white-link bxi-bg-secondary bxi-bg-lg-transparent p-2 py-lg-1">
               {{!-- See src/home-nav-buttons.hbs to update auth buttons --}}
               {{> homeNavButtons }}
-            </div>
-            <div class="bxi-user-icon bxi-bg-primary pb-3 pb-lg-0 mt-2 mt-lg-0" data-bs-toggle="collapse" data-bs-target=".bxi-auth-buttons">
-              {{> userIcon }}
             </div>
           </div>
         </div>
         <div class="container">
-          <div class="bxi-navbar bxi-bg-secondary bxi-bg-lg-transparent collapse navbar-collapse mt-2" id="navbarNav">
+          <div class="bxi-navbar bxi-bg-transparent mt-2 d-none d-lg-block">
             <ul class="navbar-nav p-3 p-lg-0 py-lg-4">
               {{#each settings.header.links}}
               <li class="nav-item pb-2">
