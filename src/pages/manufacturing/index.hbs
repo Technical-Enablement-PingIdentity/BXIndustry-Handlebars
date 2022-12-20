@@ -8,28 +8,37 @@
     <header>
       <nav class="navbar navbar-expand-lg flex-wrap p-0">
         <div class="container py-3">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <a class="navbar-brand pt-0" href="#">
-            <img width="150" src="{{settings.images.logo}}" alt="Logo" />
-          </a>
+          <div class="bxi-nav">
+            <a class="bxi-nav-toggle d-block d-lg-none" role="button">
+              {{> hamburgerIcon }}
+            </a>
+            <ul class="bxi-nav-links bxi-bg-primary">
+              {{#each settings.home_page.header.links}}
+              <li>
+                <a class="bxi-link bxi-link-light--secondary">{{this}}</a>
+              </li>
+              {{/each}}
+            </ul>
+            <a class="navbar-brand pt-0 ms-3 ms-lg-0" href="#">
+              <img width="150" src="{{settings.images.logo}}" alt="Logo" />
+            </a>
+          </div>
           <div class="d-flex flex-row position-relative">
-            <div class="bxi-auth-buttons bxi-auth-buttons--primary-link bxi-bg-primary bxi-bg-lg-transparent collapse navbar-collapse bxi-zi-2 p-2 p-lg-0">
+            <div class="bxi-user-icon bxi-bg-primary">
+              {{> userIcon }}
+            </div>
+            <div class="bxi-auth-buttons bxi-auth-buttons--primary-link bxi-bg-primary bxi-bg-lg-transparent bxi-zi-2 p-2 p-lg-0">
               {{!-- See src/home-nav-buttons.hbs to update auth buttons --}}
               {{> homeNavButtons }}
             </div>
             <div class="d-none d-lg-flex static-user-icon ms-3">
               {{> userIcon }}
             </div>
-            <div class="bxi-user-icon bxi-bg-primary" data-bs-toggle="collapse" data-bs-target=".bxi-auth-buttons">
-              {{> userIcon }}
-            </div>
           </div>
         </div>
         <div class="bxi-bg-primary w-100">
           <div class="container">
-            <div class="bxi-navbar bxi-bg-primary collapse navbar-collapse bxi-zi-2" id="navbarNav">
+            <div class="bxi-navbar bxi-bg-primary bxi-zi-2 d-none d-lg-block">
               <ul class="navbar-nav p-2 pb-0 py-lg-3 px-lg-0 d-flex justify-content-between w-100">
                 {{#each settings.home_page.header.links}}
                 <li class="nav-item mb-2 mb-lg-0">

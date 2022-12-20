@@ -8,8 +8,8 @@
       "dialog_logo": "/eats/auth-dialog-logo.png"
     },
     "header": {
+      "main_link": "Product Catalog",
       "links": [
-        "Product Catalog",
         "Delivery",
         "Express",
         "Shops",

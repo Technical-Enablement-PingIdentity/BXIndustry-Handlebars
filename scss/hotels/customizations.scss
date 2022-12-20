@@ -14,7 +14,7 @@
 
       @include breakpoint-lg {
         &:not(:last-child) {
-          padding: .15rem 1rem .15rem;
+          padding: .15rem 1rem 0 0;
           border-right: 1px solid white;
         }
       }
