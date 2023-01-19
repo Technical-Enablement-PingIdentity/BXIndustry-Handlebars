@@ -1,6 +1,6 @@
 # IMPORTANT - LINKS MAY NOT WORK AS INTENDED IN THE GLITCH INTERFACE
 For a better viewing experience open this link in a new tab:
-https://github.com/Technical-Enablement-PingIdentity/BXIndustry-Handlebars/blob/main/README.md
+https://github.com/Technical-Enablement-PingIdentity/BXIndustry-Handlebars/blob/main/documentation/README.md
 
 # Table of Contents
 1. [Introduction](#introduction)
