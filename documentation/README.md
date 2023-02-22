@@ -5,12 +5,13 @@ https://github.com/Technical-Enablement-PingIdentity/BXIndustry-Handlebars/blob/
 # Table of Contents
 1. [Introduction](#introduction)
     1. [Standard Flows](#standard-flows)
-    2. [Remixing](#Remixing)
-    3. [Note on Versioning](#versioning-note)
-    4. [Note on CSS](#css-note)
-    5. [Switching the Verticals](#verticals)
-    6. [BXGeneric](#bxgeneric)
-    7. [Need Help?](#help)
+    2. [Remixing](#remixing)
+    3. [PingOne Environment](#ping-one)
+    4. [Note on Versioning](#versioning-note)
+    5. [Note on CSS](#css-note)
+    6. [Switching the Verticals](#verticals)
+    7. [BXGeneric](#bxgeneric)
+    8. [Need Help?](#help)
 2. [Development](#development)
     1. [Home Pages](#home-page)
         1. [Simulate Login](#simulate-login)
@@ -93,6 +94,10 @@ The default vertical should be one value from the list:
 - volunteer
 
 **Note: When trying to remix in Safari or with content blockers, you may not get a new tab with your remix after you complete the remix form. If this happens you should get an error screen with a textarea containing the URL for a new remix. Copy/paste this into a new tab and you should be all set!**
+
+## PingOne Environment<a name="ping-one">
+
+In order to use BXIndustry with your PingOne environment, ensure you have the SSO, MFA and DaVinci services added. Next create a MFA connection and fill in the properties. No need to change the the default login experience in PingOne, MFA is done through the DaVinci flows. Then import the Login and Registration flows into your DaVinci environment, you can dowload these from [Google Drive](https://drive.google.com/drive/folders/1IXTIWaLzWM6E7X_nHUY8qgOUX52SCqrE). Finally create a new application and add flow policies for each of those flows, note the policy IDs and API Key and include them in the remix form when you create a remix. If you already have a remix you can update those values in the .env file at the root of the project.
 
 ## An (IMPORTANT!!) Note on Versioning<a name="versioning-note"></a>
 
