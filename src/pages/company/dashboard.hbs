@@ -6,7 +6,7 @@
   <body onload="bxi.pageLoad()" class="bxi company dashboard">
     {{> variables}}
     <header class="bxi-nav-bg-color">
-      <nav class="navbar navbar-expand-lg navbar-dark">
+      <nav class="navbar navbar-expand-lg navbar-light py-3">
         <div class="container">
           <div class="bxi-nav">
             <a class="bxi-nav-toggle" role="button">
@@ -28,7 +28,7 @@
             <div class="bxi-user-icon d-flex bxi-bg-primary me-0 me-lg-3 pe-lg-none">
               {{> userIcon }}
             </div>
-            <div class="bxi-auth-buttons bxi-auth-buttons--link bxi-bg-secondary bxi-bg-lg-transparent p-2 ps-3 p-lg-0">
+            <div class="bxi-auth-buttons bxi-auth-buttons--primary-link bxi-bg-secondary bxi-bg-lg-transparent p-2 ps-3 p-lg-0">
               <button onclick="bxi.logout()" class="bxi-button">Log Out</button>
             </div>
           </div>
@@ -43,15 +43,14 @@
       <div class="row">
         <div class="col-xl-8 dashboard-section__reporting">
           <h1 class="bxi-ff-secondary fw-bold my-4 fs-1">{{settings.dashboard.title}}</h1>
-          <p class="mb-0">{{settings.dashboard.filter_header}}</p>
+          <p class="mb-0 fw-bold">{{settings.dashboard.filter_header}}</p>
           <div class="d-flex align-items-center flex-wrap">
             {{#each settings.dashboard.filters}}
-            <div class="filter-dropdown mt-3 me-3 cursor-pointer">
+            <div class="filter-dropdown mt-3 me-3 cursor-pointer rounded-1 pe-5 position-relative">
               {{this}}
-              {{> caretIcon class="ms-3 filter-dropdown-caret" }}
             </div>
             {{/each}}
-            <button class="bxi-button filter-button fs-7">{{settings.dashboard.filter_button}}</button>
+            <button class="bxi-button filter-button fs-7 rounded-1">{{settings.dashboard.filter_button}}</button>
           </div>
           <div>
             <img class="d-none d-sm-block mt-3 w-100 h-auto"
@@ -84,7 +83,7 @@
           <div class="video-tile__thumbnail position-relative gx-3 gy-3 col-md-6 col-xl-12">
             <div class="thumbnail-overlay position-absolute h-100"></div>
             <img src="{{this}}" alt="Video tile {{@index}}" />
-            <button class="bxi-button thumbnail-button position-absolute top-50 start-50 translate-middle rounded-circle"></button>
+            <button class="bxi-button bxi-button--white thumbnail-button position-absolute top-50 start-50 translate-middle rounded-circle"></button>
           </div>
           {{/each}}
           </div>
