@@ -1,12 +1,10 @@
 @import '../common/mixins';
 
 &.company {
+  color: var(--bxi-company-main-font-color);
+  
   .bxi-button {
     text-transform: uppercase;
-  }
-
-  .bxi-company-main-font-color {
-    color: var(--bxi-company-main-font-color);
   }
 
   .bxi-link {
@@ -120,10 +118,6 @@
   &.dashboard {
     .navbar {
       border: 2px solid var(--bxi-company-nav-border-color);
-    }
-
-    .bxi-nav-color {
-      color: var(--bxi-company-nav-color);
     }
 
     .filter-dropdown {
