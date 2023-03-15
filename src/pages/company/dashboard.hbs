@@ -52,19 +52,40 @@
             {{/each}}
             <button class="bxi-button filter-button fs-7 rounded-1">{{settings.dashboard.filter_button}}</button>
           </div>
-          <div>
-            <img class="d-none d-sm-block mt-3 w-100 h-auto"
-              src="{{settings.dashboard.large_chart}}" alt="Large chart" />
-            <img class="d-block d-sm-none mt-3 w-100 h-auto"
-              src="{{settings.dashboard.large_chart_mobile}}" alt="Large
-              chart" />
-          </div>
-          <div class="row">
-            {{#each settings.dashboard.small_charts}}
-            <div class="col-sm-6">
-              <img class="w-100 h-auto mt-3" src="{{this}}" alt="Small chart" />
+          <div class="d-flex justify-content-between mt-4 mb-3 fs-7">
+            <div>
+              <span class="me-3"><span class="bxi-vertical-first-legend rounded-circle d-inline-block me-2"></span><span>{{settings.dashboard.vertical_chart.first_legend}}</span></span>
+              <span><span class="bxi-vertical-second-legend rounded-circle d-inline-block me-2"></span><span>{{settings.dashboard.vertical_chart.second_legend}}</span></span>
             </div>
-            {{/each}}
+            <div class="fw-bold">
+              {{settings.dashboard.vertical_chart.date}}
+            </div>
+          </div>
+          <div class="bxi-overflow-x-auto">
+            {{{ inlineSvg settings.dashboard.vertical_chart.image }}}
+          </div>
+          <div class="row my-5">
+            <div class="col-lg-6 mb-5">
+              <h5 class="fw-bold mb-3">{{settings.dashboard.pie_chart.title}}</h5>
+              <div class="d-flex">
+                <div class="bxi-pie-container position-relative">
+                  {{{ inlineSvg settings.dashboard.pie_chart.image }}}
+                </div>
+                <div class="ms-3 ms-xl-0 ms-xxl-3">
+                  <div><span class="bxi-pie-first-legend d-inline-block me-2 rounded-1"></span><span>{{ settings.dashboard.pie_chart.second_legend }}</span></div>
+                  <div><span class="bxi-pie-second-legend d-inline-block me-2 rounded-1"></span><span>{{ settings.dashboard.pie_chart.first_legend }}</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 bxi-overflow-x-auto">
+              <h5 class="fw-bold mb-3">{{settings.dashboard.horizontal_chart.title}}</h5>
+              <div class="bxi-horizontal-container position-relative">
+                <span class="position-absolute">{{settings.dashboard.horizontal_chart.first_legend}}</span>
+                <span class="position-absolute">{{settings.dashboard.horizontal_chart.second_legend}}</span>
+                <span class="position-absolute">{{settings.dashboard.horizontal_chart.third_legend}}</span>
+                {{{ inlineSvg settings.dashboard.horizontal_chart.image }}}
+              </div>
+            </div>
           </div>
           <div class="reporting__components components d-flex flex-column my-3 p-4 justify-content-center align-items-center">
             <div class="components-icon text-center mb-3 rounded-circle">{{settings.dashboard.components_section.icon}}</div>
@@ -77,7 +98,7 @@
           {{/if}}
         </div>
         <div class="col-xl-4 mb-5">
-          <h4 class="my-4">{{settings.dashboard.videos.title}}</h4>
+          <h5 class="mt-4 mb-0 fw-bold">{{settings.dashboard.videos.title}}</h5>
           <div class="row">
           {{#each settings.dashboard.videos.video_tiles}}
           <div class="video-tile__thumbnail position-relative gx-3 gy-3 col-md-6 col-xl-12">
