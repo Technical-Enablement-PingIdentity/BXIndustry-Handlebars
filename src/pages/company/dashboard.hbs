@@ -6,7 +6,7 @@
   <body onload="bxi.pageLoad()" class="bxi company dashboard">
     {{> variables}}
     <header class="bxi-nav-bg-color">
-      <nav class="navbar navbar-expand-lg navbar-dark">
+      <nav class="navbar navbar-expand-lg navbar-light py-3">
         <div class="container">
           <div class="bxi-nav">
             <a class="bxi-nav-toggle" role="button">
@@ -20,7 +20,7 @@
               {{/each}}
             </ul>
             <a class="navbar-brand pt-0 ms-3" href="#">
-              <img width="150" src="{{settings.images.logo}}" alt="Logo" />
+              <img width="190" src="{{settings.images.logo}}" alt="Logo" />
             </a>
           </div>
           <div class="d-flex flex-row position-relative">
@@ -28,14 +28,14 @@
             <div class="bxi-user-icon d-flex bxi-bg-primary me-0 me-lg-3 pe-lg-none">
               {{> userIcon }}
             </div>
-            <div class="bxi-auth-buttons bxi-auth-buttons--link bxi-bg-secondary bxi-bg-lg-transparent p-2 ps-3 p-lg-0">
+            <div class="bxi-auth-buttons bxi-auth-buttons--primary-link bxi-bg-secondary bxi-bg-lg-transparent p-2 ps-3 p-lg-0">
               <button onclick="bxi.logout()" class="bxi-button">Log Out</button>
             </div>
           </div>
         </div>
       </nav>
     </header>    
-    <section class="container">
+    <section class="container bxi-company-main-font-color">
       <div class="d-flex flex-column flex-md-row justify-content-end mt-4">
         {{!-- See src/dashboard-buttons.hbs to update dashboard buttons --}}
         {{> dashboardButtons}}
@@ -43,29 +43,49 @@
       <div class="row">
         <div class="col-xl-8 dashboard-section__reporting">
           <h1 class="bxi-ff-secondary fw-bold my-4 fs-1">{{settings.dashboard.title}}</h1>
-          <p class="mb-0">{{settings.dashboard.filter_header}}</p>
+          <p class="mb-0 fw-bold">{{settings.dashboard.filter_header}}</p>
           <div class="d-flex align-items-center flex-wrap">
             {{#each settings.dashboard.filters}}
-            <div class="filter-dropdown mt-3 me-3 cursor-pointer">
+            <div class="filter-dropdown mt-3 me-3 cursor-pointer rounded-1 pe-5 position-relative">
               {{this}}
-              {{> caretIcon class="ms-3 filter-dropdown-caret" }}
             </div>
             {{/each}}
-            <button class="bxi-button filter-button fs-7">{{settings.dashboard.filter_button}}</button>
+            <button class="bxi-button filter-button fs-7 rounded-1">{{settings.dashboard.filter_button}}</button>
           </div>
-          <div>
-            <img class="d-none d-sm-block mt-3 w-100 h-auto"
-              src="{{settings.dashboard.large_chart}}" alt="Large chart" />
-            <img class="d-block d-sm-none mt-3 w-100 h-auto"
-              src="{{settings.dashboard.large_chart_mobile}}" alt="Large
-              chart" />
-          </div>
-          <div class="row">
-            {{#each settings.dashboard.small_charts}}
-            <div class="col-sm-6">
-              <img class="w-100 h-auto mt-3" src="{{this}}" alt="Small chart" />
+          <div class="d-flex justify-content-between mt-4 mb-3 fs-7">
+            <div>
+              <span class="me-3"><span class="bxi-vertical-first-legend rounded-circle d-inline-block me-2"></span><span>{{settings.dashboard.vertical_chart.first_legend}}</span></span>
+              <span><span class="bxi-vertical-second-legend rounded-circle d-inline-block me-2"></span><span>{{settings.dashboard.vertical_chart.second_legend}}</span></span>
             </div>
-            {{/each}}
+            <div class="fw-bold">
+              {{settings.dashboard.vertical_chart.date}}
+            </div>
+          </div>
+          <div class="bxi-overflow-x-auto">
+            {{{ inlineSvg settings.dashboard.vertical_chart.image }}}
+          </div>
+          <div class="row my-5">
+            <div class="col-lg-6 mb-5">
+              <h5 class="fw-bold mb-3">{{settings.dashboard.pie_chart.title}}</h5>
+              <div class="d-flex">
+                <div class="bxi-pie-container position-relative">
+                  {{{ inlineSvg settings.dashboard.pie_chart.image }}}
+                </div>
+                <div class="ms-3 ms-xl-0 ms-xxl-3">
+                  <div><span class="bxi-pie-first-legend d-inline-block me-2 rounded-1"></span><span>{{ settings.dashboard.pie_chart.second_legend }}</span></div>
+                  <div><span class="bxi-pie-second-legend d-inline-block me-2 rounded-1"></span><span>{{ settings.dashboard.pie_chart.first_legend }}</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 bxi-overflow-x-auto">
+              <h5 class="fw-bold mb-3">{{settings.dashboard.horizontal_chart.title}}</h5>
+              <div class="bxi-horizontal-container position-relative">
+                <span class="position-absolute">{{settings.dashboard.horizontal_chart.first_legend}}</span>
+                <span class="position-absolute">{{settings.dashboard.horizontal_chart.second_legend}}</span>
+                <span class="position-absolute">{{settings.dashboard.horizontal_chart.third_legend}}</span>
+                {{{ inlineSvg settings.dashboard.horizontal_chart.image }}}
+              </div>
+            </div>
           </div>
           <div class="reporting__components components d-flex flex-column my-3 p-4 justify-content-center align-items-center">
             <div class="components-icon text-center mb-3 rounded-circle">{{settings.dashboard.components_section.icon}}</div>
@@ -78,13 +98,13 @@
           {{/if}}
         </div>
         <div class="col-xl-4 mb-5">
-          <h4 class="my-4">{{settings.dashboard.videos.title}}</h4>
+          <h5 class="mt-4 mb-0 fw-bold">{{settings.dashboard.videos.title}}</h5>
           <div class="row">
           {{#each settings.dashboard.videos.video_tiles}}
           <div class="video-tile__thumbnail position-relative gx-3 gy-3 col-md-6 col-xl-12">
             <div class="thumbnail-overlay position-absolute h-100"></div>
             <img src="{{this}}" alt="Video tile {{@index}}" />
-            <button class="bxi-button thumbnail-button position-absolute top-50 start-50 translate-middle rounded-circle"></button>
+            <button class="bxi-button bxi-button--white thumbnail-button position-absolute top-50 start-50 translate-middle rounded-circle"></button>
           </div>
           {{/each}}
           </div>

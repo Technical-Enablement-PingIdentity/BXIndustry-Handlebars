@@ -29,11 +29,6 @@ export function initHandlebars(fastify) {
  * @param {object} hbs Imported handlebars instance, this needs to be passed because it is used for trials compilation
  */
 export function initHandlebarsHelpers(hbs, pathPrefix = '') {
-    // Used in company vertical, turns 1 into 01, should handle double digit numbers as well!
-    hbs.registerHelper('indexBullet', (value, _) => {
-        return `0${(parseInt(value) + 1)}`.slice(-2);
-    });
-
     hbs.registerHelper('inlineSvg', (value, _) => {
         if (!value.startsWith('/')) {
             value = `/${value}`;
