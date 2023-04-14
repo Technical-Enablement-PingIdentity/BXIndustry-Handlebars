@@ -23,6 +23,7 @@ function getBxiEnvironmentVariables() {
         'BXI_DASHBOARD_POLICY_ID',
         'BXI_GENERIC_POLICY_ID',
         'BXI_REMIX_POLICY_ID',
+        'BXI_PROFILE_MANAGEMENT_POLICY_ID',
         'BXI_SHOW_REMIX_BUTTON',
         'BXI_GLITCH_REMIX_PROJECT',
         'BXI_DEBUG_LOGGING',
