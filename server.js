@@ -44,6 +44,8 @@ fastify.register(import('@fastify/static'), {
   root: path.join(__dirname, 'public'),
   prefix: '/',
 });
+
+fastify.register(import('@fastify/cookie'));
  
 initHandlebars(fastify);
 
@@ -75,15 +77,34 @@ fastify.get('/dvtoken', async function (request, reply) {
   const apiKey = request?.query.apiKey || process.env.BXI_API_KEY;
   const companyId = request?.query.companyId || process.env.BXI_COMPANY_ID;
 
+  let body = null;
+
+  if (request?.query.policyId || request.cookies['DV-ST']) {
+    body = {};
+    if (request?.query.policyId) {
+      body.policyId = request?.query.policyId;
+    }
+
+    if (request.cookies['DV-ST']) {
+      body.global = { sessionToken: request.cookies['DV-ST'] };
+    }
+  }
+
   const dvBaseUrl = `${process.env.BXI_API_URL}/`;
   const dvSdkTokenBaseUrl = `${process.env.BXI_SDK_TOKEN_URL}/v1`;
 
-  const tokenRequest = {
+  let tokenRequest = {
     method: 'GET',
     headers: {
       'X-SK-API-KEY': apiKey
     }
   };
+
+  if (body) {
+    tokenRequest.method = 'POST';
+    tokenRequest.headers['Content-Type'] = 'application/json';
+    tokenRequest.body = JSON.stringify(body);
+  }
 
   const tokenResponse = await fetch(`${dvSdkTokenBaseUrl}/company/${companyId}/sdktoken`, tokenRequest); // Endpoint is case sensitive in Davinci V2
   const parsedResponse = await tokenResponse.json();
@@ -102,6 +123,26 @@ fastify.get('/dvtoken', async function (request, reply) {
     companyId: companyId,
     apiRoot: dvBaseUrl
   });
+});
+
+fastify.get('/setCookie', (request, reply) => {
+  const sessionToken = request.query.sessionToken;
+  const sessionTokenMaxAge = request.query.sessionTokenMaxAge;
+
+  reply.setCookie('DV-ST', sessionToken, {
+    secure: true,
+    httpOnly: 'httpOnly',
+    sameSite: 'lax',
+    path: '/',
+    maxAge: sessionTokenMaxAge,
+  });
+
+  reply.send();
+});
+
+fastify.get('/logout', (_, reply) => {
+  reply.clearCookie('DV-ST');
+  reply.send();
 });
 
 fastify.get('/docs', (request, reply) => {

@@ -145,6 +145,7 @@ import registerFunctions from '/register-functions.js';
     const urlParams = {
       apiKey: widgetWrapper.ApiKey,
       companyId: widgetWrapper.CompanyId,
+      policyId: widgetWrapper.PolicyId,
     };
 
     tokenEndpoint += Object.values(urlParams).find(key => key !== undefined) 

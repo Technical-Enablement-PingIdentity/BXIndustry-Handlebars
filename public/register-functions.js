@@ -18,12 +18,15 @@ function registerFunctions(logger) {
   /**
    * Add custom code here to do any logout teardown you need to do, called when Log Out is clicked
    */
-  bxi.logout = () => {
+  bxi.logout = async () => {
     // Tear-down code here
 
     // Change this to sessionStorage.clear() if you'd like to remove everything
     sessionStorage.removeItem('bxi_username');
     logger.log('Logout occured, username has been cleared from session storage if it existed');
+
+    await fetch('/logout');
+
     // This call should be last
     window.location.assign(`/${window.location.pathname.split('/')[1]}`);
   };
@@ -46,8 +49,13 @@ function registerFunctions(logger) {
     return { CurrentVertical: window.location.pathname.split('/')[1], Verticals: verticalsParam };
   });
 
-  bxi.registerFunction('defaultAuthnSuccess', (response) => {
-    logger.log('defaultAuthnSuccess called with DV response', response)
+  bxi.registerFunction('defaultAuthnSuccess', async response => {
+    logger.log('defaultAuthnSuccess called with DV response', response);
+
+    if (response.sessionToken && response.sessionTokenMaxAge) {      
+      await fetch(`/setCookie?sessionToken=${response.sessionToken}&sessionTokenMaxAge=${response.sessionTokenMaxAge}`);
+    }
+
     // Check for username in response, if present set it in sessionStorage and redirect to the dashboard
     const username = window.bxi.getParameterCaseInsensitive(response.additionalProperties, 'username');
     if (username) {
@@ -64,6 +72,12 @@ function registerFunctions(logger) {
 
       // If you customize this function and still want redirect to work, this call should be last
       window.location.assign(url);
+    }
+  });
+
+  bxi.registerFunction('logout', async response => {
+    if (response.additionalProperties?.staleSession) {
+      await bxi.logout();
     }
   });
 }
