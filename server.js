@@ -77,8 +77,6 @@ fastify.post('/dvtoken', async function (request, reply) {
   const apiKey = request?.body.apiKey || process.env.BXI_API_KEY;
   const companyId = request?.body.companyId || process.env.BXI_COMPANY_ID;
 
-  console.log(request.body)
-
   let body = {
     policyId: request.body.policyId,
   };
