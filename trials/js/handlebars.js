@@ -14,6 +14,8 @@ export function compileHandlebars({bxiRepoBasePath, testBuild, verticals, destin
   console.info('All partials registered');
 
   verticals.forEach(vertical => {
+    registerVerticalPartials(vertical);
+
     console.info('Generating html files for ' + vertical);
     const indexTemplateStr = fs.readFileSync(path.join(bxiRepoBasePath, `src/pages/${vertical}/index.hbs`)).toString('utf8');
     const dashboardTemplateStr = fs.readFileSync(path.join(bxiRepoBasePath, `src/pages/${vertical}/dashboard.hbs`)).toString('utf8');
@@ -66,10 +68,6 @@ function registerPartials(bxiRepoPath, testBuild) {
   // head needs to pass through the branding partial declared on each page
   Handlebars.registerPartial('head', headTemplate);
 
-  // Button overrides, trials needs login, register, and reset password on home pages and profile management on dashboard pages
-  Handlebars.registerPartial('homeNavButtons', fs.readFileSync('./partials/home-buttons.hbs').toString('utf8'));
-  Handlebars.registerPartial('dashboardButtons', fs.readFileSync('./partials/dashboard-buttons.hbs').toString('utf8'));
-
   console.info('Static partials registered, registering icons');
 
   const iconPartials = getPartialsFromDirectory(path.join(bxiRepoPath, 'src/partials/icons'), 'Icon');
@@ -87,4 +85,24 @@ function registerBrandingPartials(verticals, bxiRepoPath) {
 
     console.info(`Branding partial registered: ${partialName} from ${partialPath}`);
   });
+}
+
+function registerVerticalPartials(vertical) {
+  Handlebars.unregisterPartial('homeNavButtons');
+  Handlebars.unregisterPartial('dashboardButtons');
+
+  const verticalHomeFile = `./partials/${vertical}/home-buttons.hbs`;
+  const verticalDashboardFile = `./partials/${vertical}/dashboard-buttons.hbs`;
+
+  if (fs.existsSync(verticalHomeFile)) {
+    Handlebars.registerPartial('homeNavButtons', fs.readFileSync(verticalHomeFile).toString('utf8'));
+  } else {
+    Handlebars.registerPartial('homeNavButtons', fs.readFileSync('./partials/home-buttons.hbs').toString('utf8'));
+  }
+
+  if (fs.existsSync(verticalDashboardFile)) {
+    Handlebars.registerPartial('dashboardButtons', fs.readFileSync(verticalDashboardFile).toString('utf8'));
+  } else {
+    Handlebars.registerPartial('dashboardButtons', fs.readFileSync('./partials/dashboard-buttons.hbs').toString('utf8'));
+  }
 }
