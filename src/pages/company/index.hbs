@@ -6,7 +6,7 @@
   <body onload="bxi.pageLoad()" class="bxi company home">
     {{> variables}}
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark">
+      <nav class="navbar navbar-expand-lg navbar-light py-3">
         <div class="container">
           <div class="bxi-nav">
             <a class="bxi-nav-toggle" role="button">
@@ -20,15 +20,15 @@
               {{/each}}
             </ul>
             <a class="navbar-brand pt-0 ms-3" href="#">
-              <img width="150" src="{{settings.images.logo}}" alt="Logo" />
+              <img width="190" src="{{settings.images.logo}}" alt="Logo" />
             </a>
           </div>
           <div class="d-flex flex-row position-relative">
-            {{> searchIcon class="mt-1 me-3 d-lg-block d-none" }}
+            {{> searchIcon class="me-3 d-lg-block d-none bxi-icon-color-primary" }}
             <div class="bxi-user-icon bxi-bg-primary">
               {{> userIcon }}
             </div>
-            <div class="bxi-auth-buttons bxi-auth-buttons--link bxi-bg-secondary bxi-bg-lg-transparent ps-3 p-2 p-lg-0">
+            <div class="bxi-auth-buttons bxi-auth-buttons--primary-link bxi-bg-secondary bxi-bg-lg-transparent ps-3 p-2 p-lg-0">
               {{!-- See src/home-nav-buttons.hbs to update auth buttons --}}
               {{> homeNavButtons }}
             </div>
@@ -36,30 +36,30 @@
         </div>
       </nav>
     </header>
-    <section class="bxi-banner bxi-bg-secondary">
-      <div class="bxi-banner__image bxi-bg-image" style="background-image: url('{{settings.home_page.banner.background_image}}')">
-        <div class="d-flex align-items-center h-100">
+    <section class="bxi-banner bxi-bg-image" style="background-image: url('{{settings.home_page.banner.background_image}}')">
+      <div class="bxi-banner__image" >
+        <div class="d-flex align-items-center h-100 mb-5">
           <div class="container w-100">
             <div class="my-5">
               <h4 class="mb-4 bxi-banner__text">{{settings.home_page.banner.supertitle}}</h4>
               <h1 class="bxi-main-header bxi-banner__text mb-3 mb-lg-4">{{settings.home_page.banner.title}}</h1>
               <p class="fs-5 lh-base mb-4 bxi-banner__text">{{settings.home_page.banner.subtitle}}</p>
               {{#if settings.home_page.banner.button_text}}
-              <button class="bxi-button bxi-button--lg">{{settings.home_page.banner.button_text}}</button>
+              <button class="bxi-button bxi-button--white bxi-button--lg">{{settings.home_page.banner.button_text}}</button>
               {{/if}}
             </div>
           </div>
         </div>
-      </div>
-      <div class="container">
-        <div class="video-tiles d-flex justify-content-between pb-5">
-          {{#each settings.home_page.banner.video_tiles}}
-          <div class="video-tile__thumbnail me-3 w-100 position-relative">
-            <div class="thumbnail-overlay position-absolute top-0 start-0 w-100 h-100"></div>
-            <img src="{{this}}" alt="Video tile {{@index}}" />
-            <button class="bxi-button thumbnail-button position-absolute top-50 start-50 translate-middle rounded-circle"></button>
+        <div class="container">
+          <div class="video-tiles d-flex justify-content-between pb-5">
+            {{#each settings.home_page.banner.video_tiles}}
+            <div class="video-tile__thumbnail me-3 w-100 position-relative">
+              <div class="thumbnail-overlay position-absolute top-0 start-0 w-100 h-100"></div>
+              <img src="{{this}}" alt="Video tile {{@index}}" />
+              <button class="bxi-button bxi-button--white thumbnail-button position-absolute top-50 start-50 translate-middle rounded-circle"></button>
+            </div>
+            {{/each}}
           </div>
-          {{/each}}
         </div>
       </div>
     </section>
@@ -68,18 +68,20 @@
         <div class="col-md-6 gy-5">
           <h1 class="mb-4 display-5 fw-bold">{{settings.home_page.main_content.title}}</h1>
           <p class="fs-5 mb-5 lh-lg">{{settings.home_page.main_content.description}}</p>
-          <img class="company-main-content-image w-100" src="{{settings.home_page.main_content.image}}" alt="Content" />
         </div>
-        <div class="col-md-6 gy-5">
-          <ul class="ps-0">
-            {{#each settings.home_page.main_content.steps}}
-              <li class="company-step d-flex flex-row p-4 rounded-1 mb-3 ls-none">
-                <div class="company-step-bullet fw-bold fs-4">{{indexBullet @index}}</div>
-                <div class="fs-6 fw-boldish mt-1 lh-md">{{this}}</div>
-              </li>
-            {{/each}}
-          </ul>
+        <div class="col-md-6 d-flex align-items-center justify-content-center">
+          <img class="company-main-content-image w-100 mb-4" src="{{settings.home_page.main_content.image}}" alt="Content" />
         </div>
+      </div>
+      <div class="row mb-5 d-flex justify-content-center">
+        {{#each settings.home_page.main_content.steps}}
+        <div class="col-md-4 mb-5 d-flex flex-column align-items-center">
+          <div class="mb-3 bxi-company-step-icon">
+            {{{ inlineSvg icon }}}
+          </div>
+          <div class="fs-5 w-100 fw-boldish">{{text}}</div>
+        </div>
+        {{/each}}
       </div>
     </section>
     <footer class="bxi-footer py-4">

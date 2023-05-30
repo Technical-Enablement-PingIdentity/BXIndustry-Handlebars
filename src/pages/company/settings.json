@@ -28,11 +28,26 @@
         "description": "The first conversation you ever have with a strategic business partner should not be about technology. It should be about your business, vision, workflow and the opportunities that exist to help you grow.",
         "image": "/company/laptop.png",
         "steps": [
-          "Let's learn about each other. We want to learn about your vision, needs and workflow",
-          "We focus on outcome and nothing more. It's time to have a real discussion about lifeline's process",
-          "We need to understand the main profit drivers of your business",
-          "This is the part of the process where we stop simply talking about all the things we do",
-          "Result: Now you're free to grow with us"
+          {
+            "icon": "/company/book.svg",
+            "text": "1. Let's learn about each other. We want to learn about your vision, needs and workflow"
+          },
+          {
+            "icon": "/company/message.svg",
+            "text": "2. We focus on outcome and nothing more. It's time to have a real discussion about lifeline's process"
+          },
+          {
+            "icon": "/company/head.svg",
+            "text": "3. We need to understand the main profit drivers of your business"
+          },
+          {
+            "icon": "/company/user-check.svg",
+            "text": "4. This is the part of the process where we stop simply talking about all the things we do"
+          },
+          {
+            "icon": "/company/plant.svg",
+            "text": "5. Result: Now you're free to grow with us"
+          }
         ]
       }
     },
@@ -46,12 +61,25 @@
         "Month"
       ],
       "filter_button": "Search",
-      "large_chart": "/company/line-chart.png",
-      "large_chart_mobile": "/company/line-chart-mobile.png",
-      "small_charts": [
-        "/company/pie-chart.png",
-        "/company/bar-chart.png"
-      ],
+      "vertical_chart": {
+        "image": "/company/vertical-chart.svg",
+        "first_legend": "Century Link",
+        "second_legend": "Lennar",
+        "date": "March 2023"
+      },
+      "pie_chart": {
+        "title": "Successful Deals",
+        "image": "/company/pie-chart.svg",
+        "first_legend": "With consultation",
+        "second_legend": "Full process"
+      },
+      "horizontal_chart": {
+        "title": "Client Activity",
+        "image": "/company/horizontal-chart.svg",
+        "first_legend": "Century Link",
+        "second_legend": "Lennar",
+        "third_legend": "Danaher Corporation"
+      },
       "components_section": {
         "icon": "+",
         "title": "No components created yet",
@@ -59,7 +87,7 @@
         "button": "Add component"
       },
       "videos": {
-        "title": "Preview conference video",
+        "title": "Preview conference videos",
         "video_tiles": [
           "/company/dashboard-video-tile-1.png",
           "/company/dashboard-video-tile-2.png",

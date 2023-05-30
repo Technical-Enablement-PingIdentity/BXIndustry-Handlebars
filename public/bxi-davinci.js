@@ -142,19 +142,30 @@ import registerFunctions from '/register-functions.js';
 
     let tokenEndpoint = '/dvtoken';
 
-    const urlParams = {
+    const tokenParams = {
       apiKey: widgetWrapper.ApiKey,
       companyId: widgetWrapper.CompanyId,
+      policyId: widgetWrapper.PolicyId,
+      flowParameters: await widgetWrapper.getDvRequestParams(),
     };
 
-    tokenEndpoint += Object.values(urlParams).find(key => key !== undefined) 
-      ? `?${new URLSearchParams(Object.keys(urlParams).reduce((acc, key) => urlParams[key] ? {...acc, [key]: urlParams[key]} : acc, {}))}`
-      : '';
+    if (Object.keys(tokenParams.flowParameters).length === 0) {
+      delete tokenParams.flowParameters;
+    }
 
+    logger.log('DaVinci request parameters', tokenParams);
     logger.log('Calling token endpoint', tokenEndpoint);
 
-    const tokenResponse = await fetch(tokenEndpoint);
+    const tokenResponse = await fetch(tokenEndpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(Object.keys(tokenParams).reduce((acc, key) => tokenParams[key] ? {...acc, [key]: tokenParams[key]} : acc, {})), // Remove null/undefined values
+    });
+
     logger.log('Token response received', tokenResponse)
+    
     const tokenData = await tokenResponse.json();
     logger.log('Token data parsed from response', tokenData);
 
@@ -163,9 +174,6 @@ import registerFunctions from '/register-functions.js';
       logger.error('Token response was not successful', tokenResponse);
       return;
     }
-    
-    const parameters = await widgetWrapper.getDvRequestParams();
-    logger.log('DaVinci request parameters', parameters);
 
     const dvWidgetProps = {
       config: {
@@ -174,7 +182,6 @@ import registerFunctions from '/register-functions.js';
         accessToken: continueToken || tokenData.token,
         companyId: tokenData.companyId,
         policyId: widgetWrapper.PolicyId,
-        parameters,
       },
       useModal: false,
       successCallback: async response => {
