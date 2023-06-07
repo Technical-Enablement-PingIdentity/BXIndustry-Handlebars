@@ -19,7 +19,7 @@
               </li>
               {{/each}}
             </ul>
-            <a class="navbar-brand mt-1 mt-lg-0 pt-0 ms-3 ms-lg-0" href="#">
+            <a id="bxi-logo" class="navbar-brand mt-1 mt-lg-0 pt-0 ms-3 ms-lg-0">
               <img width="150" src="{{settings.images.logo}}" alt="Logo" />
             </a>
           </div>
@@ -78,7 +78,7 @@
         <div class="col-lg-4 mb-5">
           <h4 class="fw-boldish">{{title}}</h4>
           <p class="mb-3">{{description}}</p>
-          <a class="bxi-button bxi-button--link" href="#">{{link}}</a>
+          <a class="bxi-button bxi-button--link">{{link}}</a>
         </div>
         {{/each}}
       </div>
@@ -108,13 +108,13 @@
           </div>
           <div class="col-lg-4 mb-3">
             {{#each settings.footer.links}}
-            <a class="bxi-link bxi-link--white mb-2 d-block" href="#">{{this}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block">{{this}}</a>
             {{/each}}
           </div>
           <div class="col-lg-4 mb-3">
-            <a class="bxi-link bxi-link--white mb-2 d-block fw-bold" href="#">{{settings.footer.phone_number}}</a>
-            <a class="bxi-link bxi-link--white mb-2 d-block fw-bold" href="#">{{settings.footer.email}}</a>
-            <a class="bxi-link bxi-link--white mb-2 d-block fw-bold" href="#">{{settings.footer.chat}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block fw-bold">{{settings.footer.phone_number}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block fw-bold">{{settings.footer.email}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block fw-bold">{{settings.footer.chat}}</a>
           </div>
         </div>
       </div>

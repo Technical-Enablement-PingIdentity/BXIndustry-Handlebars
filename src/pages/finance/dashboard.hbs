@@ -19,7 +19,7 @@
               </li>
               {{/each}}
             </ul>
-            <a class="navbar-brand mt-1 mt-lg-0 pt-0 ms-3 ms-lg-0" href="#">
+            <a id="bxi-logo" class="navbar-brand mt-1 mt-lg-0 pt-0 ms-3 ms-lg-0">
               <img width="150" src="{{settings.images.logo}}" alt="Logo" />
             </a>
           </div>
@@ -70,7 +70,7 @@
             <div class="rewards-card p-4 rounded-4 overflow-hidden ms-auto mb-4">
               <h4 class="rewards-card-color">{{settings.rewards_card.title}}</h4>
               <p class="rewards-card-color fs-7">{{settings.rewards_card.sub_title}}</p>
-              <a href="#" class="bxi-button bxi-button--link">{{settings.rewards_card.link}}</a>
+              <a class="bxi-button bxi-button--link">{{settings.rewards_card.link}}</a>
               <img class="rewards-card-image d-block" src="{{settings.rewards_card.image}}" />
             </div>
           </div>
@@ -105,7 +105,7 @@
               </div>
               {{#each accounts}}
               <div class="row accounts-row me-0">
-                <div class="col-7 bxi-truncate"><a href="#" class="bxi-button bxi-button--link">{{name}}</a></div>
+                <div class="col-7 bxi-truncate"><a class="bxi-button bxi-button--link">{{name}}</a></div>
                 <div class="col-5">{{amount}}</div>
               </div>
               {{/each}}
@@ -143,13 +143,13 @@
           </div>
           <div class="col-lg-4 mb-3">
             {{#each settings.footer.links}}
-            <a class="bxi-link bxi-link--white mb-2 d-block fs-6" href="#">{{this}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block fs-6">{{this}}</a>
             {{/each}}
           </div>
           <div class="col-lg-4 mb-3">
-            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold" href="#">{{settings.footer.phone_number}}</a>
-            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold" href="#">{{settings.footer.email}}</a>
-            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold" href="#">{{settings.footer.chat}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold">{{settings.footer.phone_number}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold">{{settings.footer.email}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold">{{settings.footer.chat}}</a>
           </div>
         </div>
       </div>
