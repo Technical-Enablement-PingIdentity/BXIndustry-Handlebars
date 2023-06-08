@@ -4,8 +4,8 @@
     "images": {
       "favicon": "/finance/favicon.ico",
       "apple_touch_icon": "/finance/apple-touch-icon.png",
-      "logo": "/finance/logo-white.png",
-      "dialog_logo": "/finance/auth-dialog-logo.png"
+      "logo": "/finance/logo.svg",
+      "dialog_logo": "/finance/logo.svg"
     },
     "header": {
       "links": ["Banking", "Credit Cards", "Investment", "Loans & Mortgages", "Business Banking"]
@@ -18,7 +18,6 @@
     },
     "home_page": {
       "banner": {
-        "background_image": "/finance/banner.jpg",
         "title": "We're redefining everything a bank can be.",
         "sub_title": "Modern banking tools meets personalized service.",
         "button": "Learn More"
@@ -29,16 +28,19 @@
       },
       "programs": [
         {
+          "icon": "/finance/home-silo.svg",
           "title": "It's never been a better time to refinance.",
           "description": "Find value in your home.",
           "link": "Check Rates"
         },
         {
+          "icon": "/finance/cellphone-cog.svg",
           "title": "Technology, tuned to the way you live and work.",
           "description": "Try our newest account management tools.",
           "link": "Explore Tools"
         },
         {
+          "icon": "/finance/lightbulb.svg",
           "title": "Investing 101: Basics to make more of your future.",
           "description": "Tuning your strategy to your goals.",
           "link": "Learn More"
