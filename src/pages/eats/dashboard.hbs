@@ -24,7 +24,7 @@
               </li>
               {{/each}}
             </ul>
-            <a class="navbar-brand pt-0 ms-3" href="#">
+            <a id="bxi-logo" class="navbar-brand pt-0 ms-3">
               <img width="150" src="{{settings.images.logo}}" alt="Logo" />
             </a>
             <button class="bxi-button rounded-0 d-none d-lg-flex px-3 align-items-center bxi-icon-color-white">
@@ -104,7 +104,7 @@
                   <h1 class="bxi-main-header bxi-ff-secondary">{{settings.dashboard.sidebar.card.amount}}</h1>
                   <div class="bxi-finance-card--line mb-4"></div>
                 </div>
-                <a href="#" class="bxi-link text-center fw-bold d-block mt-5 mx-auto">{{settings.dashboard.sidebar.card.link}}</a>
+                <a class="bxi-link text-center fw-bold d-block mt-5 mx-auto">{{settings.dashboard.sidebar.card.link}}</a>
               </div>
             </div>
           </div>
@@ -116,7 +116,7 @@
         <div class="d-block mb-sm-3 mb-4 d-lg-flex justify-content-between">
           <ul class="d-none d-md-flex flex-wrap mb-4 p-0 ls-none">
             {{#each settings.footer.links }}
-              <li class="me-4 mb-2"><a class="bxi-link bxi-link-light--primary" href="#">{{this}}</a></li>
+              <li class="me-4 mb-2"><a class="bxi-link bxi-link-light--primary">{{this}}</a></li>
             {{/each}}
           </ul>
           <div class="footer-contacts d-flex flex-column-reverse flex-md-row align-items-center align-items-md-start">

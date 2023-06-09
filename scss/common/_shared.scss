@@ -25,7 +25,7 @@
     }
 
     &::after {
-      @include triangle(4px, var(--bxi-header-dropdown-color), 'down') {
+      @include triangle(4px, var(--bxi-header-dropdown-border-color), 'down') {
         top: 18px;
         right: 14px;
       }
