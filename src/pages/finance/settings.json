@@ -61,7 +61,7 @@
         ]
       },
       "portal": {
-        "title": "Accounts Dashboard",
+        "title": "Account Dashboard",
         "dropdown_placeholder": "Things I Can Do",
         "account_tiles": [
           {
