@@ -1,94 +1,181 @@
 @import "../common/mixins";
 
 &.finance {
-  .bxi-button {
-    border-radius: .5rem;
-
-    &--icon {
-      border-radius: 50%;
-    }
-  }
-
-  .bxi-auth-buttons .bxi-button {
-    font-size: 1rem;
-  }
-
   @include breakpoint-lg {
-    .bxi-auth-buttons {
-      border-left: 1px solid #fff;
-    }
-  }
+    .bxi-auth-buttons .bxi-button {
+      border-radius: 0;
+      padding-right: 1rem;
+      border-right: 1px solid #68747F;
 
-  .rewards-card {
-    background-color: var(--bxi-finance-rewards-bg-color);
-
-    &-color {
-      color: var(--bxi-finance-rewards-color);
+      &:last-child {
+        border-right: none;
+        padding-right: 0;
+      }
     }
-
-    &-image {
-      margin-top: -1.5rem;
-      margin-left: auto;
-    }
-  }
-  
-  .bxi-banner {
-    color: var(--bxi-finance-banner-color);
-    background-color: var(--bxi-finance-banner-bg-color);
   }
 
   &.home {
     .bxi-header {
-      height: 600px;
-  
       &-color {
         color: var(--bxi-finance-header-color);
       }
     }
 
-    .rewards-card {
-      height: 200px;
-      margin-top: 2rem;
-      
-      @include breakpoint-md {
-        margin-top: -2rem;
-        height: 480px;
-      }
+    .bxi-banner {
+      color: var(--bxi-finance-banner-color);
+      background-color: var(--bxi-finance-banner-bg-color);
   
-      @include breakpoint-lg {
-        margin-top: -4rem;
-        max-width: 348px;
-      }
+      &-circle {
+        background: var(--bxi-finance-banner-cirles-color);
+        box-shadow: 0px 4px 200px rgba(0, 0, 0, 0.15);
   
-      &-image {
-        height: 200px;
-
-        @include breakpoint-md {
-          margin-left: -5rem;
+        &:first-child {
+          width: 441px;
+          height: 441px;
+          top: -200px;
+          left: -200px;
+        }
+  
+        &:nth-child(2) {
+          width: 300px;
+          height: 300px;
+          bottom: -160px;
+          right: 200px;
+        }
+  
+        &:nth-child(3) {
+          width: 400px;
           height: 400px;
+          top: 20px;
+          right: -217px;
         }
       }
+    }
+
+    .rewards-card {
+      &-color {
+        color: var(--bxi-finance-rewards-color);
+      }
+      
+      &-image {
+        margin-top: -1.5rem;
+        width: 282px;
+        top: -52px;
+        left: 40px;
+
+        @include breakpoint-sm {
+          left: 100px;
+        }
+      }
+
+      &-subtitle {
+        width: 300px;
+      }
+
+      &-pill {
+        &-lg, &-sm {
+          background-color: #fff;
+        }
+
+        &-lg {
+          padding-left: 70px;
+          padding-top: 140px;
+          width: calc(100vw + 300px);
+          margin-top: 100px;
+
+        }
+
+        &-sm {
+          width: calc(100vw + 300px);
+          height: 30px;
+          margin-left: 200px;
+        }
+      }
+    }
+
+    .bxi-icon-bg { 
+      width: 92px;
+      height: 92px;
+      background: var(--bxi-finance-icon-bg-color);
     }
   }
 
   &.dashboard {
+    .bxi-header {
+      border-bottom: 1px solid #CACED3;
+    }
+
+    .bxi-auth-buttons svg {
+      margin-top: 2px;
+    }
+
+    .portal-sidebar-dropdown {
+      box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.1);
+    }
+
     .rewards-card {
-      max-height: 350px;
+      &-pill {
+        height: 342px;
+        width: 427px;
+        right: 0px;
+        top: 22px;
+        
+        @include breakpoint-lg {
+          top: 8px;
+          width: 400px;
+          right: -106px;
+          height: 290px;
+        }
+        
+        @include breakpoint-xl {
+          top: 22px;
+          height: 270px;
+          width: 400px;
+          right: -80px;
+        }
+
+        @include breakpoint-xxl {
+          width: 400px;
+          height: 300px;
+          right: -14px;
+        }
+      }
+
+      &-container {
+        width: 100%;
+        max-width: 350px;
+        color: var(--bxi-finance-dashboard-rewards-color);
+
+        @include breakpoint-lg {
+          max-width: 248px;
+        }
+
+        @include breakpoint-xxl {
+          max-width: 300px;
+        }
+      }
 
       &-image {
-        height: 350px;
-        margin-bottom: -1.5rem;
-        margin-right: -1.5rem;
+        width: 100%;
+      }
+
+      .bxi-button--outline {
+        background-color: #fff;
+
+        &:hover {
+          background-color: var(--bxi-primary-color);
+        }
       }
     }
 
     .account-tile {
-      border-top: 2px solid var(--bxi-finance-component-border-color);
+      border-left: 3px solid var(--bxi-primary-color);
+      box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.1);
 
       .accounts-row {
         padding-bottom: .5rem;
         margin-bottom: .5rem;
-        border-bottom: 1px solid #c6cdcf;
+        border-bottom: 1px solid #E4E6E9;
 
         &:last-child {
           border-bottom: none;
@@ -96,8 +183,8 @@
       }
 
       &::before {
-        @include triangle(5px, #000, 'down') {
-          top: 2rem;
+        @include triangle(5px, var(--bxi-primary-color), 'down') {
+          top: 1.70rem;
           left: 1.25rem;
         }
       }

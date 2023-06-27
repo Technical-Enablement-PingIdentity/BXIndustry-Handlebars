@@ -19,7 +19,7 @@
               </li>
               {{/each}}
             </ul>
-            <a class="navbar-brand pt-0 ms-3 ms-lg-0" href="#">
+            <a id="bxi-logo" class="navbar-brand pt-0 ms-3 ms-lg-0">
               <img width="150" src="{{settings.images.logo}}" alt="Logo" />
             </a>
           </div>
@@ -153,17 +153,17 @@
           </div>
           <div class="col-lg-3 mb-3">
             {{#each settings.footer.navigation.links_left}}
-            <a class="bxi-link bxi-link--white mb-2 d-block fs-6" href="#">{{this}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block fs-6">{{this}}</a>
             {{/each}}
           </div>
           <div class="col-lg-3 mb-3">
-            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold" href="#">{{settings.footer.phone_number}}</a>
-            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold" href="#">{{settings.footer.email}}</a>
-            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold" href="#">{{settings.footer.chat}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold">{{settings.footer.phone_number}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold">{{settings.footer.email}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold">{{settings.footer.chat}}</a>
           </div>
           <div class="col-lg-3 mb-3">
             {{#each settings.footer.navigation.links_right}}
-            <a class="bxi-link bxi-link--white mb-2 d-block fs-6" href="#">{{this}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block fs-6">{{this}}</a>
             {{/each}}
           </div>
         </div>
