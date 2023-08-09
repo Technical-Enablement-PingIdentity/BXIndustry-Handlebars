@@ -97,27 +97,27 @@
         "title": "Your order history",
         "orders": [
           {
-            "date": "December 12, 2021",
+            "date": "December 12, {{lastYear}}",
             "items": "10 items",
             "button": "Receipt"
           },
           {
-            "date": "December 6, 2021",
+            "date": "December 6, {{lastYear}}",
             "items": "22 items",
             "button": "Receipt"
           },
           {
-            "date": "November 28, 2021",
+            "date": "November 28, {{lastYear}}",
             "items": "7 items",
             "button": "Receipt"
           },
           {
-            "date": "November 26, 2021",
+            "date": "November 26, {{lastYear}}",
             "items": "12 items",
             "button": "Receipt"
           },
           {
-            "date": "November 23, 2021",
+            "date": "November 23, {{lastYear}}",
             "items": "8 items",
             "button": "Receipt"
           }
@@ -140,7 +140,7 @@
         "Collaboration",
         "Contacts"
       ],
-      "copyright": "© BXEats, 2022. All rights reserved."
+      "copyright": "© BXEats, {{currentYear}}. All rights reserved."
     }
   }
 }

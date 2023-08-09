@@ -90,7 +90,7 @@
         "Privacy"
       ],
       "phone_number": "800 568 9678",
-      "copyright": "© BXInsurance, 2022. All rights reserved."
+      "copyright": "© BXInsurance, {{currentYear}}. All rights reserved."
     }
   }
 }

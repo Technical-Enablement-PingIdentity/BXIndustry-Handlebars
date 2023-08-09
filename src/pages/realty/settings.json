@@ -139,7 +139,7 @@
         "Terms of Use",
         "Contacts"
       ],
-      "copyright": "© BXRealty, 2022.  All rights reserved."
+      "copyright": "© BXRealty, {{currentYear}}.  All rights reserved."
     }
   }
 }
