@@ -17,3 +17,14 @@
   </div>
 </div>
 <script type="module" src="/bxi-davinci.js"></script>
+<script type="text/javascript">
+  // Hide the vertical link and remix button in PWAs
+  if ((window.matchMedia('(display-mode: standalone)').matches) || (window.navigator.standalone) || document.referrer.includes('android-app://')) {
+    document.querySelector('.verticals-link').style.display = 'none';
+    
+    const glitchButton = document.querySelector('.glitch-button');
+    if (glitchButton) {
+      glitchButton.style.display = 'none';
+    }
+  }
+</script>
