@@ -53,15 +53,15 @@
         "shows": [
           {
             "background_image": "/sports/boxing.png",
-            "title": "Watch Live: Boxing Championship 2022"
+            "title": "Watch Live: Boxing Championship {{currentYear}}"
           },
           {
             "background_image": "/sports/american-football.png",
-            "title": "Watch Live: NFL Draft 2022"
+            "title": "Watch Live: NFL Draft {{currentYear}}"
           },
           {
             "background_image": "/sports/horse-racing.png",
-            "title": "Replay: Champion of Champions 2021"
+            "title": "Replay: Champion of Champions {{lastYear}}"
           }
         ]
       },
@@ -110,7 +110,7 @@
         "Help"
       ],
       "phone_number": "800 568 9678",
-      "copyright": "© BXSports, 2022. All rights reserved."
+      "copyright": "© BXSports, {{currentYear}}. All rights reserved."
     }
   }
 }

@@ -91,10 +91,23 @@ function importWithCacheBusting(fileLocation) {
  */
 function getSettingsFile(vertical) {
     const settingsFile = `./src/pages/${vertical}/settings.json`;
+    const date = new Date();
+
+    // These key/value pairs are used to find and replace keys in the settings.json files, 
+    // e.g. '{{currentYear}}' will be replaced with 2023 (or current year)
+    // can add additional replace keys here if needed
+    const replaceKeys = {
+        currentYear: date.getFullYear(),
+        lastYear: date.getFullYear() - 1,
+    };
   
     // Generic vertical doesn't have a settings file (or an admin page, so don't care about username)
     if (fs.existsSync(settingsFile)) {
-       return JSON.parse(fs.readFileSync(settingsFile));
+        let fileStr = fs.readFileSync(settingsFile, 'utf8');
+        Object.keys(replaceKeys).forEach(key => {
+            fileStr = fileStr.replaceAll(`{{${key}}}`, replaceKeys[key]);
+        });
+        return JSON.parse(fileStr);
     }
 
     return {};

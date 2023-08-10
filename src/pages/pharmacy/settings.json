@@ -74,17 +74,17 @@
             {
               "banner": "Accepted",
               "name": "Registration document N2394",
-              "date": "10/25/2022"
+              "date": "10/25/{{currentYear}}"
             },
             {
               "banner": "Accepted",
               "name": "September delivery list",
-              "date": "10/20/2022"
+              "date": "10/20/{{currentYear}}"
             },
             {
               "banner": "Accepted",
               "name": "August delivery list",
-              "date": "9/18/2022"
+              "date": "9/18/{{currentYear}}"
             }
           ],
           "button": "Add Application"
@@ -98,7 +98,7 @@
         "Help and Support",
         "Privacy Policy"
       ],
-      "copyright": "© BXPharmacy, 2022. All rights reserved."
+      "copyright": "© BXPharmacy, {{currentYear}}. All rights reserved."
     }
   }
 }

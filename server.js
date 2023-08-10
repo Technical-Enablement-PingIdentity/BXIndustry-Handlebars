@@ -201,6 +201,30 @@ helpers.getVerticals().forEach(vertical => {
     return reply.view(`src/pages/${vertical}/dashboard.hbs`, viewParams);
   });
 
+  // Manifest file so each vertical can be installed as a PWA
+  fastify.get(`/${vertical}/manifest.json`, function (_, reply) {
+    const name = `BX${vertical.charAt(0).toUpperCase()}${vertical.slice(1)}`;
+    reply.code(200).send({
+      name: name,
+      short_name: name,
+      display: 'standalone',
+      start_url: `/${vertical}`,
+      scope: `/${vertical}`,
+      icons: [
+        {
+          src: 'apple-touch-icon.png',
+          type: 'image/png',
+          sizes: '192x192'
+        },
+                {
+          src: 'apple-touch-icon.png',
+          type: 'image/png',
+          sizes: '512x512'
+        }
+      ]
+    });
+  });
+
   // Vertical Dialog Examples Page
   fastify.get(`/${vertical}/dialog-examples`, function (_, reply) {
     const settings = helpers.getSettingsFile(vertical).settings;
@@ -238,6 +262,7 @@ fastify.setNotFoundHandler((_, reply) => {
 // Please note .env parameters are manually whitelisted in resources/handlebars.js for security reasons
 function getViewParams(vertical) {
   let params = helpers.getSettingsFile(vertical);
+  params.vertical = vertical;
   params.env = bxiEnvVars;
   return params;
 }
