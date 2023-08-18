@@ -62,11 +62,11 @@ With BXIndustry, you can choose a vertical you would like to use, build your wor
 
 ## Standard Flows<a name="standard-flows"></a>
 
-BXIndustry now comes with standard authentication and registration flows!
+BXIndustry comes with standard authentication and registration flows! The flow JSON exports are included in your remix, you can download them from the Helpful Links modal on the /shortcuts page, you can access this page by clicking the gear icon on the bottom left of each vertical. The zip file that is downloaded is located at public/DXI-DV-Flows.zip in your repository.
 
 Registration will ask for a valid email, password, first name and last name. Successful completion of registration will register the user into our PingOne environment, enable MFA for the user, and enroll the provided email as an MFA device.
 
-Authentication will ask for the previously registered email and password, then prompt the user to complete MFA with the enrolled PingOne MFA email device. Successful completion of authentication will land the user on the dashboard page of the vertical they are on and display their username.
+Authentication will ask for the previously registered email and password, then prompt the user to complete MFA with the enrolled PingOne MFA email device. Successful completion of authentication will land the user on the dashboard page of the vertical they are on and display their username. The dashboard page contains a simple profile management flow, this showcases the PingOne session integration with DaVinci.
 
 ## Remixing<a name="remixing"></a>
 
