@@ -62,7 +62,7 @@ With BXIndustry, you can choose a vertical you would like to use, build your wor
 
 ## Standard Flows<a name="standard-flows"></a>
 
-BXIndustry comes with standard authentication and registration flows! The flow JSON exports are included in your remix, you can download them from the Helpful Links modal on the /shortcuts page, you can access this page by clicking the gear icon on the bottom left of each vertical. The zip file that is downloaded is located at public/DXI-DV-Flows.zip in your repository.
+BXIndustry comes with standard authentication and registration flows! The flow JSON exports are included in your remix. You can download them from the Helpful Links modal on the /shortcuts page which can be accessed by clicking the gear icon on the bottom left of each vertical. The zip file that is downloaded is located at public/DXI-DV-Flows.zip in your repository.
 
 Registration will ask for a valid email, password, first name and last name. Successful completion of registration will register the user into our PingOne environment, enable MFA for the user, and enroll the provided email as an MFA device.
 
