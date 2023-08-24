@@ -135,7 +135,7 @@ fastify.get('/setCookie', (request, reply) => {
   reply.setCookie('DV-ST', sessionToken, {
     secure: true,
     httpOnly: 'httpOnly',
-    sameSite: 'lax',
+    sameSite: 'strict',
     path: '/',
     maxAge: sessionTokenMaxAge,
   });
