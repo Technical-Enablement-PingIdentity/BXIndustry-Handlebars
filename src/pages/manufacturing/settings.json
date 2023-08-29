@@ -73,7 +73,7 @@
         "Contacts"
       ],
       "phone_number": "800 568 9678",
-      "copyright": "© BXManufacturing, 2022. All rights reserved."
+      "copyright": "© BXManufacturing, {{currentYear}}. All rights reserved."
     }
   }
 }

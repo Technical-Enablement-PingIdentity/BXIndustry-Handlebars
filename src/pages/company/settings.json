@@ -65,7 +65,7 @@
         "image": "/company/vertical-chart.svg",
         "first_legend": "Century Link",
         "second_legend": "Lennar",
-        "date": "March 2023"
+        "date": "March {{currentYear}}"
       },
       "pie_chart": {
         "title": "Successful Deals",
@@ -105,7 +105,7 @@
         "FAQs",
         "Contact"
       ],
-      "copyright": "© BXCompany, 2022.  All rights reserved."
+      "copyright": "© BXCompany, {{currentYear}}.  All rights reserved."
     }
   }
 }

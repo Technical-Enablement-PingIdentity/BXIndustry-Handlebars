@@ -110,7 +110,7 @@
         "Privacy"
       ],
       "phone_number": "800 568 9678",
-      "copyright": "© BXVolunteer, 2022.  All rights reserved."
+      "copyright": "© BXVolunteer, {{currentYear}}.  All rights reserved."
     }
   }
 }

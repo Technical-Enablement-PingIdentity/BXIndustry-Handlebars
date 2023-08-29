@@ -110,7 +110,7 @@
         "Help & Support"
       ],
       "phone_number": "800 568 9678",
-      "copyright": "© BXEducation, 2022. All rights reserved."
+      "copyright": "© BXEducation, {{currentYear}}. All rights reserved."
     }
   }
 }

@@ -1,6 +1,8 @@
 @import "../common/mixins";
 
 &.finance {
+  overflow-x: hidden;
+
   @include breakpoint-lg {
     .bxi-auth-buttons .bxi-button {
       border-radius: 0;
@@ -12,6 +14,10 @@
         padding-right: 0;
       }
     }
+  }
+
+  .navbar {
+    background-color: #fff;
   }
 
   &.home {
@@ -49,6 +55,10 @@
           top: 20px;
           right: -217px;
         }
+      }
+
+      @include breakpoint-lt-md {
+        overflow: hidden;
       }
     }
 
