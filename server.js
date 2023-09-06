@@ -49,6 +49,16 @@ fastify.register(import('@fastify/cookie'));
  
 initHandlebars(fastify);
 
+// Redirect http traffic to https, glitch doesn't handle this OOTB
+fastify.addHook('onRequest', (request, reply, done) => {
+  // Don't do this when running locally or if already on https
+  if (request.hostname.includes(':5000') || request.headers['x-forwarded-proto'].match(/https/g)) {
+    done();
+  } else {
+    reply.redirect(302, `https://${request.hostname}${request.url}`);
+  }
+}); 
+
 // Our home page route
 // Redirects to the default vertical (if set in environment variables) or falls back on generic
 fastify.get('/', function (request, reply) {
