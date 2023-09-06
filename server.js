@@ -222,12 +222,12 @@ helpers.getVerticals().forEach(vertical => {
       scope: `/${vertical}`,
       icons: [
         {
-          src: 'apple-touch-icon.png',
+          src: 'apple-touch-icon-192.png',
           type: 'image/png',
           sizes: '192x192'
         },
                 {
-          src: 'apple-touch-icon.png',
+          src: 'apple-touch-icon-512.png',
           type: 'image/png',
           sizes: '512x512'
         }
