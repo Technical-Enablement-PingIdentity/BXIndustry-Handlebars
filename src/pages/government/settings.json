@@ -2,10 +2,10 @@
   "settings": {
     "title": "BXGovernment",
     "images": {
-      "favicon": "/government/favicon.ico",
-      "apple_touch_icon": "/government/apple-touch-icon.png",
-      "logo": "/government/logo.png",
-      "dialog_logo": "/government/auth-dialog-logo.png"
+      "favicon": "/government/favicon.png",
+      "apple_touch_icon": "/government/apple-touch-icon-192.png",
+      "logo": "/government/logo.svg",
+      "dialog_logo": "/government/logo.svg"
     },
     "home_page": {
       "header": {

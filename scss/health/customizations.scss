@@ -1,6 +1,10 @@
 @import "../common/mixins";
 
 &.health {
+  .navbar-brand img {
+    margin-left: -.5rem;
+  }
+
   .bxi-button, 
   .bxi-link {
     font-family: var(--bxi-secondary-font);

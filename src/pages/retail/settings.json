@@ -2,10 +2,10 @@
   "settings": {
     "title": "BXRetail",
     "images": {
-      "favicon": "/retail/favicon.ico",
-      "apple_touch_icon": "/retail/apple-touch-icon.png",
+      "favicon": "/retail/favicon.png",
+      "apple_touch_icon": "/retail/apple-touch-icon-192.png",
       "logo": "/retail/logo-white.svg",
-      "dialog_logo": "/retail/auth-dialog-logo.svg"
+      "dialog_logo": "/retail/logo.svg"
     },
     "header": {
       "links": ["My Account", "Weekly Deals", "Extraordinary Club", "Departments", "The BXCard"]

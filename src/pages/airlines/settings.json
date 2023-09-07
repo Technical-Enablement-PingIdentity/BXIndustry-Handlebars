@@ -2,10 +2,10 @@
   "settings": {
     "title": "BXAirlines",
     "images": {
-      "favicon": "/airlines/favicon.ico",
-      "apple_touch_icon": "/airlines/apple-touch-icon.png",
-      "logo": "/airlines/logo.png",
-      "dialog_logo": "/airlines/auth-dialog-logo.png"
+      "favicon": "/airlines/favicon.png",
+      "apple_touch_icon": "/airlines/apple-touch-icon-192.svg",
+      "logo": "/airlines/logo.svg",
+      "dialog_logo": "/airlines/logo.svg"
     },
     "header": {
       "links": [
