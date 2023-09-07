@@ -2,10 +2,10 @@
   "settings": {
     "title": "BXPharmacy",
     "images": {
-      "favicon": "/pharmacy/favicon.ico",
-      "apple_touch_icon": "/pharmacy/apple-touch-icon.png",
-      "logo": "/pharmacy/logo.png",
-      "dialog_logo": "/pharmacy/auth-dialog-logo.png"
+      "favicon": "/pharmacy/favicon.png",
+      "apple_touch_icon": "/pharmacy/apple-touch-icon-192.png",
+      "logo": "/pharmacy/logo.svg",
+      "dialog_logo": "/pharmacy/logo.svg"
     },
     "header": {
       "links": [

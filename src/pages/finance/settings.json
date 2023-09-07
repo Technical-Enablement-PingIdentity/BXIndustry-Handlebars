@@ -2,8 +2,8 @@
   "settings": {
     "title": "BXFinance",
     "images": {
-      "favicon": "/finance/favicon.ico",
-      "apple_touch_icon": "/finance/apple-touch-icon.png",
+      "favicon": "/finance/favicon.png",
+      "apple_touch_icon": "/finance/apple-touch-icon-192.png",
       "logo": "/finance/logo.svg",
       "dialog_logo": "/finance/logo.svg"
     },
