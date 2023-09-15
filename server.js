@@ -19,12 +19,14 @@ import fetch from 'node-fetch';
 import helpers from './resources/helpers.js';
 import { initHandlebars } from './resources/handlebars.js';
 import Logger from './public/js/logger.js';
+import { initDev } from './resources/init-dev.js';
 
 // Initialize variables that are no longer available by default in Modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Initialize internal variables
+const port = process.env.PORT || 5000;
 const bxiEnvVars = helpers.getBxiEnvironmentVariables();
 const verticals = helpers.getVerticals();
 
@@ -32,11 +34,18 @@ const debug = process.env.BXI_DEBUG_LOGGING === 'true';
 
 const logger = new Logger(debug);
 
+let https;
+
+if (process.argv.includes('--dev')) {
+  https = initDev(port)
+}
+
 // Require the fastify framework and instantiate it
 const fastify = Fastify({
   // Set this to true for detailed logging
   logger: debug,
-  ignoreTrailingSlash: true
+  ignoreTrailingSlash: true,
+  https,
 });
 
 // Setup our static files (images and SCSS)
@@ -279,7 +288,7 @@ function getViewParams(vertical) {
 
 // Run the server and report out to the logs
 fastify.listen(
-  { port: process.env.PORT || 5000, host: '0.0.0.0' },
+  { port, host: '0.0.0.0' },
   function (err, address) {
     if (err) {
       fastify.log.error(err);

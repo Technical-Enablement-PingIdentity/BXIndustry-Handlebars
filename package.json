@@ -5,7 +5,8 @@
   "description": "A simple Node app built on fastify, instantly up and running. Built to be remixed on Glitch.com.",
   "main": "server.js",
   "scripts": {
-    "start": "concurrently --kill-others \"sass --watch scss/index.scss:public/styles.css\" \"node server.js\""
+    "start": "concurrently --kill-others \"sass --watch scss/index.scss:public/styles.css\" \"node server.js\"",
+    "dev": "concurrently --kill-others \"sass --watch scss/index.scss:public/styles.css\" \"node server.js --dev\""
   },
   "dependencies": {
     "@fastify/cookie": "^8.3.0",
