@@ -21,9 +21,6 @@
     <header class="masthead" style="background-image: url('https://cdn.glitch.me/e527ecf6-cfaf-462c-9a0f-da0c77633414%2Fhome-bg.jpg?v=1636660805462')">
       <nav class="navbar fixed-top navbar-expand">
         <div class="container mt-4">
-          <div class="navbar-brand">
-            {{> remix}}
-          </div>
           <div>
             <ul class="bxi-auth-buttons bxi-auth-buttons--link navbar-nav ms-auto py-4 py-lg-0">
               {{!-- See src/home-nav-buttons.hbs to update auth buttons --}}
@@ -47,6 +44,7 @@
         <hr class="my-4" />
       </div>
     </div>
+    {{> remix}}
     {{> modal}}
   </body>
 </html>
