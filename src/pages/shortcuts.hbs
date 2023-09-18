@@ -79,7 +79,8 @@
                 <li class="mb-2"><a href="/BXI-DV-Flows.zip" download="DaVinci Flow JSON">Download</a> the default flows you see in BXIndustry</li>
                 <li class="mb-2">View the <a href="/docs">BXI Developer Docs</a> to learn how to navigate HTML and CSS in BXIndustry</li>
                 <li class="mb-2">Use the drag and drop <a href="https://bxi-form-builder.glitch.me/" target="_blank">BXI Form Builder</a> that leverages BXI CSS for custom HTML templates</a></li>
-                <li>View the primary source of authoritative DV Flows provided by Ping Identity in the <a href="https://support.pingidentity.com/s/marketplace-integration-home-page#sort=relevancy&f:@sfintegrationtypec=[Flow%20Template]" target="_blank">Flow Integration Directory</a>
+                <li class="mb-2">View the primary source of authoritative DV Flows provided by Ping Identity in the <a href="https://support.pingidentity.com/s/marketplace-integration-home-page#sort=relevancy&f:@sfintegrationtypec=[Flow%20Template]" target="_blank">Flow Integration Directory</a>
+                <li><a href="#" id="clear-local">Clear Local Storage</a><span class="d-none text-success ms-3" id="local-cleared">&#9989; Done!</span></li>
                 </li>
               </ul>
             </div>
@@ -128,6 +129,16 @@
   {{> remix}}
   <script type="text/javascript">
     (() => {
+      // Setup clear localStorage button in helpful links modal
+      document.getElementById('clear-local').addEventListener('click', () => {
+        localStorage.clear();
+        const cleared = document.getElementById('local-cleared');
+        cleared.classList.remove('d-none');
+        setTimeout(() => {
+          cleared.classList.add('d-none');
+        }, 2000)
+      });
+
       // We want to prevent the back button navigating if the page was not accessed via a link
       // technically this COULD take you outside BXI if someone links to this page, but that's 
       // an edge case and would probably be okay anyway. We need to leave the button and 
