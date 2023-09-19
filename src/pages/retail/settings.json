@@ -71,10 +71,10 @@
         ],
         "text": "Shop at our Extraordinary Club Partners",
         "logos": [
-          "logo-bxclothes.svg",
-          "logo-bxhome.svg",
-          "logo-bxoffice.svg",
-          "logo-bxtech.svg"
+          "/retail/logo-bxclothes.svg",
+          "/retail/logo-bxhome.svg",
+          "/retail/logo-bxoffice.svg",
+          "/retail/logo-bxtech.svg"
         ]
       },
       "portal": {

@@ -117,9 +117,32 @@
       color: var(--bxi-primary-color);
     }
 
+    .bxi-portal-sidebar {
+      margin-top: 0;
+
+      @include breakpoint-lg {
+        margin-top: 87px;
+      }
+    }
+
+    .portal-sidebar-dropdown {
+      box-shadow: 0px 1px 8px 0px #0000001A;
+    }
+
     .portal-sidebar-logo {
-      height: 24px;
-      width: auto;
+      svg {
+        height: 22px;
+        width: auto;
+        margin: 0 4px;
+        
+        @include color-icon(black)
+      }
+    }
+
+    .bxi-search-icon {
+      transform: scale(.75);
+      top: 8px;
+      left: 4px;
     }
 
     .product-title {

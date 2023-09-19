@@ -50,7 +50,7 @@
     <section class="bxi-bg-primary">
       <div class="container py-3">
         <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-between align-items-center">
-          <h2 class="mb-0 bxi-welcome-color">{{settings.dashboard.welcome}} <span id="username-container">{{settings.dashboard.username}}</span></h2>
+          <h2 class="mb-0 bxi-welcome-color bxi-ff-secondary">{{settings.dashboard.welcome}} <span id="username-container">{{settings.dashboard.username}}</span></h2>
           <div class="d-flex flex-column flex-md-row justify-content-end bxi-dashboard-buttons">
             {{!-- See src/dashboard-buttons.hbs to update dashboard buttons --}}
             {{> dashboardButtons}}
@@ -62,50 +62,41 @@
       <div class="container">
         <div class="row mt-4">
           <div class="col-lg-4 order-2 order-lg-1 mb-5">
-            <ul class="ls-none ps-0 mb-4">
+            <ul class="ls-none ps-0 mb-4 bxi-portal-sidebar">
               {{#each settings.dashboard.sidebar.links}}
-              <li class="mb-2 ps-5 p-3 bxi-component-bg-color rounded-3 position-relative portal-sidebar-dropdown cursor-pointer">
+              <li class="mb-2 ps-5 py-3 px-3 bxi-component-bg-color position-relative portal-sidebar-dropdown cursor-pointer">
                 {{this}}
               </li>
               {{/each}}
             </ul>
-            <p class="text-center">
+            <p class="text-center bxi-ff-secondary fs-7">
               {{settings.dashboard.sidebar.text}}
             </p>
             <div class="d-flex justify-content-center flex-wrap">
               {{#each settings.dashboard.sidebar.logos}}
-              <img class="portal-sidebar-logo me-4" src="{{this}}" />
+                <div class="portal-sidebar-logo mx-1">
+                  {{{inlineSvg this }}}
+                </div>
               {{/each}}
             </div>
           </div>
           <div class="col-lg-8 order-1 order-lg-2">
             <div class="row mb-3">
-              <div class="col-sm-6 text-center text-sm-start">
-                <h4 class="mb-3 mb-sm-0 mt-1">{{settings.dashboard.portal.title}}</h4>
+              <div class="col-sm-4 text-center text-sm-start">
+                <h4 class="mb-3 mb-sm-0 mt-1 bxi-ff-secondary fw-bold">{{settings.dashboard.portal.title}}</h4>
               </div>
-              <div class="col-sm-6 d-flex justify-content-center justify-content-sm-end">
-                <div class="portal-header-dropdown bxi-component-bg-color fst-italic py-2 ps-3 pe-5 rounded-1 position-relative cursor-pointer">
-                  {{settings.dashboard.portal.dropdown_placeholder}}
+              <div class="col-sm-8 d-flex justify-content-center justify-content-sm-end">
+                <div class="position-relative">
+                  {{> searchIcon class="position-absolute bxi-search-icon bxi-icon-color-primary"}}
+                  <input class="rounded p-1 ps-4" type="text" placeholder="Search" />
+                  <span class="bxi-color-primary ms-2">
+                    {{> sortIcon class="bxi-icon-color-primary"}}
+                    Sort
+                  </span>
                 </div>
               </div>
             </div>
-            <div class="p-4 bxi-component-bg-color">
-              <div class="row">
-                {{#each settings.dashboard.portal.products}}
-                <div class="col-sm-6 col-lg-4 mb-4">
-                  <img class="w-100 h-auto" src="{{image}}" alt="{{title}}" />
-                  <p class="bxi-color-primary mb-1 product-title overflow-hidden">{{title}}</p>
-                  <img src="{{rating_image}}" alt="{{title}} rating" />
-                  <p class="fs-3 mb-2 fw-light">{{price}} <small class="fs-8 fw-light">{{price_subtext}}</small></p>
-                  {{#each delivery_options}}
-                  <p class="fs-8 fw-light mb-2">{{this}}</p>
-                  {{/each}}
-                  <button class="bxi-button bxi-button--md mt-3">{{> cartIcon class="me-2 cart-icon"}}Add to Cart</button>
-                </div>
-                {{/each}}
-              </div>
-            </div>
-            <div class="row mt-3 mb-4 px-4 fs-7">
+            <div class="row mt-3 pe-4 fs-7 mb-2">
               <div class="col-md-4 text-center text-md-start text-truncate">
                 Showing 1-6 of 234 results
               </div>
@@ -121,8 +112,25 @@
                 </div>
               </div>
             </div>
+            <div class="row mb-3 g-3">
+              {{#each settings.dashboard.portal.products}}
+              <div class="col-sm-6 col-xxl-4">
+                <div class="bxi-component-bg-color p-3">
+                  <img class="w-100 h-auto" src="{{image}}" alt="{{title}}" />
+                  <p class="bxi-color-primary mb-1 product-title overflow-hidden">{{title}}</p>
+                  <img src="{{rating_image}}" alt="{{title}} rating" />
+                  <p class="fs-3 mb-2 fw-light">{{price}} <small class="fs-8 fw-light">{{price_subtext}}</small></p>
+                  {{#each delivery_options}}
+                  <p class="fs-8 fw-light mb-2">{{this}}</p>
+                  {{/each}}
+                  <button class="bxi-button bxi-button--md mt-3">{{> cartIcon class="me-2 cart-icon"}}Add to Cart</button>
+                </div>
+              </div>
+              {{/each}}
+            </div>
+
             {{#if env.BXI_DASHBOARD_POLICY_ID}}
-            <div class="mb-3 bxi-component-bg-color" data-dv-flow="static" data-policy-id="{{env.BXI_DASHBOARD_POLICY_ID}}"></div>
+            <div class="mb-4 bxi-component-bg-color" data-dv-flow="static" data-policy-id="{{env.BXI_DASHBOARD_POLICY_ID}}"></div>
             {{/if}}
           </div>
         </div>

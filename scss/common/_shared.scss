@@ -9,7 +9,7 @@
 
   .portal-sidebar-dropdown {
     &::before {
-      @include triangle(4px, #000, 'down') {
+      @include triangle(4px, var(--bxi-primary-color), 'down') {
         top: 26px;
         left: 22px;
       }
