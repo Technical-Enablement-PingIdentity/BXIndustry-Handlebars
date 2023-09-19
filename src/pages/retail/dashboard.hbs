@@ -6,10 +6,10 @@
   <body onload="bxi.pageLoad()" class="bxi retail dashboard">
     {{> variables}}
     <header>
-      <nav class="navbar navbar-expand-lg pt-lg-4 flex-wrap navbar-dark bxi-bg-primary">
+      <nav class="navbar navbar-expand-lg flex-wrap bxi-component-bg-color py-3">
         <div class="container">
           <div class="bxi-nav">
-            <a class="bxi-nav-toggle d-lg-none" role="button">
+            <a class="bxi-nav-toggle d-xl-none" role="button">
               {{> hamburgerIcon }}
             </a>
             <ul class="bxi-nav-links bxi-bg-secondary">
@@ -23,35 +23,35 @@
               <img src="{{settings.images.logo}}" alt="Logo" />
             </a>
           </div>
-          <div class="d-flex flex-row mt-2 position-relative">
-            {{> notificationIcon class="mt-1 me-3 d-lg-block d-none" }}
-            {{> pinIcon class="mt-1 me-3 d-lg-block d-none" }}
-            {{> cartIcon class="mt-1 me-3 d-lg-block d-none" }}
-            <div class="bxi-user-icon bxi-bg-primary pb-3 pb-lg-0 mt-2 mt-lg-0">
+          <div class="d-none d-xl-block flex-grow-1 ms-3">
+            <ul class="navbar-nav mt-2">
+              {{#each settings.header.links}}
+              <li class="nav-item pb-2">
+                <a class="bxi-link bxi-link--primary fs-6 ps-0 pe-lg-4">{{this}}</a>
+              </li>
+              {{/each}}
+            </ul>
+          </div>
+          <div class="d-flex flex-row position-relative">
+            {{> bellSolidIcon class="bxi-icon-color-primary me-3 d-lg-block d-none" }}
+            {{> pinSolidIcon class="bxi-icon-color-primary me-3 d-lg-block d-none" }}
+            {{> cartIcon class="bxi-icon-color-primary me-3 d-lg-block d-none" }}
+            <div class="bxi-user-icon bxi-bg-primary">
               {{> userIcon }}
             </div>
-            <div class="bxi-auth-buttons bxi-auth-buttons--white-link bxi-bg-secondary bxi-bg-lg-transparent p-2 p-lg-0 px-lg-3">
-              {{> userIcon class="d-none d-lg-inline me-3 mt-1"}}
+            <div class="bxi-auth-buttons bxi-auth-buttons--primary-link bxi-bg-secondary bxi-bg-lg-transparent p-2 p-lg-0 px-lg-3">
+              {{> userIcon class="d-none bxi-icon-color-primary d-lg-inline me-3 bxi-retail-user-icon"}}
               <button onclick="bxi.logout()" class="bxi-button">Log Out</button>
             </div>
           </div>
         </div>
-        <div class="container">
-          <div class="bxi-navbar bxi-bg-transparent mt-2 d-none d-lg-block">
-            <ul class="navbar-nav p-2 p-lg-0 py-lg-4">
-              {{#each settings.header.links}}
-              <li class="nav-item pb-2"><a class="bxi-link bxi-link--white fs-6 ps-0 pe-lg-4">{{this}}</a></li>
-              {{/each}}
-            </ul>
-          </div>
-        </div>
       </nav>
     </header>
-    <section class="bxi-component-bg-color">
+    <section class="bxi-bg-primary">
       <div class="container py-3">
         <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-between align-items-center">
-          <h2>{{settings.dashboard.welcome}} <span id="username-container">{{settings.dashboard.username}}</span></h2>
-          <div class="d-flex flex-column flex-md-row justify-content-end">
+          <h2 class="mb-0 bxi-welcome-color">{{settings.dashboard.welcome}} <span id="username-container">{{settings.dashboard.username}}</span></h2>
+          <div class="d-flex flex-column flex-md-row justify-content-end bxi-dashboard-buttons">
             {{!-- See src/dashboard-buttons.hbs to update dashboard buttons --}}
             {{> dashboardButtons}}
           </div>
@@ -100,7 +100,7 @@
                   {{#each delivery_options}}
                   <p class="fs-8 fw-light mb-2">{{this}}</p>
                   {{/each}}
-                  <button class="bxi-button bxi-button--lg mt-3">{{> cartIcon class="me-2 cart-icon"}}Add</button>
+                  <button class="bxi-button bxi-button--md mt-3">{{> cartIcon class="me-2 cart-icon"}}Add to Cart</button>
                 </div>
                 {{/each}}
               </div>
