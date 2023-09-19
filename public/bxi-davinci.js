@@ -186,6 +186,12 @@ import registerFunctions from '/register-functions.js';
       useModal: false,
       successCallback: async response => {
         logger.log('DaVinci flow successful', response);
+
+        // If there is sessionToken, update the secure http only cookie via the server endpoint
+        if (response.sessionToken && response.sessionTokenMaxAge) {      
+          await fetch(`/setCookie?sessionToken=${response.sessionToken}&sessionTokenMaxAge=${response.sessionTokenMaxAge}`);
+        }    
+
         if (widgetWrapper.SuccessCallback) {
           logger.log('SuccessCallback exists on widget wrapper');
           await bxi.callFunction(widgetWrapper.SuccessCallback, response);

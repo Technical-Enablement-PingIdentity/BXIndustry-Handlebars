@@ -169,7 +169,7 @@ fastify.get('/logout', (_, reply) => {
 
 fastify.get('/docs', (request, reply) => {
   const vertical = request.query.vertical || 'company';
-  const icons = fs.readdirSync('src/partials/icons').map(file => file.replace('.hbs', ''));
+  const icons = fs.readdirSync('src/partials/icons').map(file => file.replace('.hbs', '').replace(/-./g, x=>x[1].toUpperCase())); // remove file extension and conver kebab-case to camelCase
   return reply.view('src/docs/index.hbs', {
     selectedVertical: vertical,
     verticals: verticals.filter(v => v !== 'generic'),
