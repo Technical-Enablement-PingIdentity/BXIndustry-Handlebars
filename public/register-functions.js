@@ -51,11 +51,7 @@ function registerFunctions(logger) {
 
   bxi.registerFunction('defaultAuthnSuccess', async response => {
     logger.log('defaultAuthnSuccess called with DV response', response);
-
-    if (response.sessionToken && response.sessionTokenMaxAge) {      
-      await fetch(`/setCookie?sessionToken=${response.sessionToken}&sessionTokenMaxAge=${response.sessionTokenMaxAge}`);
-    }
-
+    
     // Check for username in response, if present set it in sessionStorage and redirect to the dashboard
     const username = window.bxi.getParameterCaseInsensitive(response.additionalProperties, 'username');
     if (username) {
