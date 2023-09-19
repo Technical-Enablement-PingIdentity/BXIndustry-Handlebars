@@ -35,7 +35,7 @@
       width: 92px;
       height: 92px;
     }
-    
+
     .bxi-shop-hero {
       border: 2px solid var(--bxi-retail-hero-border-color);
       border-radius: .5rem;
@@ -130,7 +130,7 @@
         width: auto;
         margin: 0 4px;
         
-        @include color-icon(black)
+        @include color-icon(#000);
       }
     }
 
