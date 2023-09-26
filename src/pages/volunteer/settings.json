@@ -2,10 +2,10 @@
   "settings": {
     "title": "BXVolunteer",
     "images": {
-      "favicon": "/volunteer/favicon.ico",
-      "apple_touch_icon": "/volunteer/apple-touch-icon.png",
-      "logo": "/volunteer/logo.png",
-      "dialog_logo": "/volunteer/auth-dialog-logo.png"
+      "favicon": "/volunteer/favicon.png",
+      "apple_touch_icon": "/volunteer/apple-touch-icon-192.png",
+      "logo": "/volunteer/logo.svg",
+      "dialog_logo": "/volunteer/logo.svg"
     },
     "header": {
       "links": ["Volunteering", "Directions", "About Foundation", "Reports", "News"]
@@ -110,7 +110,7 @@
         "Privacy"
       ],
       "phone_number": "800 568 9678",
-      "copyright": "© BXVolunteer, 2022.  All rights reserved."
+      "copyright": "© BXVolunteer, {{currentYear}}.  All rights reserved."
     }
   }
 }

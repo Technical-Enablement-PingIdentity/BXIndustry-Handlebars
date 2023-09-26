@@ -2,10 +2,10 @@
   "settings": {
     "title": "BXInsurance",
     "images": {
-      "favicon": "/insurance/favicon.ico",
-      "apple_touch_icon": "/insurance/apple-touch-icon.png",
-      "logo": "/insurance/logo.png",
-      "dialog_logo": "/insurance/auth-dialog-logo.png"
+      "favicon": "/insurance/favicon.png",
+      "apple_touch_icon": "/insurance/apple-touch-icon-192.png",
+      "logo": "/insurance/logo.svg",
+      "dialog_logo": "/insurance/logo.svg"
     },
     "header": {
       "links": ["Private Clients", "Corporate Clients", "Partners", "Insurance Cases", "Personal Manager", "Contracts", "About", "Career"],
@@ -90,7 +90,7 @@
         "Privacy"
       ],
       "phone_number": "800 568 9678",
-      "copyright": "© BXInsurance, 2022. All rights reserved."
+      "copyright": "© BXInsurance, {{currentYear}}. All rights reserved."
     }
   }
 }

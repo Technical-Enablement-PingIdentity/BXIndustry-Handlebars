@@ -2,8 +2,8 @@
   "settings": {
     "title": "BXHealth",
     "images": {
-      "favicon": "/health/favicon.ico",
-      "apple_touch_icon": "/health/apple-touch-icon.png",
+      "favicon": "/health/favicon.png",
+      "apple_touch_icon": "/health/apple-touch-icon-192.png",
       "logo": "/health/logo.svg",
       "dialog_logo": "/health/logo.svg",
       "dashboard_logo": "/health/logo-white.svg"
@@ -129,7 +129,7 @@
       "phone_number": "800.543.2276",
       "email": "help@bxfinance.com",
       "chat": "Chat with Us",
-      "copyright": "© BXHealth, 2022"
+      "copyright": "© BXHealth, {{currentYear}}"
     }
   }
 }

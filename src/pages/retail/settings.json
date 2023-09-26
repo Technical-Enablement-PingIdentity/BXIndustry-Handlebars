@@ -2,27 +2,28 @@
   "settings": {
     "title": "BXRetail",
     "images": {
-      "favicon": "/retail/favicon.ico",
-      "apple_touch_icon": "/retail/apple-touch-icon.png",
-      "logo": "/retail/logo-white.svg",
-      "dialog_logo": "/retail/auth-dialog-logo.svg"
+      "favicon": "/retail/favicon.png",
+      "apple_touch_icon": "/retail/apple-touch-icon-192.png",
+      "logo": "/retail/logo.svg",
+      "dialog_logo": "/retail/logo.svg"
     },
     "header": {
       "links": ["My Account", "Weekly Deals", "Extraordinary Club", "Departments", "The BXCard"]
     },
     "home_page": {
       "sale_tile": {
+        "badge": "20-40% OFF",
         "title": "Electronics Sale",
         "description": "Major savings on favorite brands",
         "button": "Browse Deals",
-        "image": "/retail/home-hero-electronics-bg.jpg"
+        "image": "/retail/headphones.png"
       },
       "shop_tile": {
-        "title": "Shop Manolo Blahniks",
+        "title": "Shop the Latest Trends",
         "subtitle": "Jimmy Choo, Gucci, Miu Miu and more",
         "description": "Swap something new for the season",
         "button": "What's New",
-        "image": "/retail/home-hero-office-bg.png"
+        "image": "/retail/trends.png"
       },
       "banner": {
         "text": "Shop at our Extraordinary Club Partners",
@@ -39,19 +40,19 @@
             "title": "The BXRetail App",
             "description": "Shop, browse and manage your account.",
             "link": "Coming Soon",
-            "image": "/retail/home-features-app.png"
+            "icon": "/retail/apps-icon.svg"
           },
           {
             "title": "Join the Extraordinary Club",
             "description": "Exclusive savings and services across all our BXRetail partners.",
             "link": "Meet Our People",
-            "image": "/retail/home-features-club.png"
+            "icon": "/retail/account-icon.svg"
           },
           {
             "title": "We Install Anything",
             "description": "Choose professional partner services for any product we sell.",
             "link": "Learn More",
-            "image": "/retail/home-features-service.png"
+            "icon": "/retail/wrench-icon.svg"
           }
         ]
       }
@@ -70,10 +71,10 @@
         ],
         "text": "Shop at our Extraordinary Club Partners",
         "logos": [
-          "logo-bxclothes.svg",
-          "logo-bxhome.svg",
-          "logo-bxoffice.svg",
-          "logo-bxtech.svg"
+          "/retail/logo-bxclothes.svg",
+          "/retail/logo-bxhome.svg",
+          "/retail/logo-bxoffice.svg",
+          "/retail/logo-bxtech.svg"
         ]
       },
       "portal": {
@@ -152,7 +153,7 @@
       "phone_number": "800.543.2276",
       "email": "help@bxretail.com",
       "chat": "Chat with Us",
-      "copyright": "© BXRetail, 2022"
+      "copyright": "© BXRetail, {{currentYear}}"
     }
   }
 }

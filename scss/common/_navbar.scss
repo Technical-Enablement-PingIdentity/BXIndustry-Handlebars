@@ -16,6 +16,11 @@
 
 .navbar {
   flex-direction: column;
+
+  &-brand {
+    height: 45px;
+    width: auto;
+  }
 }
 
 .static-user-icon {

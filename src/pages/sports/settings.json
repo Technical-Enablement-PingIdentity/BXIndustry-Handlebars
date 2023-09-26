@@ -2,10 +2,10 @@
   "settings": {
     "title": "BXSports",
     "images": {
-      "favicon": "/sports/favicon.ico",
-      "apple_touch_icon": "/sports/apple-touch-icon.png",
-      "logo": "/sports/logo.png",
-      "dialog_logo": "/sports/auth-dialog-logo.png"
+      "favicon": "/sports/favicon.png",
+      "apple_touch_icon": "/sports/apple-touch-icon-192.png",
+      "logo": "/sports/logo.svg",
+      "dialog_logo": "/sports/logo.svg"
     },
     "header": {
       "links": [
@@ -53,15 +53,15 @@
         "shows": [
           {
             "background_image": "/sports/boxing.png",
-            "title": "Watch Live: Boxing Championship 2022"
+            "title": "Watch Live: Boxing Championship {{currentYear}}"
           },
           {
             "background_image": "/sports/american-football.png",
-            "title": "Watch Live: NFL Draft 2022"
+            "title": "Watch Live: NFL Draft {{currentYear}}"
           },
           {
             "background_image": "/sports/horse-racing.png",
-            "title": "Replay: Champion of Champions 2021"
+            "title": "Replay: Champion of Champions {{lastYear}}"
           }
         ]
       },
@@ -110,7 +110,7 @@
         "Help"
       ],
       "phone_number": "800 568 9678",
-      "copyright": "© BXSports, 2022. All rights reserved."
+      "copyright": "© BXSports, {{currentYear}}. All rights reserved."
     }
   }
 }

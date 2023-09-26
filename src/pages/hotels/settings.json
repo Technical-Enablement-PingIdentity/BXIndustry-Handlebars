@@ -2,10 +2,10 @@
   "settings": {
     "title": "BXHotels",
     "images": {
-      "favicon": "/hotels/favicon.ico",
-      "apple_touch_icon": "/hotels/apple-touch-icon.png",
-      "logo": "/hotels/logo.png",
-      "dialog_logo": "/hotels/auth-dialog-logo.png"
+      "favicon": "/hotels/favicon.png",
+      "apple_touch_icon": "/hotels/apple-touch-icon-192.png",
+      "logo": "/hotels/logo-white.svg",
+      "dialog_logo": "/hotels/logo.svg"
     },
     "header": {
       "links": ["Hotels", "Destinations", "Experiences", "Offers", "Loyalty Program"]
@@ -73,7 +73,7 @@
         "reservation_info": [
           {
             "icon": "calendarIcon",
-            "details": "10/25/2022 - 11/01/2022"
+            "details": "10/25/{{currentYear}} - 11/01/{{currentYear}}"
           },
           {
             "icon": "userIcon",
@@ -89,7 +89,7 @@
           }
         ],
         "button": "Details",
-        "alert": "You can cancel your reservation until 10/25/2022"
+        "alert": "You can cancel your reservation until 10/25/{{currentYear}}"
       },
       "sidebar": {
         "title": "BXHotels Loyalty Program",
@@ -113,7 +113,7 @@
         "Legal",
         "Help"
       ],
-      "copyright": "© BXHotels, 2022.  All rights reserved."
+      "copyright": "© BXHotels, {{currentYear}}.  All rights reserved."
     }
   }
 }

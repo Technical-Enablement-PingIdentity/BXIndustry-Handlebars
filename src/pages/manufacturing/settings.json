@@ -2,10 +2,10 @@
   "settings": {
     "title": "BXManufacturing",
     "images": {
-      "favicon": "/manufacturing/favicon.ico",
-      "apple_touch_icon": "/manufacturing/apple-touch-icon.png",
-      "logo": "/manufacturing/logo.png",
-      "dialog_logo": "/manufacturing/auth-dialog-logo.png"
+      "favicon": "/manufacturing/favicon.png",
+      "apple_touch_icon": "/manufacturing/apple-touch-icon-192.png",
+      "logo": "/manufacturing/logo.svg",
+      "dialog_logo": "/manufacturing/logo.svg"
     },
     "home_page": {
       "header": {
@@ -73,7 +73,7 @@
         "Contacts"
       ],
       "phone_number": "800 568 9678",
-      "copyright": "© BXManufacturing, 2022. All rights reserved."
+      "copyright": "© BXManufacturing, {{currentYear}}. All rights reserved."
     }
   }
 }

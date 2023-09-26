@@ -2,10 +2,10 @@
   "settings": {
     "title": "BXAirlines",
     "images": {
-      "favicon": "/airlines/favicon.ico",
-      "apple_touch_icon": "/airlines/apple-touch-icon.png",
-      "logo": "/airlines/logo.png",
-      "dialog_logo": "/airlines/auth-dialog-logo.png"
+      "favicon": "/airlines/favicon.png",
+      "apple_touch_icon": "/airlines/apple-touch-icon-192.svg",
+      "logo": "/airlines/logo.svg",
+      "dialog_logo": "/airlines/logo.svg"
     },
     "header": {
       "links": [
@@ -99,13 +99,13 @@
           "flights": [
             {
               "title": "FG4567 New York — London",
-              "date": "12/14/2022",
+              "date": "12/14/{{currentYear}}",
               "time": "15:25",
               "button": "Check In"
             },
             {
               "title": "DF2398 London — Berlin",
-              "date": "12/15/2022",
+              "date": "12/15/{{currentYear}}",
               "time": "01:15",
               "button": "Check In"
             }
@@ -116,25 +116,25 @@
           "flights": [
             {
               "title": "MK5677 Berlin — New York",
-              "date": "12.22.2022",
+              "date": "12.22.{{currentYear}}",
               "time": "14:30",
               "button": ""
             },
             {
               "title": "DS5233 New-York — Seattle",
-              "date": "01/22/2023",
+              "date": "01/22/{{currentYear}}",
               "time": "13:10",
               "button": ""
             },
             {
               "title": "DS5233 Seattle — New York",
-              "date": "01/26/2022",
+              "date": "01/26/{{currentYear}}",
               "time": "18:00",
               "button": ""
             },
             {
               "title": "FG4567 New York — London",
-              "date": "02/06/2022",
+              "date": "02/06/{{currentYear}}",
               "time": "17:20",
               "button": ""
             }
@@ -169,7 +169,7 @@
         "Accessibility"
       ],
       "phone_number": "800 568 9678",
-      "copyright": "© BXAirlines, 2022. All rights reserved."
+      "copyright": "© BXAirlines, {{currentYear}}. All rights reserved."
     }
   }
 }

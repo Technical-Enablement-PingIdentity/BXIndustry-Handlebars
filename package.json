@@ -5,12 +5,13 @@
   "description": "A simple Node app built on fastify, instantly up and running. Built to be remixed on Glitch.com.",
   "main": "server.js",
   "scripts": {
-    "start": "concurrently --kill-others \"sass --watch scss/index.scss:public/styles.css\" \"node server.js\""
+    "start": "concurrently --kill-others \"sass --watch scss/index.scss:public/styles.css\" \"node server.js\"",
+    "dev": "concurrently --kill-others \"sass --watch scss/index.scss:public/styles.css\" \"node server.js --dev\""
   },
   "dependencies": {
     "@fastify/cookie": "^8.3.0",
     "@fastify/static": "^6.4.0",
-    "@fastify/view": "^7.0.0",
+    "@fastify/view": "^8.0.0",
     "fastify": "^4.0.3",
     "handlebars": "^4.7.7",
     "node-fetch": "^3.2.10"

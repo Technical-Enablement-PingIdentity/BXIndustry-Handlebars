@@ -2,10 +2,10 @@
   "settings": {
     "title": "BXRealty",
     "images": {
-      "favicon": "/realty/favicon.ico",
-      "apple_touch_icon": "/realty/apple-touch-icon.png",
-      "logo": "/realty/logo.png",
-      "dialog_logo": "/realty/auth-dialog-logo.png"
+      "favicon": "/realty/favicon.png",
+      "apple_touch_icon": "/realty/apple-touch-icon-192.png",
+      "logo": "/realty/logo-white.svg",
+      "dialog_logo": "/realty/logo.svg"
     },
     "header": {
       "links": ["About", "Projects", "For Buyers", "News", "Contacts"]
@@ -139,7 +139,7 @@
         "Terms of Use",
         "Contacts"
       ],
-      "copyright": "© BXRealty, 2022.  All rights reserved."
+      "copyright": "© BXRealty, {{currentYear}}.  All rights reserved."
     }
   }
 }

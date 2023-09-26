@@ -6,10 +6,10 @@
   <body onload="bxi.pageLoad()" class="bxi retail home">
     {{> variables}}
     <header>
-      <nav class="navbar navbar-expand-lg pt-lg-4 flex-wrap navbar-dark bxi-bg-primary">
+      <nav class="navbar navbar-expand-lg flex-wrap py-3">
         <div class="container">
           <div class="bxi-nav">
-            <a class="bxi-nav-toggle d-lg-none" role="button">
+            <a class="bxi-nav-toggle d-xl-none" role="button">
               {{> hamburgerIcon }}
             </a>
             <ul class="bxi-nav-links bxi-bg-secondary">
@@ -19,70 +19,72 @@
               </li>
               {{/each}}
             </ul>
-            <a id="bxi-logo" class="navbar-brand pt-0 ms-3 ms-lg-0">
-              <img width="150" src="{{settings.images.logo}}" alt="Logo" />
+            <a id="bxi-logo" class="navbar-brand py-0 ms-3 ms-lg-0">
+              <img src="{{settings.images.logo}}" alt="Logo" />
             </a>
           </div>
-          <div class="d-flex flex-row mt-2 position-relative">
-            {{> pinIcon class="mt-2 me-3 d-lg-block d-none" }}
-            {{> cartIcon class="mt-2 me-3 d-lg-block d-none" }}
-            <div class="bxi-user-icon bxi-bg-primary pb-3 pb-lg-0 mt-2 mt-lg-0">
+          <div class="d-none d-xl-block flex-grow-1 ms-3">
+            <ul class="navbar-nav mt-2">
+              {{#each settings.header.links}}
+              <li class="nav-item pb-2">
+                <a class="bxi-link bxi-link--primary fs-6 ps-0 pe-lg-4">{{this}}</a>
+              </li>
+              {{/each}}
+            </ul>
+          </div>
+          <div class="d-flex flex-row position-relative">
+            {{> pinSolidIcon class="mt-1 me-3 d-lg-block d-none bxi-icon-color-primary" }}
+            {{> cartIcon class="mt-1 me-3 d-lg-block d-none bxi-icon-color-primary" }}
+            <div class="bxi-user-icon bxi-bg-primary">
               {{> userIcon }}
             </div>
-            <div class="bxi-auth-buttons bxi-auth-buttons--white-link bxi-bg-secondary bxi-bg-lg-transparent p-2 py-lg-1">
+            <div class="bxi-auth-buttons bxi-auth-buttons--primary-link bxi-bg-secondary bxi-bg-lg-transparent p-2 py-lg-0 ps-lg-3">
               {{!-- See src/home-nav-buttons.hbs to update auth buttons --}}
               {{> homeNavButtons }}
             </div>
           </div>
         </div>
-        <div class="container">
-          <div class="bxi-navbar bxi-bg-transparent mt-2 d-none d-lg-block">
-            <ul class="navbar-nav p-3 p-lg-0 py-lg-4">
-              {{#each settings.header.links}}
-              <li class="nav-item pb-2">
-                <a class="bxi-link bxi-link--white fs-6 ps-0 pe-lg-4">{{this}}</a>
-              </li>
-              {{/each}}
-            </ul>
-          </div>
-        </div>
       </nav>
     </header>
     <section class="container mt-5">
-      <div class="row">
-        <div class="col-lg-5 mb-4 mb-lg-0">
-          <div class="sale-tile p-3" style="background-image: url('{{settings.home_page.sale_tile.image}}')">
-            <h1 class="fs-1 fw-normal">{{settings.home_page.sale_tile.title}}</h1>
-            <p class="fw-light">{{settings.home_page.sale_tile.description}}</p>
-            {{#if settings.home_page.sale_tile.button}}
-            <button class="bxi-button bxi-button--lg">{{settings.home_page.sale_tile.button}}</button>
-            {{/if}}
+      <div class="bxi-shop-hero">
+        <div class="bxi-sale-section d-flex overflow-hidden flex-column flex-md-row">
+          <div class="bxi-sale-section-image w-100 position-relative">
+            <img class="position-absolute end-0" src="{{settings.home_page.sale_tile.image}}" />
+            <div class="bxi-sale-section-badge position-absolute rounded-circle fs-5 d-flex text-center align-items-center bxi-ff-secondary lh-sm fw-boldish">{{settings.home_page.sale_tile.badge}}</div>
+          </div>
+          <div class="d-flex align-items-center">
+            <div class="ps-5 py-5 ps-md-4 ps-xl-5 pe-md-3">
+              <h1 class="fw-bold">{{settings.home_page.sale_tile.title}}</h1>
+              <p class="mb-4">{{settings.home_page.sale_tile.description}}</p>
+              <button class="bxi-button bxi-button--lg">{{settings.home_page.sale_tile.button}}</button>
+            </div>
           </div>
         </div>
-        <div class="col-lg-7">
-          <div class="shop-tile p-3" style="background-image: url('{{settings.home_page.shop_tile.image}}')">
-            <div class="shop-tile__overlay p-5">
-              <h1 class="fw-normal">{{settings.home_page.shop_tile.title}}</h1>
-              <h5>{{settings.home_page.shop_tile.subtitle}}</h5>
-              <p class="fw-light">{{settings.home_page.shop_tile.description}}</p>
-              {{#if settings.home_page.shop_tile.button}}
+        <div class="bxi-shop-section d-flex flex-column-reverse flex-md-row">
+          <div class="bxi-shop-section-content d-flex justify-content-md-end align-items-center ps-md-3">
+            <div class="text-start text-md-end mx-5">
+              <h1 class="fw-bold">{{settings.home_page.shop_tile.title}}</h1>
+              <p class="mb-4">{{settings.home_page.shop_tile.description}}</p>
               <button class="bxi-button bxi-button--lg">{{settings.home_page.shop_tile.button}}</button>
-              {{/if}}
             </div>
+          </div>
+          <div class="bxi-shop-section-image position-relative overflow-hidden">
+            <img class="position-absolute end-0" src="{{settings.home_page.shop_tile.image}}" />
           </div>
         </div>
       </div>
     </section>
-    <section class="bxi-banner mt-5 py-4">
+    <section class="bxi-banner my-5 py-4">
       <div class="container">
         <div class="row">
-          <div class="col-lg-6">
-            <h4 class="d-flex d-lg-block justify-content-center">{{settings.home_page.banner.text}}</h4>
+          <div class="col-lg-7">
+            <h4 class="d-flex d-lg-block text-center text-lg-start justify-content-center mb-0 bxi-ff-secondary">{{settings.home_page.banner.text}}</h4>
           </div>
-          <div class="col-lg-6">
-            <div class="d-flex justify-content-center align-items-center">
+          <div class="col-lg-5">
+            <div class="d-flex justify-content-lg-end justify-content-center align-items-center bxi-banner-logo-container">
               {{#each settings.home_page.banner.logos}}
-              <img class="mx-2 mx-lg-0 me-lg-4 w-auto" src="{{this}}" alt="Logo {{@index}}" />
+              <img class="mt-3 mt-lg-0 mx-2 mx-lg-0 me-lg-4 w-auto" src="{{this}}" alt="Logo {{@index}}" />
               {{/each}}
             </div>
           </div>
@@ -92,13 +94,15 @@
     <section class="container my-5">
       <div class="row">
         {{#each settings.home_page.features_section.items}}
-        <div class="col-lg-4 mb-4 mb-lg-0">
-          <div class="position-relative mb-3">
-            <img class="w-100" src="{{image}}" alt="{{title}}" />
-            <h5 class="position-absolute w-100 ps-3 py-2 feature-title">{{title}}</h5>
+        <div class="col-lg-4 mb-5 mb-lg-0 text-center d-flex flex-column justify-content-between align-items-center">
+          <div>
+            <div class="bxi-feature-icon d-flex justify-content-center align-items-center mx-auto mb-3 rounded-circle">
+              {{{inlineSvg icon}}}
+            </div>
+            <h5 class="w-100 fw-bold feature-title">{{title}}</h5>
+            <p class="fs-6 fw-light">{{description}}</p>
           </div>
-          <p class="fs-6 fw-light">{{description}}</p>
-          <a class="bxi-button bxi-button--link">{{link}}</a>
+          <button class="bxi-button bxi-button--outline">{{link}}</button>
         </div>
         {{/each}}
       </div>

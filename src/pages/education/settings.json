@@ -2,10 +2,10 @@
   "settings": {
     "title": "BXEducation",
     "images": {
-      "favicon": "/education/favicon.ico",
-      "apple_touch_icon": "/education/apple-touch-icon.png",
-      "logo": "/education/logo.png",
-      "dialog_logo": "/education/auth-dialog-logo.png"
+      "favicon": "/education/favicon.png",
+      "apple_touch_icon": "/education/apple-touch-icon-192.png",
+      "logo": "/education/logo.svg",
+      "dialog_logo": "/education/logo.svg"
     },
     "header": {
       "links": [
@@ -110,7 +110,7 @@
         "Help & Support"
       ],
       "phone_number": "800 568 9678",
-      "copyright": "© BXEducation, 2022. All rights reserved."
+      "copyright": "© BXEducation, {{currentYear}}. All rights reserved."
     }
   }
 }
