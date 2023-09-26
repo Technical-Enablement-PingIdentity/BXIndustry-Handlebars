@@ -19,12 +19,14 @@ import fetch from 'node-fetch';
 import helpers from './resources/helpers.js';
 import { initHandlebars } from './resources/handlebars.js';
 import Logger from './public/js/logger.js';
+import { initDev } from './resources/init-dev.js';
 
 // Initialize variables that are no longer available by default in Modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Initialize internal variables
+const port = process.env.PORT || 5000;
 const bxiEnvVars = helpers.getBxiEnvironmentVariables();
 const verticals = helpers.getVerticals();
 
@@ -32,11 +34,18 @@ const debug = process.env.BXI_DEBUG_LOGGING === 'true';
 
 const logger = new Logger(debug);
 
+let https;
+
+if (process.argv.includes('--dev')) {
+  https = initDev(port)
+}
+
 // Require the fastify framework and instantiate it
 const fastify = Fastify({
   // Set this to true for detailed logging
   logger: debug,
-  ignoreTrailingSlash: true
+  ignoreTrailingSlash: true,
+  https,
 });
 
 // Setup our static files (images and SCSS)
@@ -48,6 +57,16 @@ fastify.register(import('@fastify/static'), {
 fastify.register(import('@fastify/cookie'));
  
 initHandlebars(fastify);
+
+// Redirect http traffic to https, glitch doesn't handle this OOTB
+fastify.addHook('onRequest', (request, reply, done) => {
+  // Don't do this when running locally or if already on https
+  if (request.hostname.includes(':5000') || request.headers['x-forwarded-proto'].match(/https/g)) {
+    done();
+  } else {
+    reply.redirect(302, `https://${request.hostname}${request.url}`);
+  }
+}); 
 
 // Our home page route
 // Redirects to the default vertical (if set in environment variables) or falls back on generic
@@ -150,7 +169,7 @@ fastify.get('/logout', (_, reply) => {
 
 fastify.get('/docs', (request, reply) => {
   const vertical = request.query.vertical || 'company';
-  const icons = fs.readdirSync('src/partials/icons').map(file => file.replace('.hbs', ''));
+  const icons = fs.readdirSync('src/partials/icons').map(file => file.replace('.hbs', '').replace(/-./g, x=>x[1].toUpperCase())); // remove file extension and conver kebab-case to camelCase
   return reply.view('src/docs/index.hbs', {
     selectedVertical: vertical,
     verticals: verticals.filter(v => v !== 'generic'),
@@ -212,12 +231,12 @@ helpers.getVerticals().forEach(vertical => {
       scope: `/${vertical}`,
       icons: [
         {
-          src: 'apple-touch-icon.png',
+          src: 'apple-touch-icon-192.png',
           type: 'image/png',
           sizes: '192x192'
         },
                 {
-          src: 'apple-touch-icon.png',
+          src: 'apple-touch-icon-512.png',
           type: 'image/png',
           sizes: '512x512'
         }
@@ -269,7 +288,7 @@ function getViewParams(vertical) {
 
 // Run the server and report out to the logs
 fastify.listen(
-  { port: process.env.PORT || 5000, host: '0.0.0.0' },
+  { port, host: '0.0.0.0' },
   function (err, address) {
     if (err) {
       fastify.log.error(err);

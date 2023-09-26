@@ -2,10 +2,10 @@
   "settings": {
     "title": "BXEats",
     "images": {
-      "favicon": "/eats/favicon.ico",
-      "apple_touch_icon": "/eats/apple-touch-icon.png",
-      "logo": "/eats/logo.png",
-      "dialog_logo": "/eats/auth-dialog-logo.png"
+      "favicon": "/eats/favicon.png",
+      "apple_touch_icon": "/eats/apple-touch-icon-192.png",
+      "logo": "/eats/logo.svg",
+      "dialog_logo": "/eats/logo.svg"
     },
     "header": {
       "main_link": "Product Catalog",
