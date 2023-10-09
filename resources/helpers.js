@@ -2,6 +2,7 @@ import fs from 'fs';
 import crypto from 'crypto';
 
 let verticals;
+let verticalsEndpointMaps = {};
 
 /**
  * Returns an object with all whitelisted (within this function) environment variables that can be used 
@@ -73,6 +74,13 @@ function isValidVertical(vertical) {
  * @returns {Object} A map like {<file-location-in-project>: <server-endpoint>}
  */
 function getVerticalEndpoints(vertical) {
+    // Traversing filesystem is expensive, cache results 
+    // also this prevents map from getting out of sync if a user adds a file but doesn't restart server
+    const cachedEndpointMap = verticalsEndpointMaps[vertical]
+    if (cachedEndpointMap) {
+        return cachedEndpointMap;
+    }
+
     const verticalViewRoot = `src/pages/${vertical}`
     const allFiles = fs.readdirSync(verticalViewRoot);
 
@@ -87,11 +95,45 @@ function getVerticalEndpoints(vertical) {
             }`);
     });
 
+    verticalsEndpointMaps[vertical] = endpointMap;
+
     return endpointMap;
+}
+
+function getVerticalLinks(vertical) {
+    const endpoints = Object.values(getVerticalEndpoints(vertical));
+    const linkMap = {};
+
+    endpoints.forEach(endpoint => {
+        const name = endpoint.replace(`/${vertical}`, '');
+        const determinedName = name === '' ? 'home' : stripLeadingSlash(name);
+        linkMap[determinedName.charAt(0).toUpperCase() + determinedName.slice(1)] = endpoint;
+    });
+
+    if (vertical === 'generic') {
+      return linkMap;
+    }
+
+    // Property order matters for shortcuts page, home then dashboard, then whatever custom pages
+    const orderedLinkMap = {
+        Home: null,
+        Dashboard: null,
+    }
+
+    Object.assign(orderedLinkMap, linkMap);
+
+    // Dialog examples should always be last link
+    orderedLinkMap['Dialog Examples'] = `/${vertical}/dialog-examples`
+
+    return orderedLinkMap;
 }
 
 function stripTrailingSlash(str) {
     return str.endsWith('/') ? str.slice(0, -1) : str;
+}
+
+function stripLeadingSlash(str) {
+    return str.startsWith('/') ? str.slice(1) : str;
 }
 
 /**
@@ -142,11 +184,12 @@ function getSettingsFile(vertical) {
 }
 
 export default {
-    getBxiEnvironmentVariables: getBxiEnvironmentVariables,
-    getVerticals: getVerticals,
-    isValidVertical: isValidVertical,
-    importWithCacheBusting: importWithCacheBusting,
-    getSettingsFile: getSettingsFile,
-    getVerticalEndpoints: getVerticalEndpoints,
-    stripTrailingSlash: stripTrailingSlash,
+    getBxiEnvironmentVariables,
+    getVerticals,
+    isValidVertical,
+    importWithCacheBusting,
+    getSettingsFile,
+    getVerticalEndpoints,
+    stripTrailingSlash,
+    getVerticalLinks,
 }

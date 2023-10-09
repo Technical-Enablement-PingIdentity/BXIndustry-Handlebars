@@ -185,13 +185,13 @@ fastify.get('/verticals', (_, reply) => {
 // Set up shortcuts endpoints, shows all verticals with applicable links
 fastify.get('/shortcuts', (_, reply) => {
   const viewParams = verticals.map(vertical => {
+    const endpointLinks = helpers.getVerticalLinks(vertical);
+
     const settings = helpers.getSettingsFile(vertical).settings;
     return { 
       name: settings.title, 
       logo: settings.images.dialog_logo || settings.images.logo,
-      home: `/${vertical}`,
-      dashboard: vertical !== 'generic' ? `/${vertical}/dashboard` : '',
-      dialogExamples: vertical !== 'generic'? `/${vertical}/dialog-examples` : '',
+      endpointLinks,
     };
   });
 
