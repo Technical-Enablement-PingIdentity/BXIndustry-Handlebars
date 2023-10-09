@@ -201,24 +201,19 @@ fastify.get('/shortcuts', (_, reply) => {
 
 // Generic does not have dashboard or dialog-examples page
 helpers.getVerticals().forEach(vertical => {
-  // Vertical Home Page
-  fastify.get(`/${vertical}`, function (_, reply) {
-    const viewParams = getViewParams(vertical);
-    logger.log(`/${vertical} hit, sending home page view data`, viewParams);
-    return reply.view(`src/pages/${vertical}/index.hbs`, viewParams);
-  });
+  const pageViewParams = getViewParams(vertical);
+
+  for (const [filename, endpoint] of Object.entries(helpers.getVerticalEndpoints(vertical))) {
+    fastify.get(endpoint, function (_, reply) {
+      logger.log(`${endpoint} hit, send page with view data`, pageViewParams);
+      return reply.view(filename, pageViewParams);
+    });
+  }
 
   // Generic does not have dashboard or dialog examples pages
   if (vertical === 'generic') {
     return;
   }
-
-  // Vertical Dashboard Page
-  fastify.get(`/${vertical}/dashboard`, function (_, reply) {
-    const viewParams = getViewParams(vertical);
-    logger.log(`/${vertical}/dashboard hit, sending dashboard page view data`, viewParams);
-    return reply.view(`src/pages/${vertical}/dashboard.hbs`, viewParams);
-  });
 
   // Manifest file so each vertical can be installed as a PWA
   fastify.get(`/${vertical}/manifest.json`, function (_, reply) {

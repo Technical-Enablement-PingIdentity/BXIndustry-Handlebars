@@ -66,6 +66,34 @@ function isValidVertical(vertical) {
     return getVerticals().includes(vertical);
 }
 
+/** 
+ * Introspects the vertical's view directory to set up endpoints for all available hbs files (except branding.hbs)
+ * 
+ * @param {string} vertical Vertical name
+ * @returns {Object} A map like {<file-location-in-project>: <server-endpoint>}
+ */
+function getVerticalEndpoints(vertical) {
+    const verticalViewRoot = `src/pages/${vertical}`
+    const allFiles = fs.readdirSync(verticalViewRoot);
+
+    // Filter out non-handlebars files (e.g. settings.json) and branding files
+    const endpointFiles = allFiles.filter(file => file.match(/.*\.(hbs?)/ig) && file !== 'branding.hbs');
+        
+    const endpointMap = {};
+    endpointFiles.forEach(file => {
+        endpointMap[`${verticalViewRoot}/${file}`] = stripTrailingSlash( // remove trailing slash from 'index' endpoint
+            `/${vertical}/${file.replace('.hbs', '') // remove extension
+                .replace('index', '') // replace index with empty string since that's the root url
+            }`);
+    });
+
+    return endpointMap;
+}
+
+function stripTrailingSlash(str) {
+    return str.endsWith('/') ? str.slice(0, -1) : str;
+}
+
 /**
  * Returns a file at the provided location, but calculates the file's sha1 and adds it as url
  * parameter to bust caching, used so if user makes changes to the file the new file will picked up
@@ -119,4 +147,6 @@ export default {
     isValidVertical: isValidVertical,
     importWithCacheBusting: importWithCacheBusting,
     getSettingsFile: getSettingsFile,
+    getVerticalEndpoints: getVerticalEndpoints,
+    stripTrailingSlash: stripTrailingSlash,
 }
