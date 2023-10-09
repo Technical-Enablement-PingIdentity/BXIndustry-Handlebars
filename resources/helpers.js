@@ -110,10 +110,6 @@ function getVerticalLinks(vertical) {
         linkMap[determinedName.charAt(0).toUpperCase() + determinedName.slice(1)] = endpoint;
     });
 
-    if (vertical === 'generic') {
-      return linkMap;
-    }
-
     // Property order matters for shortcuts page, home then dashboard, then whatever custom pages
     const orderedLinkMap = {
         Home: null,
@@ -123,9 +119,10 @@ function getVerticalLinks(vertical) {
     Object.assign(orderedLinkMap, linkMap);
 
     // Dialog examples should always be last link
-    orderedLinkMap['Dialog Examples'] = `/${vertical}/dialog-examples`
+    orderedLinkMap['Dialog Examples'] = vertical !== 'generic' ? `/${vertical}/dialog-examples` : null;
 
-    return orderedLinkMap;
+    // Remove any keys which are null, e.g. dialog examples and dashboard from generic or any deleted Home/Dashboard pages
+    return Object.fromEntries(Object.entries(orderedLinkMap).filter(([_, v]) => v != null)); 
 }
 
 function stripTrailingSlash(str) {
