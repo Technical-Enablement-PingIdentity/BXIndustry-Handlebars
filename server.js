@@ -202,10 +202,9 @@ fastify.get('/shortcuts', (_, reply) => {
 
 // Generic does not have dashboard or dialog-examples page
 helpers.getVerticals().forEach(vertical => {
-  const pageViewParams = getViewParams(vertical);
-
   for (const [filename, endpoint] of Object.entries(helpers.getVerticalEndpoints(vertical))) {
     fastify.get(endpoint, function (_, reply) {
+      const pageViewParams = getViewParams(vertical); // Must get these within endpoint or settings.json changes won't be picked up until server restarts
       logger.log(`${endpoint} hit, send page with view data`, pageViewParams);
       return reply.view(filename, pageViewParams);
     });

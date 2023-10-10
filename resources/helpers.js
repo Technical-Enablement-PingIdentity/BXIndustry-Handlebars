@@ -111,6 +111,7 @@ function getVerticalLinks(vertical) {
     });
 
     // Property order matters for shortcuts page, home then dashboard, then whatever custom pages
+    // Any null endpoints will be removed from the link map before it's returned
     const orderedLinkMap = {
         Home: null,
         Dashboard: null,
@@ -118,7 +119,7 @@ function getVerticalLinks(vertical) {
 
     Object.assign(orderedLinkMap, linkMap);
 
-    // Dialog examples should always be last link
+    // Dialog examples should always be last link, will be removed from the map in case of generic vertical
     orderedLinkMap['Dialog Examples'] = vertical !== 'generic' ? `/${vertical}/dialog-examples` : null;
 
     // Remove any keys which are null, e.g. dialog examples and dashboard from generic or any deleted Home/Dashboard pages
