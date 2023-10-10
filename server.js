@@ -26,7 +26,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Initialize internal variables
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8080;
 const bxiEnvVars = helpers.getBxiEnvironmentVariables();
 const verticals = helpers.getVerticals();
 
@@ -61,7 +61,8 @@ initHandlebars(fastify);
 // Redirect http traffic to https, glitch doesn't handle this OOTB
 fastify.addHook('onRequest', (request, reply, done) => {
   // Don't do this when running locally or if already on https
-  if (request.hostname.includes(':5000') || request.headers['x-forwarded-proto'].match(/https/g)) {
+  const protoHeader = request.headers['x-forwarded-proto'];
+  if (request.hostname.includes(`:${port}`) || !protoHeader || protoHeader.match(/https/g) === true) {
     done();
   } else {
     reply.redirect(302, `https://${request.hostname}${request.url}`);
