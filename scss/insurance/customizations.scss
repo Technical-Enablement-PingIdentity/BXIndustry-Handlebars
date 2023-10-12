@@ -73,16 +73,23 @@
       padding-right: 0;
     }
 
-    .bxi-advertisement {
-      @include breakpoint-lt-md {
-        &-image-container {
-          min-height: 300px;
-        }
+    .bxi-dashboard-sidebar {
+      a, button {
+        width: 100%;
+        margin-bottom: 1rem !important;
+        padding: .75rem 0;
+        font-size: 13px;
+        line-height: normal;
       }
+    }
 
-      &-color {
-        color: var(--bxi-dashboard-advertisement-color);
-      }
+    .bxi-coverage-header {
+      border-bottom: 1px solid black;
+    }
+
+    .bxi-agent-pic img {
+      height: 85px;
+      width: 85px;
     }
   }
 }

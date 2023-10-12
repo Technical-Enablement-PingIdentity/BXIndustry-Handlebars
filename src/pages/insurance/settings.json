@@ -8,7 +8,7 @@
       "dialog_logo": "/insurance/logo.svg"
     },
     "header": {
-      "links": ["Private Clients", "Corporate Clients", "Partners", "Insurance Cases", "Personal Manager", "Contracts", "About", "Career"],
+      "links": ["Find An Agent", "Claims", "Policies", "Billing", "Get A Quote", "Customer Support", "My Documents"],
       "button": "SOS. Insured Event"
     },
     "home_page": {
@@ -51,34 +51,122 @@
       ]
     },
     "dashboard": {
+      "header": "Hello!",
       "username": "",
+      "advertisement": {
+        "title": "Have you looked into Identity Insurance?",
+        "description": "In 2022, the US Federal Trade Commission reported that Americans lost $8.8 Billion to identity theftand fraud (+49% increast from 2021). Protect yourself now for a fraction of the cost.",
+        "alert": "Save up to 68% today!",
+        "button": "Get Protection Now"
+      },
       "portal": {
-        "header": "My personal area",
-        "button": "Account Settings",
+        "header": "Your Policies",
         "services": [
           {
-            "logo": "/insurance/insurance-policy-icon.svg",
-            "title": "Insurance Policies",
-            "description": "Here you can find all your policies for all types of insurance"
+            "logo": "/insurance/vehicle-icon.svg",
+            "description": "Add or Replace Vehicle"
           },
           {
-            "logo": "/insurance/calculation-icon.svg",
-            "title": "Calculations",
-            "description": "Here you can see all saved calculations"
+            "logo": "/insurance/edit-policy-icon.svg",
+            "description": "Edit Policy Coverages"
           },
           {
-            "logo": "/insurance/status-icon.svg",
-            "title": "Production Line Audit",
-            "description": "Keep track of your insurance claim status"
+            "logo": "/insurance/remove-coverage-icon.svg",
+            "description": "Remove Coverage"
           }
         ]
       },
-      "advertisement": {
-        "title": "Take care of your car",
-        "description": "50% discount on annual car insurance",
-        "button": "Show Details",
-        "image": "/insurance/car-driver.jpg"
-      }
+      "claims": {
+        "header": "My Products",
+        "insurance": {
+          "header": "Insurance Policies",
+          "policies": [
+            {
+              "name": "Auto Policy",
+              "description": "You are saving $9.55 per month with Safe Driver Rewards"
+            },
+            {
+              "name": "Home Policy",
+              "description": "Homeowners insurance helps provide financial protection for you home and personal belongings. Learn the basics of what homeowners insurance is and what it covers."
+            },
+            {
+              "name": "Condo Policy",
+              "description": "Learn tips & tricks for landlords. Get answers to common questions."
+            }
+          ]
+        },
+        "agent": {
+          "header": "My Agent",
+          "photo": "/insurance/agent-pic.png",
+          "name": "Kevin Nelson",
+          "title": "ChFC, CLU",
+          "agency": "Kevin Nelson Insurance Agency",
+          "license": "LIC: C0-111111",
+          "button": "Contact"
+        },
+        "advertisement": {
+          "header": "Have you planned for everything?",
+          "description": "Learn to set financial goals and invest in your future. Explore you options below or talk with your agent!",
+          "link": "Explore WhatIfs"
+        },
+        "bxfinance": {
+          "logo": "/finance/logo.svg",
+          "description": "Are you in the home buying process? Our team can help navigate your mortgage journey!",
+          "button": "Learn More"
+        }
+      },
+      "coverage": [
+        {
+          "icon": "/insurance/vehicle-icon.svg",
+          "title": "Auto",
+          "bullets": [
+            {
+              "text": "ID: X5459-95GH77H5"
+            },
+            {
+              "text": "2021 Nissan Altima",
+              "subtext": "VIN: XXX8847557"
+            },
+            {
+              "text": "2018 Chrysler Pacifica",
+              "subtext": "VIN: XXX2334122"
+            }
+          ]
+        },
+        {
+          "icon": "/insurance/house-icon.svg",
+          "title": "Home",
+          "bullets": [
+            {
+              "text": "ID: HO-96452838"
+            },
+            {
+              "text": "988 E 73rd Ave, Denver, CO 80111"
+            }
+          ]
+        },
+        {
+          "icon": "/insurance/condo-icon.svg",
+          "title": "Condo",
+          "bullets": [
+            {
+              "text": "ID: HO-96452838"
+            },
+            {
+              "text": "988 E 73rd Ave, Denver, CO 80111"
+            }
+          ]
+        },
+        {
+          "icon": "/insurance/document-icon.svg",
+          "title": "Documents",
+          "links": [
+            "ID Cards",
+            "Policy Documents",
+            "Statements"
+          ]
+        }
+      ]
     },
     "footer": {
       "links": [
