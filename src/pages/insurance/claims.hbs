@@ -65,73 +65,56 @@
             <h1 class="bxi-color-secondary bxi-ff-secondary mt-4 mt-sm-0 fw-bold">{{settings.dashboard.claims.header}}</h1>
           </div>
           <div class="row mb-4">
+            {{#if env.BXI_DASHBOARD_POLICY_ID}}
             <div class="col-12 col-md-6 d-flex flex-column">
-              {{#if env.BXI_DASHBOARD_POLICY_ID}}
-              <div class="mb-3 bxi-component-bg-color p-3" data-dv-flow="static" data-policy-id="{{env.BXI_DASHBOARD_POLICY_ID}}"></div>
-              {{/if}}
-              <div class="bxi-component-bg-color p-3 flex-grow-1">
-                <h5 class="fw-bold mb-3">{{settings.dashboard.claims.insurance.header}}</h5>
-                {{#each settings.dashboard.claims.insurance.policies}}
-                <div class="mb-4 text-center">
-                  <h6 class="mb-0 bxi-color-primary">{{name}}</h6>
-                  <p>{{description}}</p>
+              <div class="bxi-component-bg-color p-3 flex-grow-1" data-dv-flow="static" data-policy-id="{{env.BXI_DASHBOARD_POLICY_ID}}"></div>
+            </div>
+            {{/if}}
+            <div class="col-12{{#if env.BXI_DASHBOARD_POLICY_ID}} col-md-6 {{/if}}">
+              <h5 class="fw-bold mt-4 mt-md-0">{{settings.dashboard.claims.history.header}}</h5>
+              <div class="bxi-component-bg-color p-3 mb-4">
+                <div class="row mb-2">
+                  <div class="col-3 col-xl-2 text-center bxi-color-primary">{{settings.dashboard.claims.history.column1}}</div>
+                  <div class="col-9 col-xl-10 bxi-color-primary">{{settings.dashboard.claims.history.column2}}</div>
+                </div>
+                {{#each settings.dashboard.claims.history.claims}}
+                <div class="row mb-3">
+                  <div class="col-3 col-xl-2 d-flex justify-content-center align-items-center">
+                    <div class="bxi-claim-status bg-{{status}}"></div>
+                  </div>
+                  <div class="col-9 col-xl-10">
+                    <div class="fw-bold fs-7">{{id}}</div>
+                    <div class="fs-7">{{date}} - <a class="bxi-link">More Detail</a></div>
+                  </div>
                 </div>
                 {{/each}}
               </div>
-            </div>
-            <div class="col-12 col-md-6">
-              <h5 class="fw-bold">{{settings.dashboard.claims.agent.header}}</h5>
-              <div class="bxi-component-bg-color mb-4">
-                <div class="d-flex flex-column flex-xl-row p-3">
-                  <div class="bxi-agent-pic mb-3 mb-xl-0"><img src="{{settings.dashboard.claims.agent.photo}}" alt="Agent Profile Pic" /></div>
-                  <div class="flex-grow-1 mb-3 mb-xl-0 ps-xl-3">
-                    <h6 class="fw-bold">{{settings.dashboard.claims.agent.name}}</h6>
-                    <div class="fs-7">{{settings.dashboard.claims.agent.title}}</div>
-                    <div class="fs-7">{{settings.dashboard.claims.agent.agency}}</div>
-                    <div class="fs-7">{{settings.dashboard.claims.agent.license}}</div>
-                  </div>
-                  {{#if settings.dashboard.claims.agent.button}}
-                  <button class="bxi-button bxi-button--md align-self-start">{{settings.dashboard.claims.agent.button}}</button>
-                  {{/if}}
-                </div>
-              </div>
               <h5 class="fw-bold">{{settings.dashboard.claims.advertisement.header}}</h5>
-              <div class="bxi-component-bg-color p-3 mb-4">
-                <p>{{settings.dashboard.claims.advertisement.description}}</p>
-                <a class="bxi-link">{{settings.dashboard.claims.advertisement.link}}</a>
-              </div>
-              <div class="bxi-bxf-logo">
-                {{{inlineSvg settings.dashboard.claims.bxfinance.logo}}}
-              </div>
               <div class="bxi-component-bg-color p-3 d-flex flex-column">
-                <p>{{settings.dashboard.claims.bxfinance.description}}</p>
-                {{#if settings.dashboard.claims.bxfinance.button}}
-                <button class="bxi-button bxi-button--md align-self-end">{{settings.dashboard.claims.bxfinance.button}}</button>
+                <div>
+                  <p>{{settings.dashboard.claims.advertisement.description}}</p>
+                </div>
+                {{#if settings.dashboard.claims.advertisement.button}}
+                <button class="bxi-button bxi-button--md align-self-end">{{settings.dashboard.claims.advertisement.button}}</button>
                 {{/if}}
               </div>
             </div>
           </div>
           <div class="row">
-            {{#each settings.dashboard.coverage}}
-            <div class="col-12 col-md-6 col-xl-3 mb-4">
-              <div class="bxi-component-bg-color h-100">
-                <h4 class="bxi-coverage-header d-flex align-items-center p-3"><span>{{{inlineSvg icon}}}</span><div class="text-center flex-grow-1">{{title}}</div></h4>
-                <div class="p-3">
-                  {{#each bullets}}
-                  <div class="mb-3">
-                    <div>{{text}}</div>
-                    {{#if subtext}}
-                    <div class="fs-8 fw-light text-end">{{subtext}}</div>
-                    {{/if}}
+            <div class="col-12">
+              <h1 class="bxi-color-secondary bxi-ff-secondary fw-bold mb-4">{{settings.dashboard.claims.coverage.header}}</h1>
+              <div class="bxi-component-bg-color pt-3 px-3 pb-2">
+                {{#each settings.dashboard.claims.coverage.included}}
+                <div class="row mb-3 pb-3 border-bottom">
+                  <div class="col-sm-9"><a class="bxi-link me-4">{{> alertIcon class="bxi-icon-color-primary me-2" }} {{link}}</a><span>{{name}}</span></div>
+                  <div class="col-sm-3 fs-8 d-flex align-items-center mt-3 mt-sm-0">
+                    <div class="me-2">{{> shieldIcon class="bxi-shield-icon"}}</div>
+                    <div>{{tag}}</div>
                   </div>
-                  {{/each}}
-                  {{#each links}}
-                  <a class="bxi-link bxi-link--secondary mb-2 d-block">{{this}}</a>
-                  {{/each}}
                 </div>
+                {{/each}}
               </div>
             </div>
-            {{/each}}
           </div>
         </div>
       </div>

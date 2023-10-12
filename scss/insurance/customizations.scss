@@ -91,5 +91,19 @@
       height: 85px;
       width: 85px;
     }
+
+    .bxi-claim-status {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: yellow;
+    }
+
+    .bxi-shield-icon {
+      width: 24px;
+      height: 24px;
+
+      @include color-icon(var(--bxi-dashboard-claims-shield-color));
+    }
   }
 }

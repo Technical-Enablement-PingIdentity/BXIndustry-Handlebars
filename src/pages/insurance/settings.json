@@ -76,7 +76,7 @@
           }
         ]
       },
-      "claims": {
+      "policies": {
         "header": "My Products",
         "insurance": {
           "header": "Insurance Policies",
@@ -113,6 +113,59 @@
           "logo": "/finance/logo.svg",
           "description": "Are you in the home buying process? Our team can help navigate your mortgage journey!",
           "button": "Learn More"
+        }
+      },
+      "claims": {
+        "header": "My Claims",
+        "history": {
+          "header": "My Claims History",
+          "column1": "Status",
+          "column2": "Claims",
+          "claims": [
+            {
+              "status": "success",
+              "id": "#RVD-4343455",
+              "date": "10/01/2019",
+              "link": "More Detail"
+            },
+            {
+              "status": "warning",
+              "id": "#YXX-098364",
+              "date": "04/16/2017",
+              "link": "More Detail"
+            },
+            {
+              "status": "success",
+              "id": "#ZQT-120776",
+              "date": "07/03/2003",
+              "link": "More Detail"
+            }
+          ]
+        },
+        "advertisement": {
+          "header": "Should I File?",
+          "description": "Involved in an accident? When it's time to file an insurance claim, it can help to know what information you need to provide and to understand how your insurance coverage works.",
+          "button": "Learn More"
+        },
+        "coverage": {
+          "header": "Coverage Summary",
+          "included": [
+            {
+              "name": "24-Hour assistance",
+              "tag": "Coverage Included",
+              "link": "More Info"
+            },
+            {
+              "name": "Comprehensive",
+              "tag": "Coverage Included",
+              "link": "More Info"
+            },
+            {
+              "name": "Reimbursement",
+              "tag": "Coverage Included",
+              "link": "More Info"
+            }
+          ]
         }
       },
       "coverage": [
