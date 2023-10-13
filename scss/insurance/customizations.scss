@@ -105,5 +105,11 @@
 
       @include color-icon(var(--bxi-dashboard-claims-shield-color));
     }
+
+    .bxi-coverage-summary {
+      .border-bottom:last-child {
+        border-bottom: none !important;
+      }
+    }
   }
 }

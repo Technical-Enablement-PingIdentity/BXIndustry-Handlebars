@@ -55,7 +55,7 @@
       "username": "",
       "advertisement": {
         "title": "Have you looked into Identity Insurance?",
-        "description": "In 2022, the US Federal Trade Commission reported that Americans lost $8.8 Billion to identity theftand fraud (+49% increast from 2021). Protect yourself now for a fraction of the cost.",
+        "description": "In 2022, the US Federal Trade Commission reported that Americans lost $8.8 Billion to identity theft and fraud (+49% increast from 2021). Protect yourself now for a fraction of the cost.",
         "alert": "Save up to 68% today!",
         "button": "Get Protection Now"
       },
@@ -87,7 +87,7 @@
             },
             {
               "name": "Home Policy",
-              "description": "Homeowners insurance helps provide financial protection for you home and personal belongings. Learn the basics of what homeowners insurance is and what it covers."
+              "description": "Homeowners insurance helps provide financial protection for your home and personal belongings. Learn the basics of what homeowners insurance is and what it covers."
             },
             {
               "name": "Condo Policy",
@@ -106,7 +106,7 @@
         },
         "advertisement": {
           "header": "Have you planned for everything?",
-          "description": "Learn to set financial goals and invest in your future. Explore you options below or talk with your agent!",
+          "description": "Learn to set financial goals and invest in your future. Explore your options below or talk with your agent!",
           "link": "Explore WhatIfs"
         },
         "bxfinance": {
@@ -194,7 +194,7 @@
               "text": "ID: HO-96452838"
             },
             {
-              "text": "988 E 73rd Ave, Denver, CO 80111"
+              "text": "988 E 73rd Ave, Denver, CO 80014"
             }
           ]
         },
@@ -206,7 +206,7 @@
               "text": "ID: HO-96452838"
             },
             {
-              "text": "988 E 73rd Ave, Denver, CO 80111"
+              "text": "111 Briar Lane, Tampa, FL 33592"
             }
           ]
         },

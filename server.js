@@ -62,7 +62,7 @@ initHandlebars(fastify);
 fastify.addHook('onRequest', (request, reply, done) => {
   // Don't do this when running locally or if already on https
   const protoHeader = request.headers['x-forwarded-proto'];
-  if (request.hostname.includes(`:${port}`) || !protoHeader || protoHeader.match(/https/g) === true) {
+  if (request.hostname.includes(`:${port}`) || !protoHeader || protoHeader.match(/https/g)) {
     done();
   } else {
     reply.redirect(302, `https://${request.hostname}${request.url}`);
