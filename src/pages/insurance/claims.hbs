@@ -62,61 +62,59 @@
         </div>
         <div class="col-12 col-md-9 col-xl-10 order-1 order-md-2">
           <div class="row mb-3">
-            <h1 class="bxi-color-secondary bxi-ff-secondary mt-4 mt-sm-0 fw-bold">{{settings.dashboard.header}}</h1>
+            <h1 class="bxi-color-secondary bxi-ff-secondary mt-4 mt-sm-0 fw-bold">{{settings.dashboard.claims.header}}</h1>
           </div>
-          <div class="row">
+          <div class="row mb-4">
             {{#if env.BXI_DASHBOARD_POLICY_ID}}
-            <div class="col-12 col-md-6">
-              <div class="mb-3 bxi-component-bg-color p-3 h-100" data-dv-flow="static" data-policy-id="{{env.BXI_DASHBOARD_POLICY_ID}}"></div>
+            <div class="col-12 col-md-6 d-flex flex-column">
+              <div class="bxi-component-bg-color p-3 flex-grow-1" data-dv-flow="static" data-policy-id="{{env.BXI_DASHBOARD_POLICY_ID}}"></div>
             </div>
             {{/if}}
-            <div class="col-12{{#if env.BXI_DASHBOARD_POLICY_ID}} col-md-6{{/if}}">
-              <div class="bxi-component-bg-color text-center p-3 d-flex flex-column h-100 justify-content-center align-items-center">
-                <h5 class="fw-bold mb-4">{{settings.dashboard.advertisement.title}}</h5>
-                <p class="mb-4 fs-7">{{settings.dashboard.advertisement.description}}</p>
-                <h6 class="fw-boldish">{{settings.dashboard.advertisement.alert}}</h6>
-                {{#if settings.dashboard.advertisement.button}}
-                <button class="bxi-button bxi-button--md">{{settings.dashboard.advertisement.button}}</button>
+            <div class="col-12{{#if env.BXI_DASHBOARD_POLICY_ID}} col-md-6 {{/if}}">
+              <h5 class="fw-bold mt-4 mt-md-0">{{settings.dashboard.claims.history.header}}</h5>
+              <div class="bxi-component-bg-color p-3 mb-4">
+                <div class="row mb-2">
+                  <div class="col-3 col-xl-2 text-center bxi-color-primary">{{settings.dashboard.claims.history.column1}}</div>
+                  <div class="col-9 col-xl-10 bxi-color-primary">{{settings.dashboard.claims.history.column2}}</div>
+                </div>
+                {{#each settings.dashboard.claims.history.claims}}
+                <div class="row mb-3">
+                  <div class="col-3 col-xl-2 d-flex justify-content-center align-items-center">
+                    <div class="bxi-claim-status bg-{{status}}"></div>
+                  </div>
+                  <div class="col-9 col-xl-10">
+                    <div class="fw-bold fs-7">{{id}}</div>
+                    <div class="fs-7">{{date}} - <a class="bxi-link">More Detail</a></div>
+                  </div>
+                </div>
+                {{/each}}
+              </div>
+              <h5 class="fw-bold">{{settings.dashboard.claims.advertisement.header}}</h5>
+              <div class="bxi-component-bg-color p-3 d-flex flex-column">
+                <div>
+                  <p>{{settings.dashboard.claims.advertisement.description}}</p>
+                </div>
+                {{#if settings.dashboard.claims.advertisement.button}}
+                <button class="bxi-button bxi-button--md align-self-end">{{settings.dashboard.claims.advertisement.button}}</button>
                 {{/if}}
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-12">
-              <div class="my-4">
-                <h1 class="bxi-color-secondary bxi-ff-secondary mt-4 mt-sm-0 fw-bold">{{settings.dashboard.portal.header}}</h1>
-              </div>
-            </div>
-            {{#each settings.dashboard.portal.services}}
-            <div class="col-md-4 d-flex mb-4">
-              <div class="bxi-service bxi-component-bg-color w-100 cursor-pointer p-4 text-center">
-                <div class="mb-3">{{{inlineSvg logo}}}</div>
-                <p class="bxi-service-color mb-0 fw-bold">{{description}}</p>
-              </div>
-            </div>
-            {{/each}}
-          </div>
-          <div class="row">
-            {{#each settings.dashboard.coverage}}
-            <div class="col-12 col-md-6 col-xl-3 mb-4">
-              <div class="bxi-component-bg-color h-100">
-                <h4 class="bxi-coverage-header d-flex align-items-center p-3"><span>{{{inlineSvg icon}}}</span><div class="text-center flex-grow-1">{{title}}</div></h4>
-                <div class="p-3">
-                  {{#each bullets}}
-                  <div class="mb-3">
-                    <div>{{text}}</div>
-                    {{#if subtext}}
-                    <div class="fs-8 fw-light text-end">{{subtext}}</div>
-                    {{/if}}
+              <h1 class="bxi-color-secondary bxi-ff-secondary fw-bold mb-4">{{settings.dashboard.claims.coverage.header}}</h1>
+              <div class="bxi-component-bg-color pt-3 px-3 pb-2">
+                {{#each settings.dashboard.claims.coverage.included}}
+                <div class="row mb-3 pb-3 border-bottom">
+                  <div class="col-sm-9"><a class="bxi-link me-4">{{> alertIcon class="bxi-icon-color-primary me-2" }} {{link}}</a><span>{{name}}</span></div>
+                  <div class="col-sm-3 fs-8 d-flex align-items-center mt-3 mt-sm-0">
+                    <div class="me-2">{{> shieldIcon class="bxi-shield-icon"}}</div>
+                    <div>{{tag}}</div>
                   </div>
-                  {{/each}}
-                  {{#each links}}
-                  <a class="bxi-link bxi-link--secondary mb-2 d-block">{{this}}</a>
-                  {{/each}}
                 </div>
+                {{/each}}
               </div>
             </div>
-            {{/each}}
           </div>
         </div>
       </div>
