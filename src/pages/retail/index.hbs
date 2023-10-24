@@ -57,7 +57,9 @@
             <div class="ps-5 py-5 ps-md-4 ps-xl-5 pe-md-3">
               <h1 class="fw-bold">{{settings.home_page.sale_tile.title}}</h1>
               <p class="mb-4">{{settings.home_page.sale_tile.description}}</p>
+              {{#if settings.home_page.sale_tile.button}}
               <button class="bxi-button bxi-button--lg">{{settings.home_page.sale_tile.button}}</button>
+              {{/if}}
             </div>
           </div>
         </div>
@@ -66,7 +68,9 @@
             <div class="text-start text-md-end mx-5">
               <h1 class="fw-bold">{{settings.home_page.shop_tile.title}}</h1>
               <p class="mb-4">{{settings.home_page.shop_tile.description}}</p>
+              {{#if settings.home_page.shop_tile.button}}
               <button class="bxi-button bxi-button--lg">{{settings.home_page.shop_tile.button}}</button>
+              {{/if}}
             </div>
           </div>
           <div class="bxi-shop-section-image position-relative overflow-hidden">

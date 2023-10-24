@@ -106,13 +106,9 @@
           </td>
           <td>
             <div class="cell-container d-flex align-items-center justify-content-center flex-wrap">
-              <a class="btn btn-link" href="{{home}}">Home</a>
-              {{#if dashboard}}
-              <a class="btn btn-link" href="{{dashboard}}">Dashboard</a>
-              {{/if}}
-              {{#if dialogExamples}}
-              <a class="btn btn-link" href="{{dialogExamples}}">Dialog Examples</a>
-              {{/if}}
+              {{#each endpointLinks}}
+              <a class="btn btn-link" href="{{this}}">{{@key}}</a>
+              {{/each}}
             </div>
           </td>
         </tr>

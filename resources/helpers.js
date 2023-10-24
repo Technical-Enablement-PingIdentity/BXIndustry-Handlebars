@@ -2,6 +2,7 @@ import fs from 'fs';
 import crypto from 'crypto';
 
 let verticals;
+let verticalsEndpointMaps = {};
 
 /**
  * Returns an object with all whitelisted (within this function) environment variables that can be used 
@@ -66,6 +67,73 @@ function isValidVertical(vertical) {
     return getVerticals().includes(vertical);
 }
 
+/** 
+ * Introspects the vertical's view directory to set up endpoints for all available hbs files (except branding.hbs)
+ * 
+ * @param {string} vertical Vertical name
+ * @returns {Object} A map like {<file-location-in-project>: <server-endpoint>}
+ */
+function getVerticalEndpoints(vertical) {
+    // Traversing filesystem is expensive, cache results 
+    // also this prevents map from getting out of sync if a user adds a file but doesn't restart server
+    const cachedEndpointMap = verticalsEndpointMaps[vertical]
+    if (cachedEndpointMap) {
+        return cachedEndpointMap;
+    }
+
+    const verticalViewRoot = `src/pages/${vertical}`
+    const allFiles = fs.readdirSync(verticalViewRoot);
+
+    // Filter out non-handlebars files (e.g. settings.json) and branding files
+    const endpointFiles = allFiles.filter(file => file.match(/.*\.(hbs?)/ig) && file !== 'branding.hbs');
+        
+    const endpointMap = {};
+    endpointFiles.forEach(file => {
+        endpointMap[`${verticalViewRoot}/${file}`] = stripTrailingSlash( // remove trailing slash from 'index' endpoint
+            `/${vertical}/${file.replace('.hbs', '') // remove extension
+                .replace('index', '') // replace index with empty string since that's the root url
+            }`);
+    });
+
+    verticalsEndpointMaps[vertical] = endpointMap;
+
+    return endpointMap;
+}
+
+function getVerticalLinks(vertical) {
+    const endpoints = Object.values(getVerticalEndpoints(vertical));
+    const linkMap = {};
+
+    endpoints.forEach(endpoint => {
+        const name = endpoint.replace(`/${vertical}`, '');
+        const determinedName = name === '' ? 'home' : stripLeadingSlash(name);
+        linkMap[determinedName.charAt(0).toUpperCase() + determinedName.slice(1)] = endpoint;
+    });
+
+    // Property order matters for shortcuts page, home then dashboard, then whatever custom pages
+    // Any null endpoints will be removed from the link map before it's returned
+    const orderedLinkMap = {
+        Home: null,
+        Dashboard: null,
+    }
+
+    Object.assign(orderedLinkMap, linkMap);
+
+    // Dialog examples should always be last link, will be removed from the map in case of generic vertical
+    orderedLinkMap['Dialog Examples'] = vertical !== 'generic' ? `/${vertical}/dialog-examples` : null;
+
+    // Remove any keys which are null, e.g. dialog examples and dashboard from generic or any deleted Home/Dashboard pages
+    return Object.fromEntries(Object.entries(orderedLinkMap).filter(([_, v]) => v != null)); 
+}
+
+function stripTrailingSlash(str) {
+    return str.endsWith('/') ? str.slice(0, -1) : str;
+}
+
+function stripLeadingSlash(str) {
+    return str.startsWith('/') ? str.slice(1) : str;
+}
+
 /**
  * Returns a file at the provided location, but calculates the file's sha1 and adds it as url
  * parameter to bust caching, used so if user makes changes to the file the new file will picked up
@@ -114,9 +182,12 @@ function getSettingsFile(vertical) {
 }
 
 export default {
-    getBxiEnvironmentVariables: getBxiEnvironmentVariables,
-    getVerticals: getVerticals,
-    isValidVertical: isValidVertical,
-    importWithCacheBusting: importWithCacheBusting,
-    getSettingsFile: getSettingsFile,
+    getBxiEnvironmentVariables,
+    getVerticals,
+    isValidVertical,
+    importWithCacheBusting,
+    getSettingsFile,
+    getVerticalEndpoints,
+    stripTrailingSlash,
+    getVerticalLinks,
 }
