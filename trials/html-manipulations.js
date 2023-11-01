@@ -37,5 +37,11 @@ export function htmlManipulations(htmlDocument) {
   // Clean up empty style tags from above replacement
   htmlDocument = htmlDocument.replace(/\s*style="\s*"+/g, '');
 
+  const currentYear = new Date().getFullYear();
+
+  // Replace {{currentYear}} with current year and {{lastYear}} with last year
+  htmlDocument = htmlDocument.replace(/{{currentYear}}/g, currentYear);
+  htmlDocument = htmlDocument.replace(/{{lastYear}}/g, currentYear -1);
+
   return htmlDocument;
 }
