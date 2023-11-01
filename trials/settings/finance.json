@@ -20,6 +20,9 @@
       }
     },
     "dashboard": {
+      "portal": {
+        "dropdown_placeholder": "<option value=\"\" selected>Things I Can Do</option><option value=\"bxi-reset-password\">Reset Password</option><option value=\"bxi-manage-devices\">Manage Devices</option><option value=\"bxi-profile-management\">Profile Management</option>"
+      },
       "sidebar": {
         "links": [
           "Pay & Transfer",
