@@ -26,7 +26,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Initialize internal variables
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8080;
 const bxiEnvVars = helpers.getBxiEnvironmentVariables();
 const verticals = helpers.getVerticals();
 
@@ -61,7 +61,8 @@ initHandlebars(fastify);
 // Redirect http traffic to https, glitch doesn't handle this OOTB
 fastify.addHook('onRequest', (request, reply, done) => {
   // Don't do this when running locally or if already on https
-  if (request.hostname.includes(':5000') || request.headers['x-forwarded-proto'].match(/https/g)) {
+  const protoHeader = request.headers['x-forwarded-proto'];
+  if (request.hostname.includes(`:${port}`) || !protoHeader || protoHeader.match(/https/g)) {
     done();
   } else {
     reply.redirect(302, `https://${request.hostname}${request.url}`);
@@ -185,13 +186,13 @@ fastify.get('/verticals', (_, reply) => {
 // Set up shortcuts endpoints, shows all verticals with applicable links
 fastify.get('/shortcuts', (_, reply) => {
   const viewParams = verticals.map(vertical => {
+    const endpointLinks = helpers.getVerticalLinks(vertical);
+
     const settings = helpers.getSettingsFile(vertical).settings;
     return { 
       name: settings.title, 
       logo: settings.images.dialog_logo || settings.images.logo,
-      home: `/${vertical}`,
-      dashboard: vertical !== 'generic' ? `/${vertical}/dashboard` : '',
-      dialogExamples: vertical !== 'generic'? `/${vertical}/dialog-examples` : '',
+      endpointLinks,
     };
   });
 
@@ -201,24 +202,23 @@ fastify.get('/shortcuts', (_, reply) => {
 
 // Generic does not have dashboard or dialog-examples page
 helpers.getVerticals().forEach(vertical => {
-  // Vertical Home Page
-  fastify.get(`/${vertical}`, function (_, reply) {
-    const viewParams = getViewParams(vertical);
-    logger.log(`/${vertical} hit, sending home page view data`, viewParams);
-    return reply.view(`src/pages/${vertical}/index.hbs`, viewParams);
-  });
+  // Do this here so it's in sync with endpoints (e.g. if a user adds a page without restarting server it won't be navigatable yet)
+  const verticalLinks = helpers.getVerticalLinks(vertical);
+
+  for (const [filename, endpoint] of Object.entries(helpers.getVerticalEndpoints(vertical))) {
+    fastify.get(endpoint, function (_, reply) {
+      const pageViewParams = getViewParams(vertical); // Must get these within endpoint or settings.json changes won't be picked up until server restarts
+      const { Home, ['Dialog Examples']: __, ...authenticatedEndpoints } = verticalLinks; // Use object destructuring to filter out Home and Dialog Examples links
+      pageViewParams.verticalAuthenticatedEndpoints = authenticatedEndpoints; 
+      logger.log(`${endpoint} hit, send page with view data`, pageViewParams);
+      return reply.view(filename, pageViewParams);
+    });
+  }
 
   // Generic does not have dashboard or dialog examples pages
   if (vertical === 'generic') {
     return;
   }
-
-  // Vertical Dashboard Page
-  fastify.get(`/${vertical}/dashboard`, function (_, reply) {
-    const viewParams = getViewParams(vertical);
-    logger.log(`/${vertical}/dashboard hit, sending dashboard page view data`, viewParams);
-    return reply.view(`src/pages/${vertical}/dashboard.hbs`, viewParams);
-  });
 
   // Manifest file so each vertical can be installed as a PWA
   fastify.get(`/${vertical}/manifest.json`, function (_, reply) {
