@@ -82,9 +82,9 @@
                 <h4 class="mb-3 mb-sm-0 mt-1 fw-boldish bxi-ff-secondary">{{settings.dashboard.portal.title}}</h4>
               </div>
               <div class="col-sm-6 d-flex justify-content-center justify-content-sm-end">
-                <div class="portal-header-dropdown bxi-component-bg-color py-2 ps-3 pe-5 rounded-1 position-relative cursor-pointer">
-                  {{settings.dashboard.portal.dropdown_placeholder}}
-                </div>
+                <select id="all-the-things" class="portal-header-dropdown bxi-component-bg-color pe-5 cursor-pointer">
+                  {{{settings.dashboard.portal.dropdown_placeholder}}}
+                </select>
               </div>
             </div>
             {{#each settings.dashboard.portal.account_tiles}}
