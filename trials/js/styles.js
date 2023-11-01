@@ -4,7 +4,7 @@ import path from 'path';
 
 export function compileStyles({bxiRepoBasePath, verticals, destinationFolder}) {
   console.info('Compiling scss...');
-  const compilationOptions = { style: 'compressed' }
+  const compilationOptions = { style: 'expanded' }
 
   const compiledAppCss = sass.compile(path.join(bxiRepoBasePath, 'scss/index.scss'), compilationOptions);
   console.info('Compiled app scss');

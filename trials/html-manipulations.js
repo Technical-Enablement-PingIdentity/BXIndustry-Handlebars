@@ -28,6 +28,9 @@ export function htmlManipulations(htmlDocument) {
   htmlDocument = htmlDocument.replace(/onclick="bxi.logout\(\)"/, 'id="bxi-log-out"');
   htmlDocument = htmlDocument.replace(/\sonclick=".*?"/, '');
 
+  // Replace Log Out buttons with Sign Out
+  htmlDocument = htmlDocument.replace(/\>Log Out\<\/button>/, '>Sign Out</button>');
+
   // Remove background-image from style attributes
   htmlDocument = htmlDocument.replace(/background-image: url\(.*\)+/g, '');
 
