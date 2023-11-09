@@ -3,7 +3,7 @@
     "images": {
       "favicon": "./favicon.ico",
       "apple_touch_icon": "./apple-touch-icon.png",
-      "logo": "./logo-white.png",
+      "logo": "./logo.svg",
       "dialog_logo": "./auth-dialog-logo.png"
     },
     "rewards_card": {
@@ -21,16 +21,58 @@
     },
     "dashboard": {
       "portal": {
-        "dropdown_placeholder": "<option value=\"\" selected>Things I Can Do</option><option value=\"bxi-reset-password\">Reset Password</option><option value=\"bxi-manage-devices\">Manage Devices</option><option value=\"bxi-profile-management\">Profile Management</option>"
+      "title": "Account Dashboard",
+      "dropdown_placeholder": "<option value=\"\" selected>Things I Can Do</option><option value=\"bxi-reset-password\">Reset Password</option><option value=\"bxi-manage-devices\">Manage Devices</option><option value=\"bxi-profile-management\">Profile Management</option>",
+        "account_tiles": [
+          {
+            "title": "Banking Account Balances",
+            "first_header": "Accounts",
+            "second_header": "Balance",
+            "accounts": [
+              {
+                "name": "Checking (...8585)",
+                "amount": "$45,135.01"
+              },
+              {
+                "name": "Savings (...0231)",
+                "amount": "$40,068.44"
+              }
+            ]
+          },
+          {
+            "title": "Investment Account Balances",
+            "first_header": "Accounts",
+            "second_header": "Balance",
+            "accounts": [
+              {
+                "name": "IRA (...2842)",
+                "amount": "$45,135.01"
+              },
+              {
+                "name": "Mutual Funds (...3021)",
+                "amount": "$40,068.44"
+              }
+            ]
+          },
+          {
+            "title": "Credit Account Balances",
+            "first_header": "Accounts",
+            "second_header": "Balance",
+            "accounts": [
+              {
+                "name": "BXFinance Rewards Visa (...1337)",
+                "amount": "$45,135.01"
+              },
+              {
+                "name": "HELOC (...1258)",
+                "amount": "$40,068.44"
+              }
+            ]
+          }
+        ]
       },
       "sidebar": {
-        "links": [
-          "Pay & Transfer",
-          "Banking & Credit Accounts",
-          "Loans & Lines of Credit",
-          "Investment Accounts",
-          "Messages"
-        ]
+        "links": []
       }
     }
   }
