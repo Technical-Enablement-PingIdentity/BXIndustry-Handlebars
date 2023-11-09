@@ -66,12 +66,12 @@
               </li>
               {{/each}}
             </ul>
-            <div class="rewards-card overflow-hidden position-relative pb-3 mb-4 d-flex justify-content-end">
-              <div class="rewards-card-pill bxi-bg-primary rounded-start-pill position-absolute bxi-zi-1"></div>
-              <div class="rewards-card-container bxi-zi-2">
-                <img class="rewards-card-image d-block" src="{{settings.rewards_card.image}}" />
-                <h4 class="rewards-card-color fw-bold mt-4">{{settings.rewards_card.title}}</h4>
-                <p class="rewards-card-color fs-7">{{settings.rewards_card.sub_title}}</p>
+            <div class="shine-rewards-card overflow-hidden position-relative pb-3 mb-4 d-flex justify-content-end">
+              <div class="shine-rewards-card-pill bxi-bg-primary rounded-start-pill position-absolute bxi-zi-1"></div>
+              <div class="shine-rewards-card-container bxi-zi-2">
+                <img class="shine-rewards-card-image d-block" src="{{settings.rewards_card.image}}" />
+                <h4 class="shine-rewards-card-color fw-bold mt-4">{{settings.rewards_card.title}}</h4>
+                <p class="shine-rewards-card-color fs-7">{{settings.rewards_card.sub_title}}</p>
                 <a class="bxi-button bxi-button--outline">{{settings.rewards_card.link}}</a>
               </div>
             </div>
@@ -88,13 +88,15 @@
               </div>
             </div>
             {{#each settings.dashboard.portal.account_tiles}}
-            <div class="account-tile bxi-component-bg-color mb-3 mb-lg-4 ps-5 p-3 position-relative">
+            <div class="account-details bxi-component-bg-color mb-3 mb-lg-4 ps-5 p-3 position-relative">
               <div class="row mb-3">
                 <div class="col-7 d-flex align-items-center">
                   <h6 class="fw-bold">{{title}}</h6>
                 </div>
                 <div class="col-5 d-flex justify-content-end">
+                  {{#if action}}
                   <button class="bxi-button bxi-button--outline bxi-truncate py-2">{{action}}</button>
+                  {{/if}}
                 </div>
               </div>
               <div class="row">
@@ -106,7 +108,7 @@
                 </div>
               </div>
               {{#each accounts}}
-              <div class="row accounts-row me-0">
+              <div class="row account-row me-0">
                 <div class="col-7 bxi-truncate"><a class="bxi-button bxi-button--link">{{name}}</a></div>
                 <div class="col-5"><span class="ps-2">{{amount}}</span></div>
               </div>

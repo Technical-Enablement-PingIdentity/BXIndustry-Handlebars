@@ -62,7 +62,7 @@
       }
     }
 
-    .rewards-card {
+    .shine-rewards-card {
       &-color {
         color: var(--bxi-finance-rewards-color);
       }
@@ -123,7 +123,7 @@
       box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.1);
     }
 
-    .rewards-card {
+    .shine-rewards-card {
       &-pill {
         height: 342px;
         width: 427px;
@@ -178,11 +178,11 @@
       }
     }
 
-    .account-tile {
+    .account-details {
       border-left: 3px solid var(--bxi-primary-color);
       box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.1);
 
-      .accounts-row {
+      .account-row {
         padding-bottom: .5rem;
         margin-bottom: .5rem;
         border-bottom: 1px solid #E4E6E9;
