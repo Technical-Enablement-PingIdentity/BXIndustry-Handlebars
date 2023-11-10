@@ -14,9 +14,11 @@
             </a>
             <ul class="bxi-nav-links bxi-bg-secondary">
               <li>
+                {{#if settings.header.main_link}}
                 <button class="bxi-button rounded-0 d-flex mb-2 px-3 d-lg-none text-nowrap align-items-center bxi-icon-color-white">
                   {{> hamburgerIcon class="me-2"}}{{settings.header.main_link}}
                 </button>
+                {{/if}}
               </li>
               {{#each settings.header.links}}
               <li>
@@ -27,9 +29,11 @@
             <a id="bxi-logo" class="navbar-brand py-0 ms-3">
               <img src="{{settings.images.logo}}" alt="Logo" />
             </a>
+            {{#if settings.header.main_link}}
             <button class="bxi-button rounded-0 d-none d-lg-flex px-3 align-items-center bxi-icon-color-white">
               {{> hamburgerIcon class="me-2"}}{{settings.header.main_link}}
             </button>
+            {{/if}}
           </div>
           <div class="d-flex flex-row position-relative align-items-center">
             {{> groceryIcon class="d-none d-lg-block me-4 bxi-icon-color-secondary"}}
