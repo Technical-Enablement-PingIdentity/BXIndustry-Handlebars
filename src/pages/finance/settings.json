@@ -62,7 +62,7 @@
       },
       "portal": {
         "title": "Account Dashboard",
-        "dropdown_placeholder": "Things I Can Do",
+        "dropdown_placeholder": "<option disabled selected>Things I Can Do</option>",
         "account_tiles": [
           {
             "title": "Banking Account Balances",
