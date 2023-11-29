@@ -1,6 +1,10 @@
 @import '../common/mixins';
 
 &.eats {
+  .navbar-brand img {
+    max-width: 250px; 
+  }
+
   .bxi-button {
     border-radius: 50px;
   }
