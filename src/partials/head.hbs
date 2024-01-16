@@ -20,6 +20,14 @@
     <!-- Global site tag (gtag.js) - Google Analytics (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-58H02SVDGG"></script>
     <script>
+      const { host, protocol } = location;
+      
+      // Not an ideal solution but the x-forwarded-proto solution to redirect to https does not work with custom domains in Glitch, see: https://support.glitch.com/t/force-https-on-project-url/4817
+      // I could not find aother way of doing this, but using location.replace at least allows back button to work correctly and should be invisible to the user
+      if (host === 'demo.bxindustry.org' && protocol === 'http:') {
+        location.replace(`https:${location.href.substring(location.protocol.length)}`);
+      }
+
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
