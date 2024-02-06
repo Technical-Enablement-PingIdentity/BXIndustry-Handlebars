@@ -206,10 +206,23 @@ helpers.getVerticals().forEach(vertical => {
   const verticalLinks = helpers.getVerticalLinks(vertical);
 
   for (const [filename, endpoint] of Object.entries(helpers.getVerticalEndpoints(vertical))) {
-    fastify.get(endpoint, function (_, reply) {
+    fastify.get(endpoint, function (req, reply) {
       const pageViewParams = getViewParams(vertical); // Must get these within endpoint or settings.json changes won't be picked up until server restarts
-      const { Home, ['Dialog Examples']: __, ...authenticatedEndpoints } = verticalLinks; // Use object destructuring to filter out Home and Dialog Examples links
-      pageViewParams.verticalAuthenticatedEndpoints = authenticatedEndpoints; 
+      const { Home, ['Dialog Examples']: _, ...authenticatedEndpoints } = verticalLinks; // Use object destructuring to filter out Home and Dialog Examples links
+      pageViewParams.verticalAuthenticatedEndpoints = authenticatedEndpoints;
+
+      // Get query parameter to conditionally show the edit drawer
+      pageViewParams.showEditDrawer = false;
+
+      if (req.query['edit']) {
+        pageViewParams.showEditDrawer = true;
+        pageViewParams.editorMapping = helpers.getEditorMappingFile(vertical);
+        const currentPage = endpoint.split('/').pop();
+
+         // If the current page is the vertical root, we are on the home page
+        pageViewParams.currentPage = currentPage === vertical ? 'home' : currentPage;
+      }
+      
       logger.log(`${endpoint} hit, send page with view data`, pageViewParams);
       return reply.view(filename, pageViewParams);
     });
@@ -219,6 +232,50 @@ helpers.getVerticals().forEach(vertical => {
   if (vertical === 'generic') {
     return;
   }
+
+  fastify.post(`/${vertical}/settings/reset`, function (_, reply) {
+    fs.copyFileSync(`./settings/${vertical}.json`, `./src/pages/${vertical}/settings.json`);
+    reply.code(200).send();
+  });
+
+  // Save value from editor
+  fastify.put(`/${vertical}/settings`, {
+    schema: {
+      body: {
+        type: 'object',
+        required: [ 'jsonPath', 'value' ],
+        properties: {
+          jsonPath: { type: 'string' },
+          value: { type: 'string' },
+        }
+      }
+    }
+  }, async function (req, reply) {
+    const forbiddenHosts = [ 'bxgeneric-prod', 'bxgeneric-qa', 'demo.bxindustry.org', 'demo.bxgeneric.org' ];
+    if (forbiddenHosts.some(fh => req.hostname.includes(fh))) {
+      reply.code(403).send('Updates to settings on this host are forbidden');
+      return;
+    }
+    
+    const path = `./src/pages/${vertical}/settings.json`;
+
+    // We don't want to use the getSettingFile helper here because we don't want to override the currentYear and other handles
+    const verticalSettings = JSON.parse(fs.readFileSync(path));
+
+    // This chunk of code iterates through the settings obj to find the correct path to update
+    const stack = req.body.jsonPath.split('.');
+    let settingsRef = verticalSettings;
+
+    while (stack.length > 1) {
+      settingsRef = settingsRef[stack.shift()];
+    }
+
+    settingsRef[stack.shift()] = req.body.value;
+
+    fs.writeFileSync(path, JSON.stringify(verticalSettings, null, 2));
+
+    reply.code(200).send();
+  });
 
   // Manifest file so each vertical can be installed as a PWA
   fastify.get(`/${vertical}/manifest.json`, function (_, reply) {

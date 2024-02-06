@@ -1,0 +1,173 @@
+{
+  "theme": {
+  "global": [
+      {
+        "type": "font",
+        "friendlyName": "Primary Font",
+        "jsonPath": "theme.primaryFont",
+        "cssVariable": "--bxi-primary-font"
+      },
+      {
+        "type": "font", 
+        "friendlyName": "Secondary Font",
+        "jsonPath": "theme.secondaryFont",
+        "cssVariable": "--bxi-secondary-font"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Primary Color",
+        "jsonPath": "theme.primaryColor",
+        "cssVariable": "--bxi-primary-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Secondary Color",
+        "jsonPath": "theme.secondaryColor",
+        "cssVariable": "--bxi-secondary-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Button Color",
+        "jsonPath": "theme.buttonColor",
+        "cssVariable": "--bxi-button-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Button Background Color",
+        "jsonPath": "theme.buttonBgColor",
+        "cssVariable": "--bxi-button-bg-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Button Background Hover Color",
+        "jsonPath": "theme.buttonBgHoverColor",
+        "cssVariable": "--bxi-button-bg-hover-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Link Button Color",
+        "jsonPath": "theme.linkButtonColor",
+        "cssVariable": "--bxi-link-button-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Link Button Hover Color",
+        "jsonPath": "theme.linkButtonHoverColor",
+        "cssVariable": "--bxi-link-button-hover-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Footer Color",
+        "jsonPath": "theme.footerColor",
+        "cssVariable": "--bxi-footer-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Footer Background Color",
+        "jsonPath": "theme.footerBgColor",
+        "cssVariable": "--bxi-footer-bg-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Copyright Color",
+        "jsonPath": "theme.copyrightColor",
+        "cssVariable": "--bxi-copyright-color"
+      }
+    ],
+    "home": [],
+    "dashboard": [
+      {
+        "type": "color",
+        "friendlyName": "Dashboard Background Color",
+        "jsonPath": "theme.dashboardBgColor",
+        "cssVariable": "--bxi-dashboard-bg-color"
+      }
+    ]
+  },
+  "content": {
+    "global": [
+      {
+        "type": "string",
+        "friendlyName": "Title",
+        "jsonPath": "settings.title",
+        "elementSelector": "head > title"
+      }, 
+      {
+        "type": "image",
+        "friendlyName": "Favicon",
+        "jsonPath": "settings.images.favicon",
+        "elementSelector": "#favicon"
+      },
+      {
+        "type": "image",
+        "friendlyName": "Apple Touch Icon",
+        "jsonPath": "settings.images.apple_touch_icon",
+        "elementSelector": "#apple-touch-icon"
+      },
+      {
+        "type": "image",
+        "friendlyName": "Logo",
+        "jsonPath": "settings.images.logo",
+        "elementSelector": "#bxi-logo img"
+      },
+      {
+        "type": "image",
+        "friendlyName": "Dialog Logo",
+        "jsonPath": "settings.images.dialog_logo",
+        "elementSelector": "#dialog-logo"
+      }
+    ],
+    "home": [
+      {
+        "type": "image",
+        "friendlyName": "Banner Background",
+        "jsonPath": "settings.home_page.banner.background_image",
+        "elementSelector": "head > title"
+      }, 
+      {
+        "type": "string",
+        "friendlyName": "Banner Title",
+        "jsonPath": "settings.home_page.banner.title",
+        "elementSelector": ".bxi-main-header"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Banner Subtitle",
+        "jsonPath": "settings.home_page.banner.subtitle",
+        "elementSelector": "h4.bxi-banner--text"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Offers Title",
+        "jsonPath": "settings.home_page.offers_section.title",
+        "elementSelector": ".bxi-offers-section h1"
+      }
+    ],
+    "dashboard": [
+      {
+        "type": "string",
+        "friendlyName": "Header",
+        "jsonPath": "settings.dashboard.header",
+        "elementSelector": "h1.bxi-main-header"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Header Rewards Title",
+        "jsonPath": "settings.dashboard.overview.description",
+        "elementSelector": ".bxi-overview p"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Header Rewards Amount",
+        "jsonPath": "settings.dashboard.overview.value",
+        "elementSelector": ".bxi-overview h4"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Offers Title",
+        "jsonPath": "settings.dashboard.personal_offers.title",
+        "elementSelector": ".bxi-offers-section h1"
+      }
+    ]
+  }
+}
