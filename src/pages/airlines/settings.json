@@ -12,7 +12,15 @@
     "dashboardBgColor": "#ffffff",
     "footerColor": "#ffffff",
     "footerBgColor": "var(--bxi-secondary-color)",
-    "copyrightColor": "#ffffff"
+    "copyrightColor": "#ffffff",
+    "homeBannerColor": "#ffffff",
+    "homeBannerInputBgColor": "#ffffff",
+    "homeOffersColor": "#ffffff",
+    "dashboardHeaderColor": "#ffffff",
+    "dashboardFlightsColor": "var(--bxi-secondary-color)",
+    "dashboardFlightsBgColor": "#f3f1ff",
+    "dashboardFlightsBorderColor": "#b6c3ce",
+    "dashboardFlightsInfoColor": "#76818b"
   },
   "settings": {
     "title": "BXAirlines",
@@ -33,7 +41,7 @@
     "home_page": {
       "banner": {
         "background_image": "/airlines/banner.jpg",
-        "title": "Fly Like a Dream Test",
+        "title": "Fly Like a Dream",
         "subtitle": "Travel comfortably and safely to thousands of destinations around the globe",
         "search": {
           "inputs": [

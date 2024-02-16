@@ -21,13 +21,26 @@
     @include color-icon(var(--bs-primary));
   }
 
-  .confirm-change-button {
+  .confirm-change-button,
+  .cancel-change-button {
     border: none;
+    padding: .25rem;
     appearance: none;
-    top: 50%;
-    right: 1px;
-    padding: .25rem .5rem;
     background-color: #ffffff;
+  }
+
+  .cancel-change-button {
+    height: 32px;
+    top: 2.5rem;
+    right: .25rem;
+    line-height: 1rem;
+    font-size: 2rem;
+    color: var(--bs-danger);
+  }
+
+  .confirm-change-button {
+    right: 2rem;
+    top: 50%;
 
     svg {
       width: 20px;

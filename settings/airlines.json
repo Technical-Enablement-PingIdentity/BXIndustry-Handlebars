@@ -12,7 +12,15 @@
     "dashboardBgColor": "#ffffff",
     "footerColor": "#ffffff",
     "footerBgColor": "var(--bxi-secondary-color)",
-    "copyrightColor": "#ffffff"
+    "copyrightColor": "#ffffff",
+    "homeBannerColor": "#ffffff",
+    "homeBannerInputBgColor": "#ffffff",
+    "homeOffersColor": "#ffffff",
+    "dashboardHeaderColor": "#ffffff",
+    "dashboardFlightsColor": "var(--bxi-secondary-color)",
+    "dashboardFlightsBgColor": "#f4f1f1",
+    "dashboardFlightsBorderColor": "#b6c3ce",
+    "dashboardFlightsInfoColor": "#76818b"
   },
   "settings": {
     "title": "BXAirlines",

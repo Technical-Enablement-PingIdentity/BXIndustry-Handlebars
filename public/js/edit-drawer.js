@@ -133,6 +133,8 @@
     document.querySelectorAll('[data-editor-type="image"]').forEach(field => {
       let storedValue = field.value;
       const saveBtn = field.nextElementSibling;
+      const cancelBtn = saveBtn.nextElementSibling;
+      console.log(cancelBtn);
       const affectedElement = document.querySelector(field.dataset.affectedElementSelector);
 
       field.addEventListener('focus', _ => {
@@ -145,11 +147,13 @@
 
       field.addEventListener('input', event => {
         const target = event.target;
-        // console.log(event);
+
         if (target.value === storedValue) {
           saveBtn.classList.add('d-none');
+          cancelBtn.classList.add('d-none');
         } else {
           saveBtn.classList.remove('d-none');
+          cancelBtn.classList.remove('d-none');
         }
       });
 
@@ -183,6 +187,14 @@
         updateSettings(field.id, storedValue);
 
         saveBtn.classList.add('d-none');
+        cancelBtn.classList.add('d-none');
+      });
+
+      cancelBtn.addEventListener('click', _ => {
+        field.value = storedValue;
+        
+        saveBtn.classList.add('d-none');
+        cancelBtn.classList.add('d-none');
       });
     });
   }

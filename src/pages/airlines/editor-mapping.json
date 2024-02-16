@@ -1,6 +1,6 @@
 {
   "theme": {
-  "global": [
+    "global": [
       {
         "type": "font",
         "friendlyName": "Primary Font",
@@ -74,13 +74,62 @@
         "cssVariable": "--bxi-copyright-color"
       }
     ],
-    "home": [],
+    "home": [
+      {
+        "type": "color",
+        "friendlyName": "Banner Color",
+        "jsonPath": "theme.homeBannerColor",
+        "cssVariable": "--bxi-airlines-banner-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Banner Input Bg Color",
+        "jsonPath": "theme.homeBannerInputBgColor",
+        "cssVariable": "--bxi-airlines-banner-input-bg-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Home Offers Color",
+        "jsonPath": "theme.homeOffersColor",
+        "cssVariable": "--bxi-airlines-offers-color"
+      }
+    ],
     "dashboard": [
       {
         "type": "color",
         "friendlyName": "Dashboard Background Color",
         "jsonPath": "theme.dashboardBgColor",
         "cssVariable": "--bxi-dashboard-bg-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Dashboard Header Color",
+        "jsonPath": "theme.dashboardHeaderColor",
+        "cssVariable": "--bxi-airlines-dashboard-header-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Dashboard Flights Color",
+        "jsonPath": "theme.dashboardFlightsColor",
+        "cssVariable": "--bxi-airlines-dashboard-flights-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Dashboard Flights Background Color",
+        "jsonPath": "theme.dashboardFlightsBgColor",
+        "cssVariable": "--bxi-airlines-dashboard-flights-bg-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Dashboard Flights Border Color",
+        "jsonPath": "theme.dashboardFlightsBorderColor",
+        "cssVariable": "--bxi-airlines-dashboard-flights-border-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Dashboard Flights Info Color",
+        "jsonPath": "theme.dashboardFlightsInfoColor",
+        "cssVariable": "--bxi-airlines-dashboard-flights-info-color"
       }
     ]
   },

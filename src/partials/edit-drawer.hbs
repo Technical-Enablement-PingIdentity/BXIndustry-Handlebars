@@ -11,16 +11,18 @@
     </ul>
     <div class="tab-content pt-3" id="myTabContent">
       <div class="tab-pane fade show active" id="branding" role="tabpanel" aria-labelledby="branding-tab">
+        {{#if (gt (length (lookup editorMapping.theme currentPage)) 0) }}
         <div class="border-bottom mb-3 pb-3">
           <h4>Current Page</h4>
           {{#each (lookup editorMapping.theme currentPage)}}
           {{> editorThemeFields}}
           {{/each}}
         </div>
+        {{/if}}
         <div class="border-bottom mb-3 pb-3">
           <div class="d-flex">
             <h4>Global</h4>
-            <span class="image-tooltip position-absolute cursor-pointer pe-3" data-bs-toggle="tooltip" data-bs-placement="right" title="Changes to global settings will reflect in ALL pages in the current vertical">{{> alertIcon }}</span>
+            <span class="image-tooltip position-absolute cursor-pointer pe-3" data-bs-toggle="tooltip" data-bs-placement="right" title="Changes to global settings will reflect in ALL pages of the current vertical">{{> alertIcon }}</span>
           </div>
           {{#each editorMapping.theme.global}}
           {{> editorThemeFields}}
@@ -28,16 +30,18 @@
         </div>
       </div>
       <div class="tab-pane fade" id="content" role="tabpanel" aria-labelledby="content-tab">
+        {{#if (gt (length (lookup editorMapping.content currentPage)) 0) }}
         <div class="border-bottom mb-3 pb-3">
           <h4>Current Page</h4>
           {{#each (lookup editorMapping.content currentPage)}}
           {{> editorContentFields}}
           {{/each}}
         </div>
+        {{/if}}
         <div class="border-bottom mb-3 pb-3">
           <div class="d-flex">
             <h4>Global</h4>
-            <span class="image-tooltip position-absolute cursor-pointer pe-3" data-bs-toggle="tooltip" data-bs-placement="right" title="Changes to global settings will reflect in ALL pages in the current vertical">{{> alertIcon }}</span>
+            <span class="image-tooltip position-absolute cursor-pointer pe-3" data-bs-toggle="tooltip" data-bs-placement="right" title="Changes to global settings will reflect in ALL pages of the current vertical">{{> alertIcon }}</span>
           </div>
           {{#each editorMapping.content.global}}
           {{> editorContentFields}}
