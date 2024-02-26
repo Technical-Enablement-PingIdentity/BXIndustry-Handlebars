@@ -18,7 +18,7 @@
     "homeOffersColor": "#ffffff",
     "dashboardHeaderColor": "#ffffff",
     "dashboardFlightsColor": "var(--bxi-secondary-color)",
-    "dashboardFlightsBgColor": "#f3f1ff",
+    "dashboardFlightsBgColor": "#f4f1f1",
     "dashboardFlightsBorderColor": "#b6c3ce",
     "dashboardFlightsInfoColor": "#76818b"
   },

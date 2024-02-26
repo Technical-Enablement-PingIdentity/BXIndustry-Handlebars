@@ -164,6 +164,12 @@
         "friendlyName": "Dialog Logo",
         "jsonPath": "settings.images.dialog_logo",
         "elementSelector": "#dialog-logo"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Footer Phone Number",
+        "jsonPath": "settings.footer.phone_number",
+        "elementSelector": ".footer-phone-number"
       }
     ],
     "home": [

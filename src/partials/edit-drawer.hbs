@@ -1,6 +1,6 @@
 {{#if showEditDrawer}}
   <div class="edit-drawer position-fixed p-3 overflow-y-auto">
-    <button id="reset-all-settings" class="btn btn-danger mb-3 mx-auto d-block">Reset All Settings</button>
+    <button id="reset-all-settings" class="btn btn-danger mb-3 mx-auto d-block" data-bs-toggle="tooltip" data-bs-placement="bottom" title="WARNING: This will reset settings for all pages in the current vertical">Reset All Settings</button>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
         <button class="nav-link active" id="branding-tab" data-bs-toggle="tab" data-bs-target="#branding" type="button" role="tab" aria-controls="home" aria-selected="true">Branding</button>
@@ -22,7 +22,7 @@
         <div class="border-bottom mb-3 pb-3">
           <div class="d-flex">
             <h4>Global</h4>
-            <span class="image-tooltip position-absolute cursor-pointer pe-3" data-bs-toggle="tooltip" data-bs-placement="right" title="Changes to global settings will reflect in ALL pages of the current vertical">{{> alertIcon }}</span>
+            <span class="image-tooltip position-absolute cursor-pointer pe-3" data-bs-toggle="tooltip" data-bs-placement="right" title="Changes to global settings will reflect in all pages of the current vertical">{{> alertIcon }}</span>
           </div>
           {{#each editorMapping.theme.global}}
           {{> editorThemeFields}}
@@ -41,7 +41,7 @@
         <div class="border-bottom mb-3 pb-3">
           <div class="d-flex">
             <h4>Global</h4>
-            <span class="image-tooltip position-absolute cursor-pointer pe-3" data-bs-toggle="tooltip" data-bs-placement="right" title="Changes to global settings will reflect in ALL pages of the current vertical">{{> alertIcon }}</span>
+            <span class="image-tooltip position-absolute cursor-pointer pe-3" data-bs-toggle="tooltip" data-bs-placement="right" title="Changes to global settings will reflect in all pages of the current vertical">{{> alertIcon }}</span>
           </div>
           {{#each editorMapping.content.global}}
           {{> editorContentFields}}
