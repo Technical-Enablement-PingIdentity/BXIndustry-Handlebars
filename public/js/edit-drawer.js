@@ -134,16 +134,22 @@
       let storedValue = field.value;
       const saveBtn = field.nextElementSibling;
       const cancelBtn = saveBtn.nextElementSibling;
-      console.log(cancelBtn);
-      const affectedElement = document.querySelector(field.dataset.affectedElementSelector);
+      
+      let affectedElement = null;
 
-      field.addEventListener('focus', _ => {
-        affectedElement.classList.add('editing-element');
-      });
+      if (field.dataset.affectedElementSelector) {
+        affectedElement = document.querySelector(field.dataset.affectedElementSelector);
+      }
 
-      field.addEventListener('blur', _ => {
-        affectedElement.classList.remove('editing-element');
-      });
+      if (affectedElement) {
+        field.addEventListener('focus', _ => {
+          affectedElement.classList.add('editing-element');
+        });
+  
+        field.addEventListener('blur', _ => {
+          affectedElement.classList.remove('editing-element');
+        });
+      }
 
       field.addEventListener('input', event => {
         const target = event.target;
@@ -172,16 +178,18 @@
 
         storedValue = field.value;
 
-        switch (affectedElement.tagName) {
-          case 'LINK':
-            affectedElement.href = storedValue;
-            break;
-          case 'IMG': 
-            affectedElement.src = storedValue;
-            break;
-          default:
-            console.error('Unhandled img type');
-            break;
+        if (affectedElement) {
+          switch (affectedElement.tagName) {
+            case 'LINK':
+              affectedElement.href = storedValue;
+              break;
+            case 'IMG': 
+              affectedElement.src = storedValue;
+              break;
+            default:
+              console.error('Unhandled img type');
+              break;
+          }
         }
 
         updateSettings(field.id, storedValue);

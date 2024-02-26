@@ -177,7 +177,7 @@
         "type": "image",
         "friendlyName": "Banner Background",
         "jsonPath": "settings.home_page.banner.background_image",
-        "elementSelector": "head > title"
+        "elementSelector": ""
       }, 
       {
         "type": "string",
