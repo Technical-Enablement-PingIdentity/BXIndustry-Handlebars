@@ -1,31 +1,31 @@
 <style>
   :root {
     /* Global Variables - used in common styles */
-    --bxi-primary-font: 'Arimo', sans-serif;
-    --bxi-secondary-font: 'Montserrat', sans-serif;
-    --bxi-primary-color: #00845F;
-    --bxi-secondary-color: #1f0f11;
-    --bxi-button-color: #fff;
-    --bxi-button-bg-color: var(--bxi-primary-color);
-    --bxi-button-bg-hover-color: #456059;
-    --bxi-link-button-color: var(--bxi-primary-color);
-    --bxi-link-button-hover-color: #005c42;
-    --bxi-dashboard-bg-color: #fff;
-    --bxi-component-bg-color: #fff;
-    --bxi-footer-color: #fff;
-    --bxi-footer-bg-color: var(--bxi-secondary-color);
-    --bxi-copyright-color: #fff;
-    --bxi-header-dropdown-color: #8c8f8f;
-    --bxi-header-dropdown-border-color: var(--bxi-primary-color);
+    --bxi-primary-font: {{{theme.primaryFont}}};
+    --bxi-secondary-font: {{{theme.secondaryFont}}};
+    --bxi-primary-color: {{theme.primaryColor}};
+    --bxi-secondary-color: {{theme.secondaryColor}};
+    --bxi-button-color: {{theme.buttonColor}};
+    --bxi-button-bg-color: {{theme.buttonBgColor}};
+    --bxi-button-bg-hover-color: {{theme.buttonBgHoverColor}};
+    --bxi-link-button-color: {{theme.linkButtonColor}};
+    --bxi-link-button-hover-color: {{theme.linkButtonHoverColor}};
+    --bxi-dashboard-bg-color: {{theme.dashboardBgColor}};
+    --bxi-component-bg-color: {{theme.componentBgColor}};
+    --bxi-footer-color: {{theme.footerColor}};
+    --bxi-footer-bg-color: {{theme.footerBgColor}};
+    --bxi-copyright-color: {{theme.copyrightColor}};
+    --bxi-header-dropdown-color: {{theme.headerDropdownColor}};
+    --bxi-header-dropdown-border-color: {{theme.headerDropdownBorderColor}};
 
     /* Vertical Specific Variables - used in <vertical>/customizations.scss */
-    --bxi-finance-header-color: #fff;
-    --bxi-finance-rewards-color: #48655D;
-    --bxi-finance-icon-bg-color: linear-gradient(135deg, #00AF7D 0%, #48655D 113.59%);
-    --bxi-finance-banner-color: #fff;
-    --bxi-finance-banner-bg-color: #456059;
-    --bxi-finance-banner-cirles-color: rgba(72, 101, 93, 0.1);
-    --bxi-finance-component-border-color: #456159;
-    --bxi-finance-dashboard-rewards-color: #fff;
+    --bxi-finance-header-color: {{theme.headerColor}};
+    --bxi-finance-rewards-color: {{theme.rewardsColor}};
+    --bxi-finance-icon-bg-first-gradient: {{theme.iconBgColorFirstGradient}};
+    --bxi-finance-icon-bg-second-gradient: {{theme.iconBgColorSecondGradient}};
+    --bxi-finance-banner-color: {{theme.bannerColor}};
+    --bxi-finance-banner-bg-color: {{theme.bannerBgColor}};
+    --bxi-finance-banner-cirles-color: {{theme.bannerCirclesColor}};
+    --bxi-finance-dashboard-rewards-color: {{theme.dashboardRewardsColor}};
   }
 </style>
