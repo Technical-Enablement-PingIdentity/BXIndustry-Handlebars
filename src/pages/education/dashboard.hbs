@@ -56,7 +56,7 @@
           <div class="bxi-education-portal rounded-2 mb-4">
             <div class="px-5 py-4">
               <h6 class="bxi-education-dashboard--color">{{settings.dashboard.portal.header}}</h6>
-              <h1 class="bxi-main-header bxi-ff-secondary">{{settings.dashboard.portal.program}}</h1>
+              <h1 class="bxi-main-header bxi-ff-secondary bxi-education-dashboard--color">{{settings.dashboard.portal.program}}</h1>
               {{#each settings.dashboard.portal.summary_items}}
               <h6 class="bxi-education-dashboard--color">{{this}}</h6>
               {{/each}}
@@ -82,7 +82,7 @@
           <div class="mb-3" data-dv-flow="static" data-policy-id="{{env.BXI_DASHBOARD_POLICY_ID}}"></div>
           {{/if}}
         </div>
-        <div class="col-lg-5 col-xl-4">
+        <div class="col-lg-5 col-xl-4 bxi-sidebar">
           <h1 class="bxi-main-header bxi-education-dashboard--color bxi-ff-secondary">{{settings.dashboard.sidebar.title}}</h1>
           <div class="row">
             {{#each settings.dashboard.sidebar.articles}}
@@ -109,7 +109,7 @@
           </ul>
           <div class="footer-contacts d-flex flex-column-reverse flex-md-row align-items-center align-items-md-start">
             <div class="footer-support me-0 me-md-4">
-              <div class="text-center text-md-start mb-3 fs-6">{{settings.footer.phone_number}}</div>
+              <div class="text-center text-md-start mb-3 fs-6 footer-phone-number">{{settings.footer.phone_number}}</div>
               <button class="bxi-button bxi-button--md py-3 bxi-button--outline mt-1">Online support</button>
             </div>
             <div class="ms-0 ms-md-3">
