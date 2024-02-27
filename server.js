@@ -228,11 +228,6 @@ helpers.getVerticals().forEach(vertical => {
     });
   }
 
-  // Generic does not have dashboard or dialog examples pages
-  if (vertical === 'generic') {
-    return;
-  }
-
   fastify.post(`/${vertical}/settings/reset`, function (_, reply) {
     fs.copyFileSync(`./settings/${vertical}.json`, `./src/pages/${vertical}/settings.json`);
     reply.code(200).send();
@@ -276,6 +271,11 @@ helpers.getVerticals().forEach(vertical => {
 
     reply.code(200).send();
   });
+
+  // Generic does not have dashboard or dialog examples pages
+  if (vertical === 'generic') {
+    return;
+  }
 
   // Manifest file so each vertical can be installed as a PWA
   fastify.get(`/${vertical}/manifest.json`, function (_, reply) {
