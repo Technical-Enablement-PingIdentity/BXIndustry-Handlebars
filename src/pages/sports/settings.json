@@ -1,4 +1,19 @@
 {
+  "theme": {
+    "primaryFont": "'Noto Sans', sans-serif",
+    "secondaryFont": "'Playfair Display', serif",
+    "primaryColor": "#B49732",
+    "secondaryColor": "#08152B",
+    "buttonColor": "#ffffff",
+    "buttonBgColor": "var(--bxi-primary-color)",
+    "buttonBgHoverColor": "#8A7427",
+    "linkButtonColor": "var(--bxi-primary-color)",
+    "linkButtonHoverColor": "#8a7427",
+    "dashboardBgColor": "#ffffff",
+    "footerBgColor": "var(--bxi-secondary-color)",
+    "footerColor": "#ffffff",
+    "copyrightColor": "#817D73"
+  },
   "settings": {
     "title": "BXSports",
     "images": {

@@ -1,20 +1,20 @@
 <style>
   :root {
     /* Global Variables - used in common styles */
-    --bxi-primary-font: 'Arimo', sans-serif;
-    --bxi-secondary-font: 'Montserrat', sans-serif;
-    --bxi-primary-color: #177de7;
-    --bxi-secondary-color: #262626;
-    --bxi-button-color: #fff;
-    --bxi-button-bg-color: var(--bxi-primary-color);
-    --bxi-button-bg-hover-color: #146ac4;
-    --bxi-link-button-color: var(--bxi-primary-color);
-    --bxi-link-button-hover-color: #146ac4;
-    --bxi-dashboard-bg-color: #f3f3f3;
+    --bxi-primary-font: {{{theme.primaryFont}}};
+    --bxi-secondary-font: {{{theme.secondaryFont}}};
+    --bxi-primary-color: {{theme.primaryColor}};
+    --bxi-secondary-color: {{theme.secondaryColor}};
+    --bxi-button-color: {{theme.buttonColor}};
+    --bxi-button-bg-color: {{theme.buttonBgColor}};
+    --bxi-button-bg-hover-color: {{theme.buttonBgHoverColor}};
+    --bxi-link-button-color: {{theme.linkButtonColor}};
+    --bxi-link-button-hover-color: {{theme.linkButtonHoverColor}};
+    --bxi-dashboard-bg-color: {{theme.dashboardBgColor}};
     --bxi-component-bg-color: #fff;
-    --bxi-footer-bg-color: var(--bxi-secondary-color);
-    --bxi-footer-color: #fff;
-    --bxi-copyright-color: #fff;
+    --bxi-footer-bg-color: {{theme.footerBgColor}};
+    --bxi-footer-color: {{theme.footerColor}};
+    --bxi-copyright-color: {{theme.copyrightColor}};
     --bxi-header-dropdown-color: #8c8f8f;
     --bxi-header-dropdown-border-color: #c6cdcf;
 

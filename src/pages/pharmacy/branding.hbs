@@ -1,19 +1,19 @@
 <style>
   :root {
     /* Global Variables - used in common styles */
-    --bxi-primary-font: 'Open Sans', sans-serif;
-    --bxi-secondary-font: 'Montserrat', sans-serif;
-    --bxi-primary-color: #27bd90;
-    --bxi-secondary-color: #3e4543;
-    --bxi-button-color: #fff;
-    --bxi-button-bg-color: var(--bxi-primary-color);
-    --bxi-button-bg-hover-color: #049469;
-    --bxi-link-button-color: #0E2742;
-    --bxi-link-button-hover-color: var(--bxi-primary-color);
-    --bxi-dashboard-bg-color: #fff;
-    --bxi-footer-bg-color: #fff;
-    --bxi-footer-color: var(--bxi-secondary-color);
-    --bxi-copyright-color: var(--bxi-secondary-color);
+    --bxi-primary-font: {{{theme.primaryFont}}};
+    --bxi-secondary-font: {{{theme.secondaryFont}}};
+    --bxi-primary-color: {{theme.primaryColor}};
+    --bxi-secondary-color: {{theme.secondaryColor}};
+    --bxi-button-color: {{theme.buttonColor}};
+    --bxi-button-bg-color: {{theme.buttonBgColor}};
+    --bxi-button-bg-hover-color: {{theme.buttonBgHoverColor}};
+    --bxi-link-button-color: {{theme.linkButtonColor}};
+    --bxi-link-button-hover-color: {{theme.linkButtonHoverColor}};
+    --bxi-dashboard-bg-color: {{theme.dashboardBgColor}};
+    --bxi-footer-bg-color: {{theme.footerBgColor}};
+    --bxi-footer-color: {{theme.footerColor}};
+    --bxi-copyright-color: {{theme.copyrightColor}};
     --bxi-component-bg-color: #fff;
 
     /* Vertical Specific Variables - used in <vertical>/customizations.scss */

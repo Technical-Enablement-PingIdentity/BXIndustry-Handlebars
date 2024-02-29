@@ -40,7 +40,7 @@
         {{!-- See src/dashboard-buttons.hbs to update dashboard buttons --}}
         {{> dashboardButtons}}
       </div>
-      <h1 class="bxi-ff-secondary fw-bold mt-2 pt-3 mb-4">{{settings.dashboard.header}}</h1>
+      <h1 class="bxi-ff-secondary fw-bold mt-2 pt-3 mb-4 dashboard-header">{{settings.dashboard.header}}</h1>
       <div class="row">
         <div class="col-lg-8 mb-5">
           <div class="bxi-dashboard-portal">
@@ -75,7 +75,7 @@
           <div class="bxi-dashboard-sidebar p-4 d-flex flex-column justify-content-center align-items-center">
             <h5 class="text-center mb-4">{{settings.dashboard.sidebar.title}}</h5>
             <div class="bxi-dashboard-sidebar-card w-100 d-flex flex-column align-items-center p-4 pb-3 mb-5">
-              <div class="fs-7 mb-1 bxi-dashboard-sidebar-card-color text-center">{{settings.dashboard.sidebar.card.title}}</div>
+              <div class="fs-7 mb-1 bxi-dashboard-sidebar-card-color text-center sidebar-card-description">{{settings.dashboard.sidebar.card.title}}</div>
               <h1 class="bxi-main-header bxi-dashboard-sidebar-card-color">{{settings.dashboard.sidebar.card.points}}</h1>
               <div class="star-container bxi-icon-color-primary">
                 {{> starIcon }}
