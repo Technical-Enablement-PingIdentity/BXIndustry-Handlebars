@@ -192,10 +192,10 @@
         "elementSelector": ".bxi-government-location"
       },
       {
-        "type": "string",
+        "type": "image",
         "friendlyName": "Banner Background Image",
         "jsonPath": "settings.home_page.banner.background_image",
-        "elementSelector": ".bxi-banner"
+        "elementSelector": ""
       }, 
       {
         "type": "string",

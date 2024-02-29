@@ -50,7 +50,7 @@
     <section class="bxi-component-bg-color">
       <div class="container py-3">
         <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-between align-items-center">
-          <h2 class="fw-bold">{{settings.dashboard.welcome}} <span class="fw-bold" id="username-container">{{settings.dashboard.username}}</span></h2>
+          <h2 class="fw-bold"><span class="bxi-welcome-text">{{settings.dashboard.welcome}}</span> <span class="fw-bold" id="username-container">{{settings.dashboard.username}}</span></h2>
           <div class="d-flex flex-column flex-md-row justify-content-end">
             {{!-- See src/dashboard-buttons.hbs to update dashboard buttons --}}
             {{> dashboardButtons}}
@@ -79,7 +79,7 @@
           <div class="col-lg-8 order-1 order-lg-2">
             <div class="row mb-3">
               <div class="col-sm-7 text-center text-sm-start">
-                <h4 class="mb-3 mb-sm-0 mt-1 fw-boldish">{{settings.dashboard.portal.title}}</h4>
+                <h4 class="mb-3 mb-sm-0 mt-1 fw-boldish portal-title">{{settings.dashboard.portal.title}}</h4>
               </div>
               <div class="col-sm-5 d-flex justify-content-center justify-content-sm-end">
                 <div class="portal-header-dropdown bxi-component-bg-color py-2 ps-3 pe-5 rounded-1 position-relative cursor-pointer bxi-ff-secondary fw-light">
@@ -90,8 +90,8 @@
             <div class="bxi-component-bg-color p-3 mb-4">
               <div class="row mb-3">
                 <div class="col-lg-6 mb-3 mb-lg-0">
-                  <h6 class="bxi-ff-secondary fw-bold mb-3">{{settings.dashboard.portal.component_header}}</h6>
-                  <h6 class="bxi-ff-secondary fw-light mb-0 text-nowrap">{{settings.dashboard.portal.patient_number_label}} <span class="bxi-ff-secondary fw-light text-decoration-underline">{{settings.dashboard.portal.patient_number}}</span></h6>
+                  <h6 class="bxi-ff-secondary fw-bold mb-3 portal-component-header">{{settings.dashboard.portal.component_header}}</h6>
+                  <h6 class="bxi-ff-secondary fw-light mb-0 text-nowrap"><span class="patient-number-label">{{settings.dashboard.portal.patient_number_label}}</span> <span class="bxi-ff-secondary fw-light text-decoration-underline patient-number">{{settings.dashboard.portal.patient_number}}</span></h6>
                 </div>
                 <div class="patient-links col-lg-6 d-flex align-items-end justify-content-start justify-content-lg-end">
                   {{#each settings.dashboard.portal.patient_links}}
@@ -111,7 +111,7 @@
                 </div>
                 {{/each}}
               </div>
-              <h6 class="bxi-ff-secondary fw-bold my-3">{{settings.dashboard.portal.links_header}}</h6>
+              <h6 class="bxi-ff-secondary fw-bold my-3 portal-links-header">{{settings.dashboard.portal.links_header}}</h6>
               <div class="quick-links d-flex flex-wrap">
                 {{#each settings.dashboard.portal.quick_links}}
                 <a class="bxi-button bxi-button--link-bold text-nowrap me-4">
@@ -157,9 +157,9 @@
             {{/each}}
           </div>
           <div class="col-lg-3 mb-3">
-            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold">{{settings.footer.phone_number}}</a>
-            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold">{{settings.footer.email}}</a>
-            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold">{{settings.footer.chat}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold footer-phone-number">{{settings.footer.phone_number}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold footer-email">{{settings.footer.email}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold footer-chat">{{settings.footer.chat}}</a>
           </div>
           <div class="col-lg-3 mb-3">
             {{#each settings.footer.links_right}}
