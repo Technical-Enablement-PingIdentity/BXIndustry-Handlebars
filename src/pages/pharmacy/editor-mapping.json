@@ -72,6 +72,18 @@
         "friendlyName": "Copyright Color",
         "jsonPath": "theme.copyrightColor",
         "cssVariable": "--bxi-copyright-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Navbar Background Color",
+        "jsonPath": "theme.navbarBgColor",
+        "cssVariable": "--bxi-pharmacy-navbar-bg-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Page Background Color",
+        "jsonPath": "theme.pageBgColor",
+        "cssVariable": "--bxi-pharmacy-page-bg-color"
       }
     ],
     "home": [
@@ -79,15 +91,51 @@
         "type": "color",
         "friendlyName": "Banner Color",
         "jsonPath": "theme.bannerColor",
-        "cssVariable": "--bxi-health-banner-color"
+        "cssVariable": "--bxi-pharmacy-banner-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Banner Background Color",
+        "jsonPath": "theme.bannerBgColor",
+        "cssVariable": "--bxi-pharmacy-banner-bg-color"
+      }, 
+      {
+        "type": "color",
+        "friendlyName": "Services Background Color",
+        "jsonPath": "theme.servicesBgColor",
+        "cssVariable": "--bxi-pharmacy-services-bg-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Services Description Color",
+        "jsonPath": "theme.servicesDescriptionColor",
+        "cssVariable": "--bxi-pharmacy-services-description-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Services Border Color",
+        "jsonPath": "theme.servicesBorderColor",
+        "cssVariable": "--bxi-pharmacy-services-border-color"
       }
     ],
     "dashboard": [
       {
         "type": "color",
-        "friendlyName": "Page Background Color",
-        "jsonPath": "theme.dashboardBgColor",
-        "cssVariable": "--bxi-dashboard-bg-color"
+        "friendlyName": "Component Background Color",
+        "jsonPath": "theme.componentBgColor",
+        "cssVariable": "--bxi-component-bg-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Header Color",
+        "jsonPath": "theme.dashboardBannerColor",
+        "cssVariable": "--bxi-pharmacy-dashboard-banner-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Application Date Color",
+        "jsonPath": "theme.dashboardApplicationDateColor",
+        "cssVariable": "--bxi-pharmacy-dashboard-application-date-color"
       }
     ]
   },
@@ -125,10 +173,44 @@
       }
     ],
     "home": [
-
+      {
+        "type": "image",
+        "friendlyName": "Banner Background Image",
+        "jsonPath": "settings.home_page.banner.background_image",
+        "elementSelector": ""
+      },
+      {
+        "type": "string",
+        "friendlyName": "Banner Title",
+        "jsonPath": "settings.home_page.banner.title",
+        "elementSelector": ".bxi-banner-content h1"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Banner Subtitle",
+        "jsonPath": "settings.home_page.banner.subtitle",
+        "elementSelector": ".bxi-banner-content h5"
+      }
     ],
     "dashboard": [
-
+      {
+        "type": "string",
+        "friendlyName": "Portal Header",
+        "jsonPath": "settings.dashboard.portal.header",
+        "elementSelector": ".bxi-main-header"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Sidebar Header",
+        "jsonPath": "settings.dashboard.portal.sidebar.header",
+        "elementSelector": ".sidebar-header"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Sidebar Button",
+        "jsonPath": "settings.dashboard.portal.sidebar.button",
+        "elementSelector": ".sidebar-button"
+      }
     ]
   }
 }

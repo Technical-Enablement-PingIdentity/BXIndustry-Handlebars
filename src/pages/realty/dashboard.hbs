@@ -80,7 +80,7 @@
         </div>
         {{/each}}
       </div>
-      <h1 class="text-uppercase fw-bold mt-5">{{settings.dashboard.properties.showcase.title}}</h1>
+      <h1 class="text-uppercase fw-bold mt-5 showcase-title">{{settings.dashboard.properties.showcase.title}}</h1>
       <div class="row">
         {{#each settings.dashboard.properties.showcase.units}}
         <div class="col-md-6 mb-4">
@@ -100,7 +100,7 @@
         </div>
         {{/each}}
       </div>
-      <button class="bxi-action-button bxi-button bxi-button--outline bxi-button--lg mb-5">{{> documentIcon class='me-2' }}{{settings.dashboard.properties.action}}</button>
+      <button class="bxi-action-button bxi-button bxi-button--outline bxi-button--lg mb-5">{{> documentIcon class='me-2' }}<span class="properties-action">{{settings.dashboard.properties.action}}</span></button>
       {{#if env.BXI_DASHBOARD_POLICY_ID}}
       <div class="mb-5" data-dv-flow="static" data-policy-id="{{env.BXI_DASHBOARD_POLICY_ID}}"></div>
       {{/if}}
@@ -115,7 +115,7 @@
           </ul>
           <div class="footer-contacts d-flex flex-column-reverse flex-md-row justify-content-start align-items-center align-items-md-start justify-content-md-between justify-content-lg-end">
             <div class="footer-support">
-              <div class="text-center text-md-start mb-3 fs-5 fw-bold">{{settings.footer.phone_number}}</div>
+              <div class="text-center text-md-start mb-3 fs-5 fw-bold footer-phone-number">{{settings.footer.phone_number}}</div>
               <button class="bxi-button bxi-button--outline bxi-button--lg">Online support</button>
             </div>
             <div class="ms-0 ms-md-3">

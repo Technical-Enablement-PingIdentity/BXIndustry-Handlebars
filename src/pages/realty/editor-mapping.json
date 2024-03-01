@@ -72,6 +72,12 @@
         "friendlyName": "Copyright Color",
         "jsonPath": "theme.copyrightColor",
         "cssVariable": "--bxi-copyright-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Showcase Color",
+        "jsonPath": "theme.showcaseColor",
+        "cssVariable": "--bxi-realty-showcase-color"
       }
     ],
     "home": [
@@ -79,15 +85,45 @@
         "type": "color",
         "friendlyName": "Banner Color",
         "jsonPath": "theme.bannerColor",
-        "cssVariable": "--bxi-health-banner-color"
+        "cssVariable": "--bxi-realty-banner-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Milestone Background Color",
+        "jsonPath": "theme.bannerMilestoneBgColor",
+        "cssVariable": "--bxi-realty-banner-milestone-bg-color"
       }
     ],
     "dashboard": [
       {
         "type": "color",
-        "friendlyName": "Page Background Color",
-        "jsonPath": "theme.dashboardBgColor",
-        "cssVariable": "--bxi-dashboard-bg-color"
+        "friendlyName": "Header Background Color",
+        "jsonPath": "theme.dashboardHeaderBgColor",
+        "cssVariable": "--bxi-realty-dashboard-header-bg-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Username Color",
+        "jsonPath": "theme.dashboardUsernameColor",
+        "cssVariable": "--bxi-realty-dashboard-username-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Placeholder Icon Color",
+        "jsonPath": "theme.dashboardPlaceholderIconColor",
+        "cssVariable": "--bxi-realty-dashboard-placeholder-icon-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Unit Border Color",
+        "jsonPath": "theme.dashboardUnitBorderColor",
+        "cssVariable": "--bxi-realty-dashboard-unit-border-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Unit Color",
+        "jsonPath": "theme.dashboardUnitColor",
+        "cssVariable": "--bxi-realty-dashboard-unit-color"
       }
     ]
   },
@@ -98,7 +134,13 @@
         "friendlyName": "Title",
         "jsonPath": "settings.title",
         "elementSelector": "head > title"
-      }, 
+      },
+      {
+        "type": "string",
+        "friendlyName": "Title",
+        "jsonPath": "settings.title",
+        "elementSelector": "head > title"
+      },
       {
         "type": "image",
         "friendlyName": "Favicon",
@@ -122,13 +164,59 @@
         "friendlyName": "Dialog Logo",
         "jsonPath": "settings.images.dialog_logo",
         "elementSelector": "#dialog-logo"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Footer Phone Number",
+        "jsonPath": "settings.footer.phone_number",
+        "elementSelector": ".footer-phone-number"
       }
     ],
     "home": [
-
+      {
+        "type": "image",
+        "friendlyName": "Banner Background Image",
+        "jsonPath": "settings.home_page.banner.background_image",
+        "elementSelector": ""
+      },
+      {
+        "type": "string",
+        "friendlyName": "Banner Title",
+        "jsonPath": "settings.home_page.banner.title",
+        "elementSelector": ".bxi-main-header-xl"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Showcase Title",
+        "jsonPath": "settings.home_page.showcase.title",
+        "elementSelector": ".bxi-showcase-header h1"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Showcase Button",
+        "jsonPath": "settings.home_page.showcase.button",
+        "elementSelector": ".bxi-showcase-header button"
+      }
     ],
     "dashboard": [
-
+      {
+        "type": "string",
+        "friendlyName": "Dashboard Header",
+        "jsonPath": "settings.dashboard.header",
+        "elementSelector": ".bxi-main-header"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Showcase Title",
+        "jsonPath": "settings.dashboard.properties.showcase.title",
+        "elementSelector": ".showcase-title"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Properties Action",
+        "jsonPath": "settings.dashboard.properties.action",
+        "elementSelector": ".properties-action"
+      }
     ]
   }
 }
