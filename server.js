@@ -175,7 +175,8 @@ fastify.get('/docs', (request, reply) => {
     selectedVertical: vertical,
     verticals: verticals.filter(v => v !== 'generic'),
     brandingPartial: () => `${vertical}Branding`,
-    icons: icons.map(icon => ({ icon: icon, partial: icon + 'Icon'}))
+    icons: icons.map(icon => ({ icon: icon, partial: icon + 'Icon'})),
+    ...helpers.getSettingsFile(vertical)
   });
 });
 

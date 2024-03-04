@@ -264,6 +264,12 @@
         "friendlyName": "Portal Title",
         "jsonPath": "settings.dashboard.portal.title",
         "elementSelector": ".portal h4"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Search Placeholder",
+        "jsonPath": "settings.dashboard.portal.search_placeholder",
+        "elementSelector": ".portal input"
       }
     ]
   }

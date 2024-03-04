@@ -282,6 +282,24 @@
         "friendlyName": "Sidebar Link",
         "jsonPath": "settings.dashboard.sidebar.link",
         "elementSelector": ".bxi-dashboard-sidebar a.bxi-button"
+      },
+      {
+        "type": "image",
+        "friendlyName": "Offer Image",
+        "jsonPath": "settings.dashboard.offer.image",
+        "elementSelector": ""
+      },
+      {
+        "type": "string",
+        "friendlyName": "Offer Title",
+        "jsonPath": "settings.dashboard.offer.title",
+        "elementSelector": ".bxi-banner h1"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Offer Button",
+        "jsonPath": "settings.dashboard.offer.button",
+        "elementSelector": ".bxi-banner button"
       }
     ]
   }

@@ -207,6 +207,18 @@
       },
       {
         "type": "string",
+        "friendlyName": "Location Search Placeholder",
+        "jsonPath": "settings.dashboard.properties.search.location_placeholder",
+        "elementSelector": ".location-search"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Name Search Placeholder",
+        "jsonPath": "settings.dashboard.properties.search.name_placeholder",
+        "elementSelector": ".name-search"
+      },
+      {
+        "type": "string",
         "friendlyName": "Showcase Title",
         "jsonPath": "settings.dashboard.properties.showcase.title",
         "elementSelector": ".showcase-title"

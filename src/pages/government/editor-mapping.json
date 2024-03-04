@@ -208,6 +208,12 @@
         "friendlyName": "Banner Subtitle",
         "jsonPath": "settings.home_page.banner.subtitle",
         "elementSelector": ".bxi-banner h5"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Banner Subtitle",
+        "jsonPath": "settings.home_page.banner.search",
+        "elementSelector": ".bxi-banner input"
       }
     ],
     "dashboard": [

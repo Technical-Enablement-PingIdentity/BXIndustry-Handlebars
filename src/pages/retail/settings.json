@@ -108,7 +108,7 @@
       },
       "portal": {
         "title": "Electronics",
-        "dropdown_placeholder": "See Other Electronics",
+        "search_placeholder": "Search",
         "products": [
           {
             "badge": "Best Value",

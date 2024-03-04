@@ -225,6 +225,12 @@
       },
       {
         "type": "string",
+        "friendlyName": "Donation Input Placeholder",
+        "jsonPath": "settings.dashboard.donation.input.placeholder",
+        "elementSelector": ".bxi-donation-form input"
+      },
+      {
+        "type": "string",
         "friendlyName": "Donation Title",
         "jsonPath": "settings.dashboard.donation.dropdown.label",
         "elementSelector": ".bxi-donation-form [for=\"cause\"]"

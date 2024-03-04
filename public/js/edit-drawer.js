@@ -118,7 +118,11 @@
 
       field.addEventListener('input', ({ target }) => {
         if (affectedElement) {
-          affectedElement.innerText = target.value;
+          if (affectedElement.tagName === 'INPUT') {
+            affectedElement.placeholder = target.value;
+          } else {
+            affectedElement.innerText = target.value;
+          }
         }
       });
 
