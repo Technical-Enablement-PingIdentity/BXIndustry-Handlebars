@@ -31,10 +31,9 @@ const bxiEnvVars = helpers.getBxiEnvironmentVariables();
 const verticals = helpers.getVerticals();
 
 const debug = process.env.BXI_DEBUG_LOGGING === 'true';
+const enableEditing = process.env.BXI_ENABLE_EDITING === 'true';
 
 const logger = new Logger(debug);
-
-const hostsForbiddenForEditing = [ 'bxgeneric-prod', 'bxgeneric-qa', 'demo.bxindustry.org', 'demo.bxgeneric.org' ];
 
 let https;
 
@@ -199,13 +198,13 @@ fastify.get('/shortcuts', (req, reply) => {
     };
   });
 
-  viewParams.showEditLinks = !hostsForbiddenForEditing.some(fh => req.hostname.includes(fh));
+  viewParams.showEditLinks = enableEditing;
 
   logger.log('/shortcuts endpoint hit, sending view data', viewParams);
   return reply.view('src/pages/shortcuts.hbs', viewParams);
 });
 
-// We can allow on this on 'forbidden hosts' just in case something gets edited and we want to revert to default settings
+// We can allow on this even if editing is disabled just in case something gets edited and we want to revert to default settings
 fastify.post('/settings/reset', function (_, reply) {
   helpers.getVerticals().forEach(vertical => {
     fs.copyFileSync(`./settings/${vertical}.json`, `./src/pages/${vertical}/settings.json`);
@@ -227,7 +226,7 @@ helpers.getVerticals().forEach(vertical => {
       // Get query parameter to conditionally show the edit drawer
       pageViewParams.showEditDrawer = false;
 
-      if (!hostsForbiddenForEditing.some(fh => req.hostname.includes(fh)) && req.query['edit']) {
+      if (enableEditing && req.query['edit']) {
         pageViewParams.showEditDrawer = true;
         pageViewParams.editorMapping = helpers.getEditorMappingFile(vertical);
         const currentPage = endpoint.split('/').pop();
@@ -259,8 +258,8 @@ helpers.getVerticals().forEach(vertical => {
       }
     }
   }, async function (req, reply) {
-    if (hostsForbiddenForEditing.some(fh => req.hostname.includes(fh))) {
-      reply.code(403).send('Updates to settings on this host are forbidden');
+    if (!enableEditing) {
+      reply.code(403).send('Editing is currently disabled, set BXI_ENABLE_EDITING=true in your .env if this is a mistake');
       return;
     }
     
