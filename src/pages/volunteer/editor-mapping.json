@@ -72,22 +72,52 @@
         "friendlyName": "Copyright Color",
         "jsonPath": "theme.copyrightColor",
         "cssVariable": "--bxi-copyright-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Page Background Color",
+        "jsonPath": "theme.pageBgColor",
+        "cssVariable": "--bxi-page-bg-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Component Background Color",
+        "jsonPath": "theme.componentBgColor",
+        "cssVariable": "--bxi-component-bg-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Nav Background Color",
+        "jsonPath": "theme.headerNavBgColor",
+        "cssVariable": "--bxi-header-nav-bg-color"
       }
     ],
     "home": [
       {
         "type": "color",
-        "friendlyName": "Banner Color",
-        "jsonPath": "theme.bannerColor",
-        "cssVariable": "--bxi-health-banner-color"
+        "friendlyName": "Hero Supertitle Color",
+        "jsonPath": "theme.heroSupertitleColor",
+        "cssVariable": "--bxi-hero-supertitle-color"
       }
     ],
     "dashboard": [
       {
         "type": "color",
-        "friendlyName": "Page Background Color",
-        "jsonPath": "theme.dashboardBgColor",
-        "cssVariable": "--bxi-dashboard-bg-color"
+        "friendlyName": "Article Color",
+        "jsonPath": "theme.dashboardArticleColor",
+        "cssVariable": "--bxi-dashboard-article-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Form Background Color",
+        "jsonPath": "theme.dashboardFormBgColor",
+        "cssVariable": "--bxi-dashboard-form-bg-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Donation Label Color",
+        "jsonPath": "theme.dashboardDonationLabelColor",
+        "cssVariable": "--bxi-dashboard-donation-label-color"
       }
     ]
   },
@@ -122,13 +152,95 @@
         "friendlyName": "Dialog Logo",
         "jsonPath": "settings.images.dialog_logo",
         "elementSelector": "#dialog-logo"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Footer Phone Number",
+        "jsonPath": "settings.footer.phone_number",
+        "elementSelector": ".footer-phone-number"
       }
     ],
     "home": [
-
+      {
+        "type": "image",
+        "friendlyName": "Hero Image Left",
+        "jsonPath": "settings.home_page.hero.image_left",
+        "elementSelector": ".bxi-hero-image--left"
+      },
+      {
+        "type": "image",
+        "friendlyName": "Hero Image Right",
+        "jsonPath": "settings.home_page.hero.image_right",
+        "elementSelector": ".bxi-hero-image--right"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Hero Supertitle",
+        "jsonPath": "settings.home_page.hero.supertitle",
+        "elementSelector": ".bxi-hero h4"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Hero Title",
+        "jsonPath": "settings.home_page.hero.title",
+        "elementSelector": ".bxi-hero h1"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Hero Button",
+        "jsonPath": "settings.home_page.hero.button",
+        "elementSelector": ".bxi-hero button"
+      },
+      {
+        "type": "image",
+        "friendlyName": "Banner Background Image",
+        "jsonPath": "settings.home_page.banner.background_image",
+        "elementSelector": ".bxi-hero button"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Services Title",
+        "jsonPath": "settings.home_page.services.title",
+        "elementSelector": ".bxi-services h1"
+      }
     ],
     "dashboard": [
-
+      {
+        "type": "string",
+        "friendlyName": "Dashboard Header",
+        "jsonPath": "settings.dashboard.header",
+        "elementSelector": ".dashboard-header"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Donation Title",
+        "jsonPath": "settings.dashboard.donation.title",
+        "elementSelector": ".bxi-donation-form h2"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Donation Input Label",
+        "jsonPath": "settings.dashboard.donation.input.label",
+        "elementSelector": ".bxi-donation-form [for=\"amount\"]"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Donation Title",
+        "jsonPath": "settings.dashboard.donation.dropdown.label",
+        "elementSelector": ".bxi-donation-form [for=\"cause\"]"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Donation Button",
+        "jsonPath": "settings.dashboard.donation.button",
+        "elementSelector": ".bxi-donation-form .bxi-button--lg"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Donation Link",
+        "jsonPath": "settings.dashboard.donation.link",
+        "elementSelector": ".bxi-donation-form .bxi-button--link"
+      }
     ]
   }
 }
