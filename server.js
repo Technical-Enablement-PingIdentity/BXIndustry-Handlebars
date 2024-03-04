@@ -34,6 +34,8 @@ const debug = process.env.BXI_DEBUG_LOGGING === 'true';
 
 const logger = new Logger(debug);
 
+const hostsForbiddenForEditing = [ 'bxgeneric-prod', 'bxgeneric-qa', 'demo.bxindustry.org', 'demo.bxgeneric.org' ];
+
 let https;
 
 if (process.argv.includes('--dev')) {
@@ -201,6 +203,7 @@ fastify.get('/shortcuts', (_, reply) => {
   return reply.view('src/pages/shortcuts.hbs', viewParams);
 });
 
+// We can allow on this on 'forbidden hosts' just in case something gets edited and we want to revert to default settings
 fastify.post('/settings/reset', function (_, reply) {
   helpers.getVerticals().forEach(vertical => {
     fs.copyFileSync(`./settings/${vertical}.json`, `./src/pages/${vertical}/settings.json`);
@@ -222,7 +225,7 @@ helpers.getVerticals().forEach(vertical => {
       // Get query parameter to conditionally show the edit drawer
       pageViewParams.showEditDrawer = false;
 
-      if (req.query['edit']) {
+      if (!hostsForbiddenForEditing.some(fh => req.hostname.includes(fh)) && req.query['edit']) {
         pageViewParams.showEditDrawer = true;
         pageViewParams.editorMapping = helpers.getEditorMappingFile(vertical);
         const currentPage = endpoint.split('/').pop();
@@ -254,8 +257,7 @@ helpers.getVerticals().forEach(vertical => {
       }
     }
   }, async function (req, reply) {
-    const forbiddenHosts = [ 'bxgeneric-prod', 'bxgeneric-qa', 'demo.bxindustry.org', 'demo.bxgeneric.org' ];
-    if (forbiddenHosts.some(fh => req.hostname.includes(fh))) {
+    if (hostsForbiddenForEditing.some(fh => req.hostname.includes(fh))) {
       reply.code(403).send('Updates to settings on this host are forbidden');
       return;
     }
