@@ -201,6 +201,13 @@ fastify.get('/shortcuts', (_, reply) => {
   return reply.view('src/pages/shortcuts.hbs', viewParams);
 });
 
+fastify.post('/settings/reset', function (_, reply) {
+  helpers.getVerticals().forEach(vertical => {
+    fs.copyFileSync(`./settings/${vertical}.json`, `./src/pages/${vertical}/settings.json`);
+  });
+  reply.code(200).send();
+});
+
 // Generic does not have dashboard or dialog-examples page
 helpers.getVerticals().forEach(vertical => {
   // Do this here so it's in sync with endpoints (e.g. if a user adds a page without restarting server it won't be navigatable yet)

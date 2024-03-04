@@ -13,13 +13,16 @@
   initImageFields();
 
   document.getElementById('reset-all-settings').addEventListener('click', async ({ target }) => {
-    target.disabled = true;
-    const response = await fetch(`/${vertical}/settings/reset`, {
-      method: 'POST',
-    });
+    
+    if (confirm('Are you sure? All changes you\'ve made to the current vertical will be lost.')) {
+      target.disabled = true;
+      const response = await fetch(`/${vertical}/settings/reset`, {
+        method: 'POST',
+      });
 
-    if (response.ok) {
-      window.location.reload(true);
+      if (response.ok) {
+        window.location.reload(true);
+      }
     }
   });
 
