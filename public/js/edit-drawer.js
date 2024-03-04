@@ -183,6 +183,7 @@
         storedValue = field.value;
 
         if (affectedElement) {
+          console.log(affectedElement);
           switch (affectedElement.tagName) {
             case 'LINK':
               affectedElement.href = storedValue;
@@ -191,7 +192,11 @@
               affectedElement.src = storedValue;
               break;
             default:
-              console.error('Unhandled img type');
+              if (affectedElement.style['background-image'] !== '') {
+                affectedElement.style['background-image'] = `url('${storedValue}')`;
+              } else {
+                console.error('Unhandled img type');
+              }
               break;
           }
         }

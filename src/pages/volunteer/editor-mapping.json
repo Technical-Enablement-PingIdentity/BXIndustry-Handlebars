@@ -195,7 +195,7 @@
         "type": "image",
         "friendlyName": "Banner Background Image",
         "jsonPath": "settings.home_page.banner.background_image",
-        "elementSelector": ".bxi-hero button"
+        "elementSelector": ".bxi-banner.bxi-bg-image"
       },
       {
         "type": "string",

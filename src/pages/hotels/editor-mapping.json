@@ -207,7 +207,7 @@
         "type": "image",
         "friendlyName": "Banner Background Image",
         "jsonPath": "settings.home_page.banner.background_image",
-        "elementSelector": ""
+        "elementSelector": ".bxi-banner__image.bxi-bg-image"
       },
       {
         "type": "string",
@@ -287,7 +287,7 @@
         "type": "image",
         "friendlyName": "Offer Image",
         "jsonPath": "settings.dashboard.offer.image",
-        "elementSelector": ""
+        "elementSelector": ".bxi-banner__image"
       },
       {
         "type": "string",
