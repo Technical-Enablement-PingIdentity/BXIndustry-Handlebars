@@ -187,7 +187,7 @@ fastify.get('/verticals', (_, reply) => {
 });
 
 // Set up shortcuts endpoints, shows all verticals with applicable links
-fastify.get('/shortcuts', (_, reply) => {
+fastify.get('/shortcuts', (req, reply) => {
   const viewParams = verticals.map(vertical => {
     const endpointLinks = helpers.getVerticalLinks(vertical);
 
@@ -198,6 +198,8 @@ fastify.get('/shortcuts', (_, reply) => {
       endpointLinks,
     };
   });
+
+  viewParams.showEditLinks = !hostsForbiddenForEditing.some(fh => req.hostname.includes(fh));
 
   logger.log('/shortcuts endpoint hit, sending view data', viewParams);
   return reply.view('src/pages/shortcuts.hbs', viewParams);
