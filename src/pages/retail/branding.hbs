@@ -11,19 +11,20 @@
     --bxi-link-button-color: {{theme.linkButtonColor}};
     --bxi-link-button-hover-color: {{theme.linkButtonHoverColor}};
     --bxi-dashboard-bg-color: {{theme.dashboardBgColor}};
-    --bxi-component-bg-color: #fff;
+    --bxi-component-bg-color: {{theme.componentBgColor}};
     --bxi-footer-bg-color: {{theme.footerBgColor}};
     --bxi-footer-color: {{theme.footerColor}};
     --bxi-copyright-color: {{theme.copyrightColor}};
-    --bxi-header-dropdown-color: #8c8f8f;
-    --bxi-header-dropdown-border-color: #c6cdcf;
 
     /* Vertical Specific Variables - used in <vertical>/customizations.scss */
-    --bxi-retail-nav-border-color: #caced3;
-    --bxi-retail-hero-border-color: #f3b900;
-    --bxi-retail-banner-color: #fff;
-    --bxi-retail-banner-bg-color: var(--bxi-primary-color);
-    --bxi-retail-features-icon-bg-color: linear-gradient(127.1deg, #0068d6 7.13%, #004287 101.68%);
-    --bxi-retail-dashboard-welcome-color: #fff;
+    --bxi-retail-nav-border-color: {{theme.navBorderColor}};
+    --bxi-retail-hero-border-color: {{theme.heroBorderColor}};
+    --bxi-retail-banner-color: {{theme.bannerColor}};
+    --bxi-retail-banner-bg-color: {{theme.bannerBgColor}};
+    --bxi-retail-features-icon-gradient1: {{theme.featuresIconBgGradient1}};
+    --bxi-retail-features-icon-gradient2: {{theme.featuresIconBgGradient2}};
+    --bxi-retail-dashboard-welcome-color: {{theme.dashboardWelcomeColor}};
+
+    --bxi-retail-features-icon-bg-color: linear-gradient(127.1deg, var(--bxi-retail-features-icon-gradient1) 7.13%, var(--bxi-retail-features-icon-gradient2) 101.68%);
   }
 </style>

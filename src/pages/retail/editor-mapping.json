@@ -79,7 +79,37 @@
         "type": "color",
         "friendlyName": "Banner Color",
         "jsonPath": "theme.bannerColor",
-        "cssVariable": "--bxi-health-banner-color"
+        "cssVariable": "--bxi-retail-banner-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Banner Background Color",
+        "jsonPath": "theme.bannerBgColor",
+        "cssVariable": "--bxi-retail-banner-bg-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Nav Border Color",
+        "jsonPath": "theme.navBorderColor",
+        "cssVariable": "--bxi-retail-nav-border-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Hero Border Color",
+        "jsonPath": "theme.heroBorderColor",
+        "cssVariable": "--bxi-retail-hero-border-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Badge Background Gradient 1",
+        "jsonPath": "theme.featuresIconBgGradient1",
+        "cssVariable": "--bxi-retail-features-icon-gradient1"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Badge Background Gradient 2",
+        "jsonPath": "theme.featuresIconBgGradient2",
+        "cssVariable": "--bxi-retail-features-icon-gradient2"
       }
     ],
     "dashboard": [
@@ -88,6 +118,18 @@
         "friendlyName": "Page Background Color",
         "jsonPath": "theme.dashboardBgColor",
         "cssVariable": "--bxi-dashboard-bg-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Component Background Color",
+        "jsonPath": "theme.componentBgColor",
+        "cssVariable": "--bxi-component-bg-color"
+      },
+      {
+        "type": "color",
+        "friendlyName": "Dashboard Welcome Color",
+        "jsonPath": "theme.dashboardWelcomeColor",
+        "cssVariable": "--bxi-retail-dashboard-welcome-color"
       }
     ]
   },
@@ -122,13 +164,107 @@
         "friendlyName": "Dialog Logo",
         "jsonPath": "settings.images.dialog_logo",
         "elementSelector": "#dialog-logo"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Footer Phone Number",
+        "jsonPath": "settings.footer.phone_number",
+        "elementSelector": ".footer-phone-number"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Footer Email",
+        "jsonPath": "settings.footer.email",
+        "elementSelector": ".footer-email"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Footer Chat",
+        "jsonPath": "settings.footer.chat",
+        "elementSelector": ".footer-chat"
       }
     ],
     "home": [
-
+      {
+        "type": "string",
+        "friendlyName": "Sale Tile Badge",
+        "jsonPath": "settings.home_page.sale_tile.badge",
+        "elementSelector": ".bxi-sale-section-badge"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Sale Tile Title",
+        "jsonPath": "settings.home_page.sale_tile.title",
+        "elementSelector": ".bxi-sale-section h1"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Sale Tile Description",
+        "jsonPath": "settings.home_page.sale_tile.description",
+        "elementSelector": ".bxi-sale-section p"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Sale Tile Button",
+        "jsonPath": "settings.home_page.sale_tile.button",
+        "elementSelector": ".bxi-sale-section button"
+      },
+      {
+        "type": "image",
+        "friendlyName": "Sale Tile Image",
+        "jsonPath": "settings.home_page.sale_tile.image",
+        "elementSelector": ".bxi-sale-section-image img"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Shop Tile Title",
+        "jsonPath": "settings.home_page.shop_tile.title",
+        "elementSelector": ".bxi-shop-section h1"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Shop Tile Description",
+        "jsonPath": "settings.home_page.shop_tile.description",
+        "elementSelector": ".bxi-shop-section p"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Shop Tile Button",
+        "jsonPath": "settings.home_page.shop_tile.button",
+        "elementSelector": ".bxi-shop-section button"
+      },
+      {
+        "type": "image",
+        "friendlyName": "Shop Tile Image",
+        "jsonPath": "settings.home_page.shop_tile.image",
+        "elementSelector": ".bxi-shop-section-image img"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Banner Text",
+        "jsonPath": "settings.home_page.banner.text",
+        "elementSelector": ".bxi-banner h4"
+      }
     ],
     "dashboard": [
-
+      {
+        "type": "string",
+        "friendlyName": "Welcome Text",
+        "jsonPath": "settings.dashboard.welcome",
+        "elementSelector": ".bxi-welcome-color"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Sidebar Text",
+        "jsonPath": "settings.dashboard.sidebar.text",
+        "elementSelector": ".sidebar-text"
+      },
+      {
+        "type": "string",
+        "friendlyName": "Portal Title",
+        "jsonPath": "settings.dashboard.portal.title",
+        "elementSelector": ".portal h4"
+      }
     ]
   }
 }
