@@ -41,6 +41,19 @@
       // Update page based on lower debounce when color change occures (not change event only fires when color popup is closed, so input is better)
       field.addEventListener('input', debounce(({target}) => {
         updateCssVariable(target.dataset.cssVariable, target.value);
+
+        let checkedSelector;
+        if (target.id === 'theme.primaryColor') {
+          checkedSelector = '[value="var(--bxi-primary-color)"]:checked';
+        } else if (target.id === 'theme.secondaryColor') {
+          checkedSelector = '[value="var(--bxi-secondary-color)"]:checked';
+        } else {
+          return;
+        }
+
+        document.querySelectorAll(checkedSelector).forEach(checked => { 
+          document.getElementById(checked.dataset.colorVariableFor).value = target.value
+        });
       }));
 
       // This is done in a separate event listener so we can limit requests to the server via a higher debounce
@@ -52,7 +65,7 @@
     document.querySelectorAll('[data-color-variable-for]').forEach(field => {
       const associatedColorInput = document.getElementById(field.dataset.colorVariableFor);
       
-      // If a field is check on page load, set the color input appropriately
+      // If a field is checked on page load, set the color input appropriately
       if (field.checked) {
         associatedColorInput.disabled = true;
         switch(field.value) {
@@ -62,7 +75,7 @@
           case 'var(--bxi-secondary-color)':
             associatedColorInput.value = document.getElementById('theme.secondaryColor').value; // Set the color field to secondary color so it's still representative
             break;
-          default: 
+          default:
             console.error('Unhandled color variable encountered');
             break;
         }
