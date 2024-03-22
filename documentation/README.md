@@ -190,6 +190,8 @@ Color and other branding options are located in `branding.hbs`.
     </style>
 ```
 
+New remixes will also include a drawer for editing. To enable this, you need to add a variable to the .env file at the root of your project (`BXI_ENABLE_EDITING=true`). Then you can navigate to the editable page using the pencil links on the shortcuts page. We recommend setting that env variable to true only as you are making changes, then setting it back to false (especially while you're conducting a demo with a prospect) as anyone can access that drawer and make edits. The editor is limited to branding (colors and fonts) and basic content (strings and images that are not contained in an array in the settings.json). If you would find the ability to edit more sections of the setting.json file through the drawer helpful, please let us know in our slack channel and we can investigate enhancing it!
+
 ### Images/Static Content<a name="images"></a>
 
 You can add images in two ways:
