@@ -1,4 +1,5 @@
 import handlebars from 'handlebars';
+import hbsHelpers from 'handlebars-helpers';
 import fs from 'fs';
 import helpers from './helpers.js';
 
@@ -29,6 +30,10 @@ export function initHandlebars(fastify) {
  * @param {object} hbs Imported handlebars instance, this needs to be passed because it is used for trials compilation
  */
 export function initHandlebarsHelpers(hbs, pathPrefix = '') {
+    hbsHelpers({
+        handlebars: handlebars,
+    });
+
     hbs.registerHelper('inlineSvg', (value, _) => {
         if (!value.startsWith('/')) {
             value = `/${value}`;
@@ -42,6 +47,10 @@ export function initHandlebarsHelpers(hbs, pathPrefix = '') {
         for(var i = 0; i < n; ++i)
             accum += block.fn(i);
         return accum;
+    });
+
+    hbs.registerHelper('lookupPath', function(arg1, options) {
+        return arg1.split('.').reduce((r, k) => r[k], options.data.root);
     });
 }
 

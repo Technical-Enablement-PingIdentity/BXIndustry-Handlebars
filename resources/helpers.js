@@ -181,6 +181,25 @@ function getSettingsFile(vertical) {
     return {};
 }
 
+/**
+ * Get a vertical's editor-mapping.json file, if we can ever use import for this, make sure to use
+ * cache busting above or user's changes won't be picked up without restarting the server
+ * 
+ * @param {string} vertical
+ * @returns 
+ */
+function getEditorMappingFile(vertical) {
+    const settingsFile = `./src/pages/${vertical}/editor-mapping.json`;
+
+    // Generic vertical doesn't have a settings file (or an admin page, so don't care about username)
+    if (fs.existsSync(settingsFile)) {
+        let fileStr = fs.readFileSync(settingsFile, 'utf8');
+        return JSON.parse(fileStr);
+    }
+
+    return {};
+}
+
 export default {
     getBxiEnvironmentVariables,
     getVerticals,
@@ -190,4 +209,5 @@ export default {
     getVerticalEndpoints,
     stripTrailingSlash,
     getVerticalLinks,
+    getEditorMappingFile,
 }

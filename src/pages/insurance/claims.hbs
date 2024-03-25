@@ -62,7 +62,7 @@
         </div>
         <div class="col-12 col-md-9 col-xl-10 order-1 order-md-2">
           <div class="row mb-3">
-            <h1 class="bxi-color-secondary bxi-ff-secondary mt-4 mt-sm-0 fw-bold">{{settings.dashboard.claims.header}}</h1>
+            <h1 class="bxi-color-secondary main-header bxi-ff-secondary mt-4 mt-sm-0 fw-bold">{{settings.dashboard.claims.header}}</h1>
           </div>
           <div class="row mb-4">
             {{#if env.BXI_DASHBOARD_POLICY_ID}}
@@ -71,11 +71,11 @@
             </div>
             {{/if}}
             <div class="col-12{{#if env.BXI_DASHBOARD_POLICY_ID}} col-md-6 {{/if}}">
-              <h5 class="fw-bold mt-4 mt-md-0">{{settings.dashboard.claims.history.header}}</h5>
+              <h5 class="fw-bold mt-4 mt-md-0 history-header">{{settings.dashboard.claims.history.header}}</h5>
               <div class="bxi-component-bg-color p-3 mb-4">
                 <div class="row mb-2">
-                  <div class="col-3 col-xl-2 text-center bxi-color-primary">{{settings.dashboard.claims.history.column1}}</div>
-                  <div class="col-9 col-xl-10 bxi-color-primary">{{settings.dashboard.claims.history.column2}}</div>
+                  <div class="col-3 col-xl-2 text-center bxi-color-primary history-column1">{{settings.dashboard.claims.history.column1}}</div>
+                  <div class="col-9 col-xl-10 bxi-color-primary history-column2">{{settings.dashboard.claims.history.column2}}</div>
                 </div>
                 {{#each settings.dashboard.claims.history.claims}}
                 <div class="row mb-3">
@@ -89,20 +89,20 @@
                 </div>
                 {{/each}}
               </div>
-              <h5 class="fw-bold">{{settings.dashboard.claims.advertisement.header}}</h5>
+              <h5 class="fw-bold bxi-advertisement-header">{{settings.dashboard.claims.advertisement.header}}</h5>
               <div class="bxi-component-bg-color p-3 d-flex flex-column">
                 <div>
-                  <p>{{settings.dashboard.claims.advertisement.description}}</p>
+                  <p class="bxi-advertisement-description">{{settings.dashboard.claims.advertisement.description}}</p>
                 </div>
                 {{#if settings.dashboard.claims.advertisement.button}}
-                <button class="bxi-button bxi-button--md align-self-end">{{settings.dashboard.claims.advertisement.button}}</button>
+                <button class="bxi-button bxi-button--md align-self-end bxi-advertisement-button">{{settings.dashboard.claims.advertisement.button}}</button>
                 {{/if}}
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-12">
-              <h1 class="bxi-color-secondary bxi-ff-secondary fw-bold mb-4">{{settings.dashboard.claims.coverage.header}}</h1>
+              <h1 class="bxi-color-secondary bxi-ff-secondary fw-bold mb-4 bxi-coverage-header">{{settings.dashboard.claims.coverage.header}}</h1>
               <div class="bxi-component-bg-color pt-3 px-3 bxi-coverage-summary">
                 {{#each settings.dashboard.claims.coverage.included}}
                 <div class="row mb-3 pb-3 border-bottom">
@@ -129,7 +129,7 @@
           </ul>
           <div class="footer-contacts d-flex flex-column-reverse flex-md-row justify-content-start align-items-center align-items-md-start justify-content-md-between justify-content-lg-end">
             <div class="footer-support me-0 me-lg-4">
-              <div class="text-center text-md-start mb-3 fw-bold fs-5">{{settings.footer.phone_number}}</div>
+              <div class="text-center text-md-start mb-3 fw-bold fs-5 footer-phone-number">{{settings.footer.phone_number}}</div>
               <button class="bxi-button bxi-button--outline fs-8 bxi-button--lg text-nowrap">Online support</button>
             </div>
             <div class="ms-0 ms-md-3">

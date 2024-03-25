@@ -63,7 +63,7 @@
           </div>
         </div>
         <div class="col-lg-4 order-1 order-lg-2">
-          <h2 class="bxi-ff-secondary fw-bold bxi-color-secondary mt-3">{{settings.dashboard.portal.sidebar.header}}</h2>
+          <h2 class="bxi-ff-secondary fw-bold bxi-color-secondary mt-3 sidebar-header">{{settings.dashboard.portal.sidebar.header}}</h2>
           {{#each settings.dashboard.portal.sidebar.applications}}
           <div class="rounded bxi-component-bg-color mb-4">
             <h6 class="bxi-bg-primary px-3 py-2 bxi-sidebar-banner-color fw-boldish rounded-top">{{banner}}</h6>
@@ -74,7 +74,7 @@
             </div>
           </div>
           {{/each}}
-          <button class="bxi-button bxi-button--outline bxi-button--lg w-100">{{settings.dashboard.portal.sidebar.button}}</button>
+          <button class="bxi-button bxi-button--outline bxi-button--lg w-100 sidebar-button">{{settings.dashboard.portal.sidebar.button}}</button>
         </div>
       </div>
       {{#if env.BXI_DASHBOARD_POLICY_ID}}

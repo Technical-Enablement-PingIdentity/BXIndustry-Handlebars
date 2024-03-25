@@ -46,6 +46,7 @@
         right: 0;
         top: 0;
         background: var(--bxi-manufacturing-banner-bg-color);
+        opacity: .6;
 
         @include breakpoint-lt-lg {
           height: 50%;

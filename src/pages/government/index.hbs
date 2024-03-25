@@ -30,7 +30,7 @@
             <div class="bxi-auth-buttons bxi-bg-secondary bxi-bg-lg-transparent bxi-zi-3 pb-2 pb-lg-0">
               <span class="fs-7 d-none d-lg-flex cursor-pointer mt-2">
                 {{> pinIcon class="d-none me-2 d-lg-block bxi-icon-color-secondary" }}
-                {{ settings.home_page.header.location }}
+                <span class="bxi-government-location">{{ settings.home_page.header.location }}</span>
                 {{> caretIcon class="bxi-icon-color-secondary bxi-caret-icon me-3" }}
               </span>
               {{!-- See src/home-nav-buttons.hbs to update auth buttons --}}
@@ -84,7 +84,7 @@
           </div>
           <div class="footer-contacts mt-4 d-flex flex-column-reverse flex-md-row align-items-center align-items-md-start">
             <div class="footer-support me-0 me-md-4">
-              <div class="text-center text-md-start mb-3 fs-6">{{settings.footer.phone_number}}</div>
+              <div class="text-center text-md-start mb-3 fs-6 footer-phone-number">{{settings.footer.phone_number}}</div>
               <button class="bxi-button bxi-button--lg bxi-button--outline py-3">Online support</button>
             </div>
             <div class="ms-0 ms-md-3">

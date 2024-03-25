@@ -9,27 +9,6 @@
     border-radius: 50px;
   }
 
-  .bxi-copyright-bg-color {
-    background-color: var(--bxi-eats-copyright-bg-color);
-  }
-
-  .bxi-program {
-    height: 250px;
-    padding-top: 50px;
-
-    &:hover {
-      padding-top: 0;
-    }
-
-    &-color {
-      color: var(--bxi-eats-program-color);
-    }
-
-    &-overlay {
-      background: linear-gradient(0.59deg, rgba(12, 35, 68, 0.8) 9.94%, rgba(10, 29, 57, 0) 94.52%);
-    }
-  }
-
   &.home {
     .bxi-banner {
       &--text {
@@ -62,10 +41,10 @@
     
     .bxi-order-form {
       height: 100%;
-      background-color: var(--bxi-eats-order-bg-color);
+      background-color: var(--bxi-dashboard-bg-color);
 
       &__bg {
-        background-color: var(--bxi-primary-color);
+        background-color: var(--bxi-eats-order-bg-color);
         height: 300px;
       }
 
@@ -86,7 +65,7 @@
 
       .bxi-input-container {
         border: 1px solid #CECECE;
-        background-color: var(--bxi-dashboard-bg-color);
+        background-color: #ffffff;
       }
 
       .bxi-button {
@@ -95,10 +74,10 @@
     }
 
     .bxi-discounts-section {
-      background-color: var(--bxi-eats-order-bg-color);
+      background-color: var(--bxi-dashboard-bg-color);
 
       &__text-small {
-        color: var(--bxi-eats-discounts-color);
+        color: var(--bxi-eats-amount-color);
       }
 
       &__text-st {
@@ -106,7 +85,7 @@
       }
       
       .bxi-discounts-section-discount {
-        background-color: var(--bxi-dashboard-bg-color);
+        background-color: #ffffff;
         height: 85%;
         border: 1px solid #E0E0E0;
         border-radius: 8px;
@@ -136,13 +115,14 @@
   }
 
   &.dashboard {
-    background-color: var(--bxi-eats-dashboard-container-bg-color);
+    background-color: var(--bxi-dashboard-bg-color);
 
     .navbar {
-      background-color: var(--bxi-dashboard-bg-color);
+      background-color: #ffffff;
     }
-    .bxi-eats-dashboard--color {
-      color: var(--bxi-eats-portal-color);
+
+    .bxi-eats-date-color {
+      color: var(--bxi-eats-portal-checklist-date-color);
     }
     
     .bxi-dashboard {
@@ -167,7 +147,7 @@
       }
 
       .bxi-eats-portal {
-        background-color: var(--bxi-dashboard-bg-color);
+        background-color: #ffffff;
 
         &--header {
           font-size: 55px;
@@ -175,21 +155,21 @@
         }
 
         &--text {
-          color: var(--bxi-eats-portal-checkmark-border-color);
+          color: var(--bxi-eats-portal-checklist-item-color);
         }
 
         .bxi-checkmark {
           width: 25px;
           min-width: 25px;
           height: 25px;
-          border: 1px solid var(--bxi-primary-color);
+          border: 1px solid var( --bxi-eats-portal-checkmark-bg-color);
 
           svg {
             display: none;
           }
 
           &--checked {
-            background-color: var(--bxi-primary-color);
+            background-color: var( --bxi-eats-portal-checkmark-bg-color);
             border: none;
 
             svg {
@@ -199,7 +179,7 @@
         }
 
         .bxi-checklist-item {
-          border-top: 1px solid #BEC9DB;
+          border-top: 1px solid var(--bxi-eats-portal-checklist-item-border-color);
         }
       }
 
@@ -207,10 +187,10 @@
         max-width: 307px;
         height: 50%;
         margin: auto;
-        background: linear-gradient(var(--bxi-eats-finance-card-gradient));
+        background: linear-gradient(109.68deg, var(--bxi-eats-finance-card-first-gradient) 6.61%, var(--bxi-eats-finance-card-second-gradient) 93.88%);
         box-shadow: 2px 4px 19px rgb(0 0 0 / 25%);
         border-radius: 11px;
-        color: var(--bxi-eats-portal-category-color);
+        color: var(--bxi-eats-portal-card-color);
 
         &--line {
           height: 40px;
@@ -231,7 +211,7 @@
       }
 
       .bxi-eats-sidebar {
-        background-color: var(--bxi-dashboard-bg-color);
+        background-color: #ffffff;
         height: 100%;
         width: 100%;
       }

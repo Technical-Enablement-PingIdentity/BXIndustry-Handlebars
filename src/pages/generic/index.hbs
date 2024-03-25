@@ -3,23 +3,23 @@
   {{#> head }}
     <style>
       :root {
-        --bxi-primary-font: 'Montserrat', sans-serif;
-        --bxi-secondary-font: 'Poppins', serif;
-        --bxi-primary-color: #afb2ba;
-        --bxi-secondary-color: #19191f;
-        --bxi-button-color: #fff;
-        --bxi-button-bg-color: var(--bxi-primary-color);
-        --bxi-button-bg-hover-color: #67686b;
-        --bxi-link-button-color: var(--bxi-primary-color);
-        --bxi-link-button-hover-color: var(--bxi-secondary-color);
-        --bxi-generic-banner-color: #fff;
+        --bxi-primary-font: {{{theme.primaryFont}}};
+        --bxi-secondary-font: {{{theme.secondaryFont}}};
+        --bxi-primary-color: {{theme.primaryColor}};
+        --bxi-secondary-color: {{theme.secondaryColor}};
+        --bxi-button-color: {{theme.buttonColor}};
+        --bxi-button-bg-color: {{theme.buttonBgColor}};
+        --bxi-button-bg-hover-color: {{theme.buttonBgHoverColor}};
+        --bxi-link-button-color: {{theme.linkButtonColor}};
+        --bxi-link-button-hover-color: {{theme.linkButtonHoverColor}};
+        --bxi-generic-banner-color: {{theme.bannerColor}};
       }
     </style>
   {{/head}}
   <body class="bxi generic home">
     {{> variables}}
     <header class="masthead" style="background-image: url('https://cdn.glitch.me/e527ecf6-cfaf-462c-9a0f-da0c77633414%2Fhome-bg.jpg?v=1636660805462')">
-      <nav class="navbar fixed-top navbar-expand">
+      <nav class="navbar navbar-expand position-absolute top-0">
         <div class="container mt-4">
           <div>
             <ul class="bxi-auth-buttons bxi-auth-buttons--link navbar-nav ms-auto py-4 py-lg-0">
@@ -32,8 +32,8 @@
       <div class="container position-relative px-4">
         <div class="justify-content-center">
           <div class="text-center">
-            <h1>{{settings.heading}}</h1>
-            <span class="fs-3 fw-bold">{{settings.sub_heading}}</span>
+            <h1 class="heading">{{settings.heading}}</h1>
+            <span class="fs-3 fw-bold subheading">{{settings.sub_heading}}</span>
           </div>
         </div>
       </div>

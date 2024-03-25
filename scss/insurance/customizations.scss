@@ -103,7 +103,7 @@
       width: 24px;
       height: 24px;
 
-      @include color-icon(var(--bxi-dashboard-claims-shield-color));
+      @include color-icon(var(--bxi-claims-shield-color));
     }
 
     .bxi-coverage-summary {
