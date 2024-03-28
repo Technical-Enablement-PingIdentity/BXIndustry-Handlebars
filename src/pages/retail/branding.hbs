@@ -1,29 +1,30 @@
 <style>
   :root {
     /* Global Variables - used in common styles */
-    --bxi-primary-font: 'Arimo', sans-serif;
-    --bxi-secondary-font: 'Montserrat', sans-serif;
-    --bxi-primary-color: #177de7;
-    --bxi-secondary-color: #262626;
-    --bxi-button-color: #fff;
-    --bxi-button-bg-color: var(--bxi-primary-color);
-    --bxi-button-bg-hover-color: #146ac4;
-    --bxi-link-button-color: var(--bxi-primary-color);
-    --bxi-link-button-hover-color: #146ac4;
-    --bxi-dashboard-bg-color: #f3f3f3;
-    --bxi-component-bg-color: #fff;
-    --bxi-footer-bg-color: var(--bxi-secondary-color);
-    --bxi-footer-color: #fff;
-    --bxi-copyright-color: #fff;
-    --bxi-header-dropdown-color: #8c8f8f;
-    --bxi-header-dropdown-border-color: #c6cdcf;
+    --bxi-primary-font: {{{theme.primaryFont}}};
+    --bxi-secondary-font: {{{theme.secondaryFont}}};
+    --bxi-primary-color: {{theme.primaryColor}};
+    --bxi-secondary-color: {{theme.secondaryColor}};
+    --bxi-button-color: {{theme.buttonColor}};
+    --bxi-button-bg-color: {{theme.buttonBgColor}};
+    --bxi-button-bg-hover-color: {{theme.buttonBgHoverColor}};
+    --bxi-link-button-color: {{theme.linkButtonColor}};
+    --bxi-link-button-hover-color: {{theme.linkButtonHoverColor}};
+    --bxi-dashboard-bg-color: {{theme.dashboardBgColor}};
+    --bxi-component-bg-color: {{theme.componentBgColor}};
+    --bxi-footer-bg-color: {{theme.footerBgColor}};
+    --bxi-footer-color: {{theme.footerColor}};
+    --bxi-copyright-color: {{theme.copyrightColor}};
 
     /* Vertical Specific Variables - used in <vertical>/customizations.scss */
-    --bxi-retail-nav-border-color: #caced3;
-    --bxi-retail-hero-border-color: #f3b900;
-    --bxi-retail-banner-color: #fff;
-    --bxi-retail-banner-bg-color: var(--bxi-primary-color);
-    --bxi-retail-features-icon-bg-color: linear-gradient(127.1deg, #0068d6 7.13%, #004287 101.68%);
-    --bxi-retail-dashboard-welcome-color: #fff;
+    --bxi-retail-nav-border-color: {{theme.navBorderColor}};
+    --bxi-retail-hero-border-color: {{theme.heroBorderColor}};
+    --bxi-retail-banner-color: {{theme.bannerColor}};
+    --bxi-retail-banner-bg-color: {{theme.bannerBgColor}};
+    --bxi-retail-features-icon-gradient1: {{theme.featuresIconBgGradient1}};
+    --bxi-retail-features-icon-gradient2: {{theme.featuresIconBgGradient2}};
+    --bxi-retail-dashboard-welcome-color: {{theme.dashboardWelcomeColor}};
+
+    --bxi-retail-features-icon-bg-color: linear-gradient(127.1deg, var(--bxi-retail-features-icon-gradient1) 7.13%, var(--bxi-retail-features-icon-gradient2) 101.68%);
   }
 </style>

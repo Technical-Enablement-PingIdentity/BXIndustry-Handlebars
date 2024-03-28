@@ -21,6 +21,10 @@
   }
 
   &.home {
+    .bxi-programs {
+      background-color: #fff;
+    }
+
     .bxi-header {
       &-color {
         color: var(--bxi-finance-header-color);
@@ -106,7 +110,7 @@
     .bxi-icon-bg { 
       width: 92px;
       height: 92px;
-      background: var(--bxi-finance-icon-bg-color);
+      background: linear-gradient(135deg, var(--bxi-finance-icon-bg-first-gradient) 0%, var(--bxi-finance-icon-bg-second-gradient) 113.59%);
     }
   }
 

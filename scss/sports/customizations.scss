@@ -139,10 +139,6 @@
     }
   }
 
-  .dashboard-content {
-    background-color: #f3f3f3;
-  }
-
   .bxi-dashboard-banner-title {
     margin-bottom: 1rem;
     font-family: var(--bxi-secondary-font);
@@ -194,5 +190,11 @@
     content: "●";
     font-size: 24px;
     padding-right:5px;
+  }
+
+  &.dashboard {
+    .navbar {
+      background-color: var(--bxi-dashboard-navbar-bg-color);
+    }
   }
 }

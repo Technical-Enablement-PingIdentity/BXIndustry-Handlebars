@@ -42,8 +42,8 @@
       </div>
       <div class="row">
         <div class="col-xl-8 dashboard-section__reporting">
-          <h1 class="bxi-ff-secondary fw-bold my-4 fs-1">{{settings.dashboard.title}}</h1>
-          <p class="mb-0 fw-bold">{{settings.dashboard.filter_header}}</p>
+          <h1 class="bxi-ff-secondary fw-bold my-4 fs-1 dashboad-section__title">{{settings.dashboard.title}}</h1>
+          <p class="mb-0 fw-bold dashboad-section__filter-header">{{settings.dashboard.filter_header}}</p>
           <div class="d-flex align-items-center flex-wrap">
             {{#each settings.dashboard.filters}}
             <div class="filter-dropdown mt-3 me-3 cursor-pointer rounded-1 pe-5 position-relative">
@@ -72,8 +72,8 @@
                   {{{ inlineSvg settings.dashboard.pie_chart.image }}}
                 </div>
                 <div class="ms-3 ms-xl-0 ms-xxl-3">
-                  <div><span class="bxi-pie-first-legend d-inline-block me-2 rounded-1"></span><span>{{ settings.dashboard.pie_chart.second_legend }}</span></div>
-                  <div><span class="bxi-pie-second-legend d-inline-block me-2 rounded-1"></span><span>{{ settings.dashboard.pie_chart.first_legend }}</span></div>
+                  <div><span class="bxi-pie-first-legend d-inline-block me-2 rounded-1"></span><span>{{ settings.dashboard.pie_chart.first_legend }}</span></div>
+                  <div><span class="bxi-pie-second-legend d-inline-block me-2 rounded-1"></span><span>{{ settings.dashboard.pie_chart.second_legend }}</span></div>
                 </div>
               </div>
             </div>
@@ -98,7 +98,7 @@
           {{/if}}
         </div>
         <div class="col-xl-4 mb-5">
-          <h5 class="mt-4 mb-0 fw-bold">{{settings.dashboard.videos.title}}</h5>
+          <h5 class="mt-4 mb-0 fw-bold video-section-header">{{settings.dashboard.videos.title}}</h5>
           <div class="row">
           {{#each settings.dashboard.videos.video_tiles}}
           <div class="video-tile__thumbnail position-relative gx-3 gy-3 col-md-6 col-xl-12">
@@ -121,7 +121,7 @@
           </ul>
           <div class="footer-contacts d-flex flex-column-reverse flex-md-row justify-content-start align-items-center align-items-md-start justify-content-md-between justify-content-lg-end">
             <div class="footer-support">
-              <div class="text-center text-md-start mb-3">{{settings.footer.phone_number}}</div>
+              <div class="text-center text-md-start mb-3 footer-phone-number">{{settings.footer.phone_number}}</div>
               <button class="bxi-button bxi-button--outline bxi-button--lg">Online support</button>
             </div>
             <div class="ms-0 ms-md-3">

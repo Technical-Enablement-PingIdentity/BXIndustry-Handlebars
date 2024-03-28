@@ -20,7 +20,7 @@
               {{/each}}
             </ul>
             <a id="bxi-logo" class="navbar-brand py-0 ms-3">
-              <img src="{{settings.images.logo}}" alt="Logo" />
+              <img width="180" src="{{settings.images.logo}}" alt="Logo" />
             </a>
           </div>
           <div class="d-flex flex-row position-relative">
@@ -88,7 +88,7 @@
           </ul>
           <div class="footer-contacts mt-4 d-flex flex-column-reverse flex-md-row align-items-center align-items-md-start">
             <div class="footer-support me-0 me-md-4">
-              <div class="text-center text-md-start mb-3 fs-6">{{settings.footer.phone_number}}</div>
+              <div class="text-center text-md-start mb-3 fs-6 footer-phone-number">{{settings.footer.phone_number}}</div>
               <button class="bxi-button bxi-button--lg bxi-button--outline py-3">Online support</button>
             </div>
             <div class="ms-0 ms-md-3">
@@ -112,15 +112,11 @@
               </ul>
             </div>
           </div>
+          <p class="fs-8 m-0 text-center text-md-start bxi-copyright-color">{{settings.footer.copyright}}</p>
+          {{> remix }}
         </div>
       </div>
     </footer>
-    <section class="bxi-footer bxi-bg-secondary pb-4">
-      <div class="container">
-        <p class="fs-8 m-0 text-center text-md-start bxi-copyright-color">{{settings.footer.copyright}}</p>
-        {{> remix }}
-      </div>
-    </section>
     {{> modal}}
   </body>
 </html>

@@ -52,8 +52,8 @@
       <div class="container position-relative bxi-zi-2">
         <div class="row w-100">
           <div class="col-xl-8 col-md-6">
-            <h1 class="fw-bold bxi-header-color mt-lg-5 pt-md-5">{{settings.home_page.banner.title}}</h1>
-            <p class="bxi-header-color">{{settings.home_page.banner.sub_title}}</p>
+            <h1 class="fw-bold mt-lg-5 pt-md-5">{{settings.home_page.banner.title}}</h1>
+            <p>{{settings.home_page.banner.sub_title}}</p>
             {{#if settings.home_page.banner.button}}
             <button class="bxi-button bxi-button--white bxi-button--lg">{{settings.home_page.banner.button}}</button>
             {{/if}}
@@ -71,11 +71,11 @@
     </section>
     <section class="bxi-bg-primary bxi-zi-2">
       <div class="container py-4 bxi-header-color">
-        <span class="fs-4 me-3">{{settings.home_page.alert_banner.message}}</span>
-        <span class="fs-4 fw-boldish cursor-pointer position-relative bxi-zi-2">{{settings.home_page.alert_banner.link}}</span>
+        <span class="fs-4 me-3 bxi-alert-banner-msg">{{settings.home_page.alert_banner.message}}</span>
+        <span class="fs-4 fw-boldish cursor-pointer position-relative bxi-zi-2 bxi-alert-banner-link">{{settings.home_page.alert_banner.link}}</span>
       </div>
     </section>
-    <section class="container">
+    <section class="bxi-programs container bxi-zi-2">
       <div class="row">
         {{#each settings.home_page.programs}}
         <div class="col-lg-4 mb-5 text-center text-lg-start">
@@ -118,9 +118,9 @@
             {{/each}}
           </div>
           <div class="col-lg-4 mb-3">
-            <a class="bxi-link bxi-link--white mb-2 d-block fw-bold">{{settings.footer.phone_number}}</a>
-            <a class="bxi-link bxi-link--white mb-2 d-block fw-bold">{{settings.footer.email}}</a>
-            <a class="bxi-link bxi-link--white mb-2 d-block fw-bold">{{settings.footer.chat}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block fw-bold footer-phone-number">{{settings.footer.phone_number}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block fw-bold footer-email">{{settings.footer.email}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block fw-bold footer-chat">{{settings.footer.chat}}</a>
           </div>
         </div>
       </div>

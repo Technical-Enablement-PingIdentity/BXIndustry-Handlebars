@@ -1,30 +1,30 @@
 <style>
   :root {
     /* Global Variables - used in common styles */
-    --bxi-primary-font: 'capitolium-2', serif;
-    --bxi-secondary-font: 'filson-soft', sans-serif;
-    --bxi-primary-color: #163657;
-    --bxi-secondary-color: #1d1d1d;
-    --bxi-button-color: #fff;
-    --bxi-button-bg-color: #332842;
-    --bxi-button-bg-hover-color: var(--bxi-primary-color);
-    --bxi-link-button-color: var(--bxi-primary-color);
-    --bxi-link-button-hover-color: #332842;
-    --bxi-nav-link-color-inverse: #fff;
-    --bxi-dashboard-bg-color: #f3f3f3;
-    --bxi-component-bg-color: #fff;
-    --bxi-footer-bg-color: var(--bxi-secondary-color);
-    --bxi-footer-color: #fff;
-    --bxi-copyright-color: #fff;
-    --bxi-header-dropdown-color: #8c8f8f;
-    --bxi-header-dropdown-border-color: #c6cdcf;
+    --bxi-primary-font: {{{theme.primaryFont}}};
+    --bxi-secondary-font: {{{theme.secondaryFont}}};
+    --bxi-primary-color: {{theme.primaryColor}};
+    --bxi-secondary-color: {{theme.secondaryColor}};
+    --bxi-button-color: {{theme.buttonColor}};
+    --bxi-button-bg-color: {{theme.buttonBgColor}};
+    --bxi-button-bg-hover-color: {{theme.buttonBgHoverColor}};
+    --bxi-link-button-color: {{theme.linkButtonColor}};
+    --bxi-link-button-hover-color: {{theme.linkButtonHoverColor}};
+    --bxi-nav-link-color-inverse: {{theme.navLinkColorInverse}};
+    --bxi-dashboard-bg-color: {{theme.dashboardBgColor}};
+    --bxi-component-bg-color: {{theme.componentBgColor}};
+    --bxi-footer-bg-color: {{theme.footerBgColor}};
+    --bxi-footer-color: {{theme.footerColor}};
+    --bxi-copyright-color: {{theme.copyrightColor}};
+    --bxi-header-dropdown-color: {{theme.headerDropdownColor}};
+    --bxi-header-dropdown-border-color: {{theme.headerDropdownBorderColor}};
 
     /* Vertical Specific Variables - used in <vertical>/customizations.scss */
-    --bxi-health-header-color: var(--bxi-primary-color);
-    --bxi-health-hero-color: #000;
-    --bxi-health-hero-bg-color: #fff;
-    --bxi-health-banner-color: #fff;
-    --bxi-health-banner-bg-color: var(--bxi-primary-color);
-    --bxi-health-events-header-color: #fff;
+    --bxi-health-header-color: {{theme.headerColor}};
+    --bxi-health-hero-color: {{theme.heroColor}};
+    --bxi-health-hero-bg-color: {{theme.heroBgColor}};
+    --bxi-health-banner-color: {{theme.bannerColor}};
+    --bxi-health-banner-bg-color: {{theme.bannerBgColor}};
+    --bxi-health-events-header-color: {{theme.eventsHeaderColor}};
   }
 </style>
