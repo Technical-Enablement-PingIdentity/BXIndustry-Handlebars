@@ -9,18 +9,18 @@
     "dev": "concurrently --kill-others \"sass --watch scss/index.scss:public/styles.css\" \"node server.js --dev\""
   },
   "dependencies": {
-    "@fastify/cookie": "^8.3.0",
-    "@fastify/static": "^6.4.0",
-    "@fastify/view": "^8.0.0",
-    "fastify": "^4.0.3",
-    "handlebars": "^4.7.7",
-    "handlebars-helpers": "^0.10.0",
-    "node-fetch": "^3.2.10"
+    "@fastify/cookie": "^9.3.1",
+    "@fastify/static": "^7.0.4",
+    "@fastify/view": "^9.1.0",
+    "fastify": "^4.27.0",
+    "handlebars": "^4.7.8",
+    "handlebars-utils": "^1.0.6",
+    "node-fetch": "^3.3.2"
   },
   "devDependencies": {
-    "concurrently": "^8.0.1",
-    "dotenv": "^16.0.1",
-    "sass": "^1.53.0"
+    "concurrently": "^8.2.2",
+    "dotenv": "^16.4.5",
+    "sass": "^1.77.4"
   },
   "engines": {
     "node": "16.x"
