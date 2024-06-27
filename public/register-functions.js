@@ -10,15 +10,18 @@ function registerFunctions(logger) {
     const usernameContainer = document.getElementById('username-container');
     const idToken = bxi.getIdToken();
 
-    const base64Fragment = idToken.split('.')[1];
-    const decodedFragment = JSON.parse(atob(base64Fragment));
-  
-    // You can customize which id_token attribute you want to display here
-    const username = decodedFragment['given_name'] || decodedFragment['email'];
+    const base64Fragment = idToken?.split('.')?.[1] || null;
 
-    if (usernameContainer && username) {
-      logger.log(`username found in session storage and a container was found, '${username}' will be displayed`)
-      usernameContainer.textContent = username;
+    if (base64Fragment) {
+      const decodedFragment = JSON.parse(atob(base64Fragment));
+  
+      // You can customize which id_token attribute you want to display here
+      const username = decodedFragment['given_name'] || decodedFragment['email'];
+  
+      if (usernameContainer && username) {
+        logger.log(`username found in session storage and a container was found, '${username}' will be displayed`)
+        usernameContainer.textContent = username;
+      }
     }
   };
 
