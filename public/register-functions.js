@@ -8,7 +8,14 @@ function registerFunctions(logger) {
 
     // Set the username container on the dashboard page to whatever is in sessionStorage
     const usernameContainer = document.getElementById('username-container');
-    const username = sessionStorage.getItem('bxi_username');
+    const idToken = bxi.getIdToken();
+
+    const base64Fragment = idToken.split('.')[1];
+    const decodedFragment = JSON.parse(atob(base64Fragment));
+  
+    // You can customize which id_token attribute you want to display here
+    const username = decodedFragment['given_name'] || decodedFragment['email'];
+
     if (usernameContainer && username) {
       logger.log(`username found in session storage and a container was found, '${username}' will be displayed`)
       usernameContainer.textContent = username;
@@ -22,7 +29,9 @@ function registerFunctions(logger) {
     // Tear-down code here
 
     // Change this to sessionStorage.clear() if you'd like to remove everything
-    sessionStorage.removeItem('bxi_username');
+    sessionStorage.removeItem('bxi_accessToken');
+    sessionStorage.removeItem('bxi_idToken');
+
     logger.log('Logout occured, username has been cleared from session storage if it existed');
 
     await fetch('/logout');
@@ -30,6 +39,14 @@ function registerFunctions(logger) {
     // This call should be last
     window.location.assign(`/${window.location.pathname.split('/')[1]}`);
   };
+
+  bxi.getAccessToken = () => {
+    return sessionStorage.getItem('bxi_accessToken');
+  }
+
+  bxi.getIdToken = () => {
+    return sessionStorage.getItem('bxi_idToken');
+  }
 
   /**
    * You may register functions that you would like to hook into during flow execution here. Functions are called by name passed in the 
@@ -51,24 +68,28 @@ function registerFunctions(logger) {
 
   bxi.registerFunction('defaultAuthnSuccess', async response => {
     logger.log('defaultAuthnSuccess called with DV response', response);
-    
-    // Check for username in response, if present set it in sessionStorage and redirect to the dashboard
-    const username = window.bxi.getParameterCaseInsensitive(response.additionalProperties, 'username');
-    if (username) {
-      logger.log('username found in response, setting it in session storage and redirecting to dashboard');
-      sessionStorage.setItem('bxi_username', username);
 
-      // Generic vertical doesn't have a dashboard page
-      if (window.location.pathname.includes('generic')) {
-        return;
-      }
-      
-      // Redirect to <current-vertical>/dashbaord
-      let url = window.location.pathname + '/dashboard';
-
-      // If you customize this function and still want redirect to work, this call should be last
-      window.location.assign(url);
+    // If your access_token is somewhere else in the DV response you can change that here
+    const accessToken = response.access_token;
+    if (accessToken) {
+      logger.log('access_token found in response, storing in sessionStorage');
+      sessionStorage.setItem('bxi_accessToken', accessToken);
     }
+
+    // If your id_token is somewhere else in your DV response you can change that here
+    const idToken = response.id_token;
+    if (idToken) {
+      logger.log('id_token found in response, storing in sessionStorage');
+      sessionStorage.setItem('bxi_idToken', idToken);
+    }
+
+    // Generic vertical doesn't have a dashboard page
+    if (window.location.pathname.includes('generic')) {
+      return;
+    }
+
+    // If you customize this function and still want redirect to work, this call should be last
+    window.location.assign(window.location.pathname + '/dashboard');
   });
 
   bxi.registerFunction('logout', async response => {

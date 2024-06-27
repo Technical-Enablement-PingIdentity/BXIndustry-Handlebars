@@ -21,6 +21,8 @@ function getBxiEnvironmentVariables() {
         'BXI_DV_JS_URL', 
         'BXI_LOGIN_POLICY_ID',
         'BXI_REGISTRATION_POLICY_ID',
+        'BXI_PASSWORD_RESET_POLICY_ID',
+        'BXI_DEVICE_MANAGEMENT_POLICY_ID',
         'BXI_DASHBOARD_POLICY_ID',
         'BXI_GENERIC_POLICY_ID',
         'BXI_REMIX_POLICY_ID',
