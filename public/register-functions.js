@@ -1,5 +1,4 @@
 function registerFunctions(logger) {
-
   /**
    * Add custom code here to do any page load actions, called on body tag in onload=""
    */
@@ -14,12 +13,15 @@ function registerFunctions(logger) {
 
     if (base64Fragment) {
       const decodedFragment = JSON.parse(atob(base64Fragment));
-  
+
       // You can customize which id_token attribute you want to display here
-      const username = decodedFragment['given_name'] || decodedFragment['email'];
-  
+      const username =
+        decodedFragment['given_name'] || decodedFragment['email'];
+
       if (usernameContainer && username) {
-        logger.log(`username found in session storage and a container was found, '${username}' will be displayed`)
+        logger.log(
+          `username found in session storage and a container was found, '${username}' will be displayed`
+        );
         usernameContainer.textContent = username;
       }
     }
@@ -35,7 +37,9 @@ function registerFunctions(logger) {
     sessionStorage.removeItem('bxi_accessToken');
     sessionStorage.removeItem('bxi_idToken');
 
-    logger.log('Logout occured, username has been cleared from session storage if it existed');
+    logger.log(
+      'Logout occured, username has been cleared from session storage if it existed'
+    );
 
     await fetch('/logout');
 
@@ -45,31 +49,37 @@ function registerFunctions(logger) {
 
   bxi.getAccessToken = () => {
     return sessionStorage.getItem('bxi_accessToken');
-  }
+  };
 
   bxi.getIdToken = () => {
     return sessionStorage.getItem('bxi_idToken');
-  }
+  };
 
   /**
-   * You may register functions that you would like to hook into during flow execution here. Functions are called by name passed in the 
+   * You may register functions that you would like to hook into during flow execution here. Functions are called by name passed in the
    * associated data attribute (e.g. data-success-callback="loginSuccess")
-   * 
+   *
    * Please note you can pass in a named function (e.g. bxi.registerFunction(function loginSuccess(res) {...}); )
    * or you may pass in a name as string with an anonymous function (e.g. bxi.registerFunction('loginSuccess', (res) => {...}); )
    * Function calls are awaited so async functions and promises are supported!
-   * 
+   *
    * We provided this file as a centralized location for registering callbacks, however it is purposely exposed on the window.bxi object
    * so you may register callbacks anywhere in your application as long as it's after bxi-davinci.js is loaded (initFunctionRegistry() has been called)
    */
 
   bxi.registerFunction('remixParameters', async () => {
     const verticals = await fetch('/verticals');
-    const verticalsParam = (await verticals.json()).map(v => ({ name: v.charAt(0).toUpperCase() + v.slice(1), value: v }));
-    return { CurrentVertical: window.location.pathname.split('/')[1], Verticals: verticalsParam };
+    const verticalsParam = (await verticals.json()).map((v) => ({
+      name: v.charAt(0).toUpperCase() + v.slice(1),
+      value: v,
+    }));
+    return {
+      CurrentVertical: window.location.pathname.split('/')[1],
+      Verticals: verticalsParam,
+    };
   });
 
-  bxi.registerFunction('defaultAuthnSuccess', async response => {
+  bxi.registerFunction('defaultAuthnSuccess', async (response) => {
     logger.log('defaultAuthnSuccess called with DV response', response);
 
     // If your access_token is somewhere else in the DV response you can change that here
@@ -84,18 +94,16 @@ function registerFunctions(logger) {
     if (idToken) {
       logger.log('id_token found in response, storing in sessionStorage');
       sessionStorage.setItem('bxi_idToken', idToken);
-    }
 
-    // Generic vertical doesn't have a dashboard page
-    if (window.location.pathname.includes('generic')) {
-      return;
+      // Generic vertical doesn't have a dashboard page
+      if (!window.location.pathname.includes('generic')) {
+        // If we have an ID token, we can be considered logged in and redirected to the dashboard
+        window.location.assign(window.location.pathname + '/dashboard');
+      }
     }
-
-    // If you customize this function and still want redirect to work, this call should be last
-    window.location.assign(window.location.pathname + '/dashboard');
   });
 
-  bxi.registerFunction('logout', async response => {
+  bxi.registerFunction('logout', async (response) => {
     if (response.additionalProperties?.staleSession) {
       await bxi.logout();
     }
