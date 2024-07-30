@@ -46,7 +46,7 @@
             </ul>
           </div>
         </div>
-        <div class="container mt-5 bxi-zi-1">
+        <div class="container bxi-health-banner mt-5 bxi-zi-1">
           <div class="row w-100">
             <div class="col-lg-6 col-md-6">
               <h1 class="fw-bold bxi-header-color mb-4">{{settings.home_page.banner.title}}</h1>
@@ -69,10 +69,10 @@
       <div class="container">
         <span class="fs-4 me-3">{{settings.home_page.alert_banner.message}}</span>
         {{#if settings.home_page.alert_banner.patient_link}}
-        <button class="bxi-button bxi-button--link me-5 fs-5">{{settings.home_page.alert_banner.patient_link}}</button>
+        <button class="bxi-button bxi-button--link me-5 fs-5 bxi-patient-link">{{settings.home_page.alert_banner.patient_link}}</button>
         {{/if}}
         {{#if settings.home_page.alert_banner.caregiver_link}}
-        <button class="bxi-button bxi-button--link me-5 fs-5">{{settings.home_page.alert_banner.caregiver_link}}</button>
+        <button class="bxi-button bxi-button--link me-5 fs-5 bxi-caregiver-link">{{settings.home_page.alert_banner.caregiver_link}}</button>
         {{/if}}
       </div>
     </section>
@@ -116,9 +116,9 @@
             {{/each}}
           </div>
           <div class="col-lg-3 mb-3">
-            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold">{{settings.footer.phone_number}}</a>
-            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold">{{settings.footer.email}}</a>
-            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold">{{settings.footer.chat}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold footer-phone-number">{{settings.footer.phone_number}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold footer-email">{{settings.footer.email}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold footer-chat">{{settings.footer.chat}}</a>
           </div>
           <div class="col-lg-3 mb-3">
             {{#each settings.footer.links_right}}

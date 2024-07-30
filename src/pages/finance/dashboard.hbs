@@ -44,7 +44,7 @@
         </div>
       </nav>
     </header>
-    <section class="bxi-component-bg-color">
+    <section class="bxi-component-bg-color bxi-welcome-bar">
       <div class="container py-3">
         <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-between align-items-center">
           <h2 class="fw-bold bxi-ff-secondary">{{settings.dashboard.welcome}} <span class="fw-bold bxi-ff-secondary" id="username-container">{{settings.dashboard.username}}</span></h2>
@@ -79,7 +79,7 @@
           <div class="col-lg-8 order-1 order-lg-2">
             <div class="row mb-3">
               <div class="col-sm-6 text-center text-sm-start">
-                <h4 class="mb-3 mb-sm-0 mt-1 fw-boldish bxi-ff-secondary">{{settings.dashboard.portal.title}}</h4>
+                <h4 class="mb-3 mb-sm-0 mt-1 fw-boldish bxi-ff-secondary portal-title">{{settings.dashboard.portal.title}}</h4>
               </div>
               <div class="col-sm-6 d-flex justify-content-center justify-content-sm-end">
                 <select id="all-the-things" class="portal-header-dropdown bxi-component-bg-color pe-5 cursor-pointer">
@@ -151,9 +151,9 @@
             {{/each}}
           </div>
           <div class="col-lg-4 mb-3">
-            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold">{{settings.footer.phone_number}}</a>
-            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold">{{settings.footer.email}}</a>
-            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold">{{settings.footer.chat}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold footer-phone-number">{{settings.footer.phone_number}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold footer-email">{{settings.footer.email}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold footer-chat">{{settings.footer.chat}}</a>
           </div>
         </div>
       </div>

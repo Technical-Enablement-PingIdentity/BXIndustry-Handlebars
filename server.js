@@ -31,6 +31,7 @@ const bxiEnvVars = helpers.getBxiEnvironmentVariables();
 const verticals = helpers.getVerticals();
 
 const debug = process.env.BXI_DEBUG_LOGGING === 'true';
+const enableEditing = process.env.BXI_ENABLE_EDITING === 'true';
 
 const logger = new Logger(debug);
 
@@ -175,7 +176,8 @@ fastify.get('/docs', (request, reply) => {
     selectedVertical: vertical,
     verticals: verticals.filter(v => v !== 'generic'),
     brandingPartial: () => `${vertical}Branding`,
-    icons: icons.map(icon => ({ icon: icon, partial: icon + 'Icon'}))
+    icons: icons.map(icon => ({ icon: icon, partial: icon + 'Icon'})),
+    ...helpers.getSettingsFile(vertical)
   });
 });
 
@@ -184,7 +186,7 @@ fastify.get('/verticals', (_, reply) => {
 });
 
 // Set up shortcuts endpoints, shows all verticals with applicable links
-fastify.get('/shortcuts', (_, reply) => {
+fastify.get('/shortcuts', (req, reply) => {
   const viewParams = verticals.map(vertical => {
     const endpointLinks = helpers.getVerticalLinks(vertical);
 
@@ -196,8 +198,18 @@ fastify.get('/shortcuts', (_, reply) => {
     };
   });
 
+  viewParams.showEditLinks = enableEditing;
+
   logger.log('/shortcuts endpoint hit, sending view data', viewParams);
   return reply.view('src/pages/shortcuts.hbs', viewParams);
+});
+
+// We can allow on this even if editing is disabled just in case something gets edited and we want to revert to default settings
+fastify.post('/settings/reset', function (_, reply) {
+  helpers.getVerticals().forEach(vertical => {
+    fs.copyFileSync(`./settings/${vertical}.json`, `./src/pages/${vertical}/settings.json`);
+  });
+  reply.code(200).send();
 });
 
 // Generic does not have dashboard or dialog-examples page
@@ -206,14 +218,70 @@ helpers.getVerticals().forEach(vertical => {
   const verticalLinks = helpers.getVerticalLinks(vertical);
 
   for (const [filename, endpoint] of Object.entries(helpers.getVerticalEndpoints(vertical))) {
-    fastify.get(endpoint, function (_, reply) {
+    fastify.get(endpoint, function (req, reply) {
       const pageViewParams = getViewParams(vertical); // Must get these within endpoint or settings.json changes won't be picked up until server restarts
-      const { Home, ['Dialog Examples']: __, ...authenticatedEndpoints } = verticalLinks; // Use object destructuring to filter out Home and Dialog Examples links
-      pageViewParams.verticalAuthenticatedEndpoints = authenticatedEndpoints; 
+      const { Home, ['Dialog Examples']: _, ...authenticatedEndpoints } = verticalLinks; // Use object destructuring to filter out Home and Dialog Examples links
+      pageViewParams.verticalAuthenticatedEndpoints = authenticatedEndpoints;
+
+      // Get query parameter to conditionally show the edit drawer
+      pageViewParams.showEditDrawer = false;
+
+      if (enableEditing && req.query['edit']) {
+        pageViewParams.showEditDrawer = true;
+        pageViewParams.editorMapping = helpers.getEditorMappingFile(vertical);
+        const currentPage = endpoint.split('/').pop();
+
+         // If the current page is the vertical root, we are on the home page
+        pageViewParams.currentPage = currentPage === vertical ? 'home' : currentPage;
+      }
+      
       logger.log(`${endpoint} hit, send page with view data`, pageViewParams);
       return reply.view(filename, pageViewParams);
     });
   }
+
+  fastify.post(`/${vertical}/settings/reset`, function (_, reply) {
+    fs.copyFileSync(`./settings/${vertical}.json`, `./src/pages/${vertical}/settings.json`);
+    reply.code(200).send();
+  });
+
+  // Save value from editor
+  fastify.put(`/${vertical}/settings`, {
+    schema: {
+      body: {
+        type: 'object',
+        required: [ 'jsonPath', 'value' ],
+        properties: {
+          jsonPath: { type: 'string' },
+          value: { type: 'string' },
+        }
+      }
+    }
+  }, async function (req, reply) {
+    if (!enableEditing) {
+      reply.code(403).send('Editing is currently disabled, set BXI_ENABLE_EDITING=true in your .env if this is a mistake');
+      return;
+    }
+    
+    const path = `./src/pages/${vertical}/settings.json`;
+
+    // We don't want to use the getSettingFile helper here because we don't want to override the currentYear and other handles
+    const verticalSettings = JSON.parse(fs.readFileSync(path));
+
+    // This chunk of code iterates through the settings obj to find the correct path to update
+    const stack = req.body.jsonPath.split('.');
+    let settingsRef = verticalSettings;
+
+    while (stack.length > 1) {
+      settingsRef = settingsRef[stack.shift()];
+    }
+
+    settingsRef[stack.shift()] = req.body.value;
+
+    fs.writeFileSync(path, JSON.stringify(verticalSettings, null, 2));
+
+    reply.code(200).send();
+  });
 
   // Generic does not have dashboard or dialog examples pages
   if (vertical === 'generic') {

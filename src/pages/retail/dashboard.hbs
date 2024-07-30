@@ -69,7 +69,7 @@
               </li>
               {{/each}}
             </ul>
-            <p class="text-center bxi-ff-secondary fs-7">
+            <p class="text-center bxi-ff-secondary fs-7 sidebar-text">
               {{settings.dashboard.sidebar.text}}
             </p>
             <div class="d-flex justify-content-center flex-wrap">
@@ -88,7 +88,7 @@
               <div class="col-sm-8 d-flex justify-content-center justify-content-sm-end">
                 <div class="position-relative">
                   {{> searchIcon class="position-absolute bxi-search-icon bxi-icon-color-primary"}}
-                  <input class="rounded p-1 ps-4" type="text" placeholder="Search" />
+                  <input class="rounded p-1 ps-4" type="text" placeholder="{{settings.dashboard.portal.search_placeholder}}" />
                   <span class="bxi-color-primary ms-2">
                     {{> sortIcon class="bxi-icon-color-primary"}}
                     Sort
@@ -165,9 +165,9 @@
             {{/each}}
           </div>
           <div class="col-lg-3 mb-3">
-            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold">{{settings.footer.phone_number}}</a>
-            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold">{{settings.footer.email}}</a>
-            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold">{{settings.footer.chat}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold footer-phone-number">{{settings.footer.phone_number}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold footer-email">{{settings.footer.email}}</a>
+            <a class="bxi-link bxi-link--white mb-2 d-block fs-6 fw-bold footer-chat">{{settings.footer.chat}}</a>
           </div>
           <div class="col-lg-3 mb-3">
             {{#each settings.footer.navigation.links_right}}

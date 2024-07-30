@@ -1,28 +1,28 @@
 <style>
   :root {
     /* Global Variables - used in common styles */
-    --bxi-primary-font: 'Noto Sans', sans-serif;
-    --bxi-secondary-font: 'Mohave', sans-serif;
-    --bxi-primary-color: #C83E7D;
-    --bxi-secondary-color: #182237;
-    --bxi-button-color: #fff;
-    --bxi-button-bg-color: var(--bxi-primary-color);
-    --bxi-button-bg-hover-color: #902958;
-    --bxi-link-button-color: #0E2742;
-    --bxi-link-button-hover-color: var(--bxi-primary-color);
-    --bxi-dashboard-bg-color: #fff;
-    --bxi-footer-bg-color: var(--bxi-secondary-color);
-    --bxi-footer-color: #fff;
-    --bxi-copyright-color: #fff;
+    --bxi-primary-font: {{{theme.primaryFont}}};
+    --bxi-secondary-font: {{{theme.secondaryFont}}};
+    --bxi-primary-color: {{theme.primaryColor}};
+    --bxi-secondary-color: {{theme.secondaryColor}};
+    --bxi-button-color: {{theme.buttonColor}};
+    --bxi-button-bg-color: {{theme.buttonBgColor}};
+    --bxi-button-bg-hover-color: {{theme.buttonBgHoverColor}};
+    --bxi-link-button-color: {{theme.linkButtonColor}};
+    --bxi-link-button-hover-color: {{theme.linkButtonHoverColor}};
+    --bxi-dashboard-bg-color: {{theme.dashboardBgColor}};
+    --bxi-footer-color: {{theme.footerColor}};
+    --bxi-footer-bg-color: {{theme.footerBgColor}};
+    --bxi-copyright-color: {{theme.copyrightColor}};
 
     /* Vertical Specific Variables - used in <vertical>/customizations.scss */
-    --bxi-airlines-banner-color: #fff;
-    --bxi-airlines-banner-input-bg-color: #fff;
-    --bxi-airlines-offers-color: #fff;
-    --bxi-airlines-dashboard-header-color: #fff;
-    --bxi-airlines-dashboard-flights-color: var(--bxi-secondary-color);
-    --bxi-airlines-dashboard-flights-bg-color: #f4f1f1;
-    --bxi-airlines-dashboard-flights-border-color: #b6c3ce;
-    --bxi-airlines-dashboard-flights-info-color: #76818b;
+    --bxi-airlines-banner-color: {{theme.homeBannerColor}};
+    --bxi-airlines-banner-input-bg-color: {{theme.homeBannerInputBgColor}};
+    --bxi-airlines-offers-color: {{theme.homeOffersColor}};
+    --bxi-airlines-dashboard-header-color: {{theme.dashboardHeaderColor}};
+    --bxi-airlines-dashboard-flights-color: {{theme.dashboardFlightsColor}};
+    --bxi-airlines-dashboard-flights-bg-color: {{theme.dashboardFlightsBgColor}};
+    --bxi-airlines-dashboard-flights-border-color: {{theme.dashboardFlightsBorderColor}};
+    --bxi-airlines-dashboard-flights-info-color: {{theme.dashboardFlightsInfoColor}};
   }
 </style>

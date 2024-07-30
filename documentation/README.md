@@ -62,11 +62,9 @@ With BXIndustry, you can choose a vertical you would like to use, build your wor
 
 ## Standard Flows<a name="standard-flows"></a>
 
-BXIndustry comes with standard authentication and registration flows! The flow JSON exports are included in your remix. You can download them from the Helpful Links modal on the /shortcuts page which can be accessed by clicking the gear icon on the bottom left of each vertical. The zip file that is downloaded is located at public/DXI-DV-Flows.zip in your repository.
+BXIndustry now comes standard with the Passwordless Flow pack! This includes the main Passwordless flow (which includes Registration and Login), Profile Management, Device Management, and Password Reset. The flow JSON is officially distributed through the [PingLibrary](https://library.pingidentity.com/page/collection-bx-davinci-flows) where we have a page with all of Ping Integration Directory flows that we have converted to work well with BXIndustry. Please note that there are some instructions you will need to follow in the PingLibrary pages for the flows themselves in order for them to work properly.
 
-Registration will ask for a valid email, password, first name and last name. Successful completion of registration will register the user into our PingOne environment, enable MFA for the user, and enroll the provided email as an MFA device.
-
-Authentication will ask for the previously registered email and password, then prompt the user to complete MFA with the enrolled PingOne MFA email device. Successful completion of authentication will land the user on the dashboard page of the vertical they are on and display their username. The dashboard page contains a simple profile management flow, this showcases the PingOne session integration with DaVinci.
+During registration you can choose to create a user with an email and password or create a user without a password and using the email as an MFA device. 
 
 ## Remixing<a name="remixing"></a>
 
@@ -97,7 +95,7 @@ The default vertical should be one value from the list:
 
 ## PingOne Environment<a name="ping-one">
 
-In order to use BXIndustry with your PingOne environment, ensure you have the SSO, MFA and DaVinci services added. Next create a MFA connection and fill in the properties. No need to change the the default login experience in PingOne, MFA is done through the DaVinci flows. Then import the Login and Registration flows into your DaVinci environment, you can dowload these from [Google Drive](https://drive.google.com/drive/folders/1IXTIWaLzWM6E7X_nHUY8qgOUX52SCqrE). Finally create a new application and add flow policies for each of those flows, note the policy IDs and API Key and include them in the remix form when you create a remix. If you already have a remix you can update those values in the .env file at the root of the project.
+In order to use BXIndustry with your PingOne environment, ensure you have the SSO, MFA and DaVinci services added. Next create a MFA connection and fill in the properties. No need to change the the default login experience in PingOne, MFA is done through the DaVinci flows. Then import the flows you wish to use into your DaVinci instance. Flows and HTML templates to help you build your own flows can be found in [Ping Library](https://library.pingidentity.com/page/collection-bx-davinci). You will also need to create a new PingOne OIDC application with the Web App preset, make sure to select this new web app in any PingOne Authentication nodes in your authentication flow or the flow will throw an error when it tries to create a session. Finally create a new DaVinci application and add flow policies for each of those flows, note the policy IDs and API Key and include them in the remix form when you create a remix. If you already have a remix you can update those values in the .env file at the root of the project. 
 
 ## An (IMPORTANT!!) Note on Versioning<a name="versioning-note"></a>
 
@@ -109,7 +107,7 @@ We recommend that you try to stick with the default templates provided in the di
 
 If you must apply custom styles please try to scope them via specific IDs (`#element-id {...}`) or classes (`.element-class {...}`) to prevent your styles from affecting your site.
 
-Bootstrap 5.2 is now included in BXI and can be used within your flows. The default templates use bootstrap as well and should be easy to tweak as needed! See [Bootstrap documentation](https://getbootstrap.com/docs/5.2/) for more information on how to use bootstrap.
+Bootstrap 5.3 is now included in BXI and can be used within your flows. The default templates use bootstrap as well and should be easy to tweak as needed! See [Bootstrap documentation](https://getbootstrap.com/docs/5.3/) for more information on how to use bootstrap.
 
 ## Switching the Verticals<a name="verticals"></a>
 
@@ -133,13 +131,13 @@ Each vertical has a home page located at `src/pages/<vertical>/index.hbs` which 
 
 ### Simulate Login<a name="simulate-login"></a>
 
-Out of the box, there is now an option to simulate a user being logged into the dashboard after completing successful login or registration. Your Login/Registration DV flow must return a successful JSON response including an `additonalProperties.username` property in order for this to work. You can customize this in the `public/register-functions.js` file in the `defaultAuthnSuccess` function.
+Out of the box, BXIndustry will will redirect a successful authentication to the dashboard page for the current vertical. It is built around the PingOne Authentication connector and will try to store ID and Access Tokens for you as well as getting the username from the ID Token to display on page headers. You can customize this in the `public/register-functions.js` file in the `defaultAuthnSuccess` function.
 
 ## Dashboard Pages<a name="dashboard-page"></a>
 
 Each vertical (except for generic) has a dashboard page located at `src/pages/<vertical>/dashboard.hbs` which is accessed in the browser via `<hostname>/<vertical>/dashboard`. To enable the static Dashboard DaVinci flow for all verticals, the .env file should have a value for `BXI_DASHBOARD_POLICY_ID`, and it will be loaded on each vertical at page load. Similarly, DV Buttons are available on the dashboard page as well, these can be uncommented and customized in the `src/dashboard-buttons.hbs` file.
 
-The Dashboard section in the file includes the `"username"` key, which will be displayed in the dashboard page header. By default, if there is a value contained in sessionStorage called `'bxi_username'` it will override a static username, this can be customized in the `public/register-function.js` file in `bxi.pageLoad` near the top.
+The Dashboard section in the file includes the `"username"` key, which will be displayed in the dashboard page header. By default, if there is a suitable value in the ID Token received from the PingOne Authentication connector at the end of your flow it will be displayed as the username, this can be customized in the `public/register-function.js` file in `bxi.pageLoad` near the top.
 
 ### Simulate Logout<a name="simulate-logout"></a>
 
@@ -189,6 +187,8 @@ Color and other branding options are located in `branding.hbs`.
       }
     </style>
 ```
+
+New remixes will also include a drawer for editing. To enable this, you need to add a variable to the .env file at the root of your project (`BXI_ENABLE_EDITING=true`). Then you can navigate to the editable page using the pencil links on the shortcuts page. We recommend setting that env variable to true only as you are making changes, then setting it back to false (especially while you're conducting a demo with a prospect) as anyone can access that drawer and make edits. The editor is limited to branding (colors and fonts) and basic content (strings and images that are not contained in an array in the settings.json). If you would find the ability to edit more sections of the setting.json file through the drawer helpful, please let us know in our slack channel and we can investigate enhancing it!
 
 ### Images/Static Content<a name="images"></a>
 
@@ -352,6 +352,9 @@ This example will result in parameters that are sent to DaVinci with the flow st
 
 ## Continue Tokens<a name="continue-tokens"></a>
 Continue tokens are handled out of the box in BXI, bxi-davinci will attempt to continue the flow in the same container where they were originally launched from. If you redirect to a different page within BXI from the 'Appication Return To URL' field in your connector, make sure to add a static or modal element on the new page with the same data-policy-id attribute for the continueToken logic to hook onto.
+
+## Access and ID Tokens<a name="tokens"></a>
+If you would like to get access or id tokens from within your own JavaScript, you can do so with the `bxi.getIdToken()` and `bxi.getAccessToken()` functions. These will only work if the user has been authentication and the functions are called after the bxi initialization code has been run. Under the hood these are stored in sessionStorage in `bxi_accessToken` and `bxi_idToken`.
 
 ## Debugging<a name="debugging"></a>
 You can add an additional key to the .env file at the base of your project to see advanced debugging output. There will be additional logging both in the server terminal and in your browser.

@@ -31,7 +31,7 @@
             </a>
             {{#if settings.header.main_link}}
             <button class="bxi-button rounded-0 d-none d-xl-flex px-3 align-items-center bxi-icon-color-white">
-              {{> hamburgerIcon class="me-2"}}{{settings.header.main_link}}
+              {{> hamburgerIcon class="me-2"}}<span class="bxi-eats-main-link">{{settings.header.main_link}}</span>
             </button>
             {{/if}}
           </div>
@@ -55,9 +55,9 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-7 bxi-zi-2">
-          <h2 class="bxi-main-header-xl lh-1 bxi-ff-secondary bxi-banner--text my-4">{{settings.home_page.banner.title}}</h2>
-          <h5 class="bxi-banner--text fw-bold mb-5">{{settings.home_page.banner.subtitle}}</h5>
-          </div>
+              <h2 class="bxi-main-header-xl lh-1 bxi-ff-secondary bxi-banner--text my-4">{{settings.home_page.banner.title}}</h2>
+              <h5 class="bxi-banner--text fw-bold mb-5">{{settings.home_page.banner.subtitle}}</h5>
+            </div>
           </div>
         </div>
       </div>
@@ -88,16 +88,16 @@
           {{#each settings.home_page.discounts_section.discounts}}
           <div class="col-lg-6 col-xl-3">
             <div class="mb-5 d-flex p-4 flex-column overflow-hidden bxi-discounts-section-discount position-relative">
-              <img class="product-img align-items-center" src="{{image}}" />
-              <div class="bxi-discount-body d-flex flex-column">
-                <div class="row">
-                  <div class="col-md-7">
-                  <h6 class="position-relative bxi-discounts-section__text bxi-zi-2 fw-bold">{{item}}</h6>
+              <img class="product-img" src="{{image}}" />
+              <div class="row flex-grow-1">
+                <div class="col-sm-7">
+                  <h6 class="position-relative bxi-discounts-section__text bxi-zi-2 fw-bold text-nowrap">{{item}}</h6>
                   <p class="position-relative bxi-discounts-section__text-small bxi-zi-2">{{amount}}</p>
                   <p class="position-relative bxi-discounts-section__text-st bxi-zi-2 fw-bold text-danger m-0">{{price}}</p>
                   <h5 class="position-relative bxi-discounts-section__text bxi-zi-2 fw-bold">{{new_price}}</h5>
-                  </div>
-                  <button class="bxi-button bxi-button--icon bxi-button--lg mt-5 mb-3 mb-lg-0 ms-3">
+                </div>
+                <div class="col-sm-5 d-flex justify-content-end align-items-end">
+                  <button class="bxi-button bxi-button--icon bxi-button--lg mb-sm-2 mb-3">
                     {{> groceryIcon }}
                   </button>
                 </div>

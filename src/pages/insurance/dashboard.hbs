@@ -62,7 +62,7 @@
         </div>
         <div class="col-12 col-md-9 col-xl-10 order-1 order-md-2">
           <div class="row mb-3">
-            <h1 class="bxi-color-secondary bxi-ff-secondary mt-4 mt-sm-0 fw-bold">{{settings.dashboard.header}}</h1>
+            <h1 class="bxi-color-secondary bxi-ff-secondary mt-4 mt-sm-0 fw-bold dashboard-header">{{settings.dashboard.header}}</h1>
           </div>
           <div class="row">
             {{#if env.BXI_DASHBOARD_POLICY_ID}}
@@ -70,7 +70,7 @@
               <div class="mb-3 bxi-component-bg-color p-3 h-100" data-dv-flow="static" data-policy-id="{{env.BXI_DASHBOARD_POLICY_ID}}"></div>
             </div>
             {{/if}}
-            <div class="col-12{{#if env.BXI_DASHBOARD_POLICY_ID}} col-md-6{{/if}}">
+            <div class="col-12{{#if env.BXI_DASHBOARD_POLICY_ID}} col-md-6{{/if}} bxi-advertisement">
               <div class="bxi-component-bg-color text-center p-3 d-flex flex-column h-100 justify-content-center align-items-center">
                 <h5 class="fw-bold mb-4">{{settings.dashboard.advertisement.title}}</h5>
                 <p class="mb-4 fs-7">{{settings.dashboard.advertisement.description}}</p>
@@ -84,7 +84,7 @@
           <div class="row">
             <div class="col-12">
               <div class="my-4">
-                <h1 class="bxi-color-secondary bxi-ff-secondary mt-4 mt-sm-0 fw-bold">{{settings.dashboard.portal.header}}</h1>
+                <h1 class="bxi-color-secondary bxi-ff-secondary mt-4 mt-sm-0 fw-bold portal-header">{{settings.dashboard.portal.header}}</h1>
               </div>
             </div>
             {{#each settings.dashboard.portal.services}}
@@ -131,7 +131,7 @@
           </ul>
           <div class="footer-contacts d-flex flex-column-reverse flex-md-row justify-content-start align-items-center align-items-md-start justify-content-md-between justify-content-lg-end">
             <div class="footer-support me-0 me-lg-4">
-              <div class="text-center text-md-start mb-3 fw-bold fs-5">{{settings.footer.phone_number}}</div>
+              <div class="text-center text-md-start mb-3 fw-bold fs-5 footer-phone-number">{{settings.footer.phone_number}}</div>
               <button class="bxi-button bxi-button--outline fs-8 bxi-button--lg text-nowrap">Online support</button>
             </div>
             <div class="ms-0 ms-md-3">
