@@ -20,7 +20,7 @@ function registerFunctions(logger) {
 
       if (usernameContainer && username) {
         logger.log(
-          `username found in session storage and a container was found, '${username}' will be displayed`
+          `username found in ID Token and a container was found, '${username}' will be displayed`
         );
         usernameContainer.textContent = username;
       }
