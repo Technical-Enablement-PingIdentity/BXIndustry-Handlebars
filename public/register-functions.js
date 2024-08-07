@@ -55,6 +55,15 @@ function registerFunctions(logger) {
     return sessionStorage.getItem('bxi_idToken');
   };
 
+  /** Called after user info is retreived from OIDC SDK, can update dashboard with user information here if desired */
+  bxi.updatedUserInfo = (userInfo) => {
+    logger.log('Received user info', userInfo);
+    const usernameContainer = document.getElementById('username-container');
+    if (usernameContainer && userInfo.preferred_username) {
+      usernameContainer.textContent = userInfo.preferred_username;
+    }
+  };
+
   /**
    * You may register functions that you would like to hook into during flow execution here. Functions are called by name passed in the
    * associated data attribute (e.g. data-success-callback="loginSuccess")
