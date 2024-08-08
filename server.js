@@ -83,6 +83,14 @@ fastify.get('/', function (request, reply) {
     return;
   }
 
+  // Handles redirect back from P1 if using OIDC Redirect
+  const redirectOverrideCookie = request.cookies['redirectToVertical'];
+  if (redirectOverrideCookie) {
+    reply.clearCookie('redirectToVertical');
+    reply.redirect(`/${redirectOverrideCookie}`);
+    return;
+  }
+
   const defaultVertical = process.env.BXI_ACTIVE_VERTICAL;
   const redirectVertical = helpers.isValidVertical(defaultVertical)
     ? defaultVertical
@@ -144,11 +152,9 @@ fastify.post('/dvtoken', async function (request, reply) {
     logger.error('An error Occured');
     logger.error('Parsed Response', parsedResponse);
     logger.error('Raw', tokenResponse);
-    return reply
-      .code(500)
-      .send({
-        error: `An error occured getting DaVinci token. See Glitch server logs for more details, code: ${parsedResponse.httpResponseCode}, message: '${parsedResponse.message}'.`,
-      });
+    return reply.code(500).send({
+      error: `An error occured getting DaVinci token. See Glitch server logs for more details, code: ${parsedResponse.httpResponseCode}, message: '${parsedResponse.message}'.`,
+    });
   }
 
   logger.log('Successfully retreived sdktoken for DaVinci', parsedResponse);
@@ -176,6 +182,19 @@ fastify.get('/setCookie', (request, reply) => {
     sameSite: 'strict',
     path: '/',
     maxAge: sessionTokenMaxAge,
+  });
+
+  reply.send();
+});
+
+// Used to set a cookie that will be used to redirect to the correct vertical after logout using OIDC
+fastify.get('/setVerticalCookie', (request, reply) => {
+  reply.setCookie('redirectToVertical', request.query.currentVertical, {
+    secure: true,
+    httpOnly: 'httpOnly',
+    sameSite: 'lax', // Must be lax or the cookie wont be sent on redirect from P1, this is not sensitive data so it's fine
+    path: '/',
+    maxAge: 60,
   });
 
   reply.send();

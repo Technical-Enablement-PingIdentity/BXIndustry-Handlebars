@@ -1,8 +1,9 @@
 (() => {
   document.addEventListener('DOMContentLoaded', async () => {
-    const redirectUri = `${window.location.origin}/${
-      window.location.pathname.split('/')[1]
-    }/dashboard`;
+    const baseUri = `${window.location.origin}/`;
+    const currentVertical = window.location.pathname.split('/')[1];
+
+    const redirectUri = `${baseUri}${currentVertical}/dashboard`;
 
     const clientOptions = {
       client_id: window._env_.BXI_REDIRECT_CLIENT_ID,
@@ -32,9 +33,9 @@
       if (logoutBtn) {
         // Clear bxi.logout call, We don't need to clear the DV_ST cookie or redirect home, endSession does that for us
         logoutBtn.onclick = null;
-
         logoutBtn.addEventListener('click', async () => {
-          await client.endSession();
+          await fetch(`/setVerticalCookie?currentVertical=${currentVertical}`);
+          await client.endSession(baseUri);
         });
       }
 
