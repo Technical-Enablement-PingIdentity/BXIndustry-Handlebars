@@ -1,44 +1,48 @@
 # IMPORTANT - LINKS MAY NOT WORK AS INTENDED IN THE GLITCH INTERFACE
+
 For a better viewing experience open this link in a new tab:
 https://github.com/Technical-Enablement-PingIdentity/BXIndustry-Handlebars/blob/main/documentation/README.md
 
 # Table of Contents
+
 1. [Introduction](#introduction)
-    1. [Standard Flows](#standard-flows)
-    2. [Remixing](#remixing)
-    3. [PingOne Environment](#ping-one)
-    4. [Note on Versioning](#versioning-note)
-    5. [Note on CSS](#css-note)
-    6. [Switching the Verticals](#verticals)
-    7. [BXGeneric](#bxgeneric)
-    8. [Need Help?](#help)
+   1. [Standard Flows](#standard-flows)
+   2. [Remixing](#remixing)
+   3. [PingOne Environment for Widgets](#ping-one)
+   4. [Note on Versioning](#versioning-note)
+   5. [Note on CSS](#css-note)
+   6. [Switching the Verticals](#verticals)
+   7. [BXGeneric](#bxgeneric)
+   8. [OIDC Remixes](#oidc-remixes)
+   9. [Need Help?](#help)
 2. [Development](#development)
-    1. [Home Pages](#home-page)
-        1. [Simulate Login](#simulate-login)
-    2. [Dashboard Pages](#dashboard-page)
-        1. [Simulate Logout](#simulate-logout)
-    3. [Project Structure](#project-structure)
-        1. [Global Files](#global-files)
-        2. [Vertical Files](#vertical-files)
-            1. [Vertical Settings](#vertical-settings)
-        3. [Images/Static Content](#images)
-        4. [HTML Templates for DaVinci](#templates)
-        5. [Other Locations](#other-locations)
-    4. [bxi-davinci.js Documentation](#bxi-davinci-js)
-        1. [Additional Information on data-dv-params](#additional-info-params)
-        2. [Additional Information on Callbacks](#additional-info-callbacks)
-        3. [Examples](#bxi-davinci-examples)
-    5. [Continue Tokens](#continue-tokens)
-    6. [Debugging](#debugging)
+   1. [Home Pages](#home-page)
+      1. [Simulate Login](#simulate-login)
+   2. [Dashboard Pages](#dashboard-page)
+      1. [Simulate Logout](#simulate-logout)
+   3. [Project Structure](#project-structure)
+      1. [Global Files](#global-files)
+      2. [Vertical Files](#vertical-files)
+         1. [Vertical Settings](#vertical-settings)
+      3. [Images/Static Content](#images)
+      4. [HTML Templates for DaVinci](#templates)
+      5. [Other Locations](#other-locations)
+   4. [bxi-davinci.js Documentation](#bxi-davinci-js)
+      1. [Additional Information on data-dv-params](#additional-info-params)
+      2. [Additional Information on Callbacks](#additional-info-callbacks)
+      3. [Examples](#bxi-davinci-examples)
+   5. [Continue Tokens](#continue-tokens)
+   6. [Debugging](#debugging)
 3. [Installation](#installation)
-    1. [Local Set Up](#local-set-up)
-    2. [Environment](#environment)
+   1. [Local Set Up](#local-set-up)
+   2. [Environment](#environment)
 
 # Introduction<a name="introduction"></a>
 
-[BXIndustry](https://demo.bxgeneric.org/) is a unique demo in that it allows demonstrators to bootstrap DaVinci demonstrations! It allows demo-ers to tailor the skins to highlight a number of DaVinci flows that they have developed or will be developing. There are many different industry verticals which can be cloned and adapted on Glitch to tailor to your prospect or customer for a more personalized demo in the field. 
+[BXIndustry](https://demo.bxgeneric.org/) is a unique demo in that it allows demonstrators to bootstrap DaVinci demonstrations! It allows demo-ers to tailor the skins to highlight a number of DaVinci flows that they have developed or will be developing. There are many different industry verticals which can be cloned and adapted on Glitch to tailor to your prospect or customer for a more personalized demo in the field.
 
 The following verticals are available in Glitch for your to remix:
+
 1. [Generic](https://demo.bxgeneric.org/generic) - Formerly BXGeneric
 2. [Airlines](https://demo.bxgeneric.org/airline)
 3. [Company](https://demo.bxgeneric.org/company)
@@ -62,13 +66,13 @@ With BXIndustry, you can choose a vertical you would like to use, build your wor
 
 ## Standard Flows<a name="standard-flows"></a>
 
-BXIndustry now comes standard with the Passwordless Flow pack! This includes the main Passwordless flow (which includes Registration and Login), Profile Management, Device Management, and Password Reset. The flow JSON is officially distributed through the [PingLibrary](https://library.pingidentity.com/page/collection-bx-davinci-flows) where we have a page with all of Ping Integration Directory flows that we have converted to work well with BXIndustry. Please note that there are some instructions you will need to follow in the PingLibrary pages for the flows themselves in order for them to work properly.
+BXIndustry now comes standard with the Passwordless Flow pack when creating Widget remixes! This includes the main Passwordless flow (which includes Registration and Login), Profile Management, Device Management, and Password Reset. The flow JSON is officially distributed through the [PingLibrary](https://library.pingidentity.com/page/collection-bx-davinci-flows) where we have a page with all of Ping Integration Directory flows that we have converted to work well with BXIndustry. Please note that there are some instructions you will need to follow in the PingLibrary pages for the flows themselves in order for them to work properly.
 
-During registration you can choose to create a user with an email and password or create a user without a password and using the email as an MFA device. 
+During registration you can choose to create a user with an email and password or create a user without a password and using the email as an MFA device.
 
 ## Remixing<a name="remixing"></a>
 
-To remix BXIndustry, scroll to the bottom of the page on any vertical and click the **Remix on Glitch** button. During the remixing process, you can modify all DaVinci API values or leave them as-is to use the default settings. The values collected from this form can be found in the .env file of your Remix at a later time if needed. See the [environment](#environment) section.
+To remix BXIndustry, scroll to the bottom of the page on any vertical and click the **Remix on Glitch** button. During the remixing process, you can choose to bootstrap your remix to DaVinci through Widgets or OIDC (i.e. redirect through a PingOne Application). When creating a Widget remix, you can modify all DaVinci API values or leave them as-is to use the default settings. If you are creating an OIDC remix you will need to provide your own Issuer Url and Client Id since we can't account for glitch subdomains in Redirect URIs, you can leave those fields empty and populate them in the .env file of your remix later if needed. The values collected from this form can be found in the .env file of your Remix at a later time if needed. See the [environment](#environment) section.
 
 **Note: The remix form will pre-populate the default authentication and registration flows. These values can be modified to import your own custom flows or leave them as-is to use the default settings.**
 
@@ -93,9 +97,9 @@ The default vertical should be one value from the list:
 
 **Note: When trying to remix in Safari or with content blockers, you may not get a new tab with your remix after you complete the remix form. If this happens you should get an error screen with a textarea containing the URL for a new remix. Copy/paste this into a new tab and you should be all set!**
 
-## PingOne Environment<a name="ping-one">
+## PingOne Environment for Widgets<a name="ping-one">
 
-In order to use BXIndustry with your PingOne environment, ensure you have the SSO, MFA and DaVinci services added. Next create a MFA connection and fill in the properties. No need to change the the default login experience in PingOne, MFA is done through the DaVinci flows. Then import the flows you wish to use into your DaVinci instance. Flows and HTML templates to help you build your own flows can be found in [Ping Library](https://library.pingidentity.com/page/collection-bx-davinci). You will also need to create a new PingOne OIDC application with the Web App preset, make sure to select this new web app in any PingOne Authentication nodes in your authentication flow or the flow will throw an error when it tries to create a session. Finally create a new DaVinci application and add flow policies for each of those flows, note the policy IDs and API Key and include them in the remix form when you create a remix. If you already have a remix you can update those values in the .env file at the root of the project. 
+In order to use BXIndustry with your PingOne environment, ensure you have the SSO, MFA and DaVinci services added. Next create a MFA connection and fill in the properties. No need to change the the default login experience in PingOne, MFA is done through the DaVinci flows. Then import the flows you wish to use into your DaVinci instance. Flows and HTML templates to help you build your own flows can be found in [Ping Library](https://library.pingidentity.com/page/collection-bx-davinci). You will also need to create a new PingOne OIDC application with the Web App preset, make sure to select this new web app in any PingOne Authentication nodes in your authentication flow or the flow will throw an error when it tries to create a session. Finally create a new DaVinci application and add flow policies for each of those flows, note the policy IDs and API Key and include them in the remix form when you create a remix. If you already have a remix you can update those values in the .env file at the root of the project.
 
 ## An (IMPORTANT!!) Note on Versioning<a name="versioning-note"></a>
 
@@ -103,7 +107,7 @@ We recommend making as many changes in DaVinci workflows as you can because ther
 
 ## Another (IMPORTANT!!) Note on CSS<a name="css-note"></a>
 
-We recommend that you try to stick with the default templates provided in the dialog examples noted [below](#templates) when putting HTML into DaVinci. It is not recommended to import CSS libraries or do other extensive styling in DaVinci because those styles can bleed out of your flows to the entire BXIndustry site when a flow is loaded. 
+We recommend that you try to stick with the default templates provided in the dialog examples noted [below](#templates) when putting HTML into DaVinci. It is not recommended to import CSS libraries or do other extensive styling in DaVinci because those styles can bleed out of your flows to the entire BXIndustry site when a flow is loaded.
 
 If you must apply custom styles please try to scope them via specific IDs (`#element-id {...}`) or classes (`.element-class {...}`) to prevent your styles from affecting your site.
 
@@ -118,6 +122,10 @@ Use the gear icon in the bottom right corner to open the “shortcut” page for
 [BXGeneric](https://demo.bxgeneric.org/) is now part of BXIndustry! To create a BXG remix click **Remix on Glitch**, and change the vertical dropdown to Generic. When Generic is chosen you will be prompted for a static policy id. This is the flow that is loaded on the page when it loads. Generic is essentially just another vertical so it is located at `<hostname>/generic`. The Log In and Sign Up buttons are the same as any other vertical in BXI.
 
 **Note: BXGeneric does not include a dashboard page at this time, so you will not be redirected anywhere after you complete registration or log in.**
+
+## OIDC Remixes<a name="oidc-remixes"></a>
+
+BXIndustry now supports running DaVinci flows through a PingOne OIDC Application! This leverages our [OIDC SDK](https://www.npmjs.com/package/@pingidentity-developers-experience/ping-oidc-client-sdk) developed in-house. When creating a remix make sure to select the `Create Remix With OIDC` button after you've entered your name and prospect then enter your Issuer URL and Client ID on the following screen. You can fill in these values later in your remix's .env file if you don't have an application set up yet when you're creating the remix. Technically the OIDC SDK and BXIndustry should work against any OIDC provider, but we have only tested it against PingOne at this time. You may need to modify some of the functions in the `public/register-functions.js` file to populate the username from your IDPs user-info endpoint.
 
 ## Need Help?<a name="help"></a>
 
@@ -168,6 +176,7 @@ Each vertical contains four files in case you only need to focus on one vertical
 
 Each vertical has an independent **settings.json** file.
 For example:
+
 - `src/pages/airlines/settings.json`
 - `src/pages/education/settings.json`
 - ...
@@ -193,6 +202,7 @@ New remixes will also include a drawer for editing. To enable this, you need to 
 ### Images/Static Content<a name="images"></a>
 
 You can add images in two ways:
+
 - CDN URL (e.g., Glitch Assets)
 - File name (extension included) - will be delivered from internal `public/<vertical>` folder, if you'd like to add/update images, you can add them to that folder and reference them in the associated [settings.json](#vertical-settings) file.
 
@@ -224,9 +234,10 @@ If you would like to remove an image because you have rebranded, you can just se
 
 HTML templates are available for DaVinci flows in the `src/templates` directory.
 
-To preview the modals, add  **/dialog-examples** to the vertical url and click the button associated with the template you'd like to view.
+To preview the modals, add **/dialog-examples** to the vertical url and click the button associated with the template you'd like to view.
 
 For example:
+
 - [/manufacturing/dialog-examples](https://demo.bxgeneric.org/manufacturing/dialog-examples)
 - [/airlines/dialog-examples](https://demo.bxgeneric.org/airlines/dialog-examples)
 - ...
@@ -252,20 +263,20 @@ With the new version of BXI, it is easier to further customize where and how you
 
 You can manually configure html elements to load flows by applying the following attributes to any element:
 
-|Attribute|Description|Default Value|Required|
-|------|------|:------:|:------:|
-|`data-dv-flow`|How your flow will be loaded on the page, value options are 'static' or 'modal'|-|Yes|
-|`data-policy-id`|Policy ID that will be used to invoke your flow|-|Yes (unless `data-url-policy-id` is used)|
-|`data-company-id`|Company ID that will be used to invoke your flow|`BXI_COMPANY_ID` from .env|
-|`data-api-key`|API Key that will be used to invoke your flow (not recommended)|`BXI_API_KEY` from .env|
-|`data-hide-logo`|If "true" the vertical logo on the resulting modal will be hidden|`false`|
-|`data-url-policy-id`|If set, will look for the policy ID in a URL parameter of the same name|-|
-|`data-url-company-id`|If set, will look for the company ID in a URL parameter of the same name|-|
-|`data-url-api-key`|If set, will look for the api key in a URL parameter of the same name (not recommended)|-|
-|`data-dv-param-<name>`|These will be passed to DaVinci as parameters of the request, see more about usage below|-|
-|`data-success-callback`|Success callback that is called from the function registry when a flow returns a success response|-|
-|`data-error-callback`|Error callback that is called from the function registry when a flow returns an error response|-|
-|`data-parameter-factory`|The return object from this function will be merged with any data-dv-param attributes and sent in the parameters property of the DaVinci flow request|-|
+| Attribute                | Description                                                                                                                                           |       Default Value        |                 Required                  |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------: | :---------------------------------------: |
+| `data-dv-flow`           | How your flow will be loaded on the page, value options are 'static' or 'modal'                                                                       |             -              |                    Yes                    |
+| `data-policy-id`         | Policy ID that will be used to invoke your flow                                                                                                       |             -              | Yes (unless `data-url-policy-id` is used) |
+| `data-company-id`        | Company ID that will be used to invoke your flow                                                                                                      | `BXI_COMPANY_ID` from .env |
+| `data-api-key`           | API Key that will be used to invoke your flow (not recommended)                                                                                       |  `BXI_API_KEY` from .env   |
+| `data-hide-logo`         | If "true" the vertical logo on the resulting modal will be hidden                                                                                     |          `false`           |
+| `data-url-policy-id`     | If set, will look for the policy ID in a URL parameter of the same name                                                                               |             -              |
+| `data-url-company-id`    | If set, will look for the company ID in a URL parameter of the same name                                                                              |             -              |
+| `data-url-api-key`       | If set, will look for the api key in a URL parameter of the same name (not recommended)                                                               |             -              |
+| `data-dv-param-<name>`   | These will be passed to DaVinci as parameters of the request, see more about usage below                                                              |             -              |
+| `data-success-callback`  | Success callback that is called from the function registry when a flow returns a success response                                                     |             -              |
+| `data-error-callback`    | Error callback that is called from the function registry when a flow returns an error response                                                        |             -              |
+| `data-parameter-factory` | The return object from this function will be merged with any data-dv-param attributes and sent in the parameters property of the DaVinci flow request |             -              |
 
 **Note: Static flows are loaded on page load, and they use the HTML element the attribute is included on as a container to display the widget. For best results, we recommend using a `<div>` element for this.**
 
@@ -278,6 +289,7 @@ To pass parameters in the DaVinci request that is sent when the flow is loaded, 
 ### Additional Information on Callbacks<a name="additional-info-callbacks"></a>
 
 Currently there are three places you can inject callback functions during DaVinci flow execution:
+
 - prior to the request being send to `davinci.js` for dynamically retrieving flow parameters
 - flow successCallback
 - flow errorCallback
@@ -300,7 +312,13 @@ bxi.registerFunction(async function callbackName() {...}); // Named function usa
 To use a registry function add the name of the registered function (case sensitive) to the appropriate data attribute on the HTML control
 
 ```html
-<button data-dv-flow="modal" data-policy-id="xxx" data-success-callback="callbackName">Log In</button>
+<button
+  data-dv-flow="modal"
+  data-policy-id="xxx"
+  data-success-callback="callbackName"
+>
+  Log In
+</button>
 ```
 
 When using a parameter factory function, you must return an object that will be merged with any data-dv-params present on your HTML element
@@ -308,8 +326,8 @@ When using a parameter factory function, you must return an object that will be 
 **Note: the factory result will override data-dv-params if any duplicate properties are present**
 
 ```javascript
-bxi.registerFunction(function loginParams() { 
-   return { FirstName: 'Fred', LastName: 'Tester' };
+bxi.registerFunction(function loginParams() {
+  return { FirstName: 'Fred', LastName: 'Tester' };
 });
 
 // HTML Usage
@@ -323,7 +341,7 @@ bxi.registerFunction(function loginParams() {
 This example adds a login button that launches policy id xxx and uses the API Key and Company ID included in the .env file.
 
 ```html
-  <button data-dv-flow="modal" data-policy-id="xxx">Log In</button>
+<button data-dv-flow="modal" data-policy-id="xxx">Log In</button>
 ```
 
 **Static Widget**
@@ -331,7 +349,7 @@ This example adds a login button that launches policy id xxx and uses the API Ke
 This example looks for a url parameter called "profilePolicyId" (case sensitive) and uses the value as the policy id to load the flow on page load. The flow loads in this element since it's static, so position it on the page where you'd like the flow to be.
 
 ```html
-  <div data-dv-flow="static" data-url-policy-id="profilePolicyId"></div>
+<div data-dv-flow="static" data-url-policy-id="profilePolicyId"></div>
 ```
 
 **Param Usage**
@@ -339,7 +357,12 @@ This example looks for a url parameter called "profilePolicyId" (case sensitive)
 This example will result in parameters that are sent to DaVinci with the flow start request. The resulting JSON that is sent to DV is below the HTML example.
 
 ```html
-  <div data-dv-flow="modal" data-policy-id="xxx" data-dv-param-first-name="John" data-dv-param-last-name="lastName::Smith"></div>
+<div
+  data-dv-flow="modal"
+  data-policy-id="xxx"
+  data-dv-param-first-name="John"
+  data-dv-param-last-name="lastName::Smith"
+></div>
 ```
 
 ```json
@@ -348,15 +371,19 @@ This example will result in parameters that are sent to DaVinci with the flow st
   "lastName": "Smith"
 }
 ```
+
 **Note: you can use `data-dv-param` in conjunction with a `data-parameter-factory` callback function. The callback function is given priority over the `data-dv-param` attributes if any duplicate properties are encountered.**
 
 ## Continue Tokens<a name="continue-tokens"></a>
+
 Continue tokens are handled out of the box in BXI, bxi-davinci will attempt to continue the flow in the same container where they were originally launched from. If you redirect to a different page within BXI from the 'Appication Return To URL' field in your connector, make sure to add a static or modal element on the new page with the same data-policy-id attribute for the continueToken logic to hook onto.
 
 ## Access and ID Tokens<a name="tokens"></a>
+
 If you would like to get access or id tokens from within your own JavaScript, you can do so with the `bxi.getIdToken()` and `bxi.getAccessToken()` functions. These will only work if the user has been authentication and the functions are called after the bxi initialization code has been run. Under the hood these are stored in sessionStorage in `bxi_accessToken` and `bxi_idToken`.
 
 ## Debugging<a name="debugging"></a>
+
 You can add an additional key to the .env file at the base of your project to see advanced debugging output. There will be additional logging both in the server terminal and in your browser.
 
 ```sh
@@ -370,6 +397,7 @@ BXIndustry is normally run through the glitch interface, however for heavy devel
 ## Local Set Up<a name="local-set-up"></a>
 
 Required software:
+
 - Git
 - NodeJS (see `.nvmrc` at the root of the project for the currently supported version)
 - Code Editor (such as Visual Studio Code)
@@ -403,7 +431,11 @@ BXI_REGISTRATION_POLICY_ID= # Default Policy ID used when clicking Sign Up link 
 BXI_DASHBOARD_POLICY_ID= # Policy ID used on all dashboard pages to load a static widget
 BXI_GENERIC_POLICY_ID= # Only used on the generic vertical, static widget that is loaded on page load
 BXI_ACTIVE_VERTICAL= # vertical you will be redirected to when you hit the root page (e.g., <project-name>.glitch.me/) see Remixing section for options
+BXI_USE_REDIRECT= # Setting this to 'true' will override login button to trigger an OIDC redirect
+BXI_REDIRECT_ISSUER= # Required if BXI_USE_REDIRECT is true, the issuer URL for your OIDC provider
+BXI_REDIRECT_CLIENT_ID= # Required if BXI_USE_REDIRECT is true, the client ID for your OIDC provider
 BXI_DEBUG_LOGGING= # Optional, setting to 'true' will output additional information in the server and browser console
+BXI_ENABLE_EDITING= # Optional, setting to 'true' will enable the drawer for editing settings.json files
 ```
 
 **Note: changing environment variables will require you to re-run `npm start` before variables are picked up by the server and propagated throughout the application**
