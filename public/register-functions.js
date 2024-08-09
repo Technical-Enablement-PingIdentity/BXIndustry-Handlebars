@@ -59,8 +59,9 @@ function registerFunctions(logger) {
   bxi.updatedUserInfo = (userInfo) => {
     logger.log('Received user info', userInfo);
     const usernameContainer = document.getElementById('username-container');
-    if (usernameContainer && userInfo.preferred_username) {
-      usernameContainer.textContent = userInfo.preferred_username;
+    const displayName = userInfo.given_name || userInfo.preferred_username;
+    if (usernameContainer && displayName) {
+      usernameContainer.textContent = displayName;
     }
   };
 
