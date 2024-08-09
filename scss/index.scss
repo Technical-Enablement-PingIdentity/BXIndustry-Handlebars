@@ -1,4 +1,4 @@
-@import "./common/fonts";
+@import './common/fonts';
 
 .bxi {
   // Resets for ui-library_style.css (trials)
@@ -16,6 +16,10 @@
   }
   // End resets
 
+  .form-control::placeholder {
+    opacity: 0.4;
+  }
+
   // Make the footer stick to the bottom or below content
   min-height: 100vh;
   display: flex;
@@ -27,31 +31,31 @@
     margin-top: auto;
   }
 
-  @import "./common/button";
-  @import "./common/dialog";
-  @import "./common/edit-drawer";
-  @import "./common/forms";
-  @import "./common/link";
-  @import "./common/mixins";
-  @import "./common/navbar";
-  @import "./common/pwa-banner";
-  @import "./common/shared";
-  @import "./common/utilities";
+  @import './common/button';
+  @import './common/dialog';
+  @import './common/edit-drawer';
+  @import './common/forms';
+  @import './common/link';
+  @import './common/mixins';
+  @import './common/navbar';
+  @import './common/pwa-banner';
+  @import './common/shared';
+  @import './common/utilities';
 
-  @import "./airlines/customizations";
-  @import "./company/customizations";
-  @import "./eats/customizations";
-  @import "./education/customizations";
-  @import "./finance/customizations";
-  @import "./generic/customizations";
-  @import "./government/customizations";
-  @import "./health/customizations";
-  @import "./hotels/customizations";
-  @import "./insurance/customizations";
-  @import "./manufacturing/customizations";
-  @import "./pharmacy/customizations";
-  @import "./realty/customizations";
-  @import "./retail/customizations";
-  @import "./sports/customizations";
-  @import "./volunteer/customizations";
+  @import './airlines/customizations';
+  @import './company/customizations';
+  @import './eats/customizations';
+  @import './education/customizations';
+  @import './finance/customizations';
+  @import './generic/customizations';
+  @import './government/customizations';
+  @import './health/customizations';
+  @import './hotels/customizations';
+  @import './insurance/customizations';
+  @import './manufacturing/customizations';
+  @import './pharmacy/customizations';
+  @import './realty/customizations';
+  @import './retail/customizations';
+  @import './sports/customizations';
+  @import './volunteer/customizations';
 }
