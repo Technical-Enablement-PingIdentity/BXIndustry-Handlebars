@@ -109,6 +109,10 @@ fastify.get('/.well-known/security.txt', function (_, reply) {
   reply.redirect(`http://www.pingidentity.com/.well-known/security.txt`);
 });
 
+fastify.get('/redirect', function (_, reply) {
+  reply.redirect('https://bxgeneric-oidc.glitch.me/');
+});
+
 // Get a dv token from the server, we do this in server.js as a security best practice so
 // API Keys don't need to be exposed on the front-end
 fastify.post('/dvtoken', async function (request, reply) {
