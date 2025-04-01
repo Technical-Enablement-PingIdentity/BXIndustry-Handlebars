@@ -1,7 +1,6 @@
-@import '../common/mixins';
+@use '../common/mixins';
 
-&.sports {
-
+.bxi.sports {
   .bxi-button {
     border-radius: 50px;
 
@@ -17,9 +16,9 @@
 
   .bxi-auth-buttons--outline-light-bg {
     .bxi-button {
-      @include breakpoint-lg {
+      @include mixins.breakpoint-lg {
         font-size: 12px;
-        padding: .5rem 1.5rem;
+        padding: 0.5rem 1.5rem;
       }
     }
   }
@@ -30,7 +29,7 @@
   }
 
   .bxi-bg-white {
-     background-color: #fff;
+    background-color: #fff;
   }
 
   .bxi-banner-title {
@@ -42,7 +41,7 @@
     max-width: 600px;
     -webkit-font-smoothing: antialiased;
 
-    @include breakpoint-lt-lg {
+    @include mixins.breakpoint-lt-lg {
       font-size: 32px;
       line-height: 42px;
     }
@@ -56,25 +55,29 @@
     -webkit-font-smoothing: antialiased;
 
     &.lh-base {
-      line-height: 36px!important;
+      line-height: 36px !important;
 
-      @include breakpoint-lt-lg {
-        line-height: 22px!important;
+      @include mixins.breakpoint-lt-lg {
+        line-height: 22px !important;
       }
     }
 
-    @include breakpoint-lt-lg {
+    @include mixins.breakpoint-lt-lg {
       font-size: 16px;
     }
   }
 
   .bxi-banner-overlay {
-    background: linear-gradient(92.33deg, rgba(0, 3, 11, 0.8) 27.4%, rgba(0, 4, 14, 0) 82.41%);
+    background: linear-gradient(
+      92.33deg,
+      rgba(0, 3, 11, 0.8) 27.4%,
+      rgba(0, 4, 14, 0) 82.41%
+    );
     min-height: 650px;
   }
 
   .footer-contacts-text {
-    font-family: var(--bxi-secondary-font)!important;
+    font-family: var(--bxi-secondary-font) !important;
   }
 
   .bxi-copyright-bg-color {
@@ -94,13 +97,17 @@
     }
 
     &-overlay {
-      background: linear-gradient(3.88deg, rgba(0, 3, 11, 0.8) 18.71%, rgba(0, 4, 14, 0) 69.21%);
+      background: linear-gradient(
+        3.88deg,
+        rgba(0, 3, 11, 0.8) 18.71%,
+        rgba(0, 4, 14, 0) 69.21%
+      );
     }
   }
 
   .bxi-subscription {
     border-radius: 0.5rem;
-    border: 1px solid #A6ACBA;
+    border: 1px solid #a6acba;
     background: #fff;
     display: flex;
     align-items: flex-end;
@@ -119,7 +126,7 @@
       padding: 1rem;
       height: 125px;
       width: 202px;
-      margin:auto;
+      margin: auto;
 
       &.basic {
         background: var(--bxi-sports-basic-bg-color);
@@ -134,7 +141,7 @@
       }
 
       &.__heading {
-        font-size: 14px!important;
+        font-size: 14px !important;
       }
     }
   }
@@ -148,7 +155,7 @@
     max-width: 600px;
     -webkit-font-smoothing: antialiased;
 
-    @include breakpoint-lt-lg {
+    @include mixins.breakpoint-lt-lg {
       font-size: 32px;
       line-height: 42px;
     }
@@ -162,20 +169,24 @@
     -webkit-font-smoothing: antialiased;
 
     &.lh-base {
-      line-height: 26px!important;
+      line-height: 26px !important;
 
-      @include breakpoint-lt-lg {
-        line-height: 22px!important;
+      @include mixins.breakpoint-lt-lg {
+        line-height: 22px !important;
       }
     }
 
-    @include breakpoint-lt-lg {
+    @include mixins.breakpoint-lt-lg {
       font-size: 16px;
     }
   }
 
   .bxi-dashboard-banner-overlay {
-    background: linear-gradient(92.33deg, rgba(0, 3, 11, 0.8) 27.4%, rgba(0, 4, 14, 0) 82.41%);
+    background: linear-gradient(
+      92.33deg,
+      rgba(0, 3, 11, 0.8) 27.4%,
+      rgba(0, 4, 14, 0) 82.41%
+    );
   }
 
   .learn {
@@ -187,9 +198,9 @@
 
   h4.dot:before {
     color: var(--bxi-sports-dot-color);
-    content: "●";
+    content: '●';
     font-size: 24px;
-    padding-right:5px;
+    padding-right: 5px;
   }
 
   &.dashboard {

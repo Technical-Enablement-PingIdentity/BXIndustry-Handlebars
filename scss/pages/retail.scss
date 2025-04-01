@@ -1,18 +1,18 @@
-@import '../common/mixins';
+@use '../common/mixins';
 
-&.retail {
+.bxi.retail {
   .bxi-button {
     font-size: 16px;
-    border-radius: .25rem;
+    border-radius: 0.25rem;
 
     &--icon {
       border-radius: 50%;
     }
   }
 
-  @include breakpoint-lg {
+  @include mixins.breakpoint-lg {
     .bxi-auth-buttons {
-      border-left: 1px solid #68747F;
+      border-left: 1px solid #68747f;
     }
   }
 
@@ -38,7 +38,7 @@
 
     .bxi-shop-hero {
       border: 2px solid var(--bxi-retail-hero-border-color);
-      border-radius: .5rem;
+      border-radius: 0.5rem;
     }
 
     .bxi-sale-section {
@@ -55,11 +55,11 @@
         max-width: 700px;
         height: 350px;
 
-        @include breakpoint-lg {
+        @include mixins.breakpoint-lg {
           max-width: 500px;
         }
 
-        @include breakpoint-xl {
+        @include mixins.breakpoint-xl {
           max-width: 700px;
         }
       }
@@ -70,12 +70,12 @@
         flex: 0 0 auto;
         height: 348px;
 
-        @include breakpoint-lg {
+        @include mixins.breakpoint-lg {
           width: 700px;
           max-width: 500px;
         }
 
-        @include breakpoint-xl {
+        @include mixins.breakpoint-xl {
           max-width: 700px;
         }
       }
@@ -84,7 +84,7 @@
         width: 100%;
         height: 348px;
 
-        @include breakpoint-xxl {
+        @include mixins.breakpoint-xxl {
           img {
             width: 100%;
             height: auto;
@@ -115,13 +115,13 @@
     .bxi-portal-sidebar {
       margin-top: 0;
 
-      @include breakpoint-lg {
+      @include mixins.breakpoint-lg {
         margin-top: 87px;
       }
     }
 
     .portal-sidebar-dropdown {
-      box-shadow: 0px 1px 8px 0px #0000001A;
+      box-shadow: 0px 1px 8px 0px #0000001a;
     }
 
     .portal-sidebar-logo {
@@ -129,13 +129,13 @@
         height: 22px;
         width: auto;
         margin: 0 4px;
-        
-        @include color-icon(#000);
+
+        @include mixins.color-icon(#000);
       }
     }
 
     .bxi-search-icon {
-      transform: scale(.75);
+      transform: scale(0.75);
       top: 8px;
       left: 4px;
     }
@@ -163,12 +163,12 @@
       span {
         &:first-child {
           color: #fff;
-          background-color: var(--bxi-primary-color)
+          background-color: var(--bxi-primary-color);
         }
       }
 
       &::before {
-        @include triangle(5px, var(--bxi-primary-color), 'left') {
+        @include mixins.triangle(5px, var(--bxi-primary-color), 'left') {
           top: 10px;
           left: -1rem;
           cursor: pointer;
@@ -176,7 +176,7 @@
       }
 
       &::after {
-        @include triangle(5px, var(--bxi-primary-color), 'right') {
+        @include mixins.triangle(5px, var(--bxi-primary-color), 'right') {
           top: 10px;
           right: -1rem;
           cursor: pointer;
