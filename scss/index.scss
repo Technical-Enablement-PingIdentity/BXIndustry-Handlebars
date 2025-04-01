@@ -1,6 +1,39 @@
-@import './common/fonts';
+@use './common/fonts';
+@use './common/button';
+@use './common/dialog';
+@use './common/edit-drawer';
+@use './common/form';
+@use './common/link';
+@use './common/navbar';
+@use './common/pwa-banner';
+@use './common/utilities';
+
+@use './common/shared';
+@use './pages/airlines';
+@use './pages/company';
+@use './pages/eats';
+@use './pages/education';
+@use './pages/finance';
+@use './pages/generic';
+@use './pages/government';
+@use './pages/health';
+@use './pages/hotels';
+@use './pages/insurance';
+@use './pages/manufacturing';
+@use './pages/pharmacy';
+@use './pages/realty';
+@use './pages/retail';
+@use './pages/sports';
+@use './pages/volunteer';
 
 .bxi {
+  // Make the footer stick to the bottom or below content
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  overflow-x: hidden;
+
   // Resets for ui-library_style.css (trials)
   .bxi-button {
     all: revert;
@@ -20,42 +53,16 @@
     opacity: 0.4;
   }
 
-  // Make the footer stick to the bottom or below content
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  overflow-x: hidden;
-
   footer {
     margin-top: auto;
   }
 
-  @import './common/button';
-  @import './common/dialog';
-  @import './common/edit-drawer';
-  @import './common/forms';
-  @import './common/link';
-  @import './common/mixins';
-  @import './common/navbar';
-  @import './common/pwa-banner';
-  @import './common/shared';
-  @import './common/utilities';
-
-  @import './airlines/customizations';
-  @import './company/customizations';
-  @import './eats/customizations';
-  @import './education/customizations';
-  @import './finance/customizations';
-  @import './generic/customizations';
-  @import './government/customizations';
-  @import './health/customizations';
-  @import './hotels/customizations';
-  @import './insurance/customizations';
-  @import './manufacturing/customizations';
-  @import './pharmacy/customizations';
-  @import './realty/customizations';
-  @import './retail/customizations';
-  @import './sports/customizations';
-  @import './volunteer/customizations';
+  @include button.button-styles;
+  @include dialog.dialog-styles;
+  @include edit-drawer.edit-drawer-styles;
+  @include form.form-styles;
+  @include link.link-styles;
+  @include navbar.navbar-styles;
+  @include pwa-banner.pwa-tooltip-styles;
+  @include utilities.utility-styles;
 }

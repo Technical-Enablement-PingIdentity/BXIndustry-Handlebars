@@ -1,13 +1,13 @@
-@import '../common/mixins';
+@use '../common/mixins';
 
-&.education {
+.bxi.education {
   .bxi-button {
     border-radius: 2rem;
   }
 
   .bxi-auth-buttons {
     .bxi-button {
-      margin-bottom: .25rem;
+      margin-bottom: 0.25rem;
     }
   }
 
@@ -34,14 +34,18 @@
     }
 
     &-overlay {
-      background: linear-gradient(0.59deg, rgba(12, 35, 68, 0.8) 9.94%, rgba(10, 29, 57, 0) 94.52%);
+      background: linear-gradient(
+        0.59deg,
+        rgba(12, 35, 68, 0.8) 9.94%,
+        rgba(10, 29, 57, 0) 94.52%
+      );
     }
   }
 
   &.home {
     .bxi-auth-buttons {
       .bxi-button {
-        @include breakpoint-lg {
+        @include mixins.breakpoint-lg {
           font-size: 14px;
           border-radius: 0;
           margin-bottom: 0;
@@ -55,12 +59,12 @@
       &-color {
         color: var(--bxi-education-banner-color);
       }
-  
+
       &-bg-color {
         background-color: var(--bxi-education-banner-bg-color);
       }
 
-      @include breakpoint-lg {
+      @include mixins.breakpoint-lg {
         &-image {
           margin-left: -50px;
         }
@@ -77,7 +81,7 @@
       .bxi-banner-image-container {
         position: relative;
 
-        @include breakpoint-lt-md {
+        @include mixins.breakpoint-lt-md {
           max-width: 300px;
         }
 
@@ -94,7 +98,7 @@
             bottom: 13%;
             right: 9%;
 
-            @include breakpoint-lt-lg {
+            @include mixins.breakpoint-lt-lg {
               bottom: 13%;
               right: 0;
             }
@@ -107,7 +111,7 @@
             bottom: 1%;
             right: 16%;
 
-            @include breakpoint-lt-lg {
+            @include mixins.breakpoint-lt-lg {
               bottom: 4%;
               right: 5%;
             }
@@ -127,7 +131,8 @@
       border: 1px solid var(--bxi-education-portal-border-color);
 
       .bxi-checklist-item {
-        border-top: 1px solid var(--bxi-education-portal-checklist-item-border-color);
+        border-top: 1px solid
+          var(--bxi-education-portal-checklist-item-border-color);
 
         .bxi-checkmark {
           width: 25px;
@@ -144,13 +149,15 @@
             border: none;
 
             svg {
-              display: block
+              display: block;
             }
           }
         }
 
         .bxi-checklist-time {
-          @include color-icon(var(--bxi-education-portal-checklist-item-border-color));
+          @include mixins.color-icon(
+            var(--bxi-education-portal-checklist-item-border-color)
+          );
 
           &--color {
             color: var(--bxi-education-portal-checkmark-border-color);

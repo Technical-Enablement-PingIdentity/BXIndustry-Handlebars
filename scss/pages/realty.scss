@@ -1,10 +1,10 @@
-@import '../common/mixins';
+@use '../common/mixins';
 
-&.realty {
+.bxi.realty {
   .bxi-link {
     text-transform: uppercase;
   }
-  
+
   .bxi-banner {
     margin-top: -4.5rem;
   }
@@ -18,17 +18,17 @@
     &-color {
       color: var(--bxi-realty-showcase-color);
     }
-  
+
     &-header {
       .bxi-button {
         min-width: 150px;
 
-        @include breakpoint-md {
+        @include mixins.breakpoint-md {
           min-width: 200px;
         }
       }
     }
-    
+
     &-unit {
       height: 350px;
 
@@ -38,7 +38,7 @@
       }
 
       &::before {
-        content: "";
+        content: '';
         display: block;
         position: absolute;
         top: 0;
@@ -46,14 +46,22 @@
         width: 100%;
         height: 255px;
         transition: 0.2s;
-        background: linear-gradient(180deg, rgba(37, 73, 89, 0.6) 0%, rgba(37, 73, 89, 0) 100%);
+        background: linear-gradient(
+          180deg,
+          rgba(37, 73, 89, 0.6) 0%,
+          rgba(37, 73, 89, 0) 100%
+        );
         z-index: 2;
       }
 
       &:hover {
         &::before {
           height: 100%;
-          background: linear-gradient(180deg, #254959 0%, rgba(37, 73, 89, 0) 100%);
+          background: linear-gradient(
+            180deg,
+            #254959 0%,
+            rgba(37, 73, 89, 0) 100%
+          );
         }
       }
     }
@@ -70,14 +78,18 @@
       }
 
       &::before {
-        content: "";
+        content: '';
         display: block;
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 50%;
-        background: linear-gradient(180deg, rgba(37, 73, 89, 0.6) 0%, rgba(37, 73, 89, 0) 100%);
+        background: linear-gradient(
+          180deg,
+          rgba(37, 73, 89, 0.6) 0%,
+          rgba(37, 73, 89, 0) 100%
+        );
       }
 
       &-milestone {
@@ -98,7 +110,9 @@
     .bxi-realty-search svg {
       top: 16px;
       right: 16px;
-      @include color-icon(var(--bxi-realty-dashboard-placeholder-icon-color));
+      @include mixins.color-icon(
+        var(--bxi-realty-dashboard-placeholder-icon-color)
+      );
     }
 
     .bxi-unit {
@@ -110,7 +124,6 @@
           border-color: var(--bxi-primary-color);
           box-shadow: 4px 4px 22px rgba(0, 0, 0, 0.11);
         }
-
       }
 
       &-color {

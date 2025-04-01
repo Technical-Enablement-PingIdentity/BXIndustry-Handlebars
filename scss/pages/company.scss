@@ -1,8 +1,8 @@
-@import '../common/mixins';
+@use '../common/mixins';
 
-&.company {
+.bxi.company {
   color: var(--bxi-company-main-font-color);
-  
+
   .bxi-button {
     text-transform: uppercase;
   }
@@ -14,9 +14,9 @@
   .bxi-auth-buttons {
     // Add button separator
     .bxi-button {
-      font-size: 14px;
+      font-size: 14px !important;
 
-      @include breakpoint-lg {
+      @include mixins.breakpoint-lg {
         &:not(:last-child) {
           border-right: 1px solid var(--bxi-company-nav-divider-color);
           padding-right: 1rem;
@@ -31,20 +31,20 @@
       .thumbnail-overlay {
         background: var(--bxi-company-video-overlay-bg);
       }
-  
+
       .thumbnail-button {
         width: 70px;
         height: 70px;
-  
+
         &::before {
-          @include triangle(10px, #000, 'right') {
+          @include mixins.triangle(10px, #000, 'right') {
             top: 50%;
             left: 50%;
             transform: scale(1.5, 1) translate(-25%, -50%);
           }
         }
       }
-  
+
       img {
         width: 100%;
         height: auto;
@@ -55,11 +55,17 @@
   &.home {
     .bxi-banner {
       color: var(--bxi-company-banner-color);
-  
+
       &__image {
-        background: linear-gradient(180deg, #002AEC 35.26%, rgba(0, 42, 236, 0.7) 55.05%, rgba(0, 42, 236, 0.5) 65.18%, rgba(0, 0, 0, 0.3) 74.37%);
+        background: linear-gradient(
+          180deg,
+          #002aec 35.26%,
+          rgba(0, 42, 236, 0.7) 55.05%,
+          rgba(0, 42, 236, 0.5) 65.18%,
+          rgba(0, 0, 0, 0.3) 74.37%
+        );
       }
-  
+
       &__text {
         color: var(--bxi-company-banner-color);
       }
@@ -67,34 +73,34 @@
 
     .video-tiles {
       margin-top: -3rem;
-    
+
       .video-tile__thumbnail {
         &:last-child {
           margin-right: 0;
         }
-        
-        @include breakpoint-lt-lg {
+
+        @include mixins.breakpoint-lt-lg {
           &:nth-child(2) {
             margin-right: 0;
           }
-  
+
           &:nth-child(3) {
             display: none;
           }
         }
-  
-        @include breakpoint-lt-md {
+
+        @include mixins.breakpoint-lt-md {
           &:nth-child(1) {
             margin-right: 0;
           }
-  
+
           &:nth-child(2) {
             display: none;
           }
         }
       }
     }
-    
+
     .company-main-content-image {
       max-width: 445px;
     }
@@ -107,7 +113,7 @@
         .first-stop {
           stop-color: var(--bxi-company-first-icon-gradient);
         }
-  
+
         .second-stop {
           stop-color: var(--bxi-company-second-icon-gradient);
         }
@@ -121,11 +127,11 @@
     }
 
     .filter-dropdown {
-      padding: .5rem 1.5rem;
+      padding: 0.5rem 1.5rem;
       border: 1px solid var(--bxi-primary-color);
 
       &::after {
-        @include triangle(5px, var(--bxi-primary-color), 'down') {
+        @include mixins.triangle(5px, var(--bxi-primary-color), 'down') {
           top: 18px;
           right: 14px;
         }
@@ -146,15 +152,15 @@
     .bxi-vertical-first-legend {
       background-color: var(--bxi-company-vertical-first-color);
     }
-    
+
     .bxi-vertical-first-legend-fill {
       fill: var(--bxi-company-vertical-first-color);
     }
-    
+
     .bxi-vertical-second-legend {
       background-color: var(--bxi-company-vertical-second-color);
     }
-    
+
     .bxi-vertical-second-legend-fill {
       fill: var(--bxi-company-vertical-second-color);
     }
@@ -170,13 +176,13 @@
       }
 
       &:before {
-        content: "2";
+        content: '2';
         top: 0;
         left: 0;
       }
 
       &:after {
-        content: "6";
+        content: '6';
         bottom: 0;
         right: 0;
       }

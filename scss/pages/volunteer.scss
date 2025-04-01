@@ -1,13 +1,14 @@
-@import '../common/mixins';
+@use '../common/mixins';
 
-&.volunteer {
+.bxi.volunteer {
   background-color: var(--bxi-page-bg-color);
 
   .navbar {
     background-color: var(--bxi-header-nav-bg-color);
   }
 
-  .bxi-button {
+  .bxi-button,
+  .bxi-button.bxi-button--lg {
     border-radius: 50px;
     text-transform: uppercase;
     font-size: 12px;
@@ -17,8 +18,8 @@
   &.home {
     .bxi-auth-buttons {
       .bxi-button {
-        @include breakpoint-lg {
-          padding: .5rem 1rem;
+        @include mixins.breakpoint-lg {
+          padding: 0.5rem 1rem;
           font-size: 12px;
           font-weight: 700;
         }
@@ -44,8 +45,8 @@
         &--left {
           width: 160px;
           height: 134px;
-        
-          @include breakpoint-lg{
+
+          @include mixins.breakpoint-lg {
             width: 279px;
             height: 256px;
           }
@@ -55,7 +56,7 @@
           width: 223px;
           height: 157px;
 
-          @include breakpoint-lg {
+          @include mixins.breakpoint-lg {
             width: 357px;
             height: 261px;
           }
@@ -73,7 +74,7 @@
   &.dashboard {
     .bxi-statistic-icon {
       svg {
-        @include color-icon(var(--bxi-primary-color));
+        @include mixins.color-icon(var(--bxi-primary-color));
       }
     }
 
@@ -96,7 +97,7 @@
       }
 
       &::before {
-        content: "";
+        content: '';
         z-index: 2;
         display: block;
         position: absolute;
@@ -104,12 +105,16 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(180deg, rgba(34, 34, 34, 0.7) 0%, rgba(0, 0, 0, 0) 62.67%);
+        background: linear-gradient(
+          180deg,
+          rgba(34, 34, 34, 0.7) 0%,
+          rgba(0, 0, 0, 0) 62.67%
+        );
       }
     }
 
     .bxi-donation-form {
-      @include breakpoint-lt-lg {
+      @include mixins.breakpoint-lt-lg {
         max-width: 450px;
       }
 

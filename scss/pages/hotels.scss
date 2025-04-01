@@ -1,6 +1,6 @@
-@import "../common/mixins";
+@use '../common/mixins';
 
-&.hotels {
+.bxi.hotels {
   .bxi-button {
     text-transform: uppercase;
   }
@@ -12,9 +12,9 @@
     .bxi-button {
       text-transform: uppercase;
 
-      @include breakpoint-lg {
+      @include mixins.breakpoint-lg {
         &:not(:last-child) {
-          padding: .15rem 1rem 0 0;
+          padding: 0.15rem 1rem 0 0;
           border-right: 1px solid white;
         }
       }
@@ -25,7 +25,7 @@
     .bxi-banner {
       &__image {
         height: 300px;
-        @include breakpoint-md {
+        @include mixins.breakpoint-md {
           height: 700px;
         }
       }
@@ -60,7 +60,8 @@
           }
 
           &:not(:first-child) {
-            border-right: 1px solid var(--bxi-hotels-dashboard-portal-border-color);
+            border-right: 1px solid
+              var(--bxi-hotels-dashboard-portal-border-color);
           }
 
           &:last-child {
@@ -82,7 +83,9 @@
       }
 
       .bxi-alert-icon {
-        @include color-icon(var(--bxi-hotels-dashboard-alert-icon-color));
+        @include mixins.color-icon(
+          var(--bxi-hotels-dashboard-alert-icon-color)
+        );
       }
     }
 
@@ -92,8 +95,17 @@
       &-card {
         max-width: 250px;
         border-radius: 10px;
-        background: linear-gradient(109.57deg, var(--bxi-hotels-dashboard-card-bg-color1) -2.03%, var(--bxi-hotels-dashboard-card-bg-color2) 18.51%, var(--bxi-hotels-dashboard-card-bg-color3) 39.2%, var(--bxi-hotels-dashboard-card-bg-color4) 59.21%, var(--bxi-hotels-dashboard-card-bg-color5) 78.06%, var(--bxi-hotels-dashboard-card-bg-color6) 94.53%);
-        box-shadow: 10px 10px 10px 0 var(--bxi-hotels-dashboard-card-shadow-color);
+        background: linear-gradient(
+          109.57deg,
+          var(--bxi-hotels-dashboard-card-bg-color1) -2.03%,
+          var(--bxi-hotels-dashboard-card-bg-color2) 18.51%,
+          var(--bxi-hotels-dashboard-card-bg-color3) 39.2%,
+          var(--bxi-hotels-dashboard-card-bg-color4) 59.21%,
+          var(--bxi-hotels-dashboard-card-bg-color5) 78.06%,
+          var(--bxi-hotels-dashboard-card-bg-color6) 94.53%
+        );
+        box-shadow: 10px 10px 10px 0
+          var(--bxi-hotels-dashboard-card-shadow-color);
 
         .star-container {
           svg {
@@ -106,10 +118,10 @@
         }
       }
     }
-    
+
     .bxi-banner {
       &::before {
-        content: "";
+        content: '';
         display: block;
         position: absolute;
         top: 0;
