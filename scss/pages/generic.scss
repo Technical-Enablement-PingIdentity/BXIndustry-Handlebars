@@ -1,6 +1,6 @@
-@import "../common/mixins";
+@use '../common/mixins';
 
-&.generic {
+.bxi.generic {
   * {
     font-family: var(--bs-body-font-family);
   }
@@ -14,21 +14,21 @@
     background-size: cover;
     background-attachment: scroll;
     position: relative;
-  
+
     .bxi-button {
       margin-left: 1rem;
     }
-  
+
     h1 {
       font-size: 3rem;
-      
-      @include breakpoint-sm {
+
+      @include mixins.breakpoint-sm {
         font-size: 5rem;
       }
     }
-  
+
     &:before {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       left: 0;

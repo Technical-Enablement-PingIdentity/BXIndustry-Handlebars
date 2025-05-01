@@ -1,8 +1,8 @@
-@import '../common/mixins';
+@use '../common/mixins';
 
-&.eats {
+.bxi.eats {
   .navbar-brand img {
-    max-width: 250px; 
+    max-width: 250px;
   }
 
   .bxi-button {
@@ -14,22 +14,26 @@
       &--text {
         color: var(--bxi-eats-banner-color);
       }
-      
+
       &__image {
         height: 500px;
-        @include breakpoint-md {
+        @include mixins.breakpoint-md {
           height: 700px;
         }
       }
 
-      &-content { 
+      &-content {
         height: 100%;
         width: 100%;
-        background: linear-gradient(90.77deg, rgba(15, 17, 14, 0.7) 15.41%, rgba(15, 17, 14, 0) 97.48%);
+        background: linear-gradient(
+          90.77deg,
+          rgba(15, 17, 14, 0.7) 15.41%,
+          rgba(15, 17, 14, 0) 97.48%
+        );
       }
 
       &:before {
-        content: "";
+        content: '';
         display: block;
         position: absolute;
         top: 0;
@@ -38,7 +42,7 @@
         height: 55%;
       }
     }
-    
+
     .bxi-order-form {
       height: 100%;
       background-color: var(--bxi-dashboard-bg-color);
@@ -64,7 +68,7 @@
       }
 
       .bxi-input-container {
-        border: 1px solid #CECECE;
+        border: 1px solid #cecece;
         background-color: #ffffff;
       }
 
@@ -81,18 +85,17 @@
       }
 
       &__text-st {
-        text-decoration: line-through black; 
+        text-decoration: line-through black;
       }
-      
+
       .bxi-discounts-section-discount {
         background-color: #ffffff;
         height: 85%;
-        border: 1px solid #E0E0E0;
+        border: 1px solid #e0e0e0;
         border-radius: 8px;
       }
 
       .bxi-discounts-footer {
-
         &__side {
           display: flex;
           flex-direction: column;
@@ -124,7 +127,7 @@
     .bxi-eats-date-color {
       color: var(--bxi-eats-portal-checklist-date-color);
     }
-    
+
     .bxi-dashboard {
       .bxi-categories {
         color: var(--bxi-eats-portal-category-color);
@@ -133,14 +136,18 @@
           height: 75%;
 
           &::before {
-            content: "";
+            content: '';
             display: block;
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 50%;
-            background: linear-gradient(180deg, rgba(33, 33, 33, 0.48) 9.94%, rgba(36, 36, 36, 0) 94.52%);
+            background: linear-gradient(
+              180deg,
+              rgba(33, 33, 33, 0.48) 9.94%,
+              rgba(36, 36, 36, 0) 94.52%
+            );
             z-index: 1;
           }
         }
@@ -162,24 +169,25 @@
           width: 25px;
           min-width: 25px;
           height: 25px;
-          border: 1px solid var( --bxi-eats-portal-checkmark-bg-color);
+          border: 1px solid var(--bxi-eats-portal-checkmark-bg-color);
 
           svg {
             display: none;
           }
 
           &--checked {
-            background-color: var( --bxi-eats-portal-checkmark-bg-color);
+            background-color: var(--bxi-eats-portal-checkmark-bg-color);
             border: none;
 
             svg {
-              display: block
+              display: block;
             }
           }
         }
 
         .bxi-checklist-item {
-          border-top: 1px solid var(--bxi-eats-portal-checklist-item-border-color);
+          border-top: 1px solid
+            var(--bxi-eats-portal-checklist-item-border-color);
         }
       }
 
@@ -187,7 +195,11 @@
         max-width: 307px;
         height: 50%;
         margin: auto;
-        background: linear-gradient(109.68deg, var(--bxi-eats-finance-card-first-gradient) 6.61%, var(--bxi-eats-finance-card-second-gradient) 93.88%);
+        background: linear-gradient(
+          109.68deg,
+          var(--bxi-eats-finance-card-first-gradient) 6.61%,
+          var(--bxi-eats-finance-card-second-gradient) 93.88%
+        );
         box-shadow: 2px 4px 19px rgb(0 0 0 / 25%);
         border-radius: 11px;
         color: var(--bxi-eats-portal-card-color);
@@ -199,7 +211,7 @@
       }
 
       .bxi-document {
-        @include color-icon(var(--bxi-primary-color));
+        @include mixins.color-icon(var(--bxi-primary-color));
 
         &--color {
           color: var(--bxi-primary-color);

@@ -382,15 +382,16 @@ helpers.getVerticals().forEach((vertical) => {
 
   // Vertical Dialog Examples Page
   fastify.get(`/${vertical}/dialog-examples`, function (_, reply) {
+    const viewParams = helpers.getSettingsFile(vertical);
     const settings = helpers.getSettingsFile(vertical).settings;
-    const viewParams = {
-      vertical,
-      brandingPartial: () => `${vertical}Branding`,
-      dialogLogo: settings.images.dialog_logo,
-      favicon: settings.images.favicon || '/generic/favicon.ico',
-      appleTouchIcon:
-        settings.images.apple_touch_icon || '/generic/apple-touch-icon.png',
-    };
+
+    viewParams.vertical = vertical;
+    viewParams.brandingPartial = () => `${vertical}Branding`;
+    viewParams.dialogLogo = settings.images.dialog_logo;
+    viewParams.favicon = settings.images.favicon || '/generic/favicon.ico';
+    viewParams.appleTouchIcon =
+      settings.images.apple_touch_icon || '/generic/apple-touch-icon.png';
+
     logger.log(
       `/${vertical}/dialog-examples hit, sending view data`,
       viewParams
