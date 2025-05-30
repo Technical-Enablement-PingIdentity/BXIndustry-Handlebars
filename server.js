@@ -178,7 +178,7 @@ fastify.get('/setCookie', (request, reply) => {
   // 4. Set the cookie to that new GUID like below
 
   const sessionToken = request.query.sessionToken;
-  const sessionTokenMaxAge = request.query.sessionTokenMaxAge;
+  const sessionTokenMaxAge = +request.query.sessionTokenMaxAge || undefined; // This needs to be undefined if NaN or setCookie will error out
 
   reply.setCookie('DV-ST', sessionToken, {
     secure: true,
