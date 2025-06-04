@@ -13,13 +13,12 @@ import fs from 'fs';
 
 // External libraries
 import Fastify from 'fastify';
-import fetch from 'node-fetch';
 
 // Internal js files
 import helpers from './resources/helpers.js';
 import { initHandlebars } from './resources/handlebars.js';
 import Logger from './public/js/logger.js';
-import { initDev } from './resources/init-dev.js';
+import { initHttps } from './resources/init-https.js';
 
 // Initialize variables that are no longer available by default in Modules
 const __filename = fileURLToPath(import.meta.url);
@@ -37,8 +36,8 @@ const logger = new Logger(debug);
 
 let https;
 
-if (process.argv.includes('--dev')) {
-  https = initDev(port);
+if (process.argv.includes('--https')) {
+  https = initHttps(port);
 }
 
 // Require the fastify framework and instantiate it
@@ -432,10 +431,9 @@ function getViewParams(vertical) {
 // Run the server and report out to the logs
 fastify.listen({ port, host: '0.0.0.0' }, function (err, address) {
   if (err) {
-    fastify.log.error(err);
+    console.error(err); // Don't want to be dependent on debug flag for this
     process.exit(1);
   }
 
   console.log(`Your app is listening on ${address}`);
-  fastify.log.info(`server listening on ${address}`);
 });
