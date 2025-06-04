@@ -431,9 +431,10 @@ function getViewParams(vertical) {
 // Run the server and report out to the logs
 fastify.listen({ port, host: '0.0.0.0' }, function (err, address) {
   if (err) {
-    console.error(err); // Don't want to be dependent on debug flag for this
+    logger.error(err);
     process.exit(1);
   }
 
+  // Want this logged regardless of debug mode
   console.log(`Your app is listening on ${address}`);
 });
