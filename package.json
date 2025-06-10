@@ -26,12 +26,12 @@
     "node": "22.x"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/glitch-hello-node"
+    "url": "https://github.com/Technical-Enablement-PingIdentity/BXIndustry-Handlebars"
   },
   "license": "MIT",
   "keywords": [
     "node",
-    "glitch",
-    "express"
+    "BXIndustry",
+    "fastify"
   ]
 }

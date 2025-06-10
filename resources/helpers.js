@@ -25,10 +25,10 @@ function getBxiEnvironmentVariables() {
     'BXI_DEVICE_MANAGEMENT_POLICY_ID',
     'BXI_DASHBOARD_POLICY_ID',
     'BXI_GENERIC_POLICY_ID',
-    'BXI_REMIX_POLICY_ID',
+    'BXI_CLONE_POLICY_ID',
     'BXI_PROFILE_MANAGEMENT_POLICY_ID',
-    'BXI_SHOW_REMIX_BUTTON',
-    'BXI_GLITCH_REMIX_PROJECT',
+    'BXI_SHOW_CLONE_BUTTON',
+    'BXI_CLONE_ENVIRONMENT',
     'BXI_DEBUG_LOGGING',
     'BXI_USE_REDIRECT',
     'BXI_REDIRECT_ISSUER',
@@ -41,15 +41,15 @@ function getBxiEnvironmentVariables() {
     }
   });
 
-  if (bxiEnvVars['BXI_SHOW_REMIX_BUTTON'] !== 'true') {
+  if (bxiEnvVars['BXI_SHOW_CLONE_BUTTON'] !== 'true') {
     // Handlebars apparently doesn't process booleans in if helpers,
-    // if we delete the variable the remix button will not be displayed.
-    delete bxiEnvVars['BXI_SHOW_REMIX_BUTTON'];
+    // if we delete the variable the clone button will not be displayed.
+    delete bxiEnvVars['BXI_SHOW_CLONE_BUTTON'];
   }
 
   if (bxiEnvVars['BXI_USE_REDIRECT'] !== 'true') {
     // Handlebars apparently doesn't process booleans in if helpers,
-    // if we delete the variable the remix button will not be displayed.
+    // if we delete the variable it's effectively the same as false
     delete bxiEnvVars['BXI_USE_REDIRECT'];
   }
 

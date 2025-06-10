@@ -2,13 +2,13 @@
 
 1. [Introduction](#introduction)
    1. [Standard Flows](#standard-flows)
-   2. [Remixing](#remixing)
+   2. [Cloning](#cloning)
    3. [PingOne Environment for Widgets](#ping-one)
    4. [Note on Versioning](#versioning-note)
    5. [Note on CSS](#css-note)
    6. [Switching the Verticals](#verticals)
    7. [BXGeneric](#bxgeneric)
-   8. [OIDC Remixes](#oidc-remixes)
+   8. [OIDC](#oidc)
    9. [Need Help?](#help)
 2. [Development](#development)
    1. [Home Pages](#home-page)
@@ -34,9 +34,9 @@
 
 # Introduction<a name="introduction"></a>
 
-[BXIndustry](https://demo.bxgeneric.org/) is a unique demo in that it allows demonstrators to bootstrap DaVinci demonstrations! It allows demo-ers to tailor the skins to highlight a number of DaVinci flows that they have developed or will be developing. There are many different industry verticals which can be cloned and adapted on Glitch to tailor to your prospect or customer for a more personalized demo in the field.
+[BXIndustry](https://demo.bxgeneric.org/) is a unique demo in that it allows demonstrators to bootstrap DaVinci demonstrations! It allows demo-ers to tailor the skins to highlight a number of DaVinci flows that they have developed or will be developing. There are many different industry verticals which can be cloned and adapted to tailor to your prospect or customer for a more personalized demo in the field.
 
-The following verticals are available in Glitch for your to remix:
+The following verticals are available in BXIndustry:
 
 1. [Generic](https://demo.bxgeneric.org/generic) - Formerly BXGeneric
 2. [Airlines](https://demo.bxgeneric.org/airline)
@@ -61,15 +61,15 @@ With BXIndustry, you can choose a vertical you would like to use, build your wor
 
 ## Standard Flows<a name="standard-flows"></a>
 
-BXIndustry now comes standard with the Passwordless Flow pack when creating Widget remixes! This includes the main Passwordless flow (which includes Registration and Login), Profile Management, Device Management, and Password Reset. The flow JSON is officially distributed through the [PingLibrary](https://library.pingidentity.com/page/collection-bx-davinci-flows) where we have a page with all of Ping Integration Directory flows that we have converted to work well with BXIndustry. Please note that there are some instructions you will need to follow in the PingLibrary pages for the flows themselves in order for them to work properly.
+BXIndustry now comes standard with the Passwordless Flow pack when cloning the repo for use with widget! This includes the main Passwordless flow (which includes Registration and Login), Profile Management, Device Management, and Password Reset. The flow JSON is officially distributed through the [PingLibrary](https://library.pingidentity.com/page/collection-bx-davinci-flows) where we have a page with all of Ping Integration Directory flows that we have converted to work well with BXIndustry. Please note that there are some instructions you will need to follow in the PingLibrary pages for the flows themselves in order for them to work properly.
 
 During registration you can choose to create a user with an email and password or create a user without a password and using the email as an MFA device.
 
-## Remixing<a name="remixing"></a>
+## Cloning<a name="cloning"></a>
 
-To remix BXIndustry, scroll to the bottom of the page on any vertical and click the **Remix on Glitch** button. During the remixing process, you can choose to bootstrap your remix to DaVinci through Widgets or OIDC (i.e. redirect through a PingOne Application). When creating a Widget remix, you can modify all DaVinci API values or leave them as-is to use the default settings. If you are creating an OIDC remix you will need to provide your own Issuer Url and Client Id since we can't account for glitch subdomains in Redirect URIs, you can leave those fields empty and populate them in the .env file of your remix later if needed. The values collected from this form can be found in the .env file of your Remix at a later time if needed. See the [environment](#environment) section.
+To clone BXIndustry, scroll to the bottom of the page on any vertical and click the **Clone BXIndustry** button. During the cloning process, you can choose to bootstrap your clone to DaVinci through Widgets or OIDC (i.e. redirect through a PingOne Application). When creating a configuring BXIndustry to use DaVinci flows via widgets, you can modify all DaVinci API values or leave them as-is to use the default settings. If you are configuring BXIndustry to use OIDC you will need to provide your own Issuer Url and Client Id since we can't account for additional domains in Redirect URIs, you can leave those fields empty and populate them in the .env file in your project later if needed. See the [environment](#environment) section.
 
-**Note: The remix form will pre-populate the default authentication and registration flows. These values can be modified to import your own custom flows or leave them as-is to use the default settings.**
+**Note: The clone form will pre-populate the default authentication and registration flows. These values can be modified to import your own custom flows or leave them as-is to use the default settings.**
 
 The default vertical should be one value from the list:
 
@@ -90,15 +90,13 @@ The default vertical should be one value from the list:
 - sports
 - volunteer
 
-**Note: When trying to remix in Safari or with content blockers, you may not get a new tab with your remix after you complete the remix form. If this happens you should get an error screen with a textarea containing the URL for a new remix. Copy/paste this into a new tab and you should be all set!**
-
 ## PingOne Environment for Widgets<a name="ping-one">
 
-In order to use BXIndustry with your PingOne environment, ensure you have the SSO, MFA and DaVinci services added. Next create a MFA connection and fill in the properties. No need to change the the default login experience in PingOne, MFA is done through the DaVinci flows. Then import the flows you wish to use into your DaVinci instance. Flows and HTML templates to help you build your own flows can be found in [Ping Library](https://library.pingidentity.com/page/collection-bx-davinci). You will also need to create a new PingOne OIDC application with the Web App preset, make sure to select this new web app in any PingOne Authentication nodes in your authentication flow or the flow will throw an error when it tries to create a session. Finally create a new DaVinci application and add flow policies for each of those flows, note the policy IDs and API Key and include them in the remix form when you create a remix. If you already have a remix you can update those values in the .env file at the root of the project.
+In order to use BXIndustry with your PingOne environment, ensure you have the SSO, MFA and DaVinci services added. Next create a MFA connection and fill in the properties. No need to change the the default login experience in PingOne, MFA is done through the DaVinci flows. Then import the flows you wish to use into your DaVinci instance. Flows and HTML templates to help you build your own flows can be found in [Ping Library](https://library.pingidentity.com/page/collection-bx-davinci). You will also need to create a new PingOne OIDC application with the Web App preset, make sure to select this new web app in any PingOne Authentication nodes in your authentication flow or the flow will throw an error when it tries to create a session. Finally create a new DaVinci application and add flow policies for each of those flows, note the policy IDs and API Key and include them in the clone form when clone the BXIndustry repository. If you have already clone BXIndustry you can update those values in the .env file at the root of the project.
 
 ## An (IMPORTANT!!) Note on Versioning<a name="versioning-note"></a>
 
-We recommend making as many changes in DaVinci workflows as you can because there is no easy upgrade path to new BXI versions in your existing remixes when we release new features and bug fixes. Further customizations to BXI can typically be done in a small subset of files to make porting to new remixes easy. See the [project structure](#project-structure) section for more details.
+We recommend making as many changes in DaVinci workflows as you can to avoid conflicts when we release new features and bug fixes. When we release changes, if you cloned the repo with git you can run `git pull` from the root of your project to get the latest changes. If you downloaded the project zip file, you will need to re-download and port over your `.env` file to get the latest code. Further customizations to BXI can typically be done in a small subset of files to make porting easy. See the [project structure](#project-structure) section for more details.
 
 ## Another (IMPORTANT!!) Note on CSS<a name="css-note"></a>
 
@@ -110,21 +108,21 @@ Bootstrap 5.3 is now included in BXI and can be used within your flows. The defa
 
 ## Switching the Verticals<a name="verticals"></a>
 
-Use the gear icon in the bottom right corner to open the “shortcut” page for all of the verticals. If you'd like to change the default vertical, change the `BXI_ACTIVE_VERTICAL` variable in the .env file to one of the verticals listed in [remixing](#remixing).
+Use the gear icon in the bottom right corner to open the “shortcut” page for all of the verticals. If you'd like to change the default vertical, change the `BXI_ACTIVE_VERTICAL` variable in the .env file to one of the verticals listed in [cloning](#cloning).
 
 ## BXGeneric<a name="bxgeneric"></a>
 
-[BXGeneric](https://demo.bxgeneric.org/) is now part of BXIndustry! To create a BXG remix click **Remix on Glitch**, and change the vertical dropdown to Generic. When Generic is chosen you will be prompted for a static policy id. This is the flow that is loaded on the page when it loads. Generic is essentially just another vertical so it is located at `<hostname>/generic`. The Log In and Sign Up buttons are the same as any other vertical in BXI.
+[BXGeneric](https://demo.bxgeneric.org/) is now part of BXIndustry! To create a BXG clone click **Clone BXIndustry**, and change the vertical dropdown to Generic. When Generic is chosen you will be prompted for a static policy id. This is the flow that is loaded on the page when it loads. Generic is essentially just another vertical so it is located at `<hostname>/generic`. The Log In and Sign Up buttons are the same as any other vertical in BXI.
 
 **Note: BXGeneric does not include a dashboard page at this time, so you will not be redirected anywhere after you complete registration or log in.**
 
-## OIDC Remixes<a name="oidc-remixes"></a>
+## OIDC<a name="oidc"></a>
 
-BXIndustry now supports running DaVinci flows through a PingOne OIDC Application! This leverages our [OIDC SDK](https://www.npmjs.com/package/@pingidentity-developers-experience/ping-oidc-client-sdk) developed in-house. When creating a remix make sure to select the `Create Remix With OIDC` button after you've entered your name and prospect then enter your Issuer URL and Client ID on the following screen. You can fill in these values later in your remix's .env file if you don't have an application set up yet when you're creating the remix. Technically the OIDC SDK and BXIndustry should work against any OIDC provider, but we have only tested it against PingOne at this time. You may need to modify some of the functions in the `public/register-functions.js` file to populate the username from your IDPs user-info endpoint.
+BXIndustry now supports running DaVinci flows through a PingOne OIDC Application! This leverages our [OIDC SDK](https://www.npmjs.com/package/@pingidentity-developers-experience/ping-oidc-client-sdk) developed in-house. When cloning make sure to select the `Configure With OIDC` button after you've entered your name and prospect then enter your Issuer URL and Client ID on the following screen. You can fill in these values later in your .env file if you don't have an application set up yet when you're progressing through the cloning flow. Technically the OIDC SDK and BXIndustry should work against any OIDC provider, but we have only tested it against PingOne at this time. You may need to modify some of the functions in the `public/register-functions.js` file to populate the username from your IDPs user-info endpoint.
 
 ## Need Help?<a name="help"></a>
 
-Feel free to reach out to the demo team via our [Slack Channel](https://pingidentity.slack.com/archives/C01KH01F1MY) if you need help setting up your remix or flows. This is also a great place to stay up-to-date on demo releases and submit feedback for features or bugs.
+Feel free to reach out to the demo team via our [Slack Channel](https://pingidentity.slack.com/archives/C01KH01F1MY) if you need help setting up your project or flows. This is also a great place to stay up-to-date on demo releases and submit feedback for features or bugs.
 
 # Development<a name="development"></a>
 
@@ -148,7 +146,7 @@ Currently, logout redirects the user to the current vertical home page. If you n
 
 ## Project Structure<a name="project-structure"></a>
 
-Since glitch creates a copy of the BXI source code when you create a remix, when upgrading to a new version of BXI you will need to create a new remix and start from scratch. With this in mind most customizations can be made in a small subset of files.
+Since your customized instance of BXIndustry is run locally on your computer you will either need to start over with a fresh copy of the repository or be able to easily `git pull` changes when upgrading to a new version. With this in mind most customizations can be made in a small subset of files.
 
 ### Global Files<a name="global-files"></a>
 
@@ -192,16 +190,16 @@ Color and other branding options are located in `branding.hbs`.
     </style>
 ```
 
-New remixes will also include a drawer for editing. To enable this, you need to add a variable to the .env file at the root of your project (`BXI_ENABLE_EDITING=true`). Then you can navigate to the editable page using the pencil links on the shortcuts page. We recommend setting that env variable to true only as you are making changes, then setting it back to false (especially while you're conducting a demo with a prospect) as anyone can access that drawer and make edits. The editor is limited to branding (colors and fonts) and basic content (strings and images that are not contained in an array in the settings.json). If you would find the ability to edit more sections of the setting.json file through the drawer helpful, please let us know in our slack channel and we can investigate enhancing it!
+BXIndustry also includes a drawer for editing. To enable this, you need to add a variable to the .env file at the root of your project (`BXI_ENABLE_EDITING=true`). Then you can navigate to the editable page using the pencil links on the shortcuts page. We recommend setting that env variable to true only as you are making changes, then setting it back to false (especially while you're conducting a demo with a prospect) as anyone can access that drawer and make edits. The editor is limited to branding (colors and fonts) and basic content (strings and images that are not contained in an array in the settings.json). If you would find the ability to edit more sections of the setting.json file through the drawer helpful, please let us know in our slack channel and we can investigate enhancing it!
 
 ### Images/Static Content<a name="images"></a>
 
 You can add images in two ways:
 
-- CDN URL (e.g., Glitch Assets)
+- CDN URL (e.g., public URLs from existing sites)
 - File name (extension included) - will be delivered from internal `public/<vertical>` folder, if you'd like to add/update images, you can add them to that folder and reference them in the associated [settings.json](#vertical-settings) file.
 
-The `images` section includes basic pictures for the specific vertical (favicon and logo). These can also be full urls if you've uploaded images to Glitch Assets (or elsewhere).
+The `images` section includes basic pictures for the specific vertical (favicon and logo). These can also be full urls if you've uploaded images to a CDN or are using publicly available images elsewhere.
 
 ```json
   "images": {
@@ -291,7 +289,7 @@ Currently there are three places you can inject callback functions during DaVinc
 
 In order to use these, ensure you have registered a function in `public/register-functions.js` and that the value in `data-success-callback`, `data-error-callback` or `data-parameter-factory` on your flow trigger HTML control matches a function name in the registry. Asyncronous functions in the registry work as well!
 
-Technically you can register a function anywhere after `initFunctionRegistery()` is called in the `bxi-davinci.js` file, however we recommend they are added to the `public/register-functions.js` file so they are in a centralized location and are easy to port over to a new remix if we release new features you'd like to have.
+Technically you can register a function anywhere after `initFunctionRegistery()` is called in the `bxi-davinci.js` file, however we recommend they are added to the `public/register-functions.js` file so they are in a centralized location and are easy to merge in with changes if we release new features you'd like to have.
 
 To register a function you must provide the function with a name, you can do that using a string value and an anonymous function, or just passing a named function
 
@@ -387,29 +385,25 @@ BXI_DEBUG_LOGGING=true
 
 # Installation<a name="installation"></a>
 
-BXIndustry is normally run through the glitch interface, however for heavy development it may be easier to run the project locally which is easy!
+Since Glitch announced it was shutting down in July 2025 normal usage includes running it locally. We recommend setting up the project through the cloning button on the main production site for easy `.env` setup.
 
 ## Local Set Up<a name="local-set-up"></a>
 
 Required software:
 
-- Git
-- NodeJS (see `.nvmrc` at the root of the project for the currently supported version)
+- Git (Recommended, alternatively you can download the repository zip file)
+- NodeJS (see `.nvmrc` at the root of the project for the officially supported version, other versions may work fine)
 - Code Editor (such as Visual Studio Code)
 
-To run your project locally, clone the repo to your computer by navigating to the glitch project, clicking Tools > Import / Export, and copying your projects Git URL to your clipboard.
-
 ```sh
-git clone <git-url>
-cd <glitch-project-name>
+git clone git@github.com:Technical-Enablement-PingIdentity/BXIndustry-Handlebars.git # or download the zip file from the repository and unzip it to the location of your choosing
+cd BXIndustry-Handlebars
 npm install
-# Generate .env file or copy from the glitch interface
-npm start
+# Generate .env file
+npm run dev
 ```
 
-Once you have downloaded the repo, make sure you have a `.env` file in the root of the repo and copy the contents of the same file from the Glitch interface into that file.
-
-**Note: if you would like to push changes you make on your computer back up to Glitch you will need to follow this article [Push Code to Glitch](https://glitch.happyfox.com/kb/article/85-how-do-i-push-code-that-i-created-locally-to-my-project-on-glitch/).**
+Once you have downloaded the repo, create a `.env` file in the root of the repo and copy the contents of textarea on the final screen of the cloning flow. Alternatively you can use `.env-oidc` or `.env-widget` as a starting point and update the values as need to point to your PingOne environment.
 
 ## Environment<a name="environment"></a>
 
@@ -419,13 +413,13 @@ To start BXIndustry, you must have the following .env variables:
 BXI_API_URL= # Default hostname used by davinci.js for running flows
 BXI_DV_JS_URL= # Default location where davinci.js should be loaded from, this should be the full URL
 BXI_SDK_TOKEN_URL= # Default hostname to use for retrieving a DV Token for running your flows
-BXI_API_KEY= # Default API Key used for running all flows in your Remix
-BXI_COMPANY_ID= # Default Company ID used for running all flows in your Remix
+BXI_API_KEY= # Default API Key used for running all flows in your clone
+BXI_COMPANY_ID= # Default Company ID used for running all flows in your clone
 BXI_LOGIN_POLICY_ID= # Default Policy ID used when clicking Log In link on all verticals
 BXI_REGISTRATION_POLICY_ID= # Default Policy ID used when clicking Sign Up link on all verticals
 BXI_DASHBOARD_POLICY_ID= # Policy ID used on all dashboard pages to load a static widget
 BXI_GENERIC_POLICY_ID= # Only used on the generic vertical, static widget that is loaded on page load
-BXI_ACTIVE_VERTICAL= # vertical you will be redirected to when you hit the root page (e.g., <project-name>.glitch.me/) see Remixing section for options
+BXI_ACTIVE_VERTICAL= # vertical you will be redirected to when you hit the root page (e.g., https://127.0.0.1/) see Cloning section for options
 BXI_USE_REDIRECT= # Setting this to 'true' will override login button to trigger an OIDC redirect
 BXI_REDIRECT_ISSUER= # Required if BXI_USE_REDIRECT is true, the issuer URL for your OIDC provider
 BXI_REDIRECT_CLIENT_ID= # Required if BXI_USE_REDIRECT is true, the client ID for your OIDC provider

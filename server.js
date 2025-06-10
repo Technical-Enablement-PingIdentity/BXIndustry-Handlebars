@@ -3,7 +3,7 @@
  * Check out the two endpoints this back-end API provides in fastify.get and fastify.post below
  */
 
-// Bring in .env file (happens automatically in glitch but not when running locally)
+// Bring in .env file
 import 'dotenv/config';
 
 // NodeJS imports
@@ -58,7 +58,7 @@ fastify.register(import('@fastify/cookie'));
 
 initHandlebars(fastify);
 
-// Redirect http traffic to https, glitch doesn't handle this OOTB
+// Redirect http traffic to https
 fastify.addHook('onRequest', (request, reply, done) => {
   // Don't do this when running locally or if already on https
   const protoHeader = request.headers['x-forwarded-proto'];
@@ -109,7 +109,7 @@ fastify.get('/.well-known/security.txt', function (_, reply) {
 });
 
 fastify.get('/redirect', function (_, reply) {
-  reply.redirect('https://bxgeneric-oidc.glitch.me/');
+  reply.redirect('https://bxgeneric-oidc.glitch.me/'); // TODO
 });
 
 // Get a dv token from the server, we do this in server.js as a security best practice so
@@ -156,7 +156,7 @@ fastify.post('/dvtoken', async function (request, reply) {
     logger.error('Parsed Response', parsedResponse);
     logger.error('Raw', tokenResponse);
     return reply.code(500).send({
-      error: `An error occured getting DaVinci token. See Glitch server logs for more details, code: ${parsedResponse.httpResponseCode}, message: '${parsedResponse.message}'.`,
+      error: `An error occured getting DaVinci token. See server logs for more details, code: ${parsedResponse.httpResponseCode}, message: '${parsedResponse.message}'.`,
     });
   }
 
