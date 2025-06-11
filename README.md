@@ -201,7 +201,7 @@ Color and other branding options are located in `branding.hbs`.
     </style>
 ```
 
-BXIndustry also includes a drawer for editing. To enable this, you need to add a variable to the .env file at the root of your project (`BXI_ENABLE_EDITING=true`). Then you can navigate to the editable page using the pencil links on the shortcuts page. We recommend setting that env variable to true only as you are making changes, then setting it back to false (especially while you're conducting a demo with a prospect) as anyone can access that drawer and make edits. The editor is limited to branding (colors and fonts) and basic content (strings and images that are not contained in an array in the settings.json). If you would find the ability to edit more sections of the setting.json file through the drawer helpful, please let us know in our slack channel and we can investigate enhancing it!
+BXIndustry also includes a drawer for editing. To enable this, you need to add a variable to the .env file at the root of your project (`BXI_ENABLE_EDITING=true`). Then you can navigate to the editable page using the pencil links on the shortcuts page. We recommend setting that env variable to true only as you are making changes, then setting it back to false (especially while you're conducting a demo with a prospect) as anyone can access that drawer and make edits. The editor is limited to branding (colors and fonts) and basic content (strings and images that are not contained in an array in the settings.json). If having the ability to edit additional sections of the settings.json file through the drawer would be helpful, please let us know in the Slack channel.
 
 ### Images/Static Content<a name="images"></a>
 
@@ -230,9 +230,9 @@ If you would like to remove an image because you have rebranded, you can just se
   }
 ```
 
-**Note: there is now a data attribute to hide dialog logos as well! See [bxi-davinci.js](#bxi-davinci-js) documentation for more info.**
+**Note: There is now a data attribute to hide dialog logos as well! See [bxi-davinci.js](#bxi-davinci-js) documentation for more info.**
 
-**Note: if you're [running the project locally](#installation) make sure to restart `npm start` if you add new static files, they are only picked up when the server starts.**
+**Note: If you're [running the project locally](#installation) make sure to restart `npm start` if you add new static files, they are only picked up when the server starts.**
 
 ### HTML Templates for DaVinci<a name="templates"></a>
 
@@ -327,7 +327,7 @@ To use a registry function add the name of the registered function (case sensiti
 
 When using a parameter factory function, you must return an object that will be merged with any data-dv-params present on your HTML element
 
-**Note: the factory result will override data-dv-params if any duplicate properties are present**
+**Note: The factory result will override data-dv-params if any duplicate properties are present**
 
 ```javascript
 bxi.registerFunction(function loginParams() {
@@ -376,7 +376,7 @@ This example will result in parameters that are sent to DaVinci with the flow st
 }
 ```
 
-**Note: you can use `data-dv-param` in conjunction with a `data-parameter-factory` callback function. The callback function is given priority over the `data-dv-param` attributes if any duplicate properties are encountered.**
+**Note: You can use `data-dv-param` in conjunction with a `data-parameter-factory` callback function. The callback function is given priority over the `data-dv-param` attributes if any duplicate properties are encountered.**
 
 ## Continue Tokens<a name="continue-tokens"></a>
 
@@ -439,4 +439,4 @@ BXI_ENABLE_EDITING= # Optional, setting to 'true' will enable the drawer for edi
 BXI_HIDE_SHORTCUTS= # Optional, setting to 'true' will hide the gear icon that navigates to the shortcuts page
 ```
 
-**Note: changing environment variables will require you to re-run `npm start` before variables are picked up by the server and propagated throughout the application**
+**Note: Changing environment variables will require you to re-run `npm start` before variables are picked up by the server and propagated throughout the application**
