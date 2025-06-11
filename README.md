@@ -92,11 +92,22 @@ The default vertical should be one value from the list:
 
 ## PingOne Environment for Widgets<a name="ping-one">
 
-In order to use BXIndustry with your PingOne environment, ensure you have the SSO, MFA and DaVinci services added. Next create a MFA connection and fill in the properties. No need to change the the default login experience in PingOne, MFA is done through the DaVinci flows. Then import the flows you wish to use into your DaVinci instance. Flows and HTML templates to help you build your own flows can be found in [Ping Library](https://library.pingidentity.com/page/collection-bx-davinci). You will also need to create a new PingOne OIDC application with the Web App preset, make sure to select this new web app in any PingOne Authentication nodes in your authentication flow or the flow will throw an error when it tries to create a session. Finally create a new DaVinci application and add flow policies for each of those flows, note the policy IDs and API Key and include them in the clone form when clone the BXIndustry repository. If you have already clone BXIndustry you can update those values in the .env file at the root of the project.
+In order to use BXIndustry with your PingOne environment, please configure you environment using the following steps:
+
+1. Ensure you have the SSO, MFA and DaVinci services added.
+2. Create a MFA connection and fill in the properties.
+   - No need to change the the default login experience in PingOne, MFA is done through the DaVinci flows.
+3. Import the flows you wish to use into your DaVinci instance.
+   - Flows and HTML templates to help you build your own flows can be found in [Ping Library](https://library.pingidentity.com/page/collection-bx-davinci).
+4. Create a new PingOne OIDC application with the Web App preset.
+   - Make sure to select this new web app in any PingOne Authentication nodes in your authentication flow or the flow will throw an error when it tries to create a session.
+5. Create a new DaVinci application and add flow policies for each of those flows.
+   - Note the policy IDs and API Key and include them in the form when cloning the BXIndustry repository.
+   - If you have already cloned BXIndustry you can update those values in the .env file at the root of the project.
 
 ## An (IMPORTANT!!) Note on Versioning<a name="versioning-note"></a>
 
-We recommend making as many changes in DaVinci workflows as you can to avoid conflicts when we release new features and bug fixes. When we release changes, if you cloned the repo with git you can run `git pull` from the root of your project to get the latest changes. If you downloaded the project zip file, you will need to re-download and port over your `.env` file to get the latest code. Further customizations to BXI can typically be done in a small subset of files to make porting easy. See the [project structure](#project-structure) section for more details.
+We recommend making as many changes in your DaVinci flows as you can. Changing the BXI source code can can be powerful for customizing your app but could result in conflicts when we release new features and bug fixes. When we release changes, if you cloned the repo with git you can run `git pull` from the root of your project to get the latest changes. If you downloaded the project zip file, you will need to re-download and port over your `.env` file to get the latest code. Further customizations to BXI can typically be done in a small subset of files to make porting easy. See the [project structure](#project-structure) section for more details.
 
 ## Another (IMPORTANT!!) Note on CSS<a name="css-note"></a>
 
