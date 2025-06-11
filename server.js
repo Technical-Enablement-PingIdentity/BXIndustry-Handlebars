@@ -152,15 +152,15 @@ fastify.post('/dvtoken', async function (request, reply) {
   const parsedResponse = await tokenResponse.json();
 
   if (!parsedResponse.success) {
-    logger.error('An error Occured');
+    logger.error('An error Occurred');
     logger.error('Parsed Response', parsedResponse);
     logger.error('Raw', tokenResponse);
     return reply.code(500).send({
-      error: `An error occured getting DaVinci token. See server logs for more details, code: ${parsedResponse.httpResponseCode}, message: '${parsedResponse.message}'.`,
+      error: `An error occurred getting DaVinci token. See server logs for more details, code: ${parsedResponse.httpResponseCode}, message: '${parsedResponse.message}'.`,
     });
   }
 
-  logger.log('Successfully retreived sdktoken for DaVinci', parsedResponse);
+  logger.log('Successfully retrieved sdktoken for DaVinci', parsedResponse);
 
   reply.send({
     token: parsedResponse.access_token,
@@ -214,7 +214,7 @@ fastify.get('/docs', (request, reply) => {
     .readdirSync('src/partials/icons')
     .map((file) =>
       file.replace('.hbs', '').replace(/-./g, (x) => x[1].toUpperCase())
-    ); // remove file extension and conver kebab-case to camelCase
+    ); // remove file extension and convert kebab-case to camelCase
   return reply.view('src/docs/index.hbs', {
     selectedVertical: vertical,
     verticals: verticals.filter((v) => v !== 'generic'),
