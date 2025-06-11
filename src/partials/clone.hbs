@@ -11,8 +11,10 @@
     Clone BXIndustry</button>
 </span>
 {{/if}}
+{{#unless env.BXI_HIDE_SHORTCUTS}}
 <span class="floating-button verticals-link">
   <a class="d-flex w-100 h-100 justify-content-center align-items-center" href="/shortcuts">
     {{> gearIcon }}
   </a>
 </span>
+{{/unless}}

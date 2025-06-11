@@ -425,6 +425,7 @@ BXI_REDIRECT_ISSUER= # Required if BXI_USE_REDIRECT is true, the issuer URL for 
 BXI_REDIRECT_CLIENT_ID= # Required if BXI_USE_REDIRECT is true, the client ID for your OIDC provider
 BXI_DEBUG_LOGGING= # Optional, setting to 'true' will output additional information in the server and browser console
 BXI_ENABLE_EDITING= # Optional, setting to 'true' will enable the drawer for editing settings.json files
+BXI_HIDE_SHORTCUTS= # Optional, setting to 'true' will hide the gear icon that navigates to the shortcuts page
 ```
 
 **Note: changing environment variables will require you to re-run `npm start` before variables are picked up by the server and propagated throughout the application**

@@ -28,6 +28,7 @@ function getBxiEnvironmentVariables() {
     'BXI_CLONE_POLICY_ID',
     'BXI_PROFILE_MANAGEMENT_POLICY_ID',
     'BXI_SHOW_CLONE_BUTTON',
+    'BXI_HIDE_SHORTCUTS',
     'BXI_CLONE_ENVIRONMENT',
     'BXI_DEBUG_LOGGING',
     'BXI_USE_REDIRECT',
@@ -41,15 +42,17 @@ function getBxiEnvironmentVariables() {
     }
   });
 
+  // Handlebars apparently doesn't process booleans in if helpers,
+  // if we delete the variable it's effectively the same as false
   if (bxiEnvVars['BXI_SHOW_CLONE_BUTTON'] !== 'true') {
-    // Handlebars apparently doesn't process booleans in if helpers,
-    // if we delete the variable the clone button will not be displayed.
     delete bxiEnvVars['BXI_SHOW_CLONE_BUTTON'];
   }
 
+  if (bxiEnvVars['BXI_HIDE_SHORTCUTS'] !== 'true') {
+    delete bxiEnvVars['BXI_HIDE_SHORTCUTS'];
+  }
+
   if (bxiEnvVars['BXI_USE_REDIRECT'] !== 'true') {
-    // Handlebars apparently doesn't process booleans in if helpers,
-    // if we delete the variable it's effectively the same as false
     delete bxiEnvVars['BXI_USE_REDIRECT'];
   }
 
