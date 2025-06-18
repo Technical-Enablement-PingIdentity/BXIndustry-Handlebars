@@ -5,8 +5,14 @@
   "description": "A simple Node app built on fastify, instantly up and running. Built to be cloned, configured and run locally.",
   "main": "server.js",
   "scripts": {
-    "start": "sass scss/index.scss:public/styles.css && node server.js",
-    "dev": "concurrently --kill-others \"sass --watch scss/index.scss:public/styles.css\" \"nodemon server.js --https\""
+    "start": "sass scss/index.scss:public/styles.css && node --env-file=.env server.js",
+    "dev": "concurrently --kill-others \"sass --watch scss/index.scss:public/styles.css\" \"nodemon --env-file=.env server.js --https\""
+  },
+  "nodemonConfig": {
+    "ext": "js,json,env",
+    "watch": [
+      ".env"
+    ]
   },
   "dependencies": {
     "@fastify/cookie": "^11.0.2",
@@ -15,15 +21,14 @@
     "fastify": "^5.3.3",
     "handlebars": "^4.7.8",
     "handlebars-utils": "^1.0.6",
-    "sass": "^1.77.4",
-    "dotenv": "^16.4.5"
+    "sass": "^1.77.4"
   },
   "devDependencies": {
     "concurrently": "^9.1.2",
     "nodemon": "^3.1.10"
   },
   "engines": {
-    "node": "22.x"
+    "node": ">=20.0.0"
   },
   "repository": {
     "url": "https://github.com/Technical-Enablement-PingIdentity/BXIndustry-Handlebars"

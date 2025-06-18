@@ -3,9 +3,6 @@
  * Check out the two endpoints this back-end API provides in fastify.get and fastify.post below
  */
 
-// Bring in .env file
-import 'dotenv/config';
-
 // NodeJS imports
 import { fileURLToPath } from 'url';
 import path from 'path';
