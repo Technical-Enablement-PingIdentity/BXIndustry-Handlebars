@@ -106,7 +106,7 @@ fastify.get('/.well-known/security.txt', function (_, reply) {
 });
 
 fastify.get('/redirect', function (_, reply) {
-  reply.redirect('https://bxgeneric-oidc.glitch.me/'); // TODO
+  reply.redirect('https://demo-oidc.bxindustry.org/');
 });
 
 // Get a dv token from the server, we do this in server.js as a security best practice so
