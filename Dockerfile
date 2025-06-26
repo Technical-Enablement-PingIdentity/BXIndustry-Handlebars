@@ -13,4 +13,4 @@ RUN npm config set update-notifier false && npm install --omit=dev --ignore-scri
 EXPOSE 3000
 
 # Start project and code-server with HTTPS
-CMD ["sh", "-c", "cd /app && npm run start"]
+CMD ["node", "server.js"]
