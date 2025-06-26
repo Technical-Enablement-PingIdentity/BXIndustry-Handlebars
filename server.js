@@ -3,9 +3,6 @@
  * Check out the two endpoints this back-end API provides in fastify.get and fastify.post below
  */
 
-// Bring in .env file (happens automatically in glitch but not when running locally)
-import 'dotenv/config';
-
 // NodeJS imports
 import { fileURLToPath } from 'url';
 import path from 'path';
@@ -13,20 +10,19 @@ import fs from 'fs';
 
 // External libraries
 import Fastify from 'fastify';
-import fetch from 'node-fetch';
 
 // Internal js files
 import helpers from './resources/helpers.js';
 import { initHandlebars } from './resources/handlebars.js';
 import Logger from './public/js/logger.js';
-import { initDev } from './resources/init-dev.js';
+import { initHttps } from './resources/init-https.js';
 
 // Initialize variables that are no longer available by default in Modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Initialize internal variables
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 const bxiEnvVars = helpers.getBxiEnvironmentVariables();
 const verticals = helpers.getVerticals();
 
@@ -37,8 +33,8 @@ const logger = new Logger(debug);
 
 let https;
 
-if (process.argv.includes('--dev')) {
-  https = initDev(port);
+if (process.argv.includes('--https')) {
+  https = initHttps(port);
 }
 
 // Require the fastify framework and instantiate it
@@ -59,7 +55,7 @@ fastify.register(import('@fastify/cookie'));
 
 initHandlebars(fastify);
 
-// Redirect http traffic to https, glitch doesn't handle this OOTB
+// Redirect http traffic to https
 fastify.addHook('onRequest', (request, reply, done) => {
   // Don't do this when running locally or if already on https
   const protoHeader = request.headers['x-forwarded-proto'];
@@ -110,7 +106,7 @@ fastify.get('/.well-known/security.txt', function (_, reply) {
 });
 
 fastify.get('/redirect', function (_, reply) {
-  reply.redirect('https://bxgeneric-oidc.glitch.me/');
+  reply.redirect('https://demo-oidc.bxindustry.org/');
 });
 
 // Get a dv token from the server, we do this in server.js as a security best practice so
@@ -153,15 +149,15 @@ fastify.post('/dvtoken', async function (request, reply) {
   const parsedResponse = await tokenResponse.json();
 
   if (!parsedResponse.success) {
-    logger.error('An error Occured');
+    logger.error('An error Occurred');
     logger.error('Parsed Response', parsedResponse);
     logger.error('Raw', tokenResponse);
     return reply.code(500).send({
-      error: `An error occured getting DaVinci token. See Glitch server logs for more details, code: ${parsedResponse.httpResponseCode}, message: '${parsedResponse.message}'.`,
+      error: `An error occurred getting DaVinci token. See server logs for more details, code: ${parsedResponse.httpResponseCode}, message: '${parsedResponse.message}'.`,
     });
   }
 
-  logger.log('Successfully retreived sdktoken for DaVinci', parsedResponse);
+  logger.log('Successfully retrieved sdktoken for DaVinci', parsedResponse);
 
   reply.send({
     token: parsedResponse.access_token,
@@ -178,7 +174,7 @@ fastify.get('/setCookie', (request, reply) => {
   // 4. Set the cookie to that new GUID like below
 
   const sessionToken = request.query.sessionToken;
-  const sessionTokenMaxAge = request.query.sessionTokenMaxAge;
+  const sessionTokenMaxAge = +request.query.sessionTokenMaxAge || undefined; // This needs to be undefined if NaN or setCookie will error out
 
   reply.setCookie('DV-ST', sessionToken, {
     secure: true,
@@ -215,7 +211,7 @@ fastify.get('/docs', (request, reply) => {
     .readdirSync('src/partials/icons')
     .map((file) =>
       file.replace('.hbs', '').replace(/-./g, (x) => x[1].toUpperCase())
-    ); // remove file extension and conver kebab-case to camelCase
+    ); // remove file extension and convert kebab-case to camelCase
   return reply.view('src/docs/index.hbs', {
     selectedVertical: vertical,
     verticals: verticals.filter((v) => v !== 'generic'),
@@ -432,10 +428,10 @@ function getViewParams(vertical) {
 // Run the server and report out to the logs
 fastify.listen({ port, host: '0.0.0.0' }, function (err, address) {
   if (err) {
-    fastify.log.error(err);
+    logger.error(err);
     process.exit(1);
   }
 
+  // Want this logged regardless of debug mode
   console.log(`Your app is listening on ${address}`);
-  fastify.log.info(`server listening on ${address}`);
 });

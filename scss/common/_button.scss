@@ -387,8 +387,25 @@
     border: 2px solid black;
   }
 
-  .glitch-button {
+  .clone-button {
     right: 3rem;
     border-radius: 6px;
+    border: 2px solid #000;
+
+    button {
+      appearance: none;
+      border: none;
+      color: #000;
+      background-color: transparent;
+      height: 100%;
+      font-family: arial;
+      padding: 0 0.5rem;
+
+      svg {
+        height: 20px;
+        width: 20px;
+        margin-top: -2px;
+      }
+    }
   }
 }
