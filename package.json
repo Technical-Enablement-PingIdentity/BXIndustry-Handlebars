@@ -10,7 +10,13 @@
   },
   "nodemonConfig": {
     "ext": "js,json,env",
+    "ignore": [
+      "src/*",
+      "scss/*",
+      "settings/*"
+    ],
     "watch": [
+      "*",
       ".env"
     ]
   },
