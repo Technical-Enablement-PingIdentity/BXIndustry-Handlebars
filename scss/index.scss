@@ -57,6 +57,16 @@
     margin-top: auto;
   }
 
+  // Fix timeout error dialog
+  .reactSingularKey_timeoutErrorMain {
+    width: unset !important;
+    height: unset !important;
+
+    .reactSingularKey_timeoutErrorContainer {
+      box-shadow: none !important;
+    }
+  }
+
   @include button.button-styles;
   @include dialog.dialog-styles;
   @include edit-drawer.edit-drawer-styles;
