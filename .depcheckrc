@@ -1,0 +1,2 @@
+# Used in package.json for dev command
+ignores: ["nodemon"]
