@@ -41,7 +41,9 @@ if (process.argv.includes('--https')) {
 const fastify = Fastify({
   // Set this to true for detailed logging
   logger: debug,
-  ignoreTrailingSlash: true,
+  routerOptions: {
+    ignoreTrailingSlash: true,
+  },
   https,
 });
 
