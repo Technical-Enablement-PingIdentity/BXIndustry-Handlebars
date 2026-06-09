@@ -15,12 +15,16 @@
       clientOptions
     );
 
-    if (!window.location.pathname.includes('/dashboard')) {
-      // On Home page
-      if (await client.hasToken()) {
-        window.location.assign(redirectUri);
-      }
+    const pathname = window.location.pathname.endsWith('/')
+      ? window.location.pathname.slice(0, -1) // trim trailing slash
+      : window.location.pathname;
 
+    // On home page but we have a token, redirect to dashboard
+    if (pathname === `/${currentVertical}` && (await client.hasToken())) {
+      window.location.assign(redirectUri);
+    }
+
+    if (!window.location.pathname.includes('/dashboard')) {
       const loginBtn = document.getElementById('oidc-login');
       if (loginBtn) {
         loginBtn.removeAttribute('disabled');

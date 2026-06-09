@@ -38,7 +38,7 @@ function registerFunctions(logger) {
     sessionStorage.removeItem('bxi_idToken');
 
     logger.log(
-      'Logout occured, username has been cleared from session storage if it existed'
+      'Logout occurred, username has been cleared from session storage if it existed'
     );
 
     await fetch('/logout');
@@ -55,7 +55,7 @@ function registerFunctions(logger) {
     return sessionStorage.getItem('bxi_idToken');
   };
 
-  /** Called after user info is retreived from OIDC SDK, can update dashboard with user information here if desired */
+  /** Called after user info is retrieved from OIDC SDK, can update dashboard with user information here if desired */
   bxi.updatedUserInfo = (userInfo) => {
     logger.log('Received user info', userInfo);
     const usernameContainer = document.getElementById('username-container');
@@ -77,7 +77,7 @@ function registerFunctions(logger) {
    * so you may register callbacks anywhere in your application as long as it's after bxi-davinci.js is loaded (initFunctionRegistry() has been called)
    */
 
-  bxi.registerFunction('remixParameters', async () => {
+  bxi.registerFunction('cloneParameters', async () => {
     const verticals = await fetch('/verticals');
     const verticalsParam = (await verticals.json()).map((v) => ({
       name: v.charAt(0).toUpperCase() + v.slice(1),

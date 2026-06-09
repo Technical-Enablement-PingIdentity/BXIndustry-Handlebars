@@ -1,33 +1,39 @@
-@import "./mixins";
+@use './mixins';
 
-.bxi-component-bg-color {
-  background-color: var(--bxi-component-bg-color);
-}
-
-&.dashboard {
-  background-color: var(--bxi-dashboard-bg-color);
-
-  .portal-sidebar-dropdown {
-    &::before {
-      @include triangle(4px, var(--bxi-primary-color), 'down') {
-        top: 26px;
-        left: 22px;
-      }
-    }
+.bxi {
+  .bxi-component-bg-color {
+    background-color: var(--bxi-component-bg-color);
   }
 
-  .portal-header-dropdown {
-    color: var(--bxi-header-dropdown-color);
-    border: 1px solid var(--bxi-header-dropdown-border-color);
+  &.dashboard {
+    background-color: var(--bxi-dashboard-bg-color);
 
-    &:hover {
-      opacity: .8;
+    .portal-sidebar-dropdown {
+      &::before {
+        @include mixins.triangle(4px, var(--bxi-primary-color), 'down') {
+          top: 26px;
+          left: 22px;
+        }
+      }
     }
 
-    &::after {
-      @include triangle(4px, var(--bxi-header-dropdown-border-color), 'down') {
-        top: 18px;
-        right: 14px;
+    .portal-header-dropdown {
+      color: var(--bxi-header-dropdown-color);
+      border: 1px solid var(--bxi-header-dropdown-border-color);
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &::after {
+        @include mixins.triangle(
+          4px,
+          var(--bxi-header-dropdown-border-color),
+          'down'
+        ) {
+          top: 18px;
+          right: 14px;
+        }
       }
     }
   }

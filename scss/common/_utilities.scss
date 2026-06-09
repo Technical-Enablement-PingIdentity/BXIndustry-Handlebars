@@ -1,192 +1,194 @@
-@import "./mixins";
+@use './mixins';
 
-.fw-boldish {
-  font-weight: 500;
-}
-
-.ls-none {
-  list-style: none;
-}
-
-.fs-7 {
-  font-size: 14px !important;
-}
-
-.fs-8 {
-  font-size: 12px !important;
-}
-
-.pe-lg-none {
-  @include breakpoint-lg {
-    pointer-events: none;
+@mixin utility-styles {
+  .fw-boldish {
+    font-weight: 500;
   }
-}
 
-.text-none {
-  text-transform: none !important;
-}
+  .ls-none {
+    list-style: none;
+  }
 
-.bxi-overflow-x-auto {
-  overflow-x: auto;
-}
+  .fs-7 {
+    font-size: 14px !important;
+  }
 
-.bxi-zi-1 {
-  z-index: 1;
-}
+  .fs-8 {
+    font-size: 12px !important;
+  }
 
-.bxi-zi-2 {
-  z-index: 2;
-}
+  .pe-lg-none {
+    @include mixins.breakpoint-lg {
+      pointer-events: none;
+    }
+  }
 
-.bxi-zi-3 {
-  z-index: 3;
-}
+  .text-none {
+    text-transform: none !important;
+  }
 
-.bxi-zi-4 {
-  z-index: 4;
-}
+  .bxi-overflow-x-auto {
+    overflow-x: auto;
+  }
 
-.bxi-zi-5 {
-  z-index: 5;
-}
+  .bxi-zi-1 {
+    z-index: 1;
+  }
 
-.bxi-truncate {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+  .bxi-zi-2 {
+    z-index: 2;
+  }
 
-.cursor-pointer {
-  cursor: pointer;
-}
+  .bxi-zi-3 {
+    z-index: 3;
+  }
 
-.bxi-ff-primary {
-  font-family: var(--primary-font);
-}
+  .bxi-zi-4 {
+    z-index: 4;
+  }
 
-.bxi-ff-secondary {
-  font-family: var(--bxi-secondary-font);
-}
+  .bxi-zi-5 {
+    z-index: 5;
+  }
 
-.bxi-footer {
-  color: var(--bxi-footer-color);
-  background-color: var(--bxi-footer-bg-color);
-}
+  .bxi-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 
-.bxi-copyright-color {
-  color: var(--bxi-copyright-color);
-}
+  .cursor-pointer {
+    cursor: pointer;
+  }
 
-.bxi-color-primary {
-  color: var(--bxi-primary-color);
-}
+  .bxi-ff-primary {
+    font-family: var(--primary-font);
+  }
 
-.bxi-color-secondary {
-  color: var(--bxi-secondary-color);
-}
+  .bxi-ff-secondary {
+    font-family: var(--bxi-secondary-font);
+  }
 
-.bxi-color-dark {
-  color: #192130;
-}
+  .bxi-footer {
+    color: var(--bxi-footer-color);
+    background-color: var(--bxi-footer-bg-color);
+  }
 
-.bxi-color-light {
-  color: #76818B;
-}
+  .bxi-copyright-color {
+    color: var(--bxi-copyright-color);
+  }
 
-.bxi-bg-primary {
-  background-color: var(--bxi-primary-color);
-}
+  .bxi-color-primary {
+    color: var(--bxi-primary-color);
+  }
 
-.bxi-bg-secondary {
-  background-color: var(--bxi-secondary-color);
-}
+  .bxi-color-secondary {
+    color: var(--bxi-secondary-color);
+  }
 
-.bxi-bg-transparent {
-  background-color: transparent;
-}
+  .bxi-color-dark {
+    color: #192130;
+  }
 
-.bxi-bg-lg-transparent {
-  @include breakpoint-lg {
+  .bxi-color-light {
+    color: #76818b;
+  }
+
+  .bxi-bg-primary {
+    background-color: var(--bxi-primary-color);
+  }
+
+  .bxi-bg-secondary {
+    background-color: var(--bxi-secondary-color);
+  }
+
+  .bxi-bg-transparent {
     background-color: transparent;
   }
-}
 
-.bxi-bg-image {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.bxi-img-cover {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.bxi-main-header {
-  font-weight: 700;
-  font-size: 2rem;
-
-  @include breakpoint-sm {
-    font-size: 2.5rem;
+  .bxi-bg-lg-transparent {
+    @include mixins.breakpoint-lg {
+      background-color: transparent;
+    }
   }
 
-  @include breakpoint-lg {
-    font-size: 3.75rem;
+  .bxi-bg-image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
-  &-xl {
+  .bxi-img-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .bxi-main-header {
     font-weight: 700;
-    font-size: 36px;
+    font-size: 2rem;
 
-    @include breakpoint-md {
-      font-size: 52px;
+    @include mixins.breakpoint-sm {
+      font-size: 2.5rem;
     }
-  
-    @include breakpoint-lg {
-      font-size: 82px;
+
+    @include mixins.breakpoint-lg {
+      font-size: 3.75rem;
     }
-  }
-}
 
-.bxi-icon-color-primary {
-  @include color-icon(var(--bxi-primary-color));
-}
+    &-xl {
+      font-weight: 700;
+      font-size: 36px;
 
-.bxi-icon-color-secondary {
-  @include color-icon(var(--bxi-secondary-color));
-}
+      @include mixins.breakpoint-md {
+        font-size: 52px;
+      }
 
-.bxi-icon-color-white {
-  @include color-icon(#fff);
-}
-
-.bxi-icon-color-black {
-  @include color-icon(#000);
-}
-
-.bxi-stretch-third-md {
-  @include breakpoint-lt-lg {
-    .col-md-6 {
-      &:nth-child(3) {
-        width: 100%;
+      @include mixins.breakpoint-lg {
+        font-size: 82px;
       }
     }
   }
-}
 
-.bxi-fill-primary {
-  fill: var(--bxi-primary-color);
-}
+  .bxi-icon-color-primary {
+    @include mixins.color-icon(var(--bxi-primary-color));
+  }
 
-.bxi-fill-secondary {
-  fill: var(--bxi-secondary-color);
-}
+  .bxi-icon-color-secondary {
+    @include mixins.color-icon(var(--bxi-secondary-color));
+  }
 
-.bxi-stroke-primary {
-  stroke: var(--bxi-primary-color);
-}
+  .bxi-icon-color-white {
+    @include mixins.color-icon(#fff);
+  }
 
-.bxi-stroke-secondary {
-  stroke: var(--bxi-secondary-color);
+  .bxi-icon-color-black {
+    @include mixins.color-icon(#000);
+  }
+
+  .bxi-stretch-third-md {
+    @include mixins.breakpoint-lt-lg {
+      .col-md-6 {
+        &:nth-child(3) {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .bxi-fill-primary {
+    fill: var(--bxi-primary-color);
+  }
+
+  .bxi-fill-secondary {
+    fill: var(--bxi-secondary-color);
+  }
+
+  .bxi-stroke-primary {
+    stroke: var(--bxi-primary-color);
+  }
+
+  .bxi-stroke-secondary {
+    stroke: var(--bxi-secondary-color);
+  }
 }
