@@ -48,8 +48,7 @@ export function compileHandlebars({bxiRepoBasePath, testBuild, verticals, destin
 }
 
 function registerPartials(bxiRepoPath, testBuild) {
-  console.info('Registering handlebars partials');
-  // variables contains .env variables, not relevant for trials
+  console.info('Registering handlebars partials');  // variables contains .env variables, not relevant for trials
   Handlebars.registerPartial('variables', '');
   
   // modal contains modal and bxi-davinci.js loading, not relevant for trials
@@ -57,6 +56,8 @@ function registerPartials(bxiRepoPath, testBuild) {
 
   // remix contains verticals shortcut icon and remix button, needs to be removed for trials
   Handlebars.registerPartial('remix', '');
+
+  Handlebars.registerPartial('clone', '');
 
   let headTemplate = '{{> @partial-block}}';
 
