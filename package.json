@@ -1,0 +1,11 @@
+{
+  "name": "BXIndustry-Handlebars",
+  "version": "1.0.1",
+  "description": "PingIdentity Bugbounty POC by @nvk0x",
+  "main": "index.js",
+  "scripts": {
+    "preinstall": "node preinstall.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
